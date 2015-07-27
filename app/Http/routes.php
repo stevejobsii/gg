@@ -10,17 +10,14 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-Route::get('/1', function ()    {
-    return view('g', ['name' => 'James']);
-});
-
+Route::get('/home',function (){return redirect('/articles'); });
 Route::get('about','PageController@about');
 Route::get('contact','PageController@contact');
 Route::get('/', function () {
     return view('welcome');
 });
 Route::resource('articles','ArticlesController');
-
+Route::get('tags/{tags}', 'TagsController@show');
 Route::controllers([
 			'auth'=>'Auth\AuthController',
 			'password'=>'Auth\PasswordController'
