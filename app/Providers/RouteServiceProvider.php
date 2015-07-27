@@ -27,7 +27,7 @@ class RouteServiceProvider extends ServiceProvider
         //
 
         parent::boot($router);
-        $router->model('articles', 'App\article');
+        $router->model('articles', 'App\Article');
 
         $router->bind('tags', function($name)
         {
