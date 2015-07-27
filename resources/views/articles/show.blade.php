@@ -9,6 +9,8 @@
 
 			<div class="body">
 				{{$article->body}}
+                <br>
+                作者：{{\App\User::find($article->user_id)->name}}
 			</div>
 		</article>	
     

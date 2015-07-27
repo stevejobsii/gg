@@ -25,7 +25,7 @@
 		@section('footer')
 	    <script type="text/javascript">
 		$('#tag_list').select2({
-			placeholder: 'Choose a tag'
+			placeholder: '选择文章标签'
 		});
 	    </script>
 	    @endsection

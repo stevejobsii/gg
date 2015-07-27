@@ -5,25 +5,15 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Laravel</title>
-
 	<link  rel="stylesheet" href="/css/all.css">
-
 </head>
 <body>
-	
-
+	    @include('partials.nav')
 	<div class="container">
 		@include('partials.flash')
-
-
 		@yield('content')
-	</div>
-
-	
-    
+	</div>   
     <script src="/js/all.js"></script>
-	
-	@yield('footer')
-
+	  @yield('footer')
 </body>
 </html>
