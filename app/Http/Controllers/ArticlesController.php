@@ -19,12 +19,12 @@ class ArticlesController extends Controller {
 	public function index()
 	{
 
-		$articles = Article::latest()->published()->get();
+		$articles = \App\Article::latest()->published()->get();
 
 		return view('articles.index',compact('articles'));
 	}
 
-	public function show(Article $article)
+	public function show(\App\Article $article)
 	{
 		
 		return view('articles.show',compact('article'));
@@ -54,14 +54,14 @@ class ArticlesController extends Controller {
 	}
 
 
-	public function edit(Article $article)
+	public function edit(\App\Article $article)
 	{
         $tags = \App\Tag::lists('name', 'id');
 		return view('articles.edit', compact('article', 'tags'));
 	}
 
 
-	public function update(Article $article, ArticleRequest $request)
+	public function update(\App\Article $article, ArticleRequest $request)
 	{
 
 		$article->update($request->all());
@@ -76,7 +76,7 @@ class ArticlesController extends Controller {
 	 * @param  Article $article
 	 * @param  array   $tags
 	 */
-	private function syncTags(Article $article, array $tags)
+	private function syncTags(\App\Article $article, array $tags)
 	{
 		$article->tags()->sync($tags);
 	}
