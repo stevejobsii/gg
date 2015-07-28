@@ -11,6 +11,7 @@
 
 			<div class="body">
 				{{$article->body}}作者：{{\App\User::find($article->user_id)->name}}
+				创建时间：{{$article->published_at}}
 			</div>
 		</article>	
 	@endforeach

@@ -94,6 +94,10 @@ class ArticlesController extends Controller {
 
 		return $article;
 	}
+    
+   
+
+
 
 
 }
