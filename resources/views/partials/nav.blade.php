@@ -47,7 +47,7 @@
           <a href="/auth/login">登陆</a>
         </li>
         <li>
-          <a href="/auth/logout">注销</a>
+          <a href="/auth/logout">退出</a>
         </li>
       </ul>
     </div>
