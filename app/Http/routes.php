@@ -22,3 +22,8 @@ Route::controllers([
 			'auth'=>'Auth\AuthController',
 			'password'=>'Auth\PasswordController'
 		]);
+
+Route::get('upload', function() {
+  return View::make('pages.upload');
+});
+Route::post('apply/upload', 'ApplyController@upload');

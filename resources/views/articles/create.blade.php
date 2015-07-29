@@ -5,7 +5,7 @@
 	<h1>Write a New Article</h1>
 	<hr>
 
-	{!! Form::open(['url'=>'articles', 'enctype'=>'multipart/form-data']) !!}
+	{!! Form::open(['url'=>'articles', 'files' => true]) !!}
 		@include('articles.form',['submitButtonText'=>'Add Article'])
 	{!! Form::close() !!}
 

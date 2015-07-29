@@ -88,10 +88,20 @@ class ArticlesController extends Controller {
 	 */
 	private function createArticle(ArticleRequest $request)
 	{
+ 
+
 		$article = Auth::user()->articles()->create($request->all());
 
-		$this->syncTags($article, $request->input('tag_list'));
+		$this->syncTags($article, $request->input('tag_list', []));
 
+		$imageName = $article->id . '.' . 
+        $request->file('image')->getClientOriginalExtension();
+
+        $request->file('image')->move(
+        base_path() . '/public/images/catalog/', $imageName
+    );
+        $article->photo = $imageName;
+        $article->save();
 		return $article;
 	}
     

@@ -5,7 +5,7 @@
 
 		<div class="group">
 			{!! Form::label('body', '内容：') !!}
-			{!! Form::textarea('body', null, ['class'=>'form-control']) !!}
+			{!! Form::text('body', null, ['class'=>'form-control']) !!}
 		</div>
 
 		<div class="group">
@@ -19,9 +19,8 @@
         </div>
         
         <div class="form-group">
-           <label for="photos">图片：</label>
-	       <input type="file" name="photos" id="photos" class="form-control" value="{{ old('photos') }}">
-
+           {!! Form::label('Product Image') !!}
+           {!! Form::file('image', null) !!}
         </div>
 
 		<div class="group">

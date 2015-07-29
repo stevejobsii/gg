@@ -8,9 +8,14 @@
 		<article>
 
 			<div class="body">
-				{{$article->body}}
+				<img src="/images/catalog/{{$article->photo}}">
+
+                <br>
+                内容：{{$article->body}}
                 <br>
                 作者：{{\App\User::find($article->user_id)->name}}
+                <br>
+                创建时间：{{$article->published_at}}
 			</div>
 		</article>	
     

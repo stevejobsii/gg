@@ -22,9 +22,9 @@ class ArticleRequest extends Request {
 	public function rules()
 	{
 		return [
-			'title' => 'required|min:3',
+			'title' => 'required',
 			'body'	=> 'required',
-			'published_at' => 'required|date'
+			'published_at' => 'required|image|mimes:jpeg,jpg,png,bmp,gif,svg'
 		];
 	}
 
