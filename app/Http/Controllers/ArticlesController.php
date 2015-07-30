@@ -6,6 +6,7 @@ use Auth;
 use Carbon\Carbon;
 use Illuminate\HttpResponse;
 use Illuminate\Http\Request;
+use Intervention\Image\ImageManagerStatic as Image;
 use App\Http\Requests\ArticleRequest;
 
 class ArticlesController extends Controller {
@@ -93,21 +94,21 @@ class ArticlesController extends Controller {
 		$article = Auth::user()->articles()->create($request->all());
 
 		$this->syncTags($article, $request->input('tag_list', []));
+        
+        
 
 		$imageName = $article->id . '.' . 
         $request->file('image')->getClientOriginalExtension();
-
         $request->file('image')->move(
         base_path() . '/public/images/catalog/', $imageName
-    );
+    );  
+        Image::make(base_path() . '/public/images/catalog/' . $imageName)
+        ->resize(600, null, function ($constraint) {$constraint->aspectRatio();})
+        ->insert(base_path() . '/public/images/catalog/watermark.jpg', 'right')
+        ->save(base_path() . '/public/images/catalog/' . $imageName);
+
         $article->photo = $imageName;
         $article->save();
 		return $article;
 	}
-    
-   
-
-
-
-
 }
