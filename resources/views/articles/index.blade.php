@@ -6,10 +6,13 @@
 	<hr>
 
 	@foreach($articles as $article)
-		<article>
-			<h2><a href="{{ action('ArticlesController@show', [$article->id])}}">{{$article->title}}</a></h2>
-				<img src="/images/catalog/{{$article->photo}}">
-		</article>	
+		<li class="list-group-item media" style="margin-top: 0px;">
+			<a href="{{ action('ArticlesController@show', [$article->id])}}" target="_blank"><h2>{{$article->title}}</h2></a>
+            <a href="{{ action('ArticlesController@show', [$article->id])}}" target="_blank">
+            <img src="/images/catalog/{{$article->photo}}">
+			</a> 
+				
+		</li>	
 	@endforeach
 
 @stop

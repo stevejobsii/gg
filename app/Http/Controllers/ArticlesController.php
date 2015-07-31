@@ -95,20 +95,35 @@ class ArticlesController extends Controller {
 
 		$this->syncTags($article, $request->input('tag_list', []));
         
-        
-
+        //获取收到“image”并存储
 		$imageName = $article->id . '.' . 
         $request->file('image')->getClientOriginalExtension();
         $request->file('image')->move(
         base_path() . '/public/images/catalog/', $imageName
     );  
         Image::make(base_path() . '/public/images/catalog/' . $imageName)
-        ->resize(600, null, function ($constraint) {$constraint->aspectRatio();})
+        ->resize(420, null, function ($constraint) {$constraint->aspectRatio();})
         ->insert(base_path() . '/public/images/catalog/watermark.jpg', 'right')
         ->save(base_path() . '/public/images/catalog/' . $imageName);
-
+        
+        //保存存储名字和extension
         $article->photo = $imageName;
         $article->save();
 		return $article;
 	}
+
+        public function upvote($id)
+        {
+        $article = \App\Article::find($id);
+        //App::make('good\Vote\Voter')->articleUpVote($article);
+        return view('articles');
+        }
+
+        public function downvote(\App\Article $article)
+        {
+        //$article = \App\Article::find($id);
+        App::make('good\Vote\Voter')->articleDownVote($article);
+        return view('articles.show',compact('article'));
+        }
+
 }

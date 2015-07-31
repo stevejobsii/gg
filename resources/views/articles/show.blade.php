@@ -26,5 +26,6 @@
         <li>{{$tag->name}}</li>
         @endforeach
         </ul>
+
     @endif
 @stop

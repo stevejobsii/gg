@@ -23,7 +23,15 @@ Route::controllers([
 			'password'=>'Auth\PasswordController'
 		]);
 
-Route::get('upload', function() {
-  return View::make('pages.upload');
-});
-Route::post('apply/upload', 'ApplyController@upload');
+//Route::group(['before' => 'auth'], function () {
+    Route::post('/articles/{id}/upvote', 'ArticlesController@upvote');
+
+//     Route::post('/articles/{id}/downvote', [
+//         'as' => 'articles.downvote',
+//         'uses' => 'ArticlesController@downvote',
+//     ]);
+// });
+
+
+
+
