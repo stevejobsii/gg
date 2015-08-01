@@ -103,7 +103,7 @@ class ArticlesController extends Controller {
         base_path() . '/public/images/catalog/', $imageName
     );  
         Image::make(base_path() . '/public/images/catalog/' . $imageName)
-        ->resize(420, null, function ($constraint) {$constraint->aspectRatio();})
+        ->resize(440, null, function ($constraint) {$constraint->aspectRatio();})
         ->insert(base_path() . '/public/images/catalog/watermark.jpg', 'right')
         ->save(base_path() . '/public/images/catalog/' . $imageName);
         
