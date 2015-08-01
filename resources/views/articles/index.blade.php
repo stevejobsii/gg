@@ -11,7 +11,7 @@
             <a href="{{ action('ArticlesController@show', [$article->id])}}" target="_blank">
             <img src="/images/catalog/{{$article->photo}}">
 			</a> 
-			<br><a href="{{ route('articles.upvote', $article->id) }}"  >点赞</a>
+			<br>
 			已有{{ $article->vote_count }}个赞
 			
 		</li>	

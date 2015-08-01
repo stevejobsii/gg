@@ -4,7 +4,7 @@
 
 	<h1>{{$article->title}}</h1>
     <br>
-    <a href="{{ route('articles.upvote', $article->id) }}">点赞</a>
+    <a href="{{ route('articles.upvote', $article->id) }}">点赞</a><i>（一个id只能点一次）</i>
         已有{{ $article->vote_count }}个赞
         <br>内容：{{$article->body}}
         <br>作者：{{\App\User::find($article->user_id)->name}}
