@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Article;
+use App\Vote;
 use App\Http\Controllers\Controller;
 use Auth;
 use Carbon\Carbon;
@@ -112,18 +113,28 @@ class ArticlesController extends Controller {
 		return $article;
 	}
 
-        public function upvote($id)
-        {
-        $article = \App\Article::find($id);
-        //App::make('good\Vote\Voter')->articleUpVote($article);
-        return view('articles');
-        }
-
-        public function downvote(\App\Article $article)
-        {
-        //$article = \App\Article::find($id);
-        App::make('good\Vote\Voter')->articleDownVote($article);
-        return view('articles.show',compact('article'));
-        }
-
+   public function upvote($id)
+    {
+        $article = Article::find($id);
+        if ($article->votes()->ByWhom(Auth::id())->WithType('upvote')->count()) {
+            // click twice for remove upvote
+            $article->votes()->ByWhom(Auth::id())->WithType('upvote')->delete();
+           $article->decrement('vote_count', 1);
+        } elseif ($article->votes()->ByWhom(Auth::id())->WithType('downvote')->count()) {
+            // user already clicked downvote once
+            $article->votes()->ByWhom(Auth::id())->WithType('downvote')->delete();
+            $article->votes()->create(['user_id' => Auth::id(), 'is' => 'upvote']);
+            $article->increment('vote_count', 2);
+        } else {
+            // first time click
+            $article->votes()->create(['user_id' => Auth::id(), 'is' => 'upvote']);
+            $article->increment('vote_count', 1);}
+        return  back();
+    }
 }
+    // public function downvote($id)
+    // {
+    //     $article = Article::find($id);
+    //     App::make('good\Vote\Voter')->articleDownVote($article);
+    //     return Redirect::route('articles.show', $article->id);
+    // }

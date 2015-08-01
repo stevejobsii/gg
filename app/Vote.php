@@ -1,11 +1,10 @@
-<?php
-
+<?php namespace App;
+use Illuminate\Database\Eloquent\Model;
 /**
  * 1. User can vote a topic;
  * 2. User can vote a reply;
  */
-class Vote extends \Eloquent
-{
+class Vote extends Model{
 
     protected $fillable = ['user_id', 'votable_id', 'votable_type', 'is'];
 

@@ -6,7 +6,7 @@ use Topic;
 use Vote;
 use Carbon;
 use User;
-use Notification;
+//use Notification;
 
 class Voter
 {

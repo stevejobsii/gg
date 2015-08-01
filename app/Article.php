@@ -14,7 +14,8 @@ class Article extends Model {
 		'body',
 		'published_at',
 		'user_id',
-		'photo',  // temporary 
+		'photo',
+		  // temporary 
 	];
 
 	/**
@@ -72,5 +73,10 @@ class Article extends Model {
 	{
 		return $this->tags->lists('id')->all();
 	} 
+    
 
+    public function votes()
+    {
+        return $this->morphMany('App\Vote', 'votable');
+    }
 }

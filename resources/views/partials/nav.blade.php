@@ -40,15 +40,21 @@
          </ul>   
 
       <ul class="nav navbar-nav navbar-right">
+      @if (! Auth::check())
          <li >
           <a href="/auth/register">注册</a>
         </li>
         <li>
           <a href="/auth/login">登陆</a>
         </li>
+         @else
         <li>
+         您好！{{Auth::user()->email}}
+         </li>
+        <li>     
           <a href="/auth/logout">退出</a>
         </li>
+        @endif
       </ul>
     </div>
   </div>

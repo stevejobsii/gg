@@ -23,14 +23,11 @@ Route::controllers([
 			'password'=>'Auth\PasswordController'
 		]);
 
-//Route::group(['before' => 'auth'], function () {
-    Route::post('/articles/{id}/upvote', 'ArticlesController@upvote');
 
-//     Route::post('/articles/{id}/downvote', [
-//         'as' => 'articles.downvote',
-//         'uses' => 'ArticlesController@downvote',
-//     ]);
-// });
+    Route::get('/articles/{id}/upvote', 
+    	['as' => 'articles.upvote','uses' => 
+    	'ArticlesController@upvote'
+     ]);
 
 
 
