@@ -13,8 +13,7 @@
 Route::get('/home',function (){return redirect('/articles'); });
 Route::get('about','PageController@about');
 Route::get('contact','PageController@contact');
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function (){return redirect('/articles');
 });
 Route::resource('articles','ArticlesController');
 Route::get('tags/{tags}', 'TagsController@show');
