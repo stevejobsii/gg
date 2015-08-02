@@ -10,12 +10,12 @@
         <br>作者：{{\App\User::find($article->user_id)->name}}
         <br>创建时间：{{$article->published_at}}
         @unless ($article->tags->isEmpty())
-    <h5>Tags:</h5>
-        <ul>
+        <br>
+        tags |
         @foreach($article->tags as $tag)
-        <li>{{$tag->name}}</li>
+        <a href="{{ url('/tags',['name'=>$tag->name]) }}" title="{{ $tag->name }}" target="_blank">{{ $tag->name }}</a>
         @endforeach
-        </ul>
+
       
     @endif
     
@@ -28,7 +28,7 @@
 		</article>	
     <div>共有{{$article->reply_count}}个评论</div>
         @foreach($article->replies as $reply)
-       <li> 评论员：{{\App\User::find($reply->user_id)->name}}&nbsp;&nbsp;回复{{$reply->body}}&nbsp;&nbsp;
+       <li> 评论员：{{\App\User::find($reply->user_id)->name}}&nbsp;&nbsp;回复:{{$reply->body}}&nbsp;&nbsp;
  <abbr class="timeago" title="{{ $reply->created_at }}">发表时间：{{ $reply->created_at }}</abbr>
        </li>
         @endforeach

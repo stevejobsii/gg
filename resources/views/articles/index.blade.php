@@ -2,7 +2,7 @@
 
 @section('content')
 
-	<h1>文章</h1>
+
 	<hr>
 
 	@foreach($articles as $article)
@@ -16,6 +16,7 @@
 			已有{{ $article->vote_count }}个赞
 			<span> • </span>已有{{$article->reply_count}}评论
 			</a>
+   
 		</li>	
 	@endforeach
 

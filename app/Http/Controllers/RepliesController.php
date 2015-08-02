@@ -18,6 +18,10 @@ class RepliesController extends Controller {
     //     $this->beforeFilter('auth');
     // }
 
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
     public function store(ReplyRequest $request)
     {
         
