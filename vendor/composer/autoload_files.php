@@ -16,4 +16,5 @@ return array(
     $vendorDir . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
     $vendorDir . '/laravel/framework/src/Illuminate/Support/helpers.php',
     $vendorDir . '/illuminate/html/helpers.php',
+    $vendorDir . '/laracasts/flash/src/Laracasts/Flash/functions.php',
 );

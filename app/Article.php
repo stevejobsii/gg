@@ -15,7 +15,7 @@ class Article extends Model {
 		'published_at',
 		'user_id',
 		'photo',
-		  // temporary 
+		'vote_count'  // temporary 
 	];
 
 	/**
@@ -78,5 +78,10 @@ class Article extends Model {
     public function votes()
     {
         return $this->morphMany('App\Vote', 'votable');
+    }
+
+    public function replies()
+    {
+        return $this->hasMany('App\Reply');
     }
 }

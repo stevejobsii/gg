@@ -12,8 +12,10 @@
             <img src="/images/catalog/{{$article->photo}}">
 			</a> 
 			<br>
+			<a href="{{ action('ArticlesController@show', [$article->id])}}" target="_blank">
 			已有{{ $article->vote_count }}个赞
-			
+			<span> • </span>已有{{$article->reply_count}}评论
+			</a>
 		</li>	
 	@endforeach
 

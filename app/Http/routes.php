@@ -23,11 +23,11 @@ Route::controllers([
 		]);
 
 
-    Route::get('/articles/{id}/upvote', 
+Route::get('/articles/{id}/upvote', 
     	['as' => 'articles.upvote','uses' => 
     	'ArticlesController@upvote'
      ]);
 
-
+Route::resource('replies', 'RepliesController', ['only' => ['store']]);
 
 

@@ -26,7 +26,26 @@
 				<img src="/images/catalog/{{$article->photo}}">
 			</div>
 		</article>	
-    
-
-
+    <div>共有{{$article->reply_count}}个评论</div>
+        @foreach($article->replies as $reply)
+       <li> 评论员：{{\App\User::find($reply->user_id)->name}}&nbsp;&nbsp;回复{{$reply->body}}&nbsp;&nbsp;
+ <abbr class="timeago" title="{{ $reply->created_at }}">发表时间：{{ $reply->created_at }}</abbr>
+       </li>
+        @endforeach
+    <div class="reply-box form box-block">
+    <hr>
+    {!! Form::open(['route' => 'replies.store', 'id' => 'reply-form', 'method' => 'post']) !!}
+      <input type="hidden" name="article_id" value="{{ $article->id }}" />
+      <div class="form-group">
+    {!! Form::textarea('body', null, ['class' => 'form-control',
+                                                 'rows' => 5,
+                                                 'placeholder' => '请发布评论。',
+                                                 'style' => "overflow:hidden",
+                                                 'id' => 'reply_content']) !!}
+        </div>
+        <div class="form-group status-post-submit">
+    {!! Form::submit('回复', ['class' => 'btn btn-primary', 'id' => 'reply-create-submit']) !!}
+        </div>
+    {!! Form::close() !!}
+</div>
 @stop
