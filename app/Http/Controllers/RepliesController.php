@@ -1,7 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Reply;
-use App\article;
+use App\Article;
 use App\Vote;
 use App\Http\Controllers\Controller;
 use Auth;
