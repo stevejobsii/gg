@@ -22,9 +22,10 @@ elixir(function(mix) {
 
     mix.scripts([
         'libs/jquery.js',
+        'libs/vue-resource.min.js',
+        'libs/vue.min.js',
         'libs/bootstrap.min.js',
         'libs/select2.min.js',
-        'libs/moment.min.js'
     ], 'public/js/all.js', 'resources/js');
 
     mix.version(['css/all.css', 'js/all.js']);

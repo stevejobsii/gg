@@ -21,13 +21,38 @@ Route::controllers([
 			'auth'=>'Auth\AuthController',
 			'password'=>'Auth\PasswordController'
 		]);
+Route::post('123', function() {
+    return 123;
+});
 
-
-Route::get('/articles/{id}/upvote', 
+get('/articles/{id}/upvote', 
     	['as' => 'articles.upvote','uses' => 
     	'ArticlesController@upvote'
      ]);
 
 Route::resource('replies', 'RepliesController', ['only' => ['store']]);
+
+# ------------------ User stuff ------------------------
+
+
+Route::get('/users/{id}/replies', [
+    'as' => 'users.replies',
+    'uses' => 'UsersController@replies',
+]);
+
+Route::get('/users/{id}/topics', [
+    'as' => 'users.topics',
+    'uses' => 'UsersController@topics',
+]);
+
+Route::get('/users/{id}/favorites', [
+    'as' => 'users.favorites',
+    'uses' => 'UsersController@favorites',
+]);
+
+Route::get('/users/{id}/refresh_cache', [
+    'as' => 'users.refresh_cache',
+    'uses' => 'UsersController@refreshCache',
+]);
 
 

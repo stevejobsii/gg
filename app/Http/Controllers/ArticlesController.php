@@ -28,7 +28,7 @@ class ArticlesController extends Controller {
 
 	public function show(\App\Article $article)
 	{
-		
+		$article->increment('view_count', 2);
 		return view('articles.show',compact('article'));
 	}
 
@@ -129,7 +129,8 @@ class ArticlesController extends Controller {
             // first time click
             $article->votes()->create(['user_id' => Auth::id(), 'is' => 'upvote']);
             $article->increment('vote_count', 1);}
-        return  back();
+           return $article->vote_count;
+      
     }
 }
     // public function downvote($id)

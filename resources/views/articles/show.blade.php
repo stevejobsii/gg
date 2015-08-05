@@ -1,14 +1,22 @@
+
 @extends('app')
 
 @section('content')
 
 	<h1>{{$article->title}}</h1>
-    <br>
-    <a href="{{ route('articles.upvote', $article->id) }}">点赞</a><i>（一个id只能点一次）</i>
-        已有{{ $article->vote_count }}个赞
+      <button  id="vote"
+              type="button" 
+              class="btn btn-default btn-lg"
+              v-class="active: liked"
+              v-on="click: toggleLike "
+      >
+      <span class="glyphicon glyphicon-thumbs-up">@{{vote_count}}
+      </span>  
+      </button>
         <br>内容：{{$article->body}}
         <br>作者：{{\App\User::find($article->user_id)->name}}
         <br>创建时间：{{$article->published_at}}
+        <br>{{$article->view_count}}人阅读
         @unless ($article->tags->isEmpty())
         <br>
         tags |
@@ -18,6 +26,9 @@
 
       
     @endif
+
+
+
     
 	<hr>
 		<article>
@@ -28,7 +39,7 @@
 		</article>	
     <div>共有{{$article->reply_count}}个评论</div>
         @foreach($article->replies as $reply)
-       <li> 评论员：{{\App\User::find($reply->user_id)->name}}&nbsp;&nbsp;回复:{{$reply->body}}&nbsp;&nbsp;
+       <li>{{\App\User::find($reply->user_id)->name}}&nbsp;&nbsp;回复:&nbsp;{{$reply->body}}&nbsp;&nbsp;
  <abbr class="timeago" title="{{ $reply->created_at }}">发表时间：{{ $reply->created_at }}</abbr>
        </li>
         @endforeach
