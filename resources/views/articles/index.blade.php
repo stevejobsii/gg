@@ -16,7 +16,6 @@
 			         v-on="click: toggleLike">
             <span class="glyphicon glyphicon-thumbs-up">
             </span>
-            <span class="glyphicon glyphicon-ok" v-if="liked"></span>         
             </button>
 			<a href="{{ action('ArticlesController@show', [$article->id])}}" target="_blank">
 			已有{{ $article->vote_count }}个赞

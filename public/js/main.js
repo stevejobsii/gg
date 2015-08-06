@@ -38,7 +38,8 @@ new Vue({
        this.$http.get('articles/'+elId+'/upvote',function(vote_count) {
        this.$set('vote_count', vote_count)}).error(function () {
             window.location.replace('auth/login');
-        });   
+        }); 
+       alert('id:'+elId+'点赞已成功～,不要再点');   
        }
     }
 
