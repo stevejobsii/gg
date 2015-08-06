@@ -22,6 +22,7 @@
 			<span> • </span>{{$article->view_count}}人阅读
 			</a>
 		</li>	
+		<hr>
 	@endforeach
 
 @stop

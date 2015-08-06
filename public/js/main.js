@@ -18,19 +18,20 @@ new Vue({
     el: 'body',
     data:{
        liked : false
-    },
-    
+    },    
     ready: function() {
-        $(".list").mouseenter(function(ev){
+    $(".list").mouseover(function(ev){
 	var target = $(ev.target);
     var elid = target.attr('id');
     if( target.is(".list") ) {
     return elId = elid;}
     })
+
     },
     methods:{
        toggleLike: function(){
        this.liked = ! this.liked;
+       alert('id：'+elId+'图片已被点赞，一id只能点一次');
        this.$http.get('articles/'+elId+'/upvote',function(vote_count) {
        this.$set('vote_count', vote_count)})    
        }
