@@ -30,7 +30,7 @@ get('/articles/{id}/upvote',
     	'ArticlesController@upvote'
      ]);
 
-Route::resource('replies', 'RepliesController', ['only' => ['store']]);
+Route::resource('replies', 'RepliesController', ['only' => ['store','destroy']]);
 
 # ------------------ User stuff ------------------------
 

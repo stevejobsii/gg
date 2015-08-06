@@ -4,7 +4,6 @@
 
 
 	<hr>
-
 	@foreach($articles as $article)
 		<li class="list" id={{$article->id}} style="margin-top: 0px;">
 			<a href="{{ action('ArticlesController@show', [$article->id])}}" target="_blank"><h2>{{$article->title}}</h2></a>
@@ -12,9 +11,12 @@
             <img src="/images/catalog/{{$article->photo}}">
 			</a> 
 			<br>
-			<button  type="button" v-class="active: liked"  v-on="click: toggleLike">
+			<button  type="button" 
+			         v-class="active: liked"  
+			         v-on="click: toggleLike">
             <span class="glyphicon glyphicon-thumbs-up">
-            </span>         
+            </span>
+            <span class="glyphicon glyphicon-ok" v-if="liked"></span>         
             </button>
 			<a href="{{ action('ArticlesController@show', [$article->id])}}" target="_blank">
 			已有{{ $article->vote_count }}个赞

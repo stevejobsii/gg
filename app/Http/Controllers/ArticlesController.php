@@ -130,7 +130,6 @@ class ArticlesController extends Controller {
             $article->votes()->create(['user_id' => Auth::id(), 'is' => 'upvote']);
             $article->increment('vote_count', 1);}
             return $article->vote_count;
-      
     }
 }
     // public function downvote($id)
