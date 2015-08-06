@@ -91,7 +91,7 @@ class ArticlesController extends Controller {
 	private function createArticle(ArticleRequest $request)
 	{
  
-
+        
 		$article = Auth::user()->articles()->create($request->all());
 
 		$this->syncTags($article, $request->input('tag_list', []));
@@ -129,7 +129,7 @@ class ArticlesController extends Controller {
             // first time click
             $article->votes()->create(['user_id' => Auth::id(), 'is' => 'upvote']);
             $article->increment('vote_count', 1);}
-           return $article->vote_count;
+            return $article->vote_count;
       
     }
 }

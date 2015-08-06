@@ -15,9 +15,12 @@
 		@include('partials.flash')
 		@yield('content')
 	</div>   
+	<script src="/js/jquery.js"></script>
     <script src="/js/vue.min.js"></script>
     <script src="/js/vue-resource.min.js"></script>
     <script src="/js/main.js"></script>
+    <script src="/js/select2.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
 	  @yield('footer')
 </body>
 </html>
