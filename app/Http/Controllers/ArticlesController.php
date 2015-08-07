@@ -28,7 +28,7 @@ class ArticlesController extends Controller {
 
 	public function show(\App\Article $article)
 	{
-		$article->increment('view_count', 2);
+		$article->increment('view_count', 1);
 		return view('articles.show',compact('article'));
 	}
 

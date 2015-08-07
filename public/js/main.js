@@ -14,24 +14,19 @@ new Vue({
        }
     }
 })
-
-    var elId ;
-    
-
-new Vue({    
-    el: 'body',
-    data:{
-       liked : false
-
-    }, 
-    ready: function(){
-    $(".list").mouseover(function(ev){
+    //抓elId的id
+    var elId;
+    $(".list-item").mouseover(function(ev){
     var target = $(ev.target);
     var elid = target.attr('id');
-    if( target.is(".list") ) {
+    if( target.is(".list-item") ) {
     return elId = elid;}
-    })
-    },
+    });
+new Vue({    
+    el: '.list',
+    data:{
+       liked : false
+    }, 
     methods:{
        toggleLike: function(){
        this.liked = ! this.liked;
@@ -39,9 +34,14 @@ new Vue({
        this.$set('vote_count', vote_count)}).error(function () {
             window.location.replace('auth/login');
         }); 
-       alert('id:'+elId+'点赞已成功～,不要再点');   
+       if($('#'+'b'+elId).text().indexOf("points") >= 0){
+       var currentValue = $('#'+'b'+elId).text().substring(6);
+       var newValue = parseInt(currentValue) + 1
+       $('#'+'b'+elId).text(newValue);
+       }else{var currentValue = $('#'+'b'+elId).text();
+       var newValue = parseInt(currentValue) - 1
+       $('#'+'b'+elId).text('points'+newValue);};
        }
     }
-
 })
 
