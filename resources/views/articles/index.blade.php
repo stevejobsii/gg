@@ -11,7 +11,6 @@
             <a href="{{ action('ArticlesController@show', [$article->id])}}" >
             <img src="/images/catalog/{{$article->photo}}" alt="{{$article->title}}">
 			</a>
-
 			<br>
 			<button  
 			         type="button" 	
@@ -20,10 +19,8 @@
             <span class="glyphicon glyphicon-thumbs-up">
             </span>
             </button>
-            <pre>@{{$data | json}}</pre>
             <span id="b{{$article->id}}">points{{$article->vote_count}} </span>个赞
 			<a href="{{ action('ArticlesController@show', [$article->id])}}" target="_blank">
-			
 			<span> • </span>已有{{$article->reply_count}}评论
 			<span> • </span>{{$article->view_count}}人阅读
 			</a>
