@@ -10,9 +10,10 @@
               v-class="active: liked"
               v-on="click: toggleLike "
       >
-      <span class="glyphicon glyphicon-thumbs-up">@{{vote_count}}
+      <span class="glyphicon glyphicon-thumbs-up">
       </span>  
       </button>
+      <span id="b{{$article->id}}">{{$article->vote_count}}</span>个赞
         <br>内容：{{$article->body}}
         <br>作者：{{\App\User::find($article->user_id)->name}}
         <br>创建时间：{{$article->published_at}}
@@ -22,17 +23,10 @@
         tags |
         @foreach($article->tags as $tag)
         <a href="{{ url('/tags',['name'=>$tag->name]) }}" title="{{ $tag->name }}" target="_blank">{{ $tag->name }}</a>
-        @endforeach
-
-      
-    @endif
-
-
-
-    
+        @endforeach  
+        @endif
 	<hr>
 		<article>
-
 			<div class="body">
 				<img src="/images/catalog/{{$article->photo}}">
 			</div>

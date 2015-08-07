@@ -8,8 +8,11 @@ new Vue({
        var pathname = window.location.pathname;
        this.liked = ! this.liked;
        this.$http.get(pathname +'/upvote',function(vote_count) {
-       this.$set('vote_count', vote_count)}).error(function () {
-            window.location.replace('/auth/login');
+       this.$set('vote_count', vote_count);
+       var current = vote_count.substring(1);
+       var cpathname = pathname.substring(10);
+       $('#'+'b'+cpathname).text(current);}).error(function () {
+        window.location.replace('/auth/login');
         });   
        }
     }
@@ -31,16 +34,11 @@ new Vue({
        toggleLike: function(){
        this.liked = ! this.liked;
        this.$http.get('articles/'+elId+'/upvote',function(vote_count) {
-       this.$set('vote_count', vote_count)}).error(function () {
+       this.$set('vote_count', vote_count);
+       var current = vote_count.substring(1);
+       $('#'+'b'+elId).text(current);}).error(function () {
             window.location.replace('auth/login');
         }); 
-       if($('#'+'b'+elId).text().indexOf("points") >= 0){
-       var currentValue = $('#'+'b'+elId).text().substring(6);
-       var newValue = parseInt(currentValue) + 1
-       $('#'+'b'+elId).text(newValue);
-       }else{var currentValue = $('#'+'b'+elId).text();
-       var newValue = parseInt(currentValue) - 1
-       $('#'+'b'+elId).text('points'+newValue);};
        }
     }
 })

@@ -6,9 +6,9 @@
 	<ul class="list">
 	@foreach($articles as $article)
 		<li class="list-item" id={{$article->id}}   style="margin-top: 0px;">
-			<a href="{{ action('ArticlesController@show', [$article->id])}}" ><h2>{{$article->title}}</h2></a>
+			<a href="{{ action('ArticlesController@show', [$article->id])}}"target="_blank" ><h2>{{$article->title}}</h2></a>
             
-            <a href="{{ action('ArticlesController@show', [$article->id])}}" >
+            <a href="{{ action('ArticlesController@show', [$article->id])}}"target="_blank">
             <img src="/images/catalog/{{$article->photo}}" alt="{{$article->title}}">
 			</a>
 			<br>
@@ -19,7 +19,7 @@
             <span class="glyphicon glyphicon-thumbs-up">
             </span>
             </button>
-            <span id="b{{$article->id}}">points{{$article->vote_count}} </span>个赞
+            <span id="b{{$article->id}}">{{$article->vote_count}}</span>个赞
 			<a href="{{ action('ArticlesController@show', [$article->id])}}" target="_blank">
 			<span> • </span>已有{{$article->reply_count}}评论
 			<span> • </span>{{$article->view_count}}人阅读

@@ -1,5 +1,5 @@
 <?php namespace App\Http\Controllers;
-
+                 
 use App\Article;
 use App\Vote;
 use App\Http\Controllers\Controller;
