@@ -11,19 +11,24 @@
             <a href="{{ action('ArticlesController@show', [$article->id])}}"target="_blank">
             <img src="/images/catalog/{{$article->photo}}" alt="{{$article->title}}">
 			</a>
-			<br>
-			<button  
-			         type="button" 	
-			         v-class="active: liked"		           
+			<br>	  
+            <span id="b{{$article->id}}">{{$article->vote_count}}</span>赞
+			<a href="{{ action('ArticlesController@show', [$article->id])}}" target="_blank">
+			<span>&nbsp; • &nbsp;</span>{{$article->reply_count}}评论
+			<span>&nbsp; • &nbsp;</span>{{$article->view_count}}阅读
+			</a><br>
+			<button  type="button" 	
+			         class="btn btn-default btn-lg"	           
 			         v-on="click: toggleLike">
             <span class="glyphicon glyphicon-thumbs-up">
             </span>
+            </button>&nbsp;&nbsp;&nbsp;&nbsp;
+            <button  type="button" 	
+			         class="btn btn-default btn-lg">
+			<a href="{{ action('ArticlesController@show', [$article->id])}}" target="_blank">	           
+		    <span class="glyphicon glyphicon-comment">
+            </span></a>
             </button>
-            <span id="b{{$article->id}}">{{$article->vote_count}}</span>个赞
-			<a href="{{ action('ArticlesController@show', [$article->id])}}" target="_blank">
-			<span> • </span>已有{{$article->reply_count}}评论
-			<span> • </span>{{$article->view_count}}人阅读
-			</a>
 		</li>	
 		<hr>
 	@endforeach
