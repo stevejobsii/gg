@@ -4,54 +4,54 @@
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
         <span class="sr-only">Toggle navigation</span>
       </button>
-      <a class="navbar-brand" href="{{ url('articles') }}">博客</a>
+      <a class="navbar-brand" href="{{ url('articles') }}">GoodGOTO</a>
     </div>
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li><a href="{{ url('articles') }}">所有文章</a></li>
+        <li><a href="{{ url('articles') }}"><strong>所有笑图</strong></a></li>
 
       
 
       <li class="dropdown ">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">文章分类标签 <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><strong>笑图分类</strong> <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
                 
                   <li >
-                    <a href="/tags/GIF/">GIF</a>
+                    <a href="/tags/GIF/"><strong>国内图片</strong></a>
                   </li>
                 
                   <li >
-                    <a href="/tags/Cute/">Cute</a>
+                    <a href="/tags/Cute/"><strong>亚洲图片</strong></a>
                   </li>
                 
                   <li >
-                    <a href="/tags/Girl/">Girl</a>
+                    <a href="/tags/Girl/"><strong>欧美图片</strong></a>
                   </li>
                 
                   <li >
-                    <a href="/tags/WTF/">WTF</a>
+                    <a href="/tags/WTF/"><strong>Gif</strong></a>
                   </li>  
               </ul>
             </li>
-                   <li><a href="/articles/create">创建文章</a></li>
+                   <li><a href="/articles/create"><strong>放图过来</strong></a></li>
          </ul>   
 
       <ul class="nav navbar-nav navbar-right">
       @if (! Auth::check())
-         <li >
-          <a href="/auth/register">注册</a>
+        <li >
+          <a href="/auth/register"><strong>注册</strong></a>
         </li>
         <li>
-          <a href="/auth/login">登陆</a>
+          <a href="/auth/login"><strong>登陆</strong></a>
         </li>
-         @else
+      @else
         <li>
-         您好！{{Auth::user()->email}}
-         </li>
+         <strong>您好！{{Auth::user()->email}}</strong>
+        </li>
         <li>     
-          <a href="/auth/logout">退出</a>
-         </li>
-        @endif
+          <a href="/auth/logout"><strong>退出</strong></a>
+        </li>
+      @endif
       </ul>
     </div>
   </div>

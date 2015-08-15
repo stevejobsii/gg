@@ -4,6 +4,7 @@ use App\Article;
 use App\Vote;
 use App\Http\Controllers\Controller;
 use Auth;
+use DB;
 use Carbon\Carbon;
 use Illuminate\HttpResponse;
 use Illuminate\Http\Request;
@@ -20,8 +21,10 @@ class ArticlesController extends Controller {
 
 	public function index()
 	{
-
-		$articles = \App\Article::latest()->published()->get();
+        //DB危险
+		$articles = DB::table('articles')->orderBy('updated_at', 'desc')->paginate(30);
+        //http://example.com/custom/url?page=N, you should pass custom/url to the setPath
+		$articles->setPath('articles');
 
 		return view('articles.index',compact('articles'));
 	}
@@ -120,11 +123,6 @@ class ArticlesController extends Controller {
             // click twice for remove upvote
             $article->votes()->ByWhom(Auth::id())->WithType('upvote')->delete();
            $article->decrement('vote_count', 1);
-        } elseif ($article->votes()->ByWhom(Auth::id())->WithType('downvote')->count()) {
-            // user already clicked downvote once
-            $article->votes()->ByWhom(Auth::id())->WithType('downvote')->delete();
-            $article->votes()->create(['user_id' => Auth::id(), 'is' => 'upvote']);
-            $article->increment('vote_count', 2);
         } else {
             // first time click
             $article->votes()->create(['user_id' => Auth::id(), 'is' => 'upvote']);

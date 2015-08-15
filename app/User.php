@@ -37,4 +37,9 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     {
         return $this->hasMany('App\Article');
     }
+
+    public function upvotes()
+    {
+        return $this->beLongsToMany('App\Article','votes')->withTimestamps();
+    }
 }

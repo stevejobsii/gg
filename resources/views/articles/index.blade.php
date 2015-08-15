@@ -12,25 +12,28 @@
             <img src="/images/catalog/{{$article->photo}}" alt="{{$article->title}}">
 			</a>
 			<br>	  
-            <span id="b{{$article->id}}">{{$article->vote_count}}</span>赞
+            <span id="b{{$article->id}}">{{$article->vote_count}}</span>Good
 			<a href="{{ action('ArticlesController@show', [$article->id])}}" target="_blank">
-			<span>&nbsp; • &nbsp;</span>{{$article->reply_count}}评论
-			<span>&nbsp; • &nbsp;</span>{{$article->view_count}}阅读
+			<span>&nbsp; • &nbsp;</span>{{$article->reply_count}}讨论
+			<span>&nbsp; • &nbsp;</span>{{$article->view_count}}观摩
 			</a><br>
 			<button  type="button" 	
-			         class="btn btn-default btn-lg"	           
+			         class="btn btn-naked btn-lg not-favorited"	           
 			         v-on="click: toggleLike">
             <span class="glyphicon glyphicon-thumbs-up">
             </span>
             </button>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="{{ action('ArticlesController@show', [$article->id])}}" target="_blank">
             <button  type="button" 	
-			         class="btn btn-default btn-lg">
-			<a href="{{ action('ArticlesController@show', [$article->id])}}" target="_blank">	           
+			         class="btn btn-naked btn-lg not-favorited">	           
 		    <span class="glyphicon glyphicon-comment">
-            </span></a>
+            </span>
             </button>
+            </a> 
+        
 		</li>	
 		<hr>
 	@endforeach
     <ul>
+    {!!$articles->render()!!}
 @stop
