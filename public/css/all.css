@@ -22,9 +22,9 @@ body {
 	background: none;
 	border: none;
 }
-.not-favorited{
+.not_favorited{
 	color: black;
 }
-.not-favorited:hover{
+.not_favorited:hover{
 	color: red;
 }

@@ -4,7 +4,7 @@
 		</div>
 
 		<div class="group">
-			{!! Form::label('body', '内容：') !!}
+			{!! Form::label('body', '内容(可不填)：') !!}
 			{!! Form::text('body', null, ['class'=>'form-control']) !!}
 		</div>
 

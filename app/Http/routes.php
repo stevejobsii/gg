@@ -21,8 +21,10 @@ Route::controllers([
 			'auth'=>'Auth\AuthController',
 			'password'=>'Auth\PasswordController'
 		]);
-Route::post('123', function() {
-    return 123;
+Route::get('123', function() {
+    
+    $f = DB::table('votes')->whereuser_id(Auth::user()->id)->lists('votable_id');
+    dd($f);
 });
 
 get('/articles/{id}/upvote', 

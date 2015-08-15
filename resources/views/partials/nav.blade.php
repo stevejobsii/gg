@@ -4,7 +4,7 @@
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
         <span class="sr-only">Toggle navigation</span>
       </button>
-      <a class="navbar-brand" href="{{ url('articles') }}">GoodGOTO</a>
+      <a class="navbar-brand" href="{{ url('articles') }}">GoodGOTO好去处</a>
     </div>
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
@@ -36,23 +36,23 @@
                    <li><a href="/articles/create"><strong>放图过来</strong></a></li>
          </ul>   
 
-      <ul class="nav navbar-nav navbar-right">
-      @if (! Auth::check())
-        <li >
-          <a href="/auth/register"><strong>注册</strong></a>
-        </li>
-        <li>
-          <a href="/auth/login"><strong>登陆</strong></a>
-        </li>
-      @else
-        <li>
-         <strong>您好！{{Auth::user()->email}}</strong>
-        </li>
-        <li>     
-          <a href="/auth/logout"><strong>退出</strong></a>
-        </li>
-      @endif
-      </ul>
+           <ul class="nav navbar-nav navbar-right">
+           @if (Auth::check())
+           <li class="dropdown">
+           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+           {{Auth::user()->email}}<span class="caret"></span>
+           </a>
+           <ul class="dropdown-menu" role="menu">
+           <li><a href="#">Another action</a></li>
+           <li class="divider"></li>
+           <li><a href="/auth/logout"><strong>退出</strong></a></li>
+           </ul>
+           </li>
+           @else
+           <li><a href="/auth/register"><strong>注册</strong></a></li>
+           <li><a href="/auth/login"><strong>登陆</strong></a></li>
+           @endif
+           </ul>
     </div>
   </div>
 </nav>

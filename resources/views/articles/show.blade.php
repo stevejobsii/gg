@@ -14,7 +14,9 @@
       </span>  
       </button>
       <span id="b{{$article->id}}">{{$article->vote_count}}</span>个赞
+        @unless (! $article->body)
         <br>内容：{{$article->body}}
+        @endif
         <br>作者：{{\App\User::find($article->user_id)->name}}
         <br>创建时间：{{$article->published_at}}
         <br>{{$article->view_count}}看过
@@ -25,21 +27,6 @@
         <a href="{{ url('/tags',['name'=>$tag->name]) }}" title="{{ $tag->name }}" target="_blank">{{ $tag->name }}</a>
         @endforeach  
         @endif
-
-
-
-            {!! Form::open (['route'=>'upvotes.store'])  !!}
-            {!! Form::hidden('article-id',$article->id)  !!}
-                <button  type="button"  
-               class="btn btn-naked btn-lg not-favorited"            
-              >
-                    <span class="glyphicon glyphicon-thumbs-up">
-                    </span>
-                    </button>
-            {!! Form::close()  !!}
-
-
-
 
 	<hr>
 		<article>
