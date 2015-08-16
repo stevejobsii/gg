@@ -25,7 +25,7 @@ new Vue({
     el: '.list',
     methods:{
        toggleLike: function(){
-         var pathname = window.location.hostname;
+       var pathname = window.location.hostname;
        this.$http.get('http://'+pathname+'/articles/'+elId+'/upvote',function(vote_count) {
        this.$set('vote_count', vote_count);
        var current = vote_count.substring(1);
@@ -35,3 +35,5 @@ new Vue({
        }
     }   
 })
+
+

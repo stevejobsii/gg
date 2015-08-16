@@ -22,7 +22,7 @@ class ArticlesController extends Controller {
 	public function index()
 	{
         //DB代替Article::
-		$articles = DB::table('articles')->orderBy('published_at', 'desc')->paginate(30);
+		$articles = DB::table('articles')->orderBy('created_at', 'desc')->paginate(30);
 		//已经点赞
 		//$f = DB::table('votes')->whereuser_id(Auth::user()->id)->lists('votable_id');
         //http://example.com/custom/url?page=N, you should pass custom/url to the setPath
