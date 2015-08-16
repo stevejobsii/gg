@@ -24,7 +24,7 @@ class ReplyRequest extends Request
     public function rules()
     {
         return [
-            //
+        'body' => 'required'
         ];
     }
 }

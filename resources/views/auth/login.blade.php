@@ -53,7 +53,7 @@
                          
                                       <a href="/auth/register">注册</a>
                                
-								<!-- <a href="/password/email">忘记密码?</a> -->
+								<!-- <a href="/password/email">重设密码</a> -->
 							</div>
 						</div>
 					</form>

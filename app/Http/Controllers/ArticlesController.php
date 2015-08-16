@@ -13,7 +13,7 @@ use App\Http\Requests\ArticleRequest;
 
 class ArticlesController extends Controller {
 
-
+    //登陆前只能看index和show
 	public function __construct(){
 		$this->middleware('auth', ['except' => ['index', 'show']]);
 	}
@@ -21,7 +21,7 @@ class ArticlesController extends Controller {
 
 	public function index()
 	{
-        //DB代替Article::
+        //DB::代替Article::
 		$articles = DB::table('articles')->orderBy('created_at', 'desc')->paginate(30);
 		//已经点赞
 		//$f = DB::table('votes')->whereuser_id(Auth::user()->id)->lists('votable_id');
@@ -60,7 +60,7 @@ class ArticlesController extends Controller {
 			]);
 	}
 
-
+    
 	public function edit(\App\Article $article)
 	{
         $tags = \App\Tag::lists('name', 'id');
@@ -123,18 +123,13 @@ class ArticlesController extends Controller {
         $article = Article::find($id);
         if ($article->votes()->ByWhom(Auth::id())->WithType('upvote')->count()) {
             // click twice for remove upvote
-            $article->votes()->ByWhom(Auth::id())->WithType('upvote')->delete();
-           $article->decrement('vote_count', 1);
+        $article->votes()->ByWhom(Auth::id())->WithType('upvote')->delete();
+        $article->decrement('vote_count', 1);
         } else {
             // first time click
-            $article->votes()->create(['user_id' => Auth::id(), 'is' => 'upvote']);
-            $article->increment('vote_count', 1);}
-            return $article->vote_count;
+        $article->votes()->create(['user_id' => Auth::id(), 'is' => 'upvote']);
+        $article->increment('vote_count', 1);}
+        return $article->vote_count;
     }
 }
-    // public function downvote($id)
-    // {
-    //     $article = Article::find($id);
-    //     App::make('good\Vote\Voter')->articleDownVote($article);
-    //     return Redirect::route('articles.show', $article->id);
-    // }
+    

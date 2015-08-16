@@ -12,24 +12,19 @@ use Intervention\Image\ImageManagerStatic as Image;
 use App\Http\Requests\ReplyRequest;
 
 class RepliesController extends Controller {
-    // public function __construct()
-    // {
-    //     parent::__construct();
-    //     $this->beforeFilter('auth');
-    // }
 
     public function __construct(){
         $this->middleware('auth');
     }
-
+    //回复需要填写body
     public function store(ReplyRequest $request)
     {
         
         $request['user_id'] = Auth::id();
-       
+        
         Reply::create($request->all());
 
-        // Add the reply user
+        //阅读＋1
         $article = Article::find($request['article_id']);
         $article->reply_count++;
         $article->updated_at = Carbon::now();
@@ -58,22 +53,4 @@ class RepliesController extends Controller {
 
         return Redirect::route('topics.show', $reply->topic_id);
     }
-
-    /**
-     * ----------------------------------------
-     * CreatorListener Delegate
-     * ----------------------------------------
-     */
-
-    // public function creatorFailed($errors)
-    // {
-    //     Flash::error(lang('Operation failed.'));
-    //     return Redirect::back();
-    // }
-
-    // public function creatorSucceed($reply)
-    // {
-    //     Flash::success(lang('Operation succeeded.'));
-    //     return Redirect::route('topics.show', array(Input::get('topic_id'), '#reply'.$reply->id));
-    // }
 }

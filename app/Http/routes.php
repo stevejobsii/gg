@@ -40,7 +40,5 @@ Route::post('upvotes',['as'=>'upvotes.store', function()
     return Redirect::back();
 }]);
 
-
-
 # ------------------ User stuff ------------------------
-
+Route::resource('users','UsersController');
