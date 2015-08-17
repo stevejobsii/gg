@@ -29,7 +29,7 @@
 						</div>
 
 						<div class="form-group">
-							<label class="col-md-4 control-label">E-Mail 地址</label>
+							<label class="col-md-4 control-label">E-Mail 地址：（qq邮箱无法接受本站发出邮件）</label>
 							<div class="col-md-6">
 								<input type="email" class="form-control" name="email" value="{{ old('email') }}">
 							</div>

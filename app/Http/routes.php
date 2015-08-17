@@ -21,10 +21,13 @@ Route::controllers([
 			'auth'=>'Auth\AuthController',
 			'password'=>'Auth\PasswordController'
 		]);
-Route::get('123', function() {
+Route::get('123', function() 
+{
     
-    $f = DB::table('votes')->whereuser_id(Auth::user()->id)->lists('votable_id');
-    dd($f);
+   Mail::send('emails.password',[],function($message)
+   {
+    $message->to('stevejobsii@163.com')->subject('12sdfsfd3');
+   });
 });
 
 get('/articles/{id}/upvote', 
@@ -42,3 +45,19 @@ Route::post('upvotes',['as'=>'upvotes.store', function()
 
 # ------------------ User stuff ------------------------
 Route::resource('users','UsersController');
+
+
+
+
+
+
+
+
+
+// Password reset link request routes...
+Route::get('password/email', 'Auth\PasswordController@getEmail');
+Route::post('password/email', 'Auth\PasswordController@postEmail');
+
+// Password reset routes...
+Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
+Route::post('password/reset', 'Auth\PasswordController@postReset');

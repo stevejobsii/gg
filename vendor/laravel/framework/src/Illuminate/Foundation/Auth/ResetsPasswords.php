@@ -79,7 +79,7 @@ trait ResetsPasswords
         $this->validate($request, [
             'token' => 'required',
             'email' => 'required|email',
-            'password' => 'required|confirmed|min:6',
+            'password' => 'required|confirmed',
         ]);
 
         $credentials = $request->only(
@@ -92,6 +92,7 @@ trait ResetsPasswords
 
         switch ($response) {
             case Password::PASSWORD_RESET:
+   
                 return redirect($this->redirectPath());
 
             default:

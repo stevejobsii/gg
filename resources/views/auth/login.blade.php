@@ -50,10 +50,10 @@
 								<button type="submit" class="btn btn-primary" style="margin-right: 15px;">
 									登陆
 								</button>
-                         
-                                      <a href="/auth/register">注册</a>
-                               
-								<!-- <a href="/password/email">重设密码</a> -->
+                                &nbsp;
+                                <a href="/auth/register">注册</a>
+                                &nbsp;&nbsp; • &nbsp;&nbsp;
+								<a href="/password/email">忘记密码？</a>
 							</div>
 						</div>
 					</form>

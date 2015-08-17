@@ -14,25 +14,10 @@ return [
     |
     */
 
-    'mailgun' => [
-        'domain' => '',
-        'secret' => '',
-    ],
 
     'mandrill' => [
-        'secret' => '',
+        'secret' => $_ENV['MAIL_SECRET'],
     ],
 
-    'ses' => [
-        'key'    => '',
-        'secret' => '',
-        'region' => 'us-east-1',
-    ],
-
-    'stripe' => [
-        'model'  => App\User::class,
-        'key'    => '',
-        'secret' => '',
-    ],
-
+  
 ];
