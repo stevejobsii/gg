@@ -687,13 +687,6 @@
             "time": "2015-03-11 20:06:43"
         },
         {
-            "name": "laracasts/flash",
-            "version": "1.3.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/laracasts/flash.git",
-                "reference": "a2e237ae34fcc73c4b0755fe51d1ac2063be781e"
-            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/laracasts/flash/zipball/a2e237ae34fcc73c4b0755fe51d1ac2063be781e",
