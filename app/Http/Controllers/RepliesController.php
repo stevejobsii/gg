@@ -16,7 +16,7 @@ class RepliesController extends Controller {
     public function __construct(){
         $this->middleware('auth');
     }
-    //回复需要填写body
+    //回复需要填写body,最重要的store功能
     public function store(ReplyRequest $request)
     {
         

@@ -25,7 +25,7 @@ class Reply extends Model
 
     public function user()
     {
-        return $this->belongsTo('User');
+        return $this->belongsTo('App\User','user_id');//加了'user_id',818
     }
 
     public function topic()

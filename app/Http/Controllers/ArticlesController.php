@@ -39,6 +39,7 @@ class ArticlesController extends Controller {
 
 	public function create()
 	{
+
 		$tags = \App\Tag::lists('name', 'id');
 		
 		return view('articles.create', compact('tags'));
@@ -53,11 +54,8 @@ class ArticlesController extends Controller {
 	{
 	  
         $this->createArticle($request);
- 
-		return redirect('articles')->with([
-                'flash_message' => 'good job!你的文章成功创建！',
-                'flash_message_important' => true
-			]);
+   		flash()->success('GOOD JOB!', '图片成功发布');
+		return redirect('articles');
 	}
 
     

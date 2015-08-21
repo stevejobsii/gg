@@ -11,7 +11,6 @@
 <body>
 	    @include('partials.nav')
 	<div class="container page">
-		@include('partials.flash')
 		@yield('content')
 	</div>   
 	<script src="/js/jquery.js"></script>
@@ -20,6 +19,8 @@
     <script src="/js/main.js"></script>
     <script src="/js/select2.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
-	    @yield('footer')
-</body>
+    <script src="/js/sweetalert.min.js"></script>
+	@yield('footer')
+	@include('flash')
+	</body>
 </html>
