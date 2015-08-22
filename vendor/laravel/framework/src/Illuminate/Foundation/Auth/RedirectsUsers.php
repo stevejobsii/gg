@@ -15,7 +15,7 @@ trait RedirectsUsers
             return $this->redirectPath;
         }
         //添加用户登录欢迎
-        flash()->success('欢迎!', '欢迎您来好去处网!');
+        // flash()->success('欢迎!', '欢迎您来好去处网!');
         return property_exists($this, 'redirectTo') ? $this->redirectTo : '/home';
     }
 }
