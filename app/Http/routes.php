@@ -37,11 +37,6 @@ get('/articles/{id}/upvote',
 Route::resource('replies', 'RepliesController', ['only' => ['store','destroy']]);
 
 
-Route::post('upvotes',['as'=>'upvotes.store', function()
-{ 
-    Auth::user()->upvotes()->attach(Input::get('article-id'));
-    return Redirect::back();
-}]);
 
 # ------------------ User stuff ------------------------
 Route::resource('users','UsersController');
