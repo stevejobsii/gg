@@ -4,7 +4,7 @@
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
         <span class="sr-only">Toggle navigation</span>
       </button>
-      <a class="navbar-brand" href="{{ url('articles') }}">GoodGOTO好去处</a>
+      <a class="navbar-brand" href="{{ url('articles') }}">GoodGoto好去处</a>
     </div>
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
@@ -43,6 +43,7 @@
            @else
            <li><a href="/auth/register"><strong>注册</strong></a></li>
            <li><a href="/auth/login"><strong>登陆</strong></a></li>
+           <li><a href="" class="qq"><i class="icon iconfont icon-qq"></i><strong>qq用户登陆</strong></a></li>
            @endif
            </ul>
     </div>

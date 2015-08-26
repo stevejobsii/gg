@@ -30,18 +30,14 @@ Route::get('123', function()
    });
 });
 
-get('/articles/{id}/upvote', 
+Route::get('/articles/{id}/upvote', 
     	['as' => 'articles.upvote','uses' => 
     	'ArticlesController@upvote'
-     ]);
+     ])->before('csrf');
 Route::resource('replies', 'RepliesController', ['only' => ['store','destroy']]);
 
 
-Route::post('upvotes',['as'=>'upvotes.store', function()
-{ 
-    Auth::user()->upvotes()->attach(Input::get('article-id'));
-    return Redirect::back();
-}]);
+
 
 # ------------------ User stuff ------------------------
 Route::resource('users','UsersController');

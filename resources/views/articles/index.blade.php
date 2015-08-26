@@ -31,9 +31,10 @@
 	    </button>
 	    </a>        
 		</li>			
-        <span class="disqus-comment-count" data-disqus-identifier="{{$article->id}}"></span>
+        
         <hr>
 	@endforeach
     <ul>
     {!!$articles->render()!!}
+    
 @stop
