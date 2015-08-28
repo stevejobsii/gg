@@ -6,7 +6,6 @@
 	<hr>
 
 
-
 	{!! Form::open(['url'=>'articles', 'files' => true]) !!}
 		@include('articles.form',['submitButtonText'=>'分享图片'])
 	{!! Form::close() !!}

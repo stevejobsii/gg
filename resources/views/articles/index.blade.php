@@ -2,7 +2,9 @@
 
 @section('content')
 
-
+    @unless (! $search)
+    <br>搜索：{{$search}}
+    @endif
 	<ul class="list">
 	@foreach($articles as $article)
 	<li class="list-item" id={{$article->id}}   style="margin-top: 0px;">
@@ -30,8 +32,7 @@
 	    </span>
 	    </button>
 	    </a>        
-		</li>			
-        
+		</li>			      
         <hr>
 	@endforeach
     <ul>

@@ -22,14 +22,7 @@
        {!! Form::label('Product Image') !!}
        {!! Form::file('image', null) !!}
     </div>
-    
-    
-   
-   
- 
-
-    
-
+  
 	<div class="group">
 		{!! Form::submit($submitButtonText, ['class'=>'btn btn-primary form-control']) !!}
 	</div>
