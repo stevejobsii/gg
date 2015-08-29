@@ -3,8 +3,6 @@
 namespace Illuminate\View\Engines;
 
 use Exception;
-use Throwable;
-use Symfony\Component\Debug\Exception\FatalThrowableError;
 
 class PhpEngine implements EngineInterface
 {
@@ -42,8 +40,6 @@ class PhpEngine implements EngineInterface
             include $__path;
         } catch (Exception $e) {
             $this->handleViewException($e, $obLevel);
-        } catch (Throwable $e) {
-            $this->handleViewException(new FatalThrowableError($e), $obLevel);
         }
 
         return ltrim(ob_get_clean());

@@ -12,7 +12,7 @@
 namespace Psy\Command\ListCommand;
 
 use Psy\Context;
-use Psy\VarDumper\Presenter;
+use Psy\Presenter\PresenterManager;
 use Symfony\Component\Console\Input\InputInterface;
 
 /**
@@ -29,13 +29,13 @@ class VariableEnumerator extends Enumerator
      * Unlike most other enumerators, the Variable Enumerator needs access to
      * the current scope variables, so we need to pass it a Context instance.
      *
-     * @param Presenter $presenter
-     * @param Context   $context
+     * @param PresenterManager $presenterManager
+     * @param Context          $context
      */
-    public function __construct(Presenter $presenter, Context $context)
+    public function __construct(PresenterManager $presenterManager, Context $context)
     {
         $this->context = $context;
-        parent::__construct($presenter);
+        parent::__construct($presenterManager);
     }
 
     /**
@@ -68,7 +68,7 @@ class VariableEnumerator extends Enumerator
     /**
      * Get scope variables.
      *
-     * @param bool $showAll Include special variables (e.g. $_).
+     * @param boolean $showAll Include special variables (e.g. $_).
      *
      * @return array
      */

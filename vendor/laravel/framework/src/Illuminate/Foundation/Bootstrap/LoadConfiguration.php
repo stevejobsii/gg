@@ -34,7 +34,7 @@ class LoadConfiguration
         // Next we will spin through all of the configuration files in the configuration
         // directory and load each one into the repository. This will make all of the
         // options available to the developer for use in various parts of this app.
-        if (! isset($loadedFromCache)) {
+        if (!isset($loadedFromCache)) {
             $this->loadConfigurationFiles($app, $config);
         }
 
@@ -82,7 +82,7 @@ class LoadConfiguration
      * @param  \Symfony\Component\Finder\SplFileInfo  $file
      * @return string
      */
-    protected function getConfigurationNesting(SplFileInfo $file)
+    private function getConfigurationNesting(SplFileInfo $file)
     {
         $directory = dirname($file->getRealPath());
 

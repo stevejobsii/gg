@@ -151,7 +151,7 @@ class BelongsToMany extends Relation
      */
     public function firstOrFail($columns = ['*'])
     {
-        if (! is_null($model = $this->first($columns))) {
+        if (!is_null($model = $this->first($columns))) {
             return $model;
         }
 
@@ -611,30 +611,6 @@ class BelongsToMany extends Relation
     }
 
     /**
-     * Find a related model by its primary key or throw an exception.
-     *
-     * @param  mixed  $id
-     * @param  array  $columns
-     * @return \Illuminate\Database\Eloquent\Model|\Illuminate\Database\Eloquent\Collection
-     *
-     * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
-     */
-    public function findOrFail($id, $columns = ['*'])
-    {
-        $result = $this->find($id, $columns);
-
-        if (is_array($id)) {
-            if (count($result) == count(array_unique($id))) {
-                return $result;
-            }
-        } elseif (! is_null($result)) {
-            return $result;
-        }
-
-        throw (new ModelNotFoundException)->setModel(get_class($this->parent));
-    }
-
-    /**
      * Find a related model by its primary key or return new instance of the related model.
      *
      * @param  mixed  $id
@@ -806,7 +782,7 @@ class BelongsToMany extends Relation
         $results = [];
 
         foreach ($records as $id => $attributes) {
-            if (! is_array($attributes)) {
+            if (!is_array($attributes)) {
                 list($id, $attributes) = [$attributes, []];
             }
 
@@ -832,7 +808,7 @@ class BelongsToMany extends Relation
             // If the ID is not in the list of existing pivot IDs, we will insert a new pivot
             // record, otherwise, we will just update this existing record on this joining
             // table, so that the developers will easily update these records pain free.
-            if (! in_array($id, $current)) {
+            if (!in_array($id, $current)) {
                 $this->attach($id, $attributes, $touch);
 
                 $changes['attached'][] = (int) $id;
@@ -856,7 +832,7 @@ class BelongsToMany extends Relation
      * @param  mixed  $id
      * @param  array  $attributes
      * @param  bool   $touch
-     * @return int
+     * @return void
      */
     public function updateExistingPivot($id, array $attributes, $touch = true)
     {
@@ -992,7 +968,7 @@ class BelongsToMany extends Relation
     {
         $fresh = $this->parent->freshTimestamp();
 
-        if (! $exists && $this->hasPivotColumn($this->createdAt())) {
+        if (!$exists && $this->hasPivotColumn($this->createdAt())) {
             $record[$this->createdAt()] = $fresh;
         }
 
@@ -1027,14 +1003,14 @@ class BelongsToMany extends Relation
             $query->whereIn($this->otherKey, (array) $ids);
         }
 
+        if ($touch) {
+            $this->touchIfTouching();
+        }
+
         // Once we have all of the conditions set on the statement, we are ready
         // to run the delete on the pivot table. Then, if the touch parameter
         // is true, we will go ahead and touch all related models to sync.
         $results = $query->delete();
-
-        if ($touch) {
-            $this->touchIfTouching();
-        }
 
         return $results;
     }

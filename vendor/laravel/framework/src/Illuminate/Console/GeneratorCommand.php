@@ -51,9 +51,7 @@ abstract class GeneratorCommand extends Command
     {
         $name = $this->parseName($this->getNameInput());
 
-        $path = $this->getPath($name);
-
-        if ($this->alreadyExists($this->getNameInput())) {
+        if ($this->files->exists($path = $this->getPath($name))) {
             $this->error($this->type.' already exists!');
 
             return false;
@@ -64,19 +62,6 @@ abstract class GeneratorCommand extends Command
         $this->files->put($path, $this->buildClass($name));
 
         $this->info($this->type.' created successfully.');
-    }
-
-    /**
-     * Determine if the class already exists.
-     *
-     * @param  string  $rawName
-     * @return bool
-     */
-    protected function alreadyExists($rawName)
-    {
-        $name = $this->parseName($rawName);
-
-        return $this->files->exists($path = $this->getPath($name));
     }
 
     /**
@@ -132,7 +117,7 @@ abstract class GeneratorCommand extends Command
      */
     protected function makeDirectory($path)
     {
-        if (! $this->files->isDirectory(dirname($path))) {
+        if (!$this->files->isDirectory(dirname($path))) {
             $this->files->makeDirectory(dirname($path), 0777, true, true);
         }
     }

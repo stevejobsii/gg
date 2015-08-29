@@ -4,11 +4,6 @@
 	</div>
 
 	<div class="group">
-		{!! Form::label('body', '内容(可不填)：') !!}
-		{!! Form::text('body', null, ['class'=>'form-control']) !!}
-	</div>
-
-	<div class="group">
 		{!! Form::label('published_at', '发布时间：') !!}
 		{!! Form::input('date', 'published_at', date('Y-m-d'), ['class'=>'form-control']) !!}
 	</div>
@@ -19,7 +14,7 @@
     </div>
     
     <div class="form-group">
-       {!! Form::label('Product Image') !!}
+       {!! Form::label('上传图片:') !!}
        {!! Form::file('image', null) !!}
     </div>
   
@@ -31,7 +26,7 @@
 	@section('footer')
     <script type="text/javascript">
 	$('#tag_list').select2({
-		placeholder: '选择文章标签'
+		placeholder: '选择图片标签'
 	});
     </script> 
     

@@ -6,6 +6,9 @@ use Psy\Shell;
 use Psy\Configuration;
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputArgument;
+use Illuminate\Foundation\Console\Tinker\Presenters\EloquentModelPresenter;
+use Illuminate\Foundation\Console\Tinker\Presenters\IlluminateCollectionPresenter;
+use Illuminate\Foundation\Console\Tinker\Presenters\IlluminateApplicationPresenter;
 
 class TinkerCommand extends Command
 {
@@ -43,8 +46,8 @@ class TinkerCommand extends Command
 
         $config = new Configuration;
 
-        $config->getPresenter()->addCasters(
-            $this->getCasters()
+        $config->getPresenterManager()->addPresenters(
+            $this->getPresenters()
         );
 
         $shell = new Shell($config);
@@ -73,16 +76,16 @@ class TinkerCommand extends Command
     }
 
     /**
-     * Get an array of Laravel tailored casters.
+     * Get an array of Laravel tailored Presenters.
      *
      * @return array
      */
-    protected function getCasters()
+    protected function getPresenters()
     {
         return [
-            'Illuminate\Foundation\Application' => 'Illuminate\Foundation\Console\IlluminateCaster::castApplication',
-            'Illuminate\Support\Collection' => 'Illuminate\Foundation\Console\IlluminateCaster::castCollection',
-            'Illuminate\Database\Eloquent\Model' => 'Illuminate\Foundation\Console\IlluminateCaster::castModel',
+            new EloquentModelPresenter,
+            new IlluminateCollectionPresenter,
+            new IlluminateApplicationPresenter,
         ];
     }
 

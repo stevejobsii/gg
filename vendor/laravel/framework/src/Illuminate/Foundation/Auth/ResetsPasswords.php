@@ -92,7 +92,6 @@ trait ResetsPasswords
 
         switch ($response) {
             case Password::PASSWORD_RESET:
-   
                 return redirect($this->redirectPath());
 
             default:

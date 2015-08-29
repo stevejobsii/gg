@@ -114,17 +114,6 @@ class Event
     public function __construct($command)
     {
         $this->command = $command;
-        $this->output = $this->getDefaultOutput();
-    }
-
-    /**
-     * Get the default output depending on the OS.
-     *
-     * @return string
-     */
-    protected function getDefaultOutput()
-    {
-        return (strpos(strtoupper(PHP_OS), 'WIN') === 0) ? 'NUL' : '/dev/null';
     }
 
     /**
@@ -220,7 +209,7 @@ class Event
      */
     protected function mutexPath()
     {
-        return storage_path('framework/schedule-'.md5($this->expression.$this->command));
+        return storage_path().'/framework/schedule-'.md5($this->expression.$this->command);
     }
 
     /**
@@ -231,7 +220,7 @@ class Event
      */
     public function isDue(Application $app)
     {
-        if (! $this->runsInMaintenanceMode() && $app->isDownForMaintenance()) {
+        if (!$this->runsInMaintenanceMode() && $app->isDownForMaintenance()) {
             return false;
         }
 
@@ -264,7 +253,7 @@ class Event
      */
     protected function filtersPass(Application $app)
     {
-        if (($this->filter && ! $app->call($this->filter)) ||
+        if (($this->filter && !$app->call($this->filter)) ||
              $this->reject && $app->call($this->reject)) {
             return false;
         }
@@ -354,16 +343,11 @@ class Event
     /**
      * Schedule the event to run twice daily.
      *
-     * @param  int  $first
-     * @param  int  $second
      * @return $this
      */
-    public function twiceDaily($first = 1, $second = 13)
+    public function twiceDaily()
     {
-        $hours = $first.','.$second;
-
-        return $this->spliceIntoPosition(1, 0)
-                    ->spliceIntoPosition(2, $hours);
+        return $this->cron('0 1,13 * * * *');
     }
 
     /**
@@ -657,7 +641,7 @@ class Event
      */
     public function emailOutputTo($addresses)
     {
-        if (is_null($this->output) || $this->output == $this->getDefaultOutput()) {
+        if (is_null($this->output) || $this->output == '/dev/null') {
             throw new LogicException('Must direct output to a file in order to e-mail results.');
         }
 

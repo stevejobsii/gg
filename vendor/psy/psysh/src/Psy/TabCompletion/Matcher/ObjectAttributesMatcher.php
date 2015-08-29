@@ -11,8 +11,6 @@
 
 namespace Psy\TabCompletion\Matcher;
 
-use InvalidArgumentException;
-
 /**
  * An object attribute tab completion Matcher.
  *
@@ -37,12 +35,7 @@ class ObjectAttributesMatcher extends AbstractContextAwareMatcher
         }
         $objectToken = array_pop($tokens);
         $objectName = str_replace('$', '', $objectToken[1]);
-
-        try {
-            $object = $this->getVariable($objectName);
-        } catch (InvalidArgumentException $e) {
-            return array();
-        }
+        $object = $this->getVariable($objectName);
 
         return array_filter(
             array_keys(get_class_vars(get_class($object))),

@@ -19,7 +19,7 @@ interface Readline
     /**
      * Check whether this Readline class is supported by the current system.
      *
-     * @return bool
+     * @return boolean
      */
     public static function isSupported();
 

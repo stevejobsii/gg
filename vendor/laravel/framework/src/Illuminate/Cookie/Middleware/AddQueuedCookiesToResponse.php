@@ -10,14 +10,14 @@ class AddQueuedCookiesToResponse
     /**
      * The cookie jar instance.
      *
-     * @var \Illuminate\Contracts\Cookie\QueueingFactory
+     * @var \Illuminate\Cookie\CookieJar
      */
     protected $cookies;
 
     /**
      * Create a new CookieQueue instance.
      *
-     * @param  \Illuminate\Contracts\Cookie\QueueingFactory  $cookies
+     * @param  \Illuminate\Cookie\CookieJar  $cookies
      * @return void
      */
     public function __construct(CookieJar $cookies)

@@ -26,12 +26,12 @@
            </li>  
            </ul>
            </li>
-           <li><a href="/articles/create"><strong>放图过来</strong></a></li>
+           <li><a href="/articles/create"><strong>放图上来</strong></a></li>
            </ul>   
            <ul class="nav navbar-nav navbar-right">
            <li>
            {!!Form::open(['method'=>'GET'])!!}
-              {!!Form::input('search','q',null,['placeholder'=>'搜索','class'=>'navbar-form'])!!}
+              {!!Form::input('search','q',null,['placeholder'=>'搜索','class'=>'form-control mac-style'])!!}
            {!!Form::close()!!}
            </li>
            @if (Auth::check())
@@ -40,7 +40,7 @@
            Hello, {{Auth::user()->name}}<span class="caret"></span>
            </a>
            <ul class="dropdown-menu" role="menu">
-           <li><a href="#">Another action</a></li>
+           <li><a href="/users/{{Auth::user()->id}}/articles">{{Auth::user()->name}}的档案</a></li>
            <li class="divider"></li>
            <li><a href="/auth/logout"><strong>退出</strong></a></li>
            </ul>

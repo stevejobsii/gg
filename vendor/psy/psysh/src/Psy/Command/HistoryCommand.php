@@ -212,7 +212,7 @@ HELP
      *
      * @param string $pattern
      *
-     * @return bool
+     * @return boolean
      */
     private function validateRegex($pattern)
     {

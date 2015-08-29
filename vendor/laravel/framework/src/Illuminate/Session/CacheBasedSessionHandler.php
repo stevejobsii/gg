@@ -35,7 +35,7 @@ class CacheBasedSessionHandler implements SessionHandlerInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function open($savePath, $sessionName)
     {
@@ -43,7 +43,7 @@ class CacheBasedSessionHandler implements SessionHandlerInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function close()
     {
@@ -51,7 +51,7 @@ class CacheBasedSessionHandler implements SessionHandlerInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function read($sessionId)
     {
@@ -59,7 +59,7 @@ class CacheBasedSessionHandler implements SessionHandlerInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function write($sessionId, $data)
     {
@@ -67,7 +67,7 @@ class CacheBasedSessionHandler implements SessionHandlerInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function destroy($sessionId)
     {
@@ -75,7 +75,7 @@ class CacheBasedSessionHandler implements SessionHandlerInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function gc($lifetime)
     {

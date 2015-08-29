@@ -1,22 +1,20 @@
-
-<ul class="list-group">
+<ul class="list">
   @foreach ($replies as $index => $reply)
-   <li class="list-group-item">
-
-    @if (count($reply->topic))
-      <a href="{{ route('topics.show', [$reply->topic_id]) }}" title="{{{ $reply->topic->title }}}" class="remove-padding-left">
-          {{{ $reply->topic->title }}}
+   <li class="list-item">
+    @if (count($reply->article))
+      <a href="{{ route('articles.show', [$reply->article_id]) }}">
+      <h2>{{ $reply->article->title }}</h2>
       </a>
-      <span class="meta">
-         at <span class="timeago" title="{{ $reply->created_at }}">{{ $reply->created_at }}</span>
-      </span>
+      <a href="{{ route('articles.show', [$reply->article_id]) }}">
+      <img src="/images/catalog/{{ $reply->article->photo }}" alt="{{$reply->article->title}}">
+      </a>
       <div class="reply-body markdown-reply content-body">
-{{ $reply->body }}
+      回复:{{ $reply->body }} at <span class="timeago" title="{{ $reply->created_at }}">{{ $reply->created_at }}</span>
       </div>
     @else
-      <div class="deleted text-center">{{ lang('Data has been deleted.') }}</div>
+      <div class="deleted text-center">Data has been deleted.</div>
     @endif
-
   </li>
   @endforeach
 </ul>
+{!!$replies->render()!!}

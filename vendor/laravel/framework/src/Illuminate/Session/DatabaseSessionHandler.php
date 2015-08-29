@@ -42,7 +42,7 @@ class DatabaseSessionHandler implements SessionHandlerInterface, ExistenceAwareI
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function open($savePath, $sessionName)
     {
@@ -50,7 +50,7 @@ class DatabaseSessionHandler implements SessionHandlerInterface, ExistenceAwareI
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function close()
     {
@@ -58,7 +58,7 @@ class DatabaseSessionHandler implements SessionHandlerInterface, ExistenceAwareI
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function read($sessionId)
     {
@@ -72,7 +72,7 @@ class DatabaseSessionHandler implements SessionHandlerInterface, ExistenceAwareI
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function write($sessionId, $data)
     {
@@ -90,7 +90,7 @@ class DatabaseSessionHandler implements SessionHandlerInterface, ExistenceAwareI
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function destroy($sessionId)
     {
@@ -98,7 +98,7 @@ class DatabaseSessionHandler implements SessionHandlerInterface, ExistenceAwareI
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function gc($lifetime)
     {

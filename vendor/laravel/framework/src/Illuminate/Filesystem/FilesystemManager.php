@@ -149,11 +149,12 @@ class FilesystemManager implements FactoryContract
      */
     public function createS3Driver(array $config)
     {
-        $config += ['version' => 'latest'];
+        $config += [
+            'credentials' => Arr::only($config, ['key', 'secret']),
+            'version'     => 'latest',
+        ];
 
-        if ($config['key'] && $config['secret']) {
-            $config['credentials'] = Arr::only($config, ['key', 'secret']);
-        }
+        unset($config['key'], $config['secret']);
 
         return $this->adapt(
             new Flysystem(new S3Adapter(new S3Client($config), $config['bucket']))
@@ -180,7 +181,7 @@ class FilesystemManager implements FactoryContract
     /**
      * Get the Rackspace Cloud Files container.
      *
-     * @param  \OpenCloud\Rackspace  $client
+     * @param  Rackspace  $client
      * @param  array  $config
      * @return \OpenCloud\ObjectStore\Resource\Container
      */

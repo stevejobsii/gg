@@ -153,7 +153,7 @@ class Loop
     /**
      * Decide whether to bind the execution loop.
      *
-     * @return bool
+     * @return boolean
      */
     protected static function bindLoop()
     {

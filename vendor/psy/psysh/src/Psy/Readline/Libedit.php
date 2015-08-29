@@ -11,7 +11,7 @@
 
 namespace Psy\Readline;
 
-use Psy\Util\Str;
+use Psy\Util\String;
 
 /**
  * A Libedit-based Readline implementation.
@@ -25,7 +25,7 @@ class Libedit extends GNUReadline
     /**
      * Let's emulate GNU Readline by manually reading and parsing the history file!
      *
-     * @return bool
+     * @return boolean
      */
     public static function isSupported()
     {
@@ -78,6 +78,6 @@ class Libedit extends GNUReadline
             $line = substr($line, 0, $pos);
         }
 
-        return ($line !== '') ? Str::unvis($line) : null;
+        return ($line !== '') ? String::unvis($line) : null;
     }
 }

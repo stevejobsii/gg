@@ -36,7 +36,7 @@ class FileSessionHandler implements SessionHandlerInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function open($savePath, $sessionName)
     {
@@ -44,7 +44,7 @@ class FileSessionHandler implements SessionHandlerInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function close()
     {
@@ -52,7 +52,7 @@ class FileSessionHandler implements SessionHandlerInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function read($sessionId)
     {
@@ -64,7 +64,7 @@ class FileSessionHandler implements SessionHandlerInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function write($sessionId, $data)
     {
@@ -72,7 +72,7 @@ class FileSessionHandler implements SessionHandlerInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function destroy($sessionId)
     {
@@ -80,7 +80,7 @@ class FileSessionHandler implements SessionHandlerInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function gc($lifetime)
     {

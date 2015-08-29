@@ -122,7 +122,7 @@ class Builder
             if (count($result) == count(array_unique($id))) {
                 return $result;
             }
-        } elseif (! is_null($result)) {
+        } elseif (!is_null($result)) {
             return $result;
         }
 
@@ -150,7 +150,7 @@ class Builder
      */
     public function firstOrFail($columns = ['*'])
     {
-        if (! is_null($model = $this->first($columns))) {
+        if (!is_null($model = $this->first($columns))) {
             return $model;
         }
 
@@ -263,15 +263,14 @@ class Builder
      * @param  int  $perPage
      * @param  array  $columns
      * @param  string  $pageName
-     * @param  int|null  $page
      * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
-    public function paginate($perPage = null, $columns = ['*'], $pageName = 'page', $page = null)
+    public function paginate($perPage = null, $columns = ['*'], $pageName = 'page')
     {
-        $total = $this->query->getCountForPagination();
+        $total = $this->query->getCountForPagination($columns);
 
         $this->query->forPage(
-            $page = $page ?: Paginator::resolveCurrentPage($pageName),
+            $page = Paginator::resolveCurrentPage($pageName),
             $perPage = $perPage ?: $this->model->getPerPage()
         );
 
@@ -352,7 +351,7 @@ class Builder
      */
     protected function addUpdatedAtColumn(array $values)
     {
-        if (! $this->model->usesTimestamps()) {
+        if (!$this->model->usesTimestamps()) {
             return $values;
         }
 
@@ -805,7 +804,7 @@ class Builder
         foreach (explode('.', $name) as $segment) {
             $progress[] = $segment;
 
-            if (! isset($results[$last = implode('.', $progress)])) {
+            if (!isset($results[$last = implode('.', $progress)])) {
                 $results[$last] = function () {};
             }
         }

@@ -12,46 +12,37 @@
 namespace Psy\Command;
 
 use PhpParser\Lexer;
-use PhpParser\Node;
 use PhpParser\Parser;
-use Psy\VarDumper\Presenter;
-use Psy\VarDumper\PresenterAware;
+use Psy\Presenter\PHPParserPresenter;
+use Psy\Presenter\PresenterManager;
+use Psy\Presenter\PresenterManagerAware;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\VarDumper\Caster\Caster;
 
 /**
  * Parse PHP code and show the abstract syntax tree.
  */
-class ParseCommand extends Command implements PresenterAware
+class ParseCommand extends Command implements PresenterManagerAware
 {
-    private $presenter;
+    private $presenterManager;
     private $parser;
 
     /**
-     * PresenterAware interface.
+     * PresenterManagerAware interface.
      *
-     * @param Presenter $presenter
+     * @param PresenterManager $manager
      */
-    public function setPresenter(Presenter $presenter)
+    public function setPresenterManager(PresenterManager $manager)
     {
-        $this->presenter = clone $presenter;
-        $this->presenter->addCasters(array(
-            'PhpParser\Node' => function (Node $node, array $a) {
-                $a = array(
-                    Caster::PREFIX_VIRTUAL . 'type'       => $node->getType(),
-                    Caster::PREFIX_VIRTUAL . 'attributes' => $node->getAttributes(),
-                );
+        $this->presenterManager = new PresenterManager();
 
-                foreach ($node->getSubNodeNames() as $name) {
-                    $a[Caster::PREFIX_VIRTUAL . $name] = $node->$name;
-                }
+        foreach ($manager as $presenter) {
+            $this->presenterManager->addPresenter($presenter);
+        }
 
-                return $a;
-            },
-        ));
+        $this->presenterManager->addPresenter(new PHPParserPresenter());
     }
 
     /**
@@ -92,7 +83,7 @@ HELP
 
         $depth = $input->getOption('depth');
         $nodes = $this->parse($code);
-        $output->page($this->presenter->present($nodes, $depth));
+        $output->page($this->presenterManager->present($nodes, $depth));
     }
 
     /**

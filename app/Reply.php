@@ -28,14 +28,14 @@ class Reply extends Model
         return $this->belongsTo('App\User','user_id');//加了'user_id',818
     }
 
-    public function topic()
+    public function article()
     {
-        return $this->belongsTo('Topic');
+        return $this->belongsTo('App\Article','article_id');
     }
 
     public function scopeWhose($query, $user_id)
     {
-        return $query->where('user_id', '=', $user_id)->with('topic');
+        return $query->where('user_id', '=', $user_id);
     }
 
     public function scopeRecent($query)

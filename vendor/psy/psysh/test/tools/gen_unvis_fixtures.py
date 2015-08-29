@@ -46,7 +46,7 @@ RANGES = {
 if __name__ == '__main__':
 
     argp = argparse.ArgumentParser(
-        description='Generates test data for Psy\\Test\\Util\\StrTest')
+        description='Generates test data for Psy\\Test\\Util\\StringTest')
     argp.add_argument('-f', '--format-output', action='store_true',
                       help='Indent JSON output to ease debugging')
     argp.add_argument('-a', '--all', action='store_true',

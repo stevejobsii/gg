@@ -14,10 +14,7 @@
     </span>  
     </button>
     <span id="b{{$article->id}}">{{$article->vote_count}}</span>个赞
-    @unless (! $article->body)
-    <br>内容：{{$article->body}}
-    @endif
-    <br>作者：{{\App\User::find($article->user_id)->name}}
+    <br><a href="/users/{{$article->user_id}}/articles">作者：{{\App\User::find($article->user_id)->name}}</a>
     <br>创建时间：{{$article->published_at}}
     <br>{{$article->view_count}}看过
     @unless ($article->tags->isEmpty())

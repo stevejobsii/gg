@@ -181,7 +181,7 @@ class Str
     {
         preg_match('/^\s*+(?:\S++\s*+){1,'.$words.'}/u', $value, $matches);
 
-        if (! isset($matches[0]) || strlen($value) === strlen($matches[0])) {
+        if (!isset($matches[0]) || strlen($value) === strlen($matches[0])) {
             return $value;
         }
 
@@ -245,11 +245,10 @@ class Str
      */
     public static function randomBytes($length = 16)
     {
-        if (PHP_MAJOR_VERSION >= 7) {
+        if (function_exists('random_bytes')) {
             $bytes = random_bytes($length);
         } elseif (function_exists('openssl_random_pseudo_bytes')) {
             $bytes = openssl_random_pseudo_bytes($length, $strong);
-
             if ($bytes === false || $strong === false) {
                 throw new RuntimeException('Unable to generate random string.');
             }
@@ -288,11 +287,11 @@ class Str
      */
     public static function equals($knownString, $userInput)
     {
-        if (! is_string($knownString)) {
+        if (!is_string($knownString)) {
             $knownString = (string) $knownString;
         }
 
-        if (! is_string($userInput)) {
+        if (!is_string($userInput)) {
             $userInput = (string) $userInput;
         }
 
@@ -388,10 +387,8 @@ class Str
             return static::$snakeCache[$key];
         }
 
-        if (! ctype_lower($value)) {
+        if (!ctype_lower($value)) {
             $value = strtolower(preg_replace('/(.)(?=[A-Z])/', '$1'.$delimiter, $value));
-
-            $value = preg_replace('/\s+/', '', $value);
         }
 
         return static::$snakeCache[$key] = $value;

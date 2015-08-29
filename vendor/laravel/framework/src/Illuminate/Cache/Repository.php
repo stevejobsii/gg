@@ -42,7 +42,6 @@ class Repository implements CacheContract, ArrayAccess
      * Create a new cache repository instance.
      *
      * @param  \Illuminate\Contracts\Cache\Store  $store
-     * @return void
      */
     public function __construct(Store $store)
     {
@@ -82,7 +81,7 @@ class Repository implements CacheContract, ArrayAccess
      */
     public function has($key)
     {
-        return ! is_null($this->get($key));
+        return !is_null($this->get($key));
     }
 
     /**
@@ -135,7 +134,7 @@ class Repository implements CacheContract, ArrayAccess
     {
         $minutes = $this->getMinutes($minutes);
 
-        if (! is_null($minutes)) {
+        if (!is_null($minutes)) {
             $this->store->put($key, $value, $minutes);
 
             $this->fireCacheEvent('write', [$key, $value, $minutes]);
@@ -192,7 +191,7 @@ class Repository implements CacheContract, ArrayAccess
         // If the item exists in the cache we will just return this immediately
         // otherwise we will execute the given Closure and cache the result
         // of that execution for the given number of minutes in storage.
-        if (! is_null($value = $this->get($key))) {
+        if (!is_null($value = $this->get($key))) {
             return $value;
         }
 
@@ -225,7 +224,7 @@ class Repository implements CacheContract, ArrayAccess
         // If the item exists in the cache we will just return this immediately
         // otherwise we will execute the given Closure and cache the result
         // of that execution for the given number of minutes. It's easy.
-        if (! is_null($value = $this->get($key))) {
+        if (!is_null($value = $this->get($key))) {
             return $value;
         }
 
@@ -356,15 +355,5 @@ class Repository implements CacheContract, ArrayAccess
         }
 
         return call_user_func_array([$this->store, $method], $parameters);
-    }
-
-    /**
-     * Clone cache repository instance.
-     *
-     * @return void
-     */
-    public function __clone()
-    {
-        $this->store = clone $this->store;
     }
 }

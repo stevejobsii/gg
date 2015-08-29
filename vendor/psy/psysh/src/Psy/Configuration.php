@@ -16,12 +16,12 @@ use Psy\ExecutionLoop\ForkingLoop;
 use Psy\ExecutionLoop\Loop;
 use Psy\Output\OutputPager;
 use Psy\Output\ShellOutput;
+use Psy\Presenter\PresenterManager;
 use Psy\Readline\GNUReadline;
 use Psy\Readline\Libedit;
 use Psy\Readline\Readline;
 use Psy\Readline\Transient;
 use Psy\TabCompletion\AutoCompleter;
-use Psy\VarDumper\Presenter;
 use XdgBaseDir\Xdg;
 
 /**
@@ -61,7 +61,7 @@ class Configuration
     private $pager;
     private $loop;
     private $manualDb;
-    private $presenter;
+    private $presenters;
     private $completer;
 
     /**
@@ -256,7 +256,7 @@ class Configuration
             }
         }
 
-        foreach (array('commands', 'tabCompletionMatchers', 'casters') as $option) {
+        foreach (array('commands', 'tabCompletionMatchers', 'presenters') as $option) {
             if (isset($options[$option])) {
                 $method = 'add' . ucfirst($option);
                 $this->$method($options[$option]);
@@ -980,26 +980,29 @@ class Configuration
     }
 
     /**
-     * Add an array of casters definitions.
+     * Add an array of Presenters.
      *
-     * @param array $casters
+     * @param array $presenters
      */
-    public function addCasters(array $casters)
+    public function addPresenters(array $presenters)
     {
-        $this->getPresenter()->addCasters($casters);
+        $manager = $this->getPresenterManager();
+        foreach ($presenters as $presenter) {
+            $manager->addPresenter($presenter);
+        }
     }
 
     /**
-     * Get the Presenter service.
+     * Get the PresenterManager service.
      *
-     * @return Presenter
+     * @return PresenterManager
      */
-    public function getPresenter()
+    public function getPresenterManager()
     {
-        if (!isset($this->presenter)) {
-            $this->presenter = new Presenter($this->getOutput()->getFormatter());
+        if (!isset($this->presenters)) {
+            $this->presenters = new PresenterManager();
         }
 
-        return $this->presenter;
+        return $this->presenters;
     }
 }

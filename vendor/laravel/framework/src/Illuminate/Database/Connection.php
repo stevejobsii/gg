@@ -6,7 +6,6 @@ use PDO;
 use Closure;
 use DateTime;
 use Exception;
-use Throwable;
 use LogicException;
 use RuntimeException;
 use Illuminate\Support\Arr;
@@ -454,7 +453,7 @@ class Connection implements ConnectionInterface
      * @param  \Closure  $callback
      * @return mixed
      *
-     * @throws \Throwable
+     * @throws \Exception
      */
     public function transaction(Closure $callback)
     {
@@ -473,10 +472,6 @@ class Connection implements ConnectionInterface
         // up in the database. Then we'll re-throw the exception so it can
         // be handled how the developer sees fit for their applications.
         catch (Exception $e) {
-            $this->rollBack();
-
-            throw $e;
-        } catch (Throwable $e) {
             $this->rollBack();
 
             throw $e;
@@ -677,7 +672,6 @@ class Connection implements ConnectionInterface
             'server has gone away',
             'no connection to the server',
             'Lost connection',
-            'is dead or not enabled',
         ]);
     }
 
@@ -733,7 +727,7 @@ class Connection implements ConnectionInterface
             $this->events->fire('illuminate.query', [$query, $bindings, $time, $this->getName()]);
         }
 
-        if (! $this->loggingQueries) {
+        if (!$this->loggingQueries) {
             return;
         }
 

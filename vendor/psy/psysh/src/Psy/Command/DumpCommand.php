@@ -12,8 +12,9 @@
 namespace Psy\Command;
 
 use Psy\Exception\RuntimeException;
-use Psy\VarDumper\Presenter;
-use Psy\VarDumper\PresenterAware;
+use Psy\Presenter\Presenter;
+use Psy\Presenter\PresenterManager;
+use Psy\Presenter\PresenterManagerAware;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -24,18 +25,18 @@ use Symfony\Component\Console\Output\OutputInterface;
  *
  * This is like var_dump but *way* awesomer.
  */
-class DumpCommand extends ReflectingCommand implements PresenterAware
+class DumpCommand extends ReflectingCommand implements PresenterManagerAware
 {
-    private $presenter;
+    private $presenterManager;
 
     /**
-     * PresenterAware interface.
+     * PresenterManagerAware interface.
      *
-     * @param Presenter $presenter
+     * @param PresenterManager $manager
      */
-    public function setPresenter(Presenter $presenter)
+    public function setPresenterManager(PresenterManager $manager)
     {
-        $this->presenter = $presenter;
+        $this->presenterManager = $manager;
     }
 
     /**
@@ -71,7 +72,7 @@ HELP
     {
         $depth  = $input->getOption('depth');
         $target = $this->resolveTarget($input->getArgument('target'));
-        $output->page($this->presenter->present($target, $depth, $input->getOption('all') ? Presenter::VERBOSE : 0));
+        $output->page($this->presenterManager->present($target, $depth, $input->getOption('all') ? Presenter::VERBOSE : 0));
     }
 
     /**

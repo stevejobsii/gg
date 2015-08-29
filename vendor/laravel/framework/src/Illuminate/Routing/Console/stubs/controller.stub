@@ -32,10 +32,9 @@ class DummyClass extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  Request  $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store()
     {
         //
     }
@@ -65,11 +64,10 @@ class DummyClass extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  Request  $request
      * @param  int  $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
         //
     }

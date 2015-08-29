@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h1>Write a New Article</h1>
+    <h2>~放图过来~</h2>
 	<hr>
 
 

@@ -22,8 +22,8 @@ use Psy\Command\ListCommand\PropertyEnumerator;
 use Psy\Command\ListCommand\TraitEnumerator;
 use Psy\Command\ListCommand\VariableEnumerator;
 use Psy\Exception\RuntimeException;
-use Psy\VarDumper\Presenter;
-use Psy\VarDumper\PresenterAware;
+use Psy\Presenter\PresenterManager;
+use Psy\Presenter\PresenterManagerAware;
 use Symfony\Component\Console\Formatter\OutputFormatter;
 use Symfony\Component\Console\Helper\TableHelper;
 use Symfony\Component\Console\Input\InputArgument;
@@ -34,19 +34,19 @@ use Symfony\Component\Console\Output\OutputInterface;
 /**
  * List available local variables, object properties, etc.
  */
-class ListCommand extends ReflectingCommand implements PresenterAware
+class ListCommand extends ReflectingCommand implements PresenterManagerAware
 {
-    protected $presenter;
+    protected $presenterManager;
     protected $enumerators;
 
     /**
-     * PresenterAware interface.
+     * PresenterManagerAware interface.
      *
-     * @param Presenter $manager
+     * @param PresenterManager $manager
      */
-    public function setPresenter(Presenter $presenter)
+    public function setPresenterManager(PresenterManager $manager)
     {
-        $this->presenter = $presenter;
+        $this->presenterManager = $manager;
     }
 
     /**
@@ -141,7 +141,7 @@ HELP
     protected function initEnumerators()
     {
         if (!isset($this->enumerators)) {
-            $mgr = $this->presenter;
+            $mgr = $this->presenterManager;
 
             $this->enumerators = array(
                 new ClassConstantEnumerator($mgr),

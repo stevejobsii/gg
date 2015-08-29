@@ -1,6 +1,10 @@
 <?php namespace App\Http\Controllers;
 
 use App\Article;
+use App\User;
+use App\Reply;
+use App\Vote;
+use Illuminate\Http\Request as urlRequest;
 
 class UsersController extends Controller
 {
@@ -10,14 +14,14 @@ class UsersController extends Controller
         $this->middleware('auth', ['only' => ['edit', 'update', 'destroy']]);
     }
 
-
+    //show users/id
     public function show($id)
     {
         $user = User::findOrFail($id);
         $articles = Article::whose($user->id)->recent()->limit(10)->get();
         $replies = Reply::whose($user->id)->recent()->limit(10)->get();
 
-        return View::make('users.show', compact('user', 'topics', 'replies'));
+        return view('users.show', compact('user', 'topics', 'replies'));
     }
 
     public function edit($id)
@@ -46,29 +50,32 @@ class UsersController extends Controller
     {
         $this->authorOrAdminPermissioinRequire($topic->user_id);
     }
-
+    //user->article, show the user articles
+    public function articles(urlRequest $request,$id)
+    {
+        //查找这个user,look articles.index
+        $user = User::findOrFail($id);
+        if($search = $request->query('q'))
+        {
+        $articles = Article::whose($user->id)->search($search)->orderBy('created_at', 'desc')->paginate(30);
+        }else{
+        $articles = Article::whose($user->id)->orderBy('created_at', 'desc')->paginate(30);}
+        $articles->setPath('articles');
+        return view('articles.index',compact('articles','search','user'));
+    }
+    //user->relpies
     public function replies($id)
     {
         $user = User::findOrFail($id);
-        $replies = Reply::whose($user->id)->recent()->paginate(15);
-
-        return View::make('users.replies', compact('user', 'replies'));
+        $replies = Reply::whose($user->id)->recent()->paginate(30);
+        return view('users.replies', compact('user', 'replies'));
     }
-
-    public function topics($id)
+    //user->upvote
+    public function upvotes($id)
     {
         $user = User::findOrFail($id);
-        $topics = Topic::whose($user->id)->recent()->paginate(15);
-
-        return View::make('users.topics', compact('user', 'topics'));
-    }
-
-    public function favorites($id)
-    {
-        $user = User::findOrFail($id);
-        $topics = $user->favoriteTopics()->paginate(15);
-
-        return View::make('users.favorites', compact('user', 'topics'));
+        $upvotes = Vote::whose($user->id)->recent()->paginate(30);
+        return view('users.upvotes', compact('user', 'upvotes'));
     }
 
     public function blocking($id)

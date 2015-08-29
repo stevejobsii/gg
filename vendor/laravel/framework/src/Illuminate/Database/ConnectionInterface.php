@@ -107,7 +107,7 @@ interface ConnectionInterface
      * @param  \Closure  $callback
      * @return mixed
      *
-     * @throws \Throwable
+     * @throws \Exception
      */
     public function transaction(Closure $callback);
 

@@ -11,7 +11,6 @@ class Article extends Model {
 	 */
 	protected $fillable = [
 		'title',
-		'body',
 		'published_at',
 		'user_id',
 		'photo',
@@ -91,5 +90,15 @@ class Article extends Model {
     public function replies()
     {
         return $this->hasMany('App\Reply');
+    }
+    //Article::whose搜到 scope 与query有关
+    public function scopeWhose($query, $user_id)
+    {
+        return $query->where('user_id', '=', $user_id);
+    }
+    //查找最近发布
+    public function scopeRecent($query)
+    {
+        return $query->orderBy('created_at', 'desc');
     }
 }
