@@ -26,8 +26,7 @@ class Article extends Model {
     public function scopeSearch($query, $search)
     {
     	return  $query->where(function($query) use ($search){
-           	$query->where('title','LIKE',"%$search%")
-           	      ->orwhere('body','LIKE',"%$search%");
+           	$query->where('title','LIKE',"%$search%");
            });
     }
 

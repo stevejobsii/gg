@@ -36,5 +36,7 @@ new Vue({
     }   
 });
 //分享
-
+$('.btn-default').click(function() {
+    $(this).toggleClass('btn-default');
+});
 

@@ -23,14 +23,14 @@
 		<span>&nbsp; • &nbsp;</span>{{$article->view_count}}观摩
 		</a><br>
 		<button  type="button" 	
-		         class="btn btn-naked btn-lg "	           
+		         class="btn btn-default btn-lg"	           
 		         v-on="click: toggleLike">
 	    <span class="glyphicon glyphicon-thumbs-up not_favorited">
 	    </span>
 	    </button>&nbsp;&nbsp;&nbsp;&nbsp;
 	    <a href="{{ action('ArticlesController@show', [$article->id])}}" target="_blank">
 	    <button  type="button" 	
-		         class="btn btn-naked btn-lg not_favorited">	           
+		         class="btn btn-default btn-lg not_favorited">	           
 	    <span class="glyphicon glyphicon-comment">
 	    </span>
 	    </button>

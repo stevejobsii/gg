@@ -26,7 +26,7 @@
            </li>  
            </ul>
            </li>
-           <li><a href="/articles/create"><strong>放图上来</strong></a></li>
+           <li><a href="/articles/create"><strong>放图过来</strong></a></li>
            </ul>   
            <ul class="nav navbar-nav navbar-right">
            <li>
