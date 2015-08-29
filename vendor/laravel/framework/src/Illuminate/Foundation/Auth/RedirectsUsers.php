@@ -14,7 +14,7 @@ trait RedirectsUsers
         if (property_exists($this, 'redirectPath')) {
             return $this->redirectPath;
         }
-
+        flash()->success('欢迎!', '欢迎您来好去处网!');
         return property_exists($this, 'redirectTo') ? $this->redirectTo : '/home';
     }
 }
