@@ -30,24 +30,31 @@
            </ul>   
            <ul class="nav navbar-nav navbar-right">
            <li>
-           {!!Form::open(['method'=>'GET'])!!}
+           {!!Form::open(['method'=>'GET','class'=>'inner-addon right-addon'])!!}
+              <i class="glyphicon glyphicon-search"></i>
               {!!Form::input('search','q',null,['placeholder'=>'搜索','class'=>'form-control mac-style'])!!}
            {!!Form::close()!!}
            </li>
            @if (Auth::check())
            <li class="dropdown">
            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-           Hello, {{Auth::user()->name}}<span class="caret"></span>
+           <span class="glyphicon glyphicon-user">
+           </span>Hello, {{Auth::user()->name}}<span class="caret"></span>
            </a>
            <ul class="dropdown-menu" role="menu">
-           <li><a href="/users/{{Auth::user()->id}}/articles">{{Auth::user()->name}}的档案</a></li>
+           <li><a href="/users/{{Auth::user()->id}}/articles">
+           <span class="glyphicon glyphicon-inbox"></span>
+           {{Auth::user()->name}}的档案</a></li>
            <li class="divider"></li>
-           <li><a href="/auth/logout"><strong>退出</strong></a></li>
+           <li><a href="/auth/logout"><span class="glyphicon glyphicon-remove"></span>
+           <strong>退出</strong></a></li>
            </ul>
            </li>
            @else
-           <li><a href="/auth/register"><strong>注册</strong></a></li>
-           <li><a href="/auth/login"><strong>登陆</strong></a></li>
+           <li><a href="/auth/register"><span class="glyphicon glyphicon-edit"></span>
+           <strong>注册</strong></a></li>
+           <li><a href="/auth/login"><span class="glyphicon glyphicon-check"></span>
+           <strong>登陆</strong></a></li>
            @endif
            </ul>
     </div>

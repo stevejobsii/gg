@@ -9,6 +9,24 @@
 	 margin-bottom: 7px;
 }
 
+/* enable absolute positioning */
+.inner-addon { 
+    position: relative; 
+}
+
+/* style icon */
+.inner-addon .glyphicon {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+}
+
+
+.right-addon .glyphicon { right: 0px;}
+
+
+.right-addon input { padding-right: 10px; }
+
 body {
   padding-top: 30px; }
 
