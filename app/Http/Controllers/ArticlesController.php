@@ -103,23 +103,19 @@ class ArticlesController extends Controller {
         
 		$article = Auth::user()->articles()->create($request->all());
 
-		$this->syncTags($article, $request->input('tag_list', []));        
+		$this->syncTags($article, $request->input('tag_list', []));
+        
         //获取收到“image”并存储
-		$imageName = $article->id . '.' . $request->file('image')->getClientOriginalExtension();      
-        //判断是非gif，Image不支持gif
-        if($request->file('image')->getClientOriginalExtension() == 'gif'){
-        copy($request->file('image'), base_path() . '/public/images/catalog/' . $article->id . '.' . 'gif');
-        //保存一张png点击之用
-        $imageName = $article->id . '.' . 'png';
-        Image::make($request->file('image'))
-        ->insert(base_path() . '/public/images/catalog/gif.png', 'center')
-        ->save(base_path() . '/public/images/catalog/' . $imageName);
-        $article->gif = '1';
-        }else{
-        Image::make($request->file('image'))
+		$imageName = $article->id . '.' . 
+        $request->file('image')->getClientOriginalExtension();
+        $request->file('image')->move(
+        base_path() . '/public/images/catalog/', $imageName
+    );  
+        Image::make(base_path() . '/public/images/catalog/' . $imageName)
         ->resize(460, null, function ($constraint) {$constraint->aspectRatio();})
         ->insert(base_path() . '/public/images/catalog/watermark.jpg', 'right')
-        ->save(base_path() . '/public/images/catalog/' . $imageName);}      
+        ->save(base_path() . '/public/images/catalog/' . $imageName);
+        
         //保存存储名字和extension
         $article->photo = $imageName;
         $article->save();

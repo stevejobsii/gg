@@ -32,7 +32,8 @@ Route::get('123', function()
 
 Route::get('/articles/{id}/upvote', 
     	['as' => 'articles.upvote','uses' => 
-    	'ArticlesController@upvote'])->before('csrf');
+    	'ArticlesController@upvote'
+     ])->before('csrf');
 Route::resource('replies', 'RepliesController', ['only' => ['store','destroy']]);
 
 

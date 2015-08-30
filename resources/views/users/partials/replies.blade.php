@@ -1,6 +1,6 @@
 <ul class="list">
   @foreach ($replies as $index => $reply)
-   <article class="list-item">
+   <li class="list-item">
     @if (count($reply->article))
       <a href="{{ route('articles.show', [$reply->article_id]) }}">
       <h2>{{ $reply->article->title }}</h2>
@@ -14,7 +14,7 @@
     @else
       <div class="deleted text-center">Data has been deleted.</div>
     @endif
-  </article>
+  </li>
   @endforeach
 </ul>
 {!!$replies->render()!!}
