@@ -21,7 +21,7 @@ class Article extends Model {
 	 * Dates that should be treated as Carbon instances
 	 * @var array
 	 */
-	protected $dates = ['published_at'];
+	
 
     public function scopeSearch($query, $search)
     {
@@ -29,31 +29,6 @@ class Article extends Model {
            	$query->where('title','LIKE',"%$search%");
            });
     }
-
-	//Set published at attribute (mutator)
-	public function setPublishedAtAtttibute($date)
-	{
-		$this->attributes['published_at'] = Carbon::parse($date);
-	}
-
-	/**
-	 * Query scope for articles that have been already published
-	 * @param  $query
-	 */
-	public function scopePublished($query)
-	{
-		$query->where('published_at','<=',Carbon::now());
-	}
-
-	/**
-	 * Query scope for articles that have not yet been published
-	 * @param  $query
-	 */
-	public function scopeUnpublished($query)
-	{
-		$query->where('published_at','>',Carbon::now());
-		
-	}
 
 	/**
 	 * An article is owned by a user

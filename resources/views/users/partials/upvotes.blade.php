@@ -1,6 +1,6 @@
 <ul class="list">
   @foreach ($upvotes as $index => $upvote)
-   <li class="list-item">
+   <article class="list-item">
     @if (count($upvote->article))
       <a href="{{ route('articles.show', [$upvote->votable_id]) }}">
       <h2>{{ $upvote->article->title }}</h2>
@@ -14,7 +14,7 @@
     @else
       <div class="deleted text-center">Data has been deleted.</div>
     @endif
-  </li>
+  </article>
   @endforeach
 </ul>
 {!!$upvotes->render()!!}

@@ -17,7 +17,7 @@ class TagsController extends Controller {
         $articles = $tag->articles()->search($search)->orderBy('created_at', 'desc')->paginate(30);
         }else{
 		//获取这个tag的articles并用articles.index反应
-		$articles = $tag->articles()->latest()->published()->paginate(10);}
+		$articles = $tag->articles()->orderBy('created_at', 'desc')->paginate(30);}
         $articles->setPath('articles');
 		return view('articles.index', compact('articles','search'));
 	}

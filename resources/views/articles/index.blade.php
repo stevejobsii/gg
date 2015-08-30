@@ -10,22 +10,25 @@
     @endif
 	<ul class="list">
 	@foreach($articles as $article)
-	<li class="list-item" id={{$article->id}}   style="margin-top: 0px;">
+	<article class="list-item" id={{$article->id}}   style="margin-top: 0px;">
 		<a href="{{ action('ArticlesController@show', [$article->id])}}"target="_blank" ><h2>{{$article->title}}</h2></a>
-	    
+	    @if($article->gif == '1')
+	    <figure><img src="/images/catalog/{{$article->photo}}" alt="{{$article->title}}" data-alt="/images/catalog/{{$article->id}}.gif"></figure>
+	    @endif
+	    @if($article->gif == '0')
 	    <a href="{{ action('ArticlesController@show', [$article->id])}}"target="_blank">
-	    <img src="/images/catalog/{{$article->photo}}" alt="{{$article->title}}">
-		</a>
+	    <img src="/images/catalog/{{$article->photo}}" alt="{{$article->title}}"></a>
+	    @endif
 		<br>	  
-	    <span id="b{{$article->id}}">{{$article->vote_count}}</span>赞
+	    <h5><span id="b{{$article->id}}">{{$article->vote_count}}</span>赞
 		<a href="{{ action('ArticlesController@show', [$article->id])}}" target="_blank">
 		<span>&nbsp; • &nbsp;</span>{{$article->reply_count}}讨论
 		<span>&nbsp; • &nbsp;</span>{{$article->view_count}}观摩
-		</a><br>
+		</a><br></h5>
 		<button  type="button" 	
-		         class="btn btn-default btn-lg"	           
+		         class="btn btn-default btn-lg not_favorited"	           
 		         v-on="click: toggleLike">
-	    <span class="glyphicon glyphicon-thumbs-up not_favorited">
+	    <span class="glyphicon glyphicon-thumbs-up">
 	    </span>
 	    </button>&nbsp;&nbsp;&nbsp;&nbsp;
 	    <a href="{{ action('ArticlesController@show', [$article->id])}}" target="_blank">
@@ -35,8 +38,8 @@
 	    </span>
 	    </button>
 	    </a>        
-		</li>			      
-        <hr>
+	</article>			      
+    <hr>
 	@endforeach
     <ul>
     {!!$articles->render()!!}
