@@ -53,23 +53,9 @@ new Vue({
 $('.btn-default').click(function() {
     $(this).toggleClass('btn-default');
 });
-//gif alt 
-(function($) {
-  $('figure').on('mouseenter', function() {
-    var $this   = $(this),
-        $index  = $this.index(),     
-        $img    = $this.children('img'),
-        $imgSrc = $img.attr('src'),
-        $imgAlt = $img.attr('data-alt'),
-        $imgExt = $imgAlt.split('.');       
-    if($imgExt[1] === 'gif') {
-      $img.attr('src', $img.data('alt')).attr('data-alt', $imgSrc);
-    } else {//点击停止或改变状态
-      $(this).on('click', function() {
-      $img.attr('src', $imgAlt).attr('data-alt', $img.data('alt'));});
-    }
-  });
-})(jQuery);
+//click to pause 
+$('video').click(function(){this.paused?this.play():this.pause();});
+
 
 
 

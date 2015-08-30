@@ -107,14 +107,9 @@ class ArticlesController extends Controller {
         //获取收到“image”并存储
 		$imageName = $article->id . '.' . $request->file('image')->getClientOriginalExtension();      
         //判断是非gif，Image不支持gif
-        if($request->file('image')->getClientOriginalExtension() == 'gif'){
-        copy($request->file('image'), base_path() . '/public/images/catalog/' . $article->id . '.' . 'gif');
-        //保存一张png点击之用
-        $imageName = $article->id . '.' . 'png';
-        Image::make($request->file('image'))
-        ->insert(base_path() . '/public/images/catalog/gif.png', 'center')
-        ->save(base_path() . '/public/images/catalog/' . $imageName);
-        $article->gif = '1';
+        if($request->file('image')->getClientOriginalExtension() == 'mp4'){
+        copy($request->file('image'), base_path() . '/public/images/catalog/' . $imageName);
+        $article->type = 'mp4';
         }else{
         Image::make($request->file('image'))
         ->resize(460, null, function ($constraint) {$constraint->aspectRatio();})

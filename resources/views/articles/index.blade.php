@@ -12,13 +12,16 @@
 	@foreach($articles as $article)
 	<article class="list-item" id={{$article->id}}   style="margin-top: 0px;">
 		<a href="{{ action('ArticlesController@show', [$article->id])}}"target="_blank" ><h2>{{$article->title}}</h2></a>
-	    @if($article->gif == '1')
-	    <figure><img src="/images/catalog/{{$article->photo}}" alt="{{$article->title}}" data-alt="/images/catalog/{{$article->id}}.gif"></figure>
-	    @endif
-	    @if($article->gif == '0')
+	    @if($article->type == '0')
 	    <a href="{{ action('ArticlesController@show', [$article->id])}}"target="_blank">
 	    <img src="/images/catalog/{{$article->photo}}" alt="{{$article->title}}"></a>
 	    @endif
+	    @if($article->type == 'mp4')
+	    <video  width="460" min-height="300" loop onmouseenter="this.play()">
+		  <source src="/images/catalog/{{$article->photo}}" type="video/mp4">
+		Your browser does not support the video tag.
+		</video>
+		@endif
 		<br>	  
 	    <h5><span id="b{{$article->id}}">{{$article->vote_count}}</span>赞
 		<a href="{{ action('ArticlesController@show', [$article->id])}}" target="_blank">

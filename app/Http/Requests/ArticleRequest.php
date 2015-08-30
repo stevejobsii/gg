@@ -23,7 +23,7 @@ class ArticleRequest extends Request {
 	{
 		return [
 			'title' => 'required',
-			'image' => 'required|image|mimes:jpeg,jpg,png,bmp,gif,svg'
+			'image' => 'required|mimes:jpeg,jpg,png,bmp,mp4'
 		];
 	}
 

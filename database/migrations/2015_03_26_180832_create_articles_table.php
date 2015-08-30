@@ -18,7 +18,7 @@ class CreateArticlesTable extends Migration {
 			$table->integer('user_id')->unsigned();
 			$table->string('title');
 			$table->text('body');
-			$table->integer('gif')->default(0);
+			$table->text('type')->default(0);
 		
 			$table->timestamps();
 			
