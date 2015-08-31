@@ -68,6 +68,7 @@ class UsersController extends Controller
     {
         $user = User::findOrFail($id);
         $replies = Reply::whose($user->id)->recent()->paginate(30);
+        //$articles = Article::
         return view('users.replies', compact('user', 'replies'));
     }
     //user->upvote

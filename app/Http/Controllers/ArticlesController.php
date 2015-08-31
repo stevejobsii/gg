@@ -98,11 +98,8 @@ class ArticlesController extends Controller {
 	 * @return mixed
 	 */
 	private function createArticle(ArticleRequest $request)
-	{
- 
-        
+	{        
 		$article = Auth::user()->articles()->create($request->all());
-
 		$this->syncTags($article, $request->input('tag_list', []));        
         //获取收到“image”并存储
 		$imageName = $article->id . '.' . $request->file('image')->getClientOriginalExtension();      
