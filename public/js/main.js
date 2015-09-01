@@ -54,11 +54,15 @@ $('.btn-default').click(function() {
     $(this).toggleClass('btn-default');
 });
 //click to  play/pause
-$('video').click(function() {
-      if (this.paused) {
-        this.play();
+//!!好难才加gif图标
+$('.video_wrap').mouseenter(function() {$(this).find("video")[0].play();$(this).find("h2").fadeOut();});
+$('.video_wrap').click(function() {
+      if ($(this).find("video")[0].paused) {
+        $(this).find("video")[0].play();
+        $(this).find("h2").fadeOut();
       } else {
-        this.pause();     
+        $(this).find("video")[0].pause();
+        $(this).find("h2").fadeIn();     
       }
 });
 

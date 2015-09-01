@@ -8,19 +8,22 @@
     @unless (!$search)
     <br>搜索：{{$search}}的结果
     @endif
-	<ul class="list">
+	<ul class="list col-md-6">
 	@foreach($articles as $article)
 	<article class="list-item" id={{$article->id}}   style="margin-top: 0px;">
-		<a href="{{ action('ArticlesController@show', [$article->id])}}"target="_blank" ><h2>{{$article->title}}</h2></a>
+		<a href="{{ action('ArticlesController@show', [$article->id])}}"target="_blank" ><h3>{{$article->title}}</h3></a>
 	    @if($article->type == '0')
 	    <a href="{{ action('ArticlesController@show', [$article->id])}}"target="_blank">
 	    <img src="/images/catalog/{{$article->photo}}" alt="{{$article->title}}"></a>
 	    @endif
 	    @if($article->type == 'mp4')
-	    <video  width="460" min-height="300" loop preload="auto" onmouseenter = "this.play()"  poster = '/images/catalog/placeholder.png' >
+	    <div class = "video_wrap">
+	    <h2 class="video_text">Gif</h2>
+	    <video  width="460" min-height="300" loop preload="auto">
 		  <source src="/images/catalog/{{$article->photo}}" type="video/mp4">
 		Your browser does not support the video tag.
 		</video>
+		</div>
 		@endif
 		<br>	  
 	    <h5><span id="b{{$article->id}}">{{$article->vote_count}}</span>赞
