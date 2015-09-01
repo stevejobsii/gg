@@ -5,12 +5,9 @@
         <span> •  </span>
         <abbr class="timeago" title="{{ $reply->created_at }}">{{ $reply->created_at }}</abbr>
           <span> •  </span>
-
       </div>
-
       <div class="media-body markdown-reply content-body">
    {{ $reply->body }}
       </div>
-
     </div>
 </ul>

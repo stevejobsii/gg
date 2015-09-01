@@ -25,15 +25,19 @@
     @endforeach  
     @endif
 	<hr>
+    <div class = "col-md-6">
 	@if($article->type == '0')
     <a href="{{ action('ArticlesController@show', [$article->id])}}"target="_blank">
     <img src="/images/catalog/{{$article->photo}}" alt="{{$article->title}}"></a>
     @endif
     @if($article->type == 'mp4')
-    <video  width="460" min-height="300" loop preload="auto" onmouseenter = "this.play()"  poster = '/images/catalog/placeholder.png' >
+    <div class = "video_wrap">
+    <h2 class="video_text">Gif</h2>
+    <video  width="460" min-height="300" loop preload="auto">
       <source src="/images/catalog/{{$article->photo}}" type="video/mp4">
     Your browser does not support the video tag.
     </video>
+    </div>
     @endif
     <div>共有{{$article->reply_count}}个评论</div>
     @foreach($article->replies as $reply)
@@ -56,6 +60,7 @@
     {!! Form::submit('回复', ['class' => 'btn btn-primary', 'id' => 'reply-create-submit']) !!}
     </div>
     {!! Form::close() !!}
-</div>
+    </div>
+    </div>
 @stop
 

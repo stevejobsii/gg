@@ -1,4 +1,4 @@
-<ul class="list">
+<ul class="list col-md-6">
   @foreach ($replies as $index => $reply)
    <article class="list-item">
     @if (count($reply->article))
@@ -10,11 +10,14 @@
       <img src="/images/catalog/{{$reply->article->photo}}" alt="{{$reply->article->title}}"></a>
       @endif
       @if(($reply->article->type) == 'mp4')
-      <video  width="460" min-height="300" loop onmouseenter="this.play()"  preload="auto" controls>
+      <div class = "video_wrap">
+      <h2 class="video_text">Gif</h2>
+      <video  width="460" min-height="300" loop preload="auto">
       <source src="/images/catalog/{{$reply->article->photo}}" type="video/mp4">
         <div class="badge-item-animated-img">eee</div>
       Your browser does not support the video tag.
       </video>
+      </div>
       @endif
       <div class="reply-body markdown-reply content-body">
       回复:{{ $reply->body }} at <span class="timeago" title="{{ $reply->created_at }}">{{ $reply->created_at }}</span>
@@ -24,5 +27,6 @@
     @endif
   </article>
   @endforeach
+  {!!$replies->render()!!}
 </ul>
-{!!$replies->render()!!}
+
