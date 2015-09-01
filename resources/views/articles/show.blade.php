@@ -24,11 +24,17 @@
     <a href="{{ url('/tags',['name'=>$tag->name]) }}" title="{{ $tag->name }}" target="_blank">{{ $tag->name }}</a>
     @endforeach  
     @endif
-
-	  <hr>
-		<article>
-		<img src="/images/catalog/{{$article->photo}}">
-		</article>	
+	<hr>
+	@if($article->type == '0')
+    <a href="{{ action('ArticlesController@show', [$article->id])}}"target="_blank">
+    <img src="/images/catalog/{{$article->photo}}" alt="{{$article->title}}"></a>
+    @endif
+    @if($article->type == 'mp4')
+    <video  width="460" min-height="300" loop preload="auto" onmouseenter = "this.play()"  poster = '/images/catalog/placeholder.png' >
+      <source src="/images/catalog/{{$article->photo}}" type="video/mp4">
+    Your browser does not support the video tag.
+    </video>
+    @endif
     <div>共有{{$article->reply_count}}个评论</div>
     @foreach($article->replies as $reply)
     <li>{{\App\User::find($reply->user_id)->name}}&nbsp;&nbsp;回复:&nbsp;{{$reply->body}}&nbsp;&nbsp;

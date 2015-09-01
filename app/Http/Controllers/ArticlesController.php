@@ -106,6 +106,8 @@ class ArticlesController extends Controller {
         //判断是非gif，Image不支持gif
         if($request->file('image')->getClientOriginalExtension() == 'mp4'){
         copy($request->file('image'), base_path() . '/public/images/catalog/' . $imageName);
+        // Image::make($request->file('image'))
+        // ->save(base_path() . '/public/images/catalog/' . 'xx.png');
         $article->type = 'mp4';
         }else{
         Image::make($request->file('image'))

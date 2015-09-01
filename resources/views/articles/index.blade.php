@@ -17,13 +17,11 @@
 	    <img src="/images/catalog/{{$article->photo}}" alt="{{$article->title}}"></a>
 	    @endif
 	    @if($article->type == 'mp4')
-	    <video  width="460" min-height="300" loop onmouseenter="this.play()"  preload="auto" >
+	    <video  width="460" min-height="300" loop preload="auto" onmouseenter = "this.play()"  poster = '/images/catalog/placeholder.png' >
 		  <source src="/images/catalog/{{$article->photo}}" type="video/mp4">
-          <img src="/images/catalog/placeholder.png" id = "video-overlay"/>
 		Your browser does not support the video tag.
 		</video>
 		@endif
-
 		<br>	  
 	    <h5><span id="b{{$article->id}}">{{$article->vote_count}}</span>赞
 		<a href="{{ action('ArticlesController@show', [$article->id])}}" target="_blank">

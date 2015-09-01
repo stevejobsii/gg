@@ -14,12 +14,6 @@
 	width: 80px;
 }
 
-#video-overlay {
-
-    position: absolute;
-    display: block;
-    z-index: 9999999;
-}
 .inner-addon { 
     position: relative; 
 }

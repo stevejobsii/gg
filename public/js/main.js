@@ -53,15 +53,15 @@ new Vue({
 $('.btn-default').click(function() {
     $(this).toggleClass('btn-default');
 });
-//click to  
-
+//click to  play/pause
 $('video').click(function() {
       if (this.paused) {
         this.play();
       } else {
-        this.pause();
-        this.controls="controls";
+        this.pause();     
       }
-    });
+});
+
+
 
 
