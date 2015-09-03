@@ -1,3 +1,4 @@
+
 <?php
 
 /*
@@ -13,6 +14,7 @@
 Route::get('/home',function (){return redirect('/articles'); });
 Route::get('about','PageController@about');
 Route::get('contact','PageController@contact');
+
 Route::get('/', function (){return redirect('/articles');
 });
 Route::resource('articles','ArticlesController');
@@ -21,15 +23,6 @@ Route::controllers([
 			'auth'=>'Auth\AuthController',
 			'password'=>'Auth\PasswordController'
 		]);
-Route::get('123', function() 
-{
-    
-   Mail::send('emails.password',[],function($message)
-   {
-    $message->to('stevejobsii@163.com')->subject('12sdfsfd3');
-   });
-});
-
 Route::get('/articles/{id}/upvote', 
     	['as' => 'articles.upvote','uses' => 
     	'ArticlesController@upvote'])->before('csrf');
@@ -54,8 +47,11 @@ Route::get('/users/{id}/upvotes', [
 ]);
 
 
-
-
+# ------------------ delete stuff ------------------------
+Route::delete('articles/{id}/destroy',  [
+        'as' => 'articles.destroy',
+        'uses' => 'ArticlesController@destroy',
+]);
 
 
 

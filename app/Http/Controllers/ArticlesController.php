@@ -5,11 +5,13 @@ use App\Vote;
 use App\Http\Controllers\Controller;
 use Auth;
 use DB;
+use File;
 use Carbon\Carbon;
 use Illuminate\HttpResponse;
 use Illuminate\Http\Request;
 use Intervention\Image\ImageManagerStatic as Image;
 use App\Http\Requests\ArticleRequest;
+use App\Http\Requests\ArticleEditRequest;
 use Illuminate\Http\Request as urlRequest;
 
 
@@ -67,18 +69,18 @@ class ArticlesController extends Controller {
     
 	public function edit(\App\Article $article)
 	{
+		//权限
+		$this->authorOrAdminPermissioinRequire($article->user_id);
         $tags = \App\Tag::lists('name', 'id');
 		return view('articles.edit', compact('article', 'tags'));
 	}
 
 
-	public function update(\App\Article $article, ArticleRequest $request)
+	public function update(\App\Article $article, ArticleEditRequest $request)
 	{
-
+        //只能修改标题标签
 		$article->update($request->all());
-
-		$this->syncTags($article, $request->input('tag_list'));
-
+        $this->syncTags($article, $request->input('tag_list'));
 		return redirect('articles');
 	}
     	/**
@@ -91,7 +93,17 @@ class ArticlesController extends Controller {
 	{
 		$article->tags()->sync($tags);
 	}
-
+    
+    public function destroy($id)
+    {
+        $article = \App\Article::findOrFail($id);
+        //权限
+		$this->authorOrAdminPermissioinRequire($article->user_id);
+		//delete photo
+		File::delete(base_path() . '/public/images/catalog/' . $article->photo);
+        $article->delete();
+        return redirect('articles');
+    }
 	/**
 	 * Save a new article
 	 * @param  ArticleRequest $request
@@ -106,8 +118,6 @@ class ArticlesController extends Controller {
         //判断是非gif，Image不支持gif
         if($request->file('image')->getClientOriginalExtension() == 'mp4'){
         copy($request->file('image'), base_path() . '/public/images/catalog/' . $imageName);
-        // Image::make($request->file('image'))
-        // ->save(base_path() . '/public/images/catalog/' . 'xx.png');
         $article->type = 'mp4';
         }else{
         Image::make($request->file('image'))

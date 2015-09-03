@@ -3,7 +3,7 @@
 
 @section('content')
 
-<h1>{{$article->title}}</h1>
+    <h1>{{$article->title}}</h1>
     <button  id="vote"
             type="button" 
             class="btn btn-default btn-lg"
@@ -15,8 +15,8 @@
     </button>
     <span id="b{{$article->id}}">{{$article->vote_count}}</span>个赞
     <br><a href="/users/{{$article->user_id}}/articles">作者：{{\App\User::find($article->user_id)->name}}</a>
-    <br>创建时间：{{$article->created_at}}
     <br>{{$article->view_count}}看过
+   
     @unless ($article->tags->isEmpty())
     <br>
     tags |
@@ -25,8 +25,10 @@
     @endforeach  
     @endif
 	<hr>
-    <div class = "col-md-6">
-	@if($article->type == '0')
+
+<div class = "col-md-6">
+	
+    @if($article->type == '0')
     <a href="{{ action('ArticlesController@show', [$article->id])}}"target="_blank">
     <img src="/images/catalog/{{$article->photo}}" alt="{{$article->title}}"></a>
     @endif
@@ -39,7 +41,24 @@
     </video>
     </div>
     @endif
+    
     <div>共有{{$article->reply_count}}个评论</div>
+
+    <!-- edit -->
+    @if(Auth::check())
+    @if (Auth::user()->can("manage_topics") || Auth::user()->id == $article->user_id) 
+        <a href="{{ action('ArticlesController@edit', [$article->id])}}">
+        <button class="btn btn-default">修改</button>
+        </a>
+        <div style="float: left" id = 'confirm'>
+        {!! Form::open(array('route' => array('articles.destroy', $article->id), 'method' => 'delete')) !!}
+            <button type="submit" class="btn btn-default">删除</button>
+        {!! Form::close() !!} 
+        </div> 
+    @endif
+    @endif
+
+    <!-- Reply -->
     @foreach($article->replies as $reply)
     <li>{{\App\User::find($reply->user_id)->name}}&nbsp;&nbsp;回复:&nbsp;{{$reply->body}}&nbsp;&nbsp;
     发表时间：{{ $reply->created_at }}
@@ -61,6 +80,6 @@
     </div>
     {!! Form::close() !!}
     </div>
-    </div>
+</div>
 @stop
 
