@@ -12,11 +12,10 @@ return [
     | the usual Laravel view path has already been registered for you.
     |
     */
-
     'paths' => [
         realpath(base_path('resources/views')),
     ],
-
+    //'pagination' => 'pagination::simple',
     /*
     |--------------------------------------------------------------------------
     | Compiled View Path

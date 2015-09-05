@@ -5,10 +5,10 @@
     {{$user->name}}的收藏
     @include('users.partials.infonav')
     @endif
-    @unless (!$search)
+	<ul class="list col-md-6">
+	@unless (!$search)
     <br>搜索：{{$search}}的结果
     @endif
-	<ul class="list col-md-6">
 	@foreach($articles as $article)
 	<article class="list-item" id={{$article->id}} style="margin-top: 0px;">
 		<a href="{{ action('ArticlesController@show', [$article->id])}}"target="_blank" ><h3>{{$article->title}}</h3></a>
@@ -19,7 +19,7 @@
 	    @if($article->type == 'mp4')
 	    <div class = "video_wrap">
 	    <h2 class="video_text">Gif</h2>
-	    <video  width="460" min-height="300" loop preload="auto">
+	    <video  width="460" min-height="300" loop preload="auto" >
 		  <source src="/images/catalog/{{$article->photo}}" type="video/mp4">
 		Your browser does not support the video tag.
 		</video>
@@ -44,5 +44,5 @@
     <hr>
 	@endforeach
     <ul>
-    {!!$articles->render()!!}
+    {!!$articles->appends(Request::except('page'))->render()!!}
 @stop

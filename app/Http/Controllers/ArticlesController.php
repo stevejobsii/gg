@@ -29,11 +29,11 @@ class ArticlesController extends Controller {
         //query
         if($search = $request->query('q'))
         {
-        $articles = Article::search($search)->orderBy('created_at', 'desc')->paginate(30);
+        $articles = Article::search($search)->orderBy('created_at', 'desc')->simplepaginate(30);
         }else{
         //DB::代替Article::
-		$articles = DB::table('articles')->orderBy('created_at', 'desc')->paginate(30);}
-		//已经点赞
+		$articles = DB::table('articles')->orderBy('created_at', 'desc')->simplepaginate(30);}
+		//已经点赞{!!$articles->appends(Request::except('page'))->render()!!}
 		//$f = DB::table('votes')->whereuser_id(Auth::user()->id)->lists('votable_id');
         //http://example.com/custom/url?page=N, you should pass custom/url to the setPath
 		$articles->setPath('articles');

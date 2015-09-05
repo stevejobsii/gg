@@ -4,7 +4,7 @@
 @section('content')
 
     <h1>{{$article->title}}</h1>
-    <h4><a href="/users/{{$article->user_id}}/articles">作者：{{\App\User::find($article->user_id)->name}}</a></h4>
+    <h4><a href="/users/{{$article->user_id}}/articles">作者：{{\App\User::find($article->user_id)->name}}</a><small>&nbsp;&nbsp;放图时间:&nbsp;{{$article->created_at}}</small></h4>
    
     @unless ($article->tags->isEmpty())
     <br>
@@ -30,7 +30,7 @@
     </video>
     </div>
     @endif
-    <div>共有{{$article->reply_count}}个评论&nbsp; • &nbsp;{{$article->view_count}}人看过&nbsp; • &nbsp;放图时间:&nbsp;{{$article->created_at}}</div>
+    <div>共有{{$article->reply_count}}个评论&nbsp; • &nbsp;{{$article->view_count}}人看过</div>
 
     <!-- upvote/edit/delete -->
     <button  id="vote"
@@ -59,7 +59,7 @@
         @foreach($article->replies as $reply)
         <article class="list-item" id={{$reply->id}} style="margin-top: 0px;">
             <a href="{{ route('users.articles', [$reply->user_id]) }}"> {{\App\User::find($reply->user_id)->name}}</a>
-            At：{{ $reply->created_at }}
+            <small>{{ $reply->created_at }}</small>
             
             <!-- Reply upvote/reply on reply-->
             <div class = "pull-right">
@@ -76,7 +76,7 @@
                     ><span id="b{{$reply->id}}">{{$reply->vote_count}}</span>个赞
             </button>
             &nbsp;<button class="btn btn-info"  href="javascript:void(0)" onclick="replyOne('{{ $reply->user->name }}');">@.{{\App\User::find($reply->user_id)->name}}</button>
-            </div> 
+            </div>
             
             <!-- Reply body-->
             <br><br>
@@ -89,7 +89,7 @@
     
     <!-- Reply box-->   
     <div class="reply-box form box-block">
-    <hr>
+    
     {!! Form::open(['route' => 'replies.store', 'id' => 'reply-form', 'method' => 'post']) !!}
     <input type="hidden" name="article_id" value="{{ $article->id }}" />
     <div class="form-group">
