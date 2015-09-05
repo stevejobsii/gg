@@ -11,26 +11,29 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+# ------------------ test stuff ------------------------
 Route::get('/home',function (){return redirect('/articles'); });
 Route::get('about','PageController@about');
 Route::get('contact','PageController@contact');
-
 Route::get('/', function (){return redirect('/articles');
 });
+# ------------------ article stuff ------------------------
 Route::resource('articles','ArticlesController');
+Route::get('/articles/{id}/upvote', 
+        ['as' => 'articles.upvote',
+        'uses' => 'ArticlesController@upvote'])->before('csrf');
+# ------------------ tag stuff ------------------------
 Route::get('tags/{tags}', 'TagsController@show');
+# ------------------ register|login stuff ------------------------
 Route::controllers([
 			'auth'=>'Auth\AuthController',
 			'password'=>'Auth\PasswordController'
 		]);
-Route::get('/articles/{id}/upvote', 
-    	['as' => 'articles.upvote','uses' => 
-    	'ArticlesController@upvote'])->before('csrf');
+# ------------------ Reply stuff ------------------------
 Route::resource('replies', 'RepliesController', ['only' => ['store','destroy']]);
-
-
-
-
+Route::get('/replies/{id}/upvote', 
+        ['as' => 'replies.upvote',
+        'uses' => 'RepliesController@upvote'])->before('csrf');
 # ------------------ User stuff ------------------------
 Route::resource('users','UsersController');
 Route::get('/users/{id}/articles', [
@@ -45,18 +48,26 @@ Route::get('/users/{id}/upvotes', [
     'as' => 'users.upvotes',
     'uses' => 'UsersController@upvotes',
 ]);
-
-
+//通知中心
+Route::get('/notifications', [
+    'as' => 'notifications.index',
+    'uses' => 'NotificationsController@index',
+]);
+//通知数
+Route::get('/notifications/count', [
+    'as' => 'notifications.count',
+    'uses' => 'NotificationsController@count',
+]);
 # ------------------ delete stuff ------------------------
 Route::delete('articles/{id}/destroy',  [
         'as' => 'articles.destroy',
         'uses' => 'ArticlesController@destroy',
 ]);
-
-
-
-
-
+Route::delete('replies/{id}/destroy',  [
+        'as' => 'replies.destroy',
+        'uses' => 'RepliesController@destroy',
+]);
+# ------------------ Password reset stuff ------------------------
 // Password reset link request routes...
 Route::get('password/email', 'Auth\PasswordController@getEmail');
 Route::post('password/email', 'Auth\PasswordController@postEmail');

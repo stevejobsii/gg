@@ -20,7 +20,7 @@ class CreateVotesTable extends Migration
 
             $table->integer('votable_id')->index();
             $table->string('votable_type')->index();
-            $table->string('is')->index();
+            
 
             $table->timestamps();
         });

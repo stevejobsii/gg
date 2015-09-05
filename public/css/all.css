@@ -11,6 +11,17 @@
 }
 
 /* enable absolute positioning */
+strong{
+	color:#444;
+}
+.btn-default{
+	background-color: #f5da55;
+	border: 0px solid #444;
+}
+.remove-padding-horizontal {
+  padding-bottom: 0px;
+  padding-top: 0px;
+}
 .btn-lg{
 	width: 80px;
 }
@@ -21,7 +32,7 @@ a:hover{
     text-decoration: none;
 }
 h3 {
-    color: rgb(0,0,0);
+    color: #444;
 }
 .inner-addon { 
     position: relative; 
@@ -33,10 +44,13 @@ h3 {
 	left: 50%;
     top: 30%;
 	position: absolute;
-
 }
-
-
+.badge-notification-count{
+    border-radius: 10px;
+    background-color: #444;
+    padding: 3px 7px;
+    color: #f5da55;
+}
 .video_text {
     background: #222 none repeat scroll 0 0;
     border: 6px solid #f5da55;
@@ -70,7 +84,7 @@ h3 {
 .right-addon input { padding-right: 10px; }
 
 body {
-  padding-top: 30px; }
+    padding-top: 30px; }
 
 .container {
     margin-top: -10px;}
@@ -100,7 +114,6 @@ body {
     -moz-transition:width 1s ease-in-out;
     -o-transition: width 1s ease-in-out;
     transition: width 1s ease-in-out;
-
  }
 
 .mac-style:focus{

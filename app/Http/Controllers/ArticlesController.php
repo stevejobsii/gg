@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Auth;
 use DB;
 use File;
+use Notification;
 use Carbon\Carbon;
 use Illuminate\HttpResponse;
 use Illuminate\Http\Request;
@@ -47,9 +48,7 @@ class ArticlesController extends Controller {
 
 	public function create()
 	{
-
-		$tags = \App\Tag::lists('name', 'id');
-		
+		$tags = \App\Tag::lists('name', 'id');	
 		return view('articles.create', compact('tags'));
 	}
 
@@ -59,8 +58,7 @@ class ArticlesController extends Controller {
 	 * @return [type]
 	 */
 	public function store(ArticleRequest $request)
-	{
-	  
+	{	  
         $this->createArticle($request);
    		flash()->success('GOOD JOB!', '图片成功发布');
 		return redirect('articles');
@@ -80,7 +78,7 @@ class ArticlesController extends Controller {
 	{
         //只能修改标题标签
 		$article->update($request->all());
-        $this->syncTags($article, $request->input('tag_list'));
+        $this->syncTags($article, $request->input('tag_list', []));
 		return redirect('articles');
 	}
     	/**
@@ -115,7 +113,7 @@ class ArticlesController extends Controller {
 		$this->syncTags($article, $request->input('tag_list', []));        
         //获取收到“image”并存储
 		$imageName = $article->id . '.' . $request->file('image')->getClientOriginalExtension();      
-        //判断是非gif，Image不支持gif
+        //判断是非mp4，Image不支持mp4
         if($request->file('image')->getClientOriginalExtension() == 'mp4'){
         copy($request->file('image'), base_path() . '/public/images/catalog/' . $imageName);
         $article->type = 'mp4';
@@ -133,15 +131,17 @@ class ArticlesController extends Controller {
    public function upvote($id)
     {
         $article = Article::find($id);
-        if ($article->votes()->ByWhom(Auth::id())->WithType('upvote')->count()) {
-            // click twice for remove upvote
-        $article->votes()->ByWhom(Auth::id())->WithType('upvote')->delete();
+        //notify auther 
+        App('App\Notification')->notify('article_upvote', Auth::user(), $article->user, $article);
+        if ($article->votes()->ByWhom(Auth::id())->count()) {
+        // click twice for remove upvote
+        $article->votes()->ByWhom(Auth::id())->delete();
         $article->decrement('vote_count', 1);
         } else {
-            // first time click
-        $article->votes()->create(['user_id' => Auth::id(), 'is' => 'upvote']);
+        // first time click
+        $article->votes()->create(['user_id' => Auth::id()]);
         $article->increment('vote_count', 1);}
-        return $article->vote_count;
+        return $article->vote_count;    
     }
 }
     

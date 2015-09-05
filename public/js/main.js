@@ -49,6 +49,28 @@ new Vue({
        }
     }   
 });
+//reply  upvote
+new Vue({    
+    el: '.reply_list',
+    methods:{
+       toggleLike: function(){
+       var pathname = window.location.hostname;
+       this.$http.get('http://'+pathname+'/replies/'+elId+'/upvote',function(vote_count) {
+       this.$set('vote_count', vote_count);
+       var current = vote_count.substring(1);
+       $('#'+'b'+elId).text(current);}).error(function () {
+        swal({title: "您好！帅哥美女！",   
+        text: "您要先登陆才能点赞或评论!",  
+        type: "warning",   
+        showCancelButton: true,   
+        confirmButtonColor: "#DD6B55",   
+        confirmButtonText: "Yes,登录或注册!",   
+        closeOnConfirm: false }, 
+        function(){window.location.replace('auth/login');});
+        });
+       }
+    }   
+});
 //点赞阴影
 $('.btn-default').click(function() {
     $(this).toggleClass('btn-default');
@@ -66,6 +88,33 @@ $('.video_wrap').click(function() {
       }
 });
 
-
+$('.btn-danger').click(function(e) {
+e.preventDefault(); // Prevent the href from redirecting directly
+    swal({
+      title: "Are you sure?", 
+      text: "If you click 'OK', you will delete it forever." , 
+      type: "warning",
+      showCancelButton: true
+    }, function() {
+       $('.btn-danger').unbind('click').click();
+    });
+});
+// reply a reply !!回复评论
+function replyOne(username){
+    replyContent = $("#reply_content");
+    oldContent = replyContent.val();
+    prefix = "@" + username + " ";
+    newContent = ''
+    if(oldContent.length > 0){
+        if (oldContent != prefix) {
+            newContent = oldContent + "\n" + prefix;
+        }
+    } else {
+        newContent = prefix
+    }
+    replyContent.focus();
+    replyContent.val(newContent);
+    moveEnd($("#reply_content"));
+};
 
 

@@ -1,4 +1,4 @@
-<?php namespace Phphub\Presenters;
+<?php namespace App\good\Presenters;
 
 use Laracasts\Presenter\Presenter;
 use Route;
@@ -9,37 +9,37 @@ class NotificationPresenter extends Presenter
     {
         switch ($this->type) {
             case 'new_reply':
-            $lable = lang('Your topic have new reply:');
+            $lable = 'Your article have new reply:';
                 break;
             case 'attention':
-                $lable = lang('Attented topic has new reply:');
+                $lable = 'Attented article has new reply:';
                 break;
             case 'at':
-                $lable = lang('Mention you At:');
+                $lable = 'Mention you At:';
                 break;
-            case 'topic_favorite':
-                $lable = lang('Favorited your topic:');
+            case 'article_favorite':
+                $lable = 'Favorited your article:';
                 break;
-            case 'topic_attent':
-                $lable = lang('Attented your topic:');
+            case 'article_attent':
+                $lable = 'Attented your article:';
                 break;
-            case 'topic_upvote':
-                $lable = lang('Up Vote your topic');
+            case 'article_upvote':
+                $lable = 'Up Vote your article';
                 break;
             case 'reply_upvote':
-                $lable = lang('Up Vote your reply');
+                $lable = 'Up Vote your reply';
                 break;
-            case 'topic_mark_wiki':
-                $lable = lang('has mark your topic as wiki:');
+            case 'article_mark_wiki':
+                $lable = 'has mark your article as wiki:';
                 break;
-            case 'topic_mark_excellent':
-                $lable = lang('has recomended your topic:');
+            case 'article_mark_excellent':
+                $lable = 'has recomended your article:';
                 break;
             case 'comment_append':
-                $lable = lang('Commented topic has new update:');
+                $lable = 'Commented article has new update:';
                 break;
             case 'attention_append':
-                $lable = lang('Attented topic has new update:');
+                $lable = 'Attented article has new update:';
                 break;
 
             default:

@@ -10,7 +10,7 @@
     @endif
 	<ul class="list col-md-6">
 	@foreach($articles as $article)
-	<article class="list-item" id={{$article->id}}   style="margin-top: 0px;">
+	<article class="list-item" id={{$article->id}} style="margin-top: 0px;">
 		<a href="{{ action('ArticlesController@show', [$article->id])}}"target="_blank" ><h3>{{$article->title}}</h3></a>
 	    @if($article->type == '0')
 	    <a href="{{ action('ArticlesController@show', [$article->id])}}"target="_blank">
@@ -33,15 +33,11 @@
 		</a><br></h5>
 		<button  type="button" 	
 		         class="btn btn-default btn-lg not_favorited"	           
-		         v-on="click: toggleLike">
-	    <span class="glyphicon glyphicon-thumbs-up">
-	    </span>
+		         v-on="click: toggleLike"><strong>点&nbsp;&nbsp;赞</strong>
 	    </button>&nbsp;&nbsp;&nbsp;&nbsp;
 	    <a href="{{ action('ArticlesController@show', [$article->id])}}" target="_blank">
 	    <button  type="button" 	
-		         class="btn btn-default btn-lg not_favorited">	           
-	    <span class="glyphicon glyphicon-comment">
-	    </span>
+		         class="btn btn-default btn-lg not_favorited"><strong>讨&nbsp;&nbsp;论</strong>           
 	    </button>
 	    </a>        
 	</article>			      

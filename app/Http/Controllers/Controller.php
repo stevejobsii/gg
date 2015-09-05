@@ -11,7 +11,7 @@ use Auth;
 abstract class Controller extends BaseController
 {
     use DispatchesJobs, ValidatesRequests;
-
+    
     //作者或则admin才有权，没权直接终止
     public function authorOrAdminPermissioinRequire($author_id)
     {    

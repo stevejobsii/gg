@@ -9,7 +9,7 @@
     </div>
     
     <div class="form-group">
-       {!! Form::label('上传图片:png|jpg|mp4') !!}
+       {!! Form::label('上传图片格式:png|jpg|jpeg|mp4') !!}
        {!! Form::file('image', null) !!}
     </div>
   

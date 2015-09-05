@@ -47,4 +47,11 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     {
         return $this->beLongsToMany('App\Article','votes')->withTimestamps();
     }
+
+    //search user->notification 
+    public function notifications()
+    {
+        //一个user有很多通知
+        return $this->hasMany('App\Notification')->recent()->with('article', 'fromUser')->paginate(20);
+    }
 }

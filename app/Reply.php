@@ -20,7 +20,7 @@ class Reply extends Model
 
     public function votes()
     {
-        return $this->morphMany('Vote', 'votable');
+        return $this->morphMany('App\Vote', 'votable');
     }
 
     public function user()
