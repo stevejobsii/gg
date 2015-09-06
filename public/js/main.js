@@ -117,4 +117,17 @@ function replyOne(username){
     moveEnd($("#reply_content"));
 };
 
-
+WB2.anyWhere(function(W){
+    W.widget.connectButton({
+        id: "wb_connect_btn", 
+        type:"1,2",
+        callback : {
+            login:function(o){  
+             alert("login: " + o.screen_name);//登录后的回调函数
+            },  
+            logout:function(){  
+               alert("login: " + o.screen_name);//退出后的回调函数
+            }
+        }
+    });
+});

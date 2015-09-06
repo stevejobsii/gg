@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:wb="http://open.weibo.com/wb">
 <head>
 	<meta charset="utf-8">
 	<meta property="qc:admins" content="4457261067477476375" />
@@ -7,7 +7,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">	
 	<link  rel="stylesheet" href="/css/all.css">
-	<title>GoodGoto</title>
+	<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=27813139" type="text/javascript" charset="utf-8"></script>
+	<title>好去处GoodGoTo</title>
 </head>
 <body>
 	    @include('partials.nav')

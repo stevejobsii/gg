@@ -34,17 +34,19 @@
 		<div>
 		<div class="left">
 			<ul class="btn-vote-reply"><li><button  type="button" 	
-			         class="btn btn-default btn-lg not_favorited"	           
+			         class="btn btn-default not_favorited"	           
 			         v-on="click: toggleLike"><strong>点&nbsp;&nbsp;赞</strong>
 		    </button></li>
 		    <li><a href="{{ action('ArticlesController@show', [$article->id])}}" target="_blank">
 		    <button  type="button" 	
-			         class="btn btn-default btn-lg not_favorited"><strong>讨&nbsp;&nbsp;论</strong>           
+			         class="btn btn-default not_favorited"><strong>讨&nbsp;&nbsp;论</strong>           
 		    </button>
-		    </a></li>
-            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button class="btn btn-defaul"><strong>Weibo</strong></button></li>
-            <li><button class="btn btn-defaul"><strong>WeiXin</strong></button></li>
+		    </a></li></ul>
+		</div>
+        <div class="pull-right">
+            <ul class="btn-vote-reply"><li>
+            <button class="btn btn-default"><strong>Weibo</strong></button></li>
+            <li><button class="btn btn-default"><strong>WeiXin</strong></button></li>
             </ul>
 	    </div>  
 	    <div class="clearfix"></div>
@@ -55,8 +57,9 @@
     </div>
     
     <div class="col-md-3 side-bar">
+    <wb:login-button type="1,2" onlogin="login" onlogout="logout">登录按钮</wb:login-button>
 	    <div class="btn-group">
-	    <a class="btn btn-lg" href=" articles/create "><strong>
+	    <a class="btn btn-lg-create" href=" articles/create "><strong>
 	    <i class="glyphicon glyphicon-pencil"></i>发 布 新 帖</strong></a>
 	    </div>
     </div>

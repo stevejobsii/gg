@@ -81,7 +81,7 @@ h3 {
 .right-addon input { padding-right: 10px; }
 body {
     padding-top: 30px; }
-.btn-lg{
+.btn-lg-create{
 	background-color: #f5da55;
 	border: 0px solid #444;
 	width: 130px;
@@ -115,7 +115,9 @@ body {
     -o-transition: width 1s ease-in-out;
     transition: width 1s ease-in-out;
  }
-
+.list-item{
+	width: 480px;
+}
 .mac-style:focus{
     width: 260px;
 }
