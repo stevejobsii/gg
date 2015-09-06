@@ -5,7 +5,8 @@
     {{$user->name}}的收藏
     @include('users.partials.infonav')
     @endif
-	<ul class="list col-md-6">
+    <div class= "col-md-9">
+	<ul class="list">
 	@unless (!$search)
     <br>搜索：{{$search}}的结果
     @endif
@@ -24,25 +25,40 @@
 		Your browser does not support the video tag.
 		</video>
 		</div>
-		@endif
-		<br>	  
-	    <h5><span id="b{{$article->id}}">{{$article->vote_count}}</span>赞
+		@endif	  
+	    <h5><strong><span id="b{{$article->id}}">{{$article->vote_count}}</span>赞
 		<a href="{{ action('ArticlesController@show', [$article->id])}}" target="_blank">
 		<span>&nbsp; • &nbsp;</span>{{$article->reply_count}}讨论
 		<span>&nbsp; • &nbsp;</span>{{$article->view_count}}观摩
-		</a><br></h5>
-		<button  type="button" 	
-		         class="btn btn-default btn-lg not_favorited"	           
-		         v-on="click: toggleLike"><strong>点&nbsp;&nbsp;赞</strong>
-	    </button>&nbsp;&nbsp;&nbsp;&nbsp;
-	    <a href="{{ action('ArticlesController@show', [$article->id])}}" target="_blank">
-	    <button  type="button" 	
-		         class="btn btn-default btn-lg not_favorited"><strong>讨&nbsp;&nbsp;论</strong>           
-	    </button>
-	    </a>        
+		</a></strong></h5>
+		<div>
+		<div class="left">
+			<ul class="btn-vote-reply"><li><button  type="button" 	
+			         class="btn btn-default btn-lg not_favorited"	           
+			         v-on="click: toggleLike"><strong>点&nbsp;&nbsp;赞</strong>
+		    </button></li>
+		    <li><a href="{{ action('ArticlesController@show', [$article->id])}}" target="_blank">
+		    <button  type="button" 	
+			         class="btn btn-default btn-lg not_favorited"><strong>讨&nbsp;&nbsp;论</strong>           
+		    </button>
+		    </a></li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="btn btn-defaul"><strong>Weibo</strong></button></li>
+            <li><button class="btn btn-defaul"><strong>WeiXin</strong></button></li>
+            </ul>
+	    </div>  
+	    <div class="clearfix"></div>
 	</article>			      
     <hr>
 	@endforeach
-    <ul>
-    {!!$articles->appends(Request::except('page'))->render()!!}
+    </ul>{!!$articles->appends(Request::except('page'))->render()!!}
+    </div>
+    
+    <div class="col-md-3 side-bar">
+	    <div class="btn-group">
+	    <a class="btn btn-lg" href=" articles/create "><strong>
+	    <i class="glyphicon glyphicon-pencil"></i>发 布 新 帖</strong></a>
+	    </div>
+    </div>
+</div>
 @stop

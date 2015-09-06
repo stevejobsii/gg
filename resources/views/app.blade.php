@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta property="qc:admins" content="4457261067477476375" />
+	<meta property="wb:webmaster" content="55004ec0cf08115a" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">	
 	<link  rel="stylesheet" href="/css/all.css">
