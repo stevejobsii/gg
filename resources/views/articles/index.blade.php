@@ -58,6 +58,8 @@
     
     <div class="col-md-3 side-bar">
     <wb:login-button type="1,2" onlogin="login" onlogout="logout">登录按钮</wb:login-button>
+    <a class="btn btn-lg-create" href=" articles/create "><strong>
+	    <i class="glyphicon glyphicon-user"></i>用 QQ 登 陆</strong></a>
 	    <div class="btn-group">
 	    <a class="btn btn-lg-create" href=" articles/create "><strong>
 	    <i class="glyphicon glyphicon-pencil"></i>发 布 新 帖</strong></a>

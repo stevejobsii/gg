@@ -1,5 +1,5 @@
 <?php namespace App\Http\Controllers;
-                 
+
 use App\Article;
 use App\Vote;
 use App\Http\Controllers\Controller;
@@ -15,133 +15,135 @@ use App\Http\Requests\ArticleRequest;
 use App\Http\Requests\ArticleEditRequest;
 use Illuminate\Http\Request as urlRequest;
 
-
-class ArticlesController extends Controller {
-
+class ArticlesController extends Controller
+{
     //登陆前只能看index和show
-	public function __construct(){
-		$this->middleware('auth', ['except' => ['index', 'show']]);
-	}
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index', 'show']]);
+    }
 
 
-	public function index(urlRequest $request)
-	{
+    public function index(urlRequest $request)
+    {
         //query
-        if($search = $request->query('q'))
-        {
-        $articles = Article::search($search)->orderBy('created_at', 'desc')->simplepaginate(30);
-        }else{
-        //DB::代替Article::
-		$articles = DB::table('articles')->orderBy('created_at', 'desc')->simplepaginate(30);}
-		//已经点赞{!!$articles->appends(Request::except('page'))->render()!!}
-		//$f = DB::table('votes')->whereuser_id(Auth::user()->id)->lists('votable_id');
+        if ($search = $request->query('q')) {
+            $articles = Article::search($search)->orderBy('created_at', 'desc')->simplepaginate(30);
+        } else {
+            //DB::代替Article::
+        $articles = DB::table('articles')->orderBy('created_at', 'desc')->simplepaginate(30);
+        }
+        //已经点赞{!!$articles->appends(Request::except('page'))->render()!!}
+        //$f = DB::table('votes')->whereuser_id(Auth::user()->id)->lists('votable_id');
         //http://example.com/custom/url?page=N, you should pass custom/url to the setPath
-		$articles->setPath('articles');
-		return view('articles.index',compact('articles','search'));
-	}
+        $articles->setPath('articles');
+        return view('articles.index', compact('articles', 'search'));
+    }
 
-	public function show(\App\Article $article)
-	{
-		$article->increment('view_count', 1);
-		return view('articles.show',compact('article'));
-	}
+    public function show(\App\Article $article)
+    {
+        $article->increment('view_count', 1);
+        return view('articles.show', compact('article'));
+    }
 
-	public function create()
-	{
-		$tags = \App\Tag::lists('name', 'id');	
-		return view('articles.create', compact('tags'));
-	}
+    public function create()
+    {
+        $tags = \App\Tag::lists('name', 'id');
+        return view('articles.create', compact('tags'));
+    }
 
-	/**
-	 * [store description]
-	 * @param  ArticleRequest
-	 * @return [type]
-	 */
-	public function store(ArticleRequest $request)
-	{	  
+    /**
+     * [store description]
+     * @param  ArticleRequest
+     * @return [type]
+     */
+    public function store(ArticleRequest $request)
+    {
         $this->createArticle($request);
-   		flash()->success('GOOD JOB!', '图片成功发布');
-		return redirect('articles');
-	}
+        flash()->success('GOOD JOB!', '图片成功发布');
+        return redirect('articles');
+    }
 
     
-	public function edit(\App\Article $article)
-	{
-		//权限
-		$this->authorOrAdminPermissioinRequire($article->user_id);
+    public function edit(\App\Article $article)
+    {
+        //权限
+        $this->authorOrAdminPermissioinRequire($article->user_id);
         $tags = \App\Tag::lists('name', 'id');
-		return view('articles.edit', compact('article', 'tags'));
-	}
+        return view('articles.edit', compact('article', 'tags'));
+    }
 
 
-	public function update(\App\Article $article, ArticleEditRequest $request)
-	{
+    public function update(\App\Article $article, ArticleEditRequest $request)
+    {
         //只能修改标题标签
-		$article->update($request->all());
+        $article->update($request->all());
         $this->syncTags($article, $request->input('tag_list', []));
-		return redirect('articles');
-	}
-    	/**
-	 * Sync up the list of tags in the database
-	 *
-	 * @param  Article $article
-	 * @param  array   $tags
-	 */
-	private function syncTags(\App\Article $article, array $tags)
-	{
-		$article->tags()->sync($tags);
-	}
+        return redirect('articles');
+    }
+        /**
+     * Sync up the list of tags in the database
+     *
+     * @param  Article $article
+     * @param  array   $tags
+     */
+    private function syncTags(\App\Article $article, array $tags)
+    {
+        $article->tags()->sync($tags);
+    }
     
     public function destroy($id)
     {
         $article = \App\Article::findOrFail($id);
         //权限
-		$this->authorOrAdminPermissioinRequire($article->user_id);
-		//delete photo
-		File::delete(base_path() . '/public/images/catalog/' . $article->photo);
+        $this->authorOrAdminPermissioinRequire($article->user_id);
+        //delete photo
+        File::delete(base_path() . '/public/images/catalog/' . $article->photo);
         $article->delete();
         return redirect('articles');
     }
-	/**
-	 * Save a new article
-	 * @param  ArticleRequest $request
-	 * @return mixed
-	 */
-	private function createArticle(ArticleRequest $request)
-	{        
-		$article = Auth::user()->articles()->create($request->all());
-		$this->syncTags($article, $request->input('tag_list', []));        
+    /**
+     * Save a new article
+     * @param  ArticleRequest $request
+     * @return mixed
+     */
+    private function createArticle(ArticleRequest $request)
+    {
+        $article = Auth::user()->articles()->create($request->all());
+        $this->syncTags($article, $request->input('tag_list', []));
         //获取收到“image”并存储
-		$imageName = $article->id . '.' . $request->file('image')->getClientOriginalExtension();      
+        $imageName = $article->id . '.' . $request->file('image')->getClientOriginalExtension();
         //判断是非mp4，Image不支持mp4
-        if($request->file('image')->getClientOriginalExtension() == 'mp4'){
-        copy($request->file('image'), base_path() . '/public/images/catalog/' . $imageName);
-        $article->type = 'mp4';
-        }else{
-        Image::make($request->file('image'))
-        ->resize(460, null, function ($constraint) {$constraint->aspectRatio();})
+        if ($request->file('image')->getClientOriginalExtension() == 'mp4') {
+            copy($request->file('image'), base_path() . '/public/images/catalog/' . $imageName);
+            $article->type = 'mp4';
+        } else {
+            Image::make($request->file('image'))
+        ->resize(460, null, function ($constraint) {$constraint->aspectRatio();}
+            )
         ->insert(base_path() . '/public/images/catalog/watermark.jpg', 'right')
-        ->save(base_path() . '/public/images/catalog/' . $imageName);}      
+        ->save(base_path() . '/public/images/catalog/' . $imageName);
+        }
         //保存存储名字和extension
         $article->photo = $imageName;
         $article->save();
-		return $article;
-	}
+        return $article;
+    }
 
-   public function upvote($id)
+    public function upvote($id)
     {
         $article = Article::find($id);
         //notify auther 
         App('App\Notification')->notify('article_upvote', Auth::user(), $article->user, $article);
         if ($article->votes()->ByWhom(Auth::id())->count()) {
-        // click twice for remove upvote
+            // click twice for remove upvote
         $article->votes()->ByWhom(Auth::id())->delete();
-        $article->decrement('vote_count', 1);
+            $article->decrement('vote_count', 1);
         } else {
-        // first time click
+            // first time click
         $article->votes()->create(['user_id' => Auth::id()]);
-        $article->increment('vote_count', 1);}
-        return $article->vote_count;    
+            $article->increment('vote_count', 1);
+        }
+        return $article->vote_count;
     }
 }
-    

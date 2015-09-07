@@ -12,10 +12,12 @@ use Intervention\Image\ImageManagerStatic as Image;
 use App\Http\Requests\ReplyRequest;
 use App\good\Notification\Mention;
 
-class RepliesController extends Controller {
+class RepliesController extends Controller
+{
     protected $mentionParser;
 
-    public function __construct(Mention $mentionParser){
+    public function __construct(Mention $mentionParser)
+    {
         $this->middleware('auth');
         $this->mentionParser = $mentionParser;
     }
@@ -23,7 +25,7 @@ class RepliesController extends Controller {
     public function store(ReplyRequest $request)
     {
         //save reply
-        $request['user_id'] = Auth::id(); 
+        $request['user_id'] = Auth::id();
         $request['body'] = $this->mentionParser->parse($request['body']);
         //return  $request['body'];   
         $reply = Reply::create($request->all());
@@ -33,7 +35,7 @@ class RepliesController extends Controller {
         $article->updated_at = Carbon::now();
         $article->save();
         //通知  after user  
-        App('App\good\Notification\Notifier')->newReplyNotify(Auth::user(),$this->mentionParser, $article, $reply);
+        App('App\good\Notification\Notifier')->newReplyNotify(Auth::user(), $this->mentionParser, $article, $reply);
         return  back();
     }
 
@@ -44,13 +46,14 @@ class RepliesController extends Controller {
         //notify commenter
         App('App\Notification')->notify('reply_upvote', Auth::user(), $reply->user, $reply->article, $reply);
         if ($reply->votes()->ByWhom(Auth::id())->count()) {
-        // click twice for remove upvote
+            // click twice for remove upvote
         $reply->votes()->ByWhom(Auth::id())->delete();
-        $reply->decrement('vote_count', 1);
+            $reply->decrement('vote_count', 1);
         } else {
-        // first time click
+            // first time click
         $reply->votes()->create(['user_id' => Auth::id()]);
-        $reply->increment('vote_count', 1);}
+            $reply->increment('vote_count', 1);
+        }
         return $reply->vote_count;
     }
 

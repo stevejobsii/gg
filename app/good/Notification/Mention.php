@@ -27,9 +27,10 @@ class Mention
         $this->body_parsed = $this->body_original;
 
         foreach ($this->users as $user) {
-            $search = '@@' . $user->name;
+            $search =  '@'.$user->name;
+            $place = ''.$search.'('.route('users.show', $user->id).')';
             //$place = route('users.show', $user->id);
-            $place = '['.$search.']('.route('users.show', $user->id).')';
+            //$place = $search.route('users.show', $user->id);
             
             $this->body_parsed = str_replace($search, $place, $this->body_parsed);
         }
