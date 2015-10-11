@@ -27,7 +27,7 @@ class Mention
         $this->body_parsed = $this->body_original;
 
         foreach ($this->users as $user) {
-            $search =  '@'.$user->name;
+            $search =  '@@'.$user->name;
             $place = ''.$search.'('.route('users.show', $user->id).')';
             //$place = route('users.show', $user->id);
             //$place = $search.route('users.show', $user->id);

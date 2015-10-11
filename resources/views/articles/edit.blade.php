@@ -5,7 +5,7 @@
 	<h1>Edit Article: {!! $article->title !!}</h1>
 	<hr>
 
-	{!! Form::model($article, ['method'=>'PATCH', 'action'=>['ArticlesController@update',$article->id],'files' => true]) !!}	    
+	{!! Form::model($article, ['method'=>'PATCH', 'action'=>['ArticlesController@update',$article->photo],'files' => true]) !!}	    
 		    <div class="group">
 				{!! Form::label('title', '题目：') !!}
 				{!! Form::text('title', null, ['class'=>'form-control']) !!}
@@ -17,14 +17,6 @@
 			<div class="group">
 				{!! Form::submit('提交', ['class'=>'btn btn-primary form-control']) !!}
 			</div>
-			<br>
-			@section('footer')
-		    <script type="text/javascript">
-			$('#tag_list').select2({
-				placeholder: '选择图片标签'
-			});
-		    </script> 
-		    @endsection   
 	{!! Form::close() !!}
 
 	<br>

@@ -49,9 +49,9 @@ class Notification extends \Eloquent
         $data = [];
 
         foreach ($users as $toUser) {
-            if ($fromUser->id == $toUser->id) {
-                continue;
-            }
+            // if ($fromUser->id == $toUser->id) {
+            //     continue;
+            // }自己不通知自己
 
             $data[] = [
                 'from_user_id' => $fromUser->id,
@@ -76,9 +76,9 @@ class Notification extends \Eloquent
     public static function notify($type, User $fromUser, User $toUser, Article $article, Reply $reply = null)
     {
 
-        if ($fromUser->id == $toUser->id) {
-            return;
-        }
+        // if ($fromUser->id == $toUser->id) {
+        //     return;
+        // }自己不通知自己
         
         if (Notification::isNotified($fromUser->id, $toUser->id, $article->id, $type)) {
             return;

@@ -1,4 +1,4 @@
-<ul class="list col-md-6">
+<ul class="list col-md-8">
   @foreach ($upvotes as $index => $upvote)
    <article class="list-item">
     @if (count($upvote->article))
@@ -9,10 +9,14 @@
       <a href="{{ action('ArticlesController@show', [$upvote->votable_id])}}"target="_blank">
       <img src="/images/catalog/{{$upvote->article->photo}}" alt="{{$upvote->article->title}}"></a>
       @endif
+      @if($upvote->article->type == 'longimage')
+      <a href="{{ action('ArticlesController@show', [$article->id])}}"target="_blank">
+      <img src="/images/catalog/long{{$article->photo}}" alt="{{$article->title}}"></a>
+      @endif
       @if(($upvote->article->type) == 'mp4')
       <div class = "video_wrap">
       <h2 class="video_text">Gif</h2>
-      <video  width="460" min-height="300" loop preload="auto">
+      <video  width="480" min-height="300" loop preload="auto">
       <source src="/images/catalog/{{$upvote->article->photo}}" type="video/mp4">
       Your browser does not support the video tag.
       </video>
@@ -28,4 +32,6 @@
   @endforeach
   {!!$upvotes->render()!!}
 </ul>
+
+@include('sidebar')
 

@@ -49,10 +49,12 @@ class RepliesController extends Controller
             // click twice for remove upvote
         $reply->votes()->ByWhom(Auth::id())->delete();
             $reply->decrement('vote_count', 1);
+            $reply->article()->decrement('vote_count', 1);
         } else {
             // first time click
         $reply->votes()->create(['user_id' => Auth::id()]);
             $reply->increment('vote_count', 1);
+            $reply->article()->increment('vote_count', 1);
         }
         return $reply->vote_count;
     }
@@ -65,6 +67,6 @@ class RepliesController extends Controller
         $this->authorOrAdminPermissioinRequire($reply->user_id);
         $reply->delete();
         $reply->article->decrement('reply_count', 1);
-        return redirect('articles/'. $reply->article_id);
+        return redirect('articles/'. $reply->article->photo);
     }
 }

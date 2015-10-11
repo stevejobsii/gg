@@ -59,7 +59,7 @@ Route::get('/notifications/count', [
     'uses' => 'NotificationsController@count',
 ]);
 # ------------------ delete stuff ------------------------
-Route::delete('articles/{id}/destroy',  [
+Route::delete('articles/{photo}/destroy',  [
         'as' => 'articles.destroy',
         'uses' => 'ArticlesController@destroy',
 ]);
@@ -67,6 +67,26 @@ Route::delete('replies/{id}/destroy',  [
         'as' => 'replies.destroy',
         'uses' => 'RepliesController@destroy',
 ]);
+# ------------------ bookmark stuff ------------------------
+post('api/bookmark', function() {
+         Auth::user()->bookmark = Request::get('bookmark');
+         Auth::user()->save();
+});
+get('api/bookmark', function(){
+    return Auth::user()->bookmark;
+});
+# ------------------ guestbook stuff ------------------------
+use App\Message;
+get('guestbook', function() {
+    return view('guestbook/guestbook');
+});
+// API
+get('api/messages', function() {
+    return App\Message::all();
+});
+post('api/messages', function() {
+    return App\Message::create(Request::all());
+});
 # ------------------ Password reset stuff ------------------------
 // Password reset link request routes...
 Route::get('password/email', 'Auth\PasswordController@getEmail');

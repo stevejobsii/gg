@@ -29,10 +29,17 @@ class ArticlesController extends Controller
         //query
         if ($search = $request->query('q')) {
             $articles = Article::search($search)->orderBy('created_at', 'desc')->simplepaginate(30);
+        } elseif ($search = $request->query('id')) {
+            //查找伪id（photo）
+            $search = \App\Article::where('photo', $search)->firstOrFail()->id;
+            $articles = DB::table('articles')->where('id', '<=', $search)->orderBy('created_at', 'desc')->simplepaginate(30);
+            //伪搜索结果
+            $search = $request->query('id');
         } else {
             //DB::代替Article::
-        $articles = DB::table('articles')->orderBy('created_at', 'desc')->simplepaginate(30);
+            $articles = DB::table('articles')->orderBy('created_at', 'desc')->simplepaginate(30);
         }
+        //->where('id', '<', 100)
         //已经点赞{!!$articles->appends(Request::except('page'))->render()!!}
         //$f = DB::table('votes')->whereuser_id(Auth::user()->id)->lists('votable_id');
         //http://example.com/custom/url?page=N, you should pass custom/url to the setPath
@@ -92,13 +99,13 @@ class ArticlesController extends Controller
         $article->tags()->sync($tags);
     }
     
-    public function destroy($id)
+    public function destroy($photo)
     {
-        $article = \App\Article::findOrFail($id);
+        $article = \App\Article::where('photo', $photo)->firstOrFail();
         //权限
         $this->authorOrAdminPermissioinRequire($article->user_id);
         //delete photo
-        File::delete(base_path() . '/public/images/catalog/' . $article->photo);
+        File::delete(base_path() . '/public/images/catalog/' . $article->photo . $article->type);
         $article->delete();
         return redirect('articles');
     }
@@ -112,20 +119,42 @@ class ArticlesController extends Controller
         $article = Auth::user()->articles()->create($request->all());
         $this->syncTags($article, $request->input('tag_list', []));
         //获取收到“image”并存储
-        $imageName = $article->id . '.' . $request->file('image')->getClientOriginalExtension();
-        //判断是非mp4，Image不支持mp4
+        // $type = $request->file('image')->getClientOriginalExtension();
+        //$imageName = ($article->id) . '.' . $request->file('image')->getClientOriginalExtension();
+        $length = 6;
+        $randomString = substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, $length);
+
+        //判断是非mp4，Image不支持mp4,判断是否长图
         if ($request->file('image')->getClientOriginalExtension() == 'mp4') {
-            copy($request->file('image'), base_path() . '/public/images/catalog/' . $imageName);
-            $article->type = 'mp4';
+            copy($request->file('image'), base_path() . '/public/images/catalog/' . $randomString . '.mp4');
+            $article->type = '.mp4';
         } else {
+            list($originalWidth, $originalHeight) = getimagesize($request->file('image'));
+            $ratio = $originalHeight / $originalWidth; 
+            if ($ratio < '3.5'){
             Image::make($request->file('image'))
-        ->resize(460, null, function ($constraint) {$constraint->aspectRatio();}
+            ->resize(480, null, function ($constraint) {$constraint->aspectRatio();}
             )
-        ->insert(base_path() . '/public/images/catalog/watermark.jpg', 'right')
-        ->save(base_path() . '/public/images/catalog/' . $imageName);
+            ->insert(base_path() . '/public/images/catalog/watermark.jpg', 'right')
+            ->encode('jpg')
+            ->save(base_path() . '/public/images/catalog/' . $randomString . '.jpg');
+            $article->type = '.jpg';
+            } else { 
+            Image::make($request->file('image'))
+            ->resize(480, null, function ($constraint) {$constraint->aspectRatio();}
+            )
+            ->insert(base_path() . '/public/images/catalog/watermark.jpg', 'right')
+            ->encode('jpg')
+            ->save(base_path() . '/public/images/catalog/' . $randomString . '_long.jpg');
+            Image::make($request->file('image'))
+            ->resize(480, null, function ($constraint) {$constraint->aspectRatio();})
+            ->resizeCanvas(480, 285,'top')
+            ->encode('jpg')
+            ->save(base_path() . '/public/images/catalog/' . $randomString . '.jpg');
+            $article->type = '_long.jpg'; }
         }
         //保存存储名字和extension
-        $article->photo = $imageName;
+        $article->photo = $randomString;
         $article->save();
         return $article;
     }

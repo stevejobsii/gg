@@ -1,5 +1,5 @@
 	<div class="group">
-		{!! Form::label('title', '题目：') !!}
+		{!! Form::label('title', '题目：') !!}<span class="error">*</span>
 		{!! Form::text('title', null, ['class'=>'form-control']) !!}
 	</div>
     
@@ -9,7 +9,7 @@
     </div>
     
     <div class="form-group">
-       {!! Form::label('上传图片格式:png|jpg|jpeg|mp4') !!}
+       {!! Form::label('上传图片格式:png|jpg|jpeg|mp4') !!}<span class="error">*</span>
        {!! Form::file('image', null) !!}
     </div>
   
@@ -19,10 +19,5 @@
 	<br>
 
 	@section('footer')
-    <script type="text/javascript">
-	$('#tag_list').select2({
-		placeholder: '选择图片标签'
-	});
-    </script> 
     
     @endsection   

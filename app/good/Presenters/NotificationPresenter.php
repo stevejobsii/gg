@@ -9,13 +9,13 @@ class NotificationPresenter extends Presenter
     {
         switch ($this->type) {
             case 'new_reply':
-            $lable = 'Your article have new reply:';
+            $lable = '在您的图片发表了新的评论  ';
                 break;
             case 'attention':
                 $lable = 'Attented article has new reply:';
                 break;
             case 'at':
-                $lable = 'Mention you At:';
+                $lable = '提及您在  ';
                 break;
             case 'article_favorite':
                 $lable = 'Favorited your article:';
@@ -24,10 +24,10 @@ class NotificationPresenter extends Presenter
                 $lable = 'Attented your article:';
                 break;
             case 'article_upvote':
-                $lable = 'Up Vote your article';
+                $lable = '点赞了您的图片  ';
                 break;
             case 'reply_upvote':
-                $lable = 'Up Vote your reply';
+                $lable = '点赞了您的评论  ';
                 break;
             case 'article_mark_wiki':
                 $lable = 'has mark your article as wiki:';

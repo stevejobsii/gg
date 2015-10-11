@@ -3,13 +3,10 @@
 
 @section('content')
 
-<div class="panel panel-default">
-    <div class="panel-heading">
-    <h5>通知中心</h5>
-    </div>
     @if (count($notifications))
-        <div class="panel-body remove-padding-horizontal">
+        <div>
             <ul class="list-group row">
+              <h5>通知中心</h5>
               @foreach ($notifications as $notification)
                 <li class="list-group-item" style="margin-top: 0px;">
                 @if (count($notification->article))
@@ -17,13 +14,15 @@
                 <a href="{{ route('users.articles', [$notification->from_user_id]) }}">
                 {{ $notification->fromUser->name }}
                 </a>
-                •{{ $notification->present()->lableUp }}
+                {{ $notification->present()->lableUp }}
                 <a href="{{ route('articles.show', [$notification->article->id])}}">
                 {{{ str_limit($notification->article->title, '100') }}}
                 </a>
-                • at • {{ $notification->created_at }}
+                    于{{ $notification->created_at }}
                 <div>
-                {{ $notification->body }}
+                @if ($notification->body)
+                评论：{{ $notification->body }}
+                @endif
                 </div>
                 </div>
                 @else
@@ -35,7 +34,7 @@
         </div>
     @else
         <div class="panel-body">
-        <div class="empty-block">You dont have any notice yet!</div>
+        <div class="empty-block">您暂时还没有什通知或信息！</div>
         </div>
     @endif
 </div>
