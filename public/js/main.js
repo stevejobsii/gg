@@ -8,10 +8,11 @@ Vue.http.headers.common['X-CSRF-TOKEN'] = document.querySelector('#token').getAt
           type  = $(this).attr("data-type");
       });
   });
-  function SetShareUrl(cmd, config) {            
+  function SetShareUrl(cmd, config) {   
+        var pathname = window.location.hostname;         
         config.bdText = title+'请访问goodgoto.com';
-        config.bdUrl = 'http://192.168.10.10/images/catalog/'+ photo + type;
-        config.bdPic = 'http://192.168.10.10/images/catalog/'+ photo + type;
+        config.bdUrl = 'http://'+pathname+'/images/catalog/'+ photo + type;
+        config.bdPic = 'http://'+pathname+'/images/catalog/'+ photo + type;
         return config;
   };
   window._bd_share_config = {
