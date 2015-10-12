@@ -135,7 +135,7 @@ class ArticlesController extends Controller
             Image::make($request->file('image'))
             ->resize(480, null, function ($constraint) {$constraint->aspectRatio();}
             )
-            ->insert(base_path() . '/public/images/catalog/watermark.jpg', 'right')
+            ->insert(base_path() . '/public/images/catalog/watermark.jpg', 'right',10)
             ->encode('jpg')
             ->save(base_path() . '/public/images/catalog/' . $randomString . '.jpg');
             $article->type = '.jpg';
@@ -143,7 +143,7 @@ class ArticlesController extends Controller
             Image::make($request->file('image'))
             ->resize(480, null, function ($constraint) {$constraint->aspectRatio();}
             )
-            ->insert(base_path() . '/public/images/catalog/watermark.jpg', 'right')
+            ->insert(base_path() . '/public/images/catalog/watermark.jpg', 'right',10)
             ->encode('jpg')
             ->save(base_path() . '/public/images/catalog/' . $randomString . '_long.jpg');
             Image::make($request->file('image'))

@@ -32,10 +32,10 @@
 	    </script>
 	    <div id="side-bar-ad">
 	    <img-slider>
-	    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/5689/rock.jpg">
-	    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/5689/grooves.jpg">
-	    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/5689/arch.jpg">
-	    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/5689/sunset.jpg">
+	    <img src="/images/catalog/rock.jpg">
+	    <img src="/images/catalog/grooves.jpg">
+	    <img src="/images/catalog/arch.jpg">
+	    <img src="/images/catalog/sunset.jpg">
 	    </img-slider>
 	    </div>
 	    <p style="text-align: center">
