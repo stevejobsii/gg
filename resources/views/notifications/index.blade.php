@@ -11,9 +11,13 @@
                 <li class="list-group-item" style="margin-top: 0px;">
                 @if (count($notification->article))
                 <div class="infos">
-                <a href="{{ route('users.articles', [$notification->from_user_id]) }}">
-                {{ $notification->fromUser->name }}
-                </a>
+                    @if (count($notification->from_user_id))
+                    <a href="{{ route('users.articles', [$notification->from_user_id]) }}">
+                    {{ $notification->fromUser->name }}
+                    </a>
+                    @else
+                    匿名
+                    @endif
                 {{ $notification->present()->lableUp }}
                 <a href="{{ route('articles.show', [$notification->article->id])}}">
                 {{{ str_limit($notification->article->title, '100') }}}

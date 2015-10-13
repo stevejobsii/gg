@@ -18,7 +18,7 @@ class RepliesController extends Controller
 
     public function __construct(Mention $mentionParser)
     {
-        $this->middleware('auth');
+        $this->middleware('auth', ['except' => ['upvote']]);
         $this->mentionParser = $mentionParser;
     }
     //回复需要填写body,最重要的store功能
@@ -39,22 +39,33 @@ class RepliesController extends Controller
         return  back();
     }
 
-    public function upvote($id)
+    public function upvote($id,Request $request)
     {
         //upvote reply
         $reply = Reply::find($id);
         //notify commenter
-        App('App\Notification')->notify('reply_upvote', Auth::user(), $reply->user, $reply->article, $reply);
-        if ($reply->votes()->ByWhom(Auth::id())->count()) {
-            // click twice for remove upvote
-        $reply->votes()->ByWhom(Auth::id())->delete();
+        if (Auth::check()){
+            App('App\Notification')->notify('reply_upvote', Auth::user(), $reply->user, $reply->article, $reply);
+            if ($reply->votes()->ByWhom(Auth::id())->count()) {
+                // click twice for remove upvote
+            $reply->votes()->ByWhom(Auth::id())->delete();
             $reply->decrement('vote_count', 1);
             $reply->article()->decrement('vote_count', 1);
-        } else {
-            // first time click
-        $reply->votes()->create(['user_id' => Auth::id()]);
+            } else {
+                // first time click
+            $reply->votes()->create(['user_id' => Auth::id()]);
             $reply->increment('vote_count', 1);
             $reply->article()->increment('vote_count', 1);
+            }
+        }else{//匿名投票
+            App('App\Notification')->nonamenotify('reply_upvote', $reply->user, $reply->article, $reply);
+            if ($reply->votes()->ByWhom($request->ip())->count()) {
+            $reply->votes()->ByWhom($request->ip())->delete();
+            $reply->decrement('vote_count', 1);
+            } else {
+            $reply->votes()->create(['user_id' => $request->ip()]);
+            $reply->increment('vote_count', 1);
+            }
         }
         return $reply->vote_count;
     }

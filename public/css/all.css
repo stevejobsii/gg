@@ -8,6 +8,9 @@
 .navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav> .open> a:hover{
 	background: transparent;
 }
+.col-md-8{
+	margin-top:-10px;
+}
 .navbar-nav>li>a{
 	padding-bottom: 6px;
 }
@@ -21,6 +24,9 @@
     position: fixed;
     right: 20px;
     bottom: 20px;
+}
+#side-bar-ad{
+	margin-top: 10px;
 }
 .btn-side-bar li {
 	list-style: outside none none;

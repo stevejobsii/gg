@@ -17,9 +17,11 @@ Route::get('about','PageController@about');
 Route::get('contact','PageController@contact');
 Route::get('/', function (){return redirect('/articles');
 });
+Route::get('/test', function (){return Request::getClientIp();
+});
 # ------------------ article stuff ------------------------
 Route::resource('articles','ArticlesController');
-Route::get('/articles/{id}/upvote', 
+Route::post('/articles/{id}/upvote', 
         ['as' => 'articles.upvote',
         'uses' => 'ArticlesController@upvote'])->before('csrf');
 # ------------------ tag stuff ------------------------
@@ -31,7 +33,7 @@ Route::controllers([
 		]);
 # ------------------ Reply stuff ------------------------
 Route::resource('replies', 'RepliesController', ['only' => ['store','destroy']]);
-Route::get('/replies/{id}/upvote', 
+Route::post('/replies/{id}/upvote', 
         ['as' => 'replies.upvote',
         'uses' => 'RepliesController@upvote'])->before('csrf');
 # ------------------ User stuff ------------------------

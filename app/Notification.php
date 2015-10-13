@@ -99,6 +99,32 @@ class Notification extends \Eloquent
         Notification::insert($data);
         
     }
+    //匿名vote
+    public static function nonamenotify($type,User $toUser, Article $article, Reply $reply = null)
+    {
+
+        // if ($fromUser->id == $toUser->id) {
+        //     return;
+        // }自己不通知自己
+        
+        if (Notification::isNotified(null, $toUser->id, $article->id, $type)) {
+            return;
+        }
+       
+        $nowTimestamp = Carbon::now()->toDateTimeString();
+        $data[] = [
+            'user_id'      => $toUser->id,
+            'article_id'   => $article->id,
+            'reply_id'     => $reply ? $reply->id : 0,
+            'body'         => $reply ? $reply->body : '',
+            'type'         => $type,
+            'created_at'   => $nowTimestamp,
+            'updated_at'   => $nowTimestamp
+        ];       
+        $toUser->increment('notification_count', 1);
+        Notification::insert($data);
+        
+    }
     
     public static function isNotified($from_user_id, $user_id, $article_id, $type)
     {

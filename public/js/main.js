@@ -67,17 +67,9 @@ new Vue({
        //页内点赞
        toggleLike: function(id){
        var pathname = window.location.hostname;
-       this.$http.get('http://'+pathname+'/articles/'+id+'/upvote',function(vote_count) {
+       this.$http.post('http://'+pathname+'/articles/'+id+'/upvote',function(vote_count) {
        this.$set('vote_count', vote_count);
-       $('#'+'b'+id).text(vote_count);}).error(function () {
-        swal({title: "您要登陆后才能点赞!",   
-        type: "warning",   
-        showCancelButton: true,   
-        confirmButtonColor: "#DD6B55",   
-        confirmButtonText: "Yes,简单注册登录",   
-        closeOnConfirm: false }, 
-        function(){window.location.replace('auth/login');});
-        });
+       $('#'+'b'+id).text(vote_count);});
        },
     }   
 });
@@ -98,19 +90,9 @@ new Vue({
     methods:{
        toggleLike: function(id){
        var pathname = window.location.hostname;
-       this.$http.get('http://'+pathname+'/replies/'+id+'/upvote',function(vote_count) {
+       this.$http.post('http://'+pathname+'/replies/'+id+'/upvote',function(vote_count) {
        this.$set('vote_count', vote_count);
-       $('#'+'b'+id).text(vote_count);}).error(function () {
-        swal({title: "您要登陆后才能点赞!",   
-        type: "warning",   
-        showCancelButton: true,   
-        confirmButtonColor: "#DD6B55",   
-        confirmButtonText: "Yes,简单注册登录",   
-        closeOnConfirm: false }, 
-        //replace-<>
-        function(){var pathname = window.location.hostname;
-          window.location.replace('http://'+pathname+'/auth/login');});
-        });
+       $('#'+'b'+id).text(vote_count);});
        }
     }   
 });

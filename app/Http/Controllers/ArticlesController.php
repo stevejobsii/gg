@@ -20,7 +20,7 @@ class ArticlesController extends Controller
     //登陆前只能看index和show
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['index', 'show']]);
+        $this->middleware('auth', ['except' => ['index', 'show','upvote']]);
     }
 
 
@@ -159,19 +159,30 @@ class ArticlesController extends Controller
         return $article;
     }
 
-    public function upvote($id)
+    public function upvote($id,Request $request)
     {
         $article = Article::find($id);
         //notify auther 
-        App('App\Notification')->notify('article_upvote', Auth::user(), $article->user, $article);
-        if ($article->votes()->ByWhom(Auth::id())->count()) {
-            // click twice for remove upvote
-        $article->votes()->ByWhom(Auth::id())->delete();
+        if (Auth::check()){
+            App('App\Notification')->notify('article_upvote', Auth::user(), $article->user, $article);
+            if ($article->votes()->ByWhom(Auth::id())->count()) {
+                // click twice for remove upvote
+            $article->votes()->ByWhom(Auth::id())->delete();
             $article->decrement('vote_count', 1);
-        } else {
-            // first time click
-        $article->votes()->create(['user_id' => Auth::id()]);
+            } else {
+                // first time click
+            $article->votes()->create(['user_id' => Auth::id()]);
             $article->increment('vote_count', 1);
+            }
+        }else{//匿名投票
+            App('App\Notification')->nonamenotify('article_upvote', $article->user, $article);
+            if ($article->votes()->ByWhom($request->ip())->count()) {
+            $article->votes()->ByWhom($request->ip())->delete();
+            $article->decrement('vote_count', 1);
+            } else {
+            $article->votes()->create(['user_id' => $request->ip()]);
+            $article->increment('vote_count', 1);
+            }
         }
         return $article->vote_count;
     }

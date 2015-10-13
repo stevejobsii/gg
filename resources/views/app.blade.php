@@ -13,7 +13,7 @@
 	<div class="container page">
 		@yield('content')
 	</div> 
-	<p id="back-to-top" ><a href="#top">回到顶部</a></p>
+	<p id="back-to-top" ><a href="javascript:void(0)">回到顶部</a></p>
 	        <script id="upvote-bookmark-template" type="x-template">
 		    <li><button  type="button" 	
 			         class="btn btn-default"	           
