@@ -8,11 +8,11 @@
     </div>
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li><a href="{{ url('articles') }}"><strong>热门图片</strong></a></li>
+        <li><a href="{{ url('articles') }}"><strong><i class="glyphicon glyphicon-picture"></i>&nbsp;&nbsp;热门图片</strong></a></li>
            <li><a href="{{ url('articles/create') }}"><strong><i class="glyphicon glyphicon-pencil"></i>&nbsp;&nbsp;投稿</strong></a></li>
            <li><a href="{{ url('guestbook') }}"><strong><i class="glyphicon glyphicon-comment"></i>&nbsp;&nbsp;留言板</strong></a></li>
            <li class="dropdown ">
-             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><strong>标签</strong> <span class="caret"></span></a>
+             <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"><strong><i class="glyphicon glyphicon-tags"></i>&nbsp;&nbsp;标签</strong> <span class="caret"></span></a>
              <ul class="dropdown-menu" role="menu">           
              <li >
              <a href="{{ url('tags/China') }}"><strong>国内图片</strong></a>
@@ -28,14 +28,16 @@
              </li>  
              </ul>
            </li>
-      </ul>   
-           <ul class="nav navbar-nav navbar-right">
-           <li>
+           <li><a href="javascript:void(0)" class="dropdown-toggle" id="nav-search"><strong><i class="glyphicon glyphicon-search"></i>&nbsp;&nbsp;搜索</strong> <span class="caret"></span></a>
+           <div class = "nav-search">
            {!!Form::open(['method'=>'GET','class'=>'inner-addon  form-control-nav right-addon'])!!}
               <i class="glyphicon glyphicon-search"></i>
               {!!Form::input('search','q',null,['placeholder'=>'搜索','class'=>'form-control'])!!}
            {!!Form::close()!!}
+           </div>
            </li>
+      </ul>   
+           <ul class="nav navbar-nav navbar-right">          
            @if (Auth::check())
            <li>
               <a href="{{ route('notifications.index') }}" class="text-warning"> 
