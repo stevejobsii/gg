@@ -24,13 +24,8 @@
 			         v-on="click: bookMark"><strong>书签</strong>           
 		    </button></li>
 		    </script>
-
-	<script src="/js/jquery.js"></script>
-    <script src="/js/vue.min.js"></script>
-    <script src="/js/vue-resource.min.js"></script>
+    <script src="/js/all.js"></script>
     <script src="/js/main.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/sweetalert.min.js"></script>
 	@yield('footer')
 	@include('flash')
 	</body>

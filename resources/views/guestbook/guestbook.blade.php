@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div id="guestbook" class="col-md-8">
+<div id="guestbook" class="col-md-8" style="margin-top:10px;">
         <form method="POST" v-on="submit: onSubmitForm">
 
             <div class="form-group">

@@ -2,7 +2,8 @@
 @extends('app')
 
 @section('content')
-    <div class = "col-md-8"style="padding-left: 60px;">	
+    <div class = "col-md-8">
+        <div class = "width480">	
         <h1>{{$article->title}}</h1>
         <h4><a href="/users/{{$article->user_id}}/articles">作者：{{\App\User::find($article->user_id)->name}}</a><small>&nbsp;&nbsp;放图时间:&nbsp;{{$article->created_at}} 
         @unless ($article->tags->isEmpty())
@@ -11,6 +12,15 @@
         @foreach($article->tags as $tag)
         <a href="{{ url('/tags',['name'=>$tag->name]) }}" title="{{ $tag->name }}" target="_blank">{{ $tag->name }}</a>
         @endforeach  
+        @endif
+        @if($previous)
+            <div class = "pull-right">
+            <a href="{{ action('ArticlesController@show', $previous)}}">
+            <button  type="button"  
+                     class="btn btn-default"><strong>下一张</strong>           
+            </button>
+            </a>
+            </div>
         @endif</small></h4>
         <hr>
         <!--article -->
@@ -37,6 +47,7 @@
         <span>&nbsp; • &nbsp;</span>{{$article->reply_count}}互动
         <span>&nbsp; • &nbsp;</span>{{$article->view_count}}观摩
         </strong></h5>
+        </div>
 
             <div class="width485 votebookmark btn-vote-reply">
             <upvotebookmark when-applied="@{{toggleLike}}" when-bookmark="@{{bookmark}}"id="{{$article->id}}"title="{{$article->title}}"photoname="{{$article->photo}}"></upvotebookmark>

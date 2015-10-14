@@ -39,6 +39,6 @@
 	    </img-slider>
 	    </div>
 	    <p style="text-align: center">
-	    这是投放广告，联系方式，备案号等等
+	    这是投放广告，联系方式QQ:401789679，现在备案中等等
 	    </p>
 	    </div>

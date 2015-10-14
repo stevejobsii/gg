@@ -8,9 +8,6 @@
 .navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav> .open> a:hover{
 	background: transparent;
 }
-.width480{
-	width:480px;
-}
 .col-md-8{
 	margin-top:-10px;
 }

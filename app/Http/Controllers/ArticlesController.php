@@ -50,7 +50,9 @@ class ArticlesController extends Controller
     public function show(\App\Article $article)
     {
         $article->increment('view_count', 1);
-        return view('articles.show', compact('article'));
+        if($article->id == DB::table('articles')->first()->id){$previous = $article->photo;}
+        else{$previous = \App\Article::where('id', '<', $article->id)->orderBy('id','desc')->firstOrFail()->photo;};
+        return view('articles.show', compact('article','previous'));
     }
 
     public function create()
@@ -106,7 +108,11 @@ class ArticlesController extends Controller
         $this->authorOrAdminPermissioinRequire($article->user_id);
         //delete photo
         File::delete(base_path() . '/public/images/catalog/' . $article->photo . $article->type);
+        if($article->type = '_long.jpg'){
+            File::delete(base_path() . '/public/images/catalog/' . $article->photo . '.jpg');
+        }
         $article->delete();
+
         return redirect('articles');
     }
     /**
@@ -123,7 +129,7 @@ class ArticlesController extends Controller
         //$imageName = ($article->id) . '.' . $request->file('image')->getClientOriginalExtension();
         $length = 6;
         $randomString = substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, $length);
-
+        if (mt_rand(0, 1) === 0) {$zuoyou = 'right';}else{$zuoyou = 'left';};
         //判断是非mp4，Image不支持mp4,判断是否长图
         if ($request->file('image')->getClientOriginalExtension() == 'mp4') {
             copy($request->file('image'), base_path() . '/public/images/catalog/' . $randomString . '.mp4');
@@ -135,7 +141,7 @@ class ArticlesController extends Controller
             Image::make($request->file('image'))
             ->resize(480, null, function ($constraint) {$constraint->aspectRatio();}
             )
-            ->insert(base_path() . '/public/images/catalog/watermark.jpg', 'right',10)
+            ->insert(base_path() . '/public/images/catalog/watermark.jpg', $zuoyou,10)
             ->encode('jpg')
             ->save(base_path() . '/public/images/catalog/' . $randomString . '.jpg');
             $article->type = '.jpg';
@@ -143,7 +149,7 @@ class ArticlesController extends Controller
             Image::make($request->file('image'))
             ->resize(480, null, function ($constraint) {$constraint->aspectRatio();}
             )
-            ->insert(base_path() . '/public/images/catalog/watermark.jpg', 'right',10)
+            ->insert(base_path() . '/public/images/catalog/watermark.jpg', $zuoyou,10)
             ->encode('jpg')
             ->save(base_path() . '/public/images/catalog/' . $randomString . '_long.jpg');
             Image::make($request->file('image'))

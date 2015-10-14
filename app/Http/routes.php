@@ -17,7 +17,7 @@ Route::get('about','PageController@about');
 Route::get('contact','PageController@contact');
 Route::get('/', function (){return redirect('/articles');
 });
-Route::get('/test', function (){return Request::getClientIp();
+Route::get('/test', function (){if (mt_rand(0, 1) === 0) {$zuoyou = 'right';}else{$zuoyou = 'left';};return $zuoyou;
 });
 # ------------------ article stuff ------------------------
 Route::resource('articles','ArticlesController');
