@@ -28,16 +28,16 @@ class ArticlesController extends Controller
     {
         //query
         if ($search = $request->query('q')) {
-            $articles = Article::search($search)->orderBy('created_at', 'desc')->simplepaginate(30);
+            $articles = Article::search($search)->orderBy('created_at', 'desc')->simplepaginate(10);
         } elseif ($search = $request->query('id')) {
             //查找伪id（photo）
             $search = \App\Article::where('photo', $search)->firstOrFail()->id;
-            $articles = DB::table('articles')->where('id', '<=', $search)->orderBy('created_at', 'desc')->simplepaginate(30);
+            $articles = DB::table('articles')->where('id', '<=', $search)->orderBy('created_at', 'desc')->simplepaginate(10);
             //伪搜索结果
             $search = $request->query('id');
         } else {
             //DB::代替Article::
-            $articles = DB::table('articles')->orderBy('created_at', 'desc')->simplepaginate(30);
+            $articles = DB::table('articles')->orderBy('created_at', 'desc')->simplepaginate(10);
         }
         //已经点赞{!!$articles->appends(Request::except('page'))->render()!!}
         //$f = DB::table('votes')->whereuser_id(Auth::user()->id)->lists('votable_id');

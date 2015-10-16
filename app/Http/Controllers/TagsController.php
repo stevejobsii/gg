@@ -13,13 +13,13 @@ class TagsController extends Controller
     {
         //query within tag
         if ($search = $request->query('q')) {
-            $articles = $tag->articles()->search($search)->orderBy('created_at', 'desc')->simplepaginate(30);
+            $articles = $tag->articles()->search($search)->orderBy('created_at', 'desc')->simplepaginate(10);
         } elseif ($search = $request->query('id')) {
-            $articles = $tag->articles()->where('id', '<', $search)->orderBy('created_at', 'desc')->simplepaginate(30);
+            $articles = $tag->articles()->where('id', '<', $search)->orderBy('created_at', 'desc')->simplepaginate(10);
 
         } else {
             //获取这个tag的articles并用articles.index反应
-        $articles = $tag->articles()->orderBy('created_at', 'desc')->simplepaginate(30);
+        $articles = $tag->articles()->orderBy('created_at', 'desc')->simplepaginate(10);
         }
         $articles->setPath($tag->name);
         //sidebar
