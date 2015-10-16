@@ -22,6 +22,10 @@ class TagsController extends Controller
         $articles = $tag->articles()->orderBy('created_at', 'desc')->simplepaginate(30);
         }
         $articles->setPath($tag->name);
+        //sidebar
+        $hotimgs = \App\Article::where('type','LIKE',"%jpg%")->orderBy('vote_count', 'desc')->take(5)->get();
+        //return $hotimgs;
+        $hotreplies = \App\Reply::orderBy('vote_count', 'desc')->limit(5)->get();
         return view('articles.index', compact('articles', 'search'));
     }
 
@@ -38,7 +42,11 @@ class TagsController extends Controller
             $articles = DB::table('articles')->where('type','.mp4')->orderBy('created_at', 'desc')->simplepaginate(30);
         }
         $articles->setPath('articles');
-        return view('articles.index', compact('articles', 'search'));
+               //sidebar
+        $hotimgs = \App\Article::where('type','LIKE',"%jpg%")->orderBy('vote_count', 'desc')->take(5)->get();
+        //return $hotimgs;
+        $hotreplies = \App\Reply::orderBy('vote_count', 'desc')->limit(5)->get();
+        return view('articles.index', compact('articles', 'search','hotimgs','hotreplies'));
     }
 
 }
