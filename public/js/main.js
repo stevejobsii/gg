@@ -226,6 +226,7 @@ $(document).ready(function () {
        });
    });
 });
+//search-bar hide
 $(".nav-search").hide();
 $("#nav-search").click(function(){
     $(".nav-search").toggle();
@@ -270,22 +271,18 @@ $('.side-bar-hot').click(function () {
           }
         })
 
+//side-bot-list
+$('.hot-tabs li').mouseenter(function () {
+  var tab = this.id.split('-')[1];
+  
+  var parent = $(this).parent();
 
+  parent.find('li').removeClass('current');
+  parent.parent().find('.hot-list-item').removeClass('hot-list-item-current');
 
-
-        $('.hot-tabs li').mouseenter(function () {
-          var tab = this.id.split('-')[1];
-          
-          var parent = $(this).parent();
-
-          parent.find('li').removeClass('current');
-          parent.parent().find('.hot-list-item').removeClass('hot-list-item-current');
-
-          $(this).addClass('current');
-          $('#list-' + tab).addClass('hot-list-item-current');
-
-            
-        });
+  $(this).addClass('current');
+  $('#list-' + tab).addClass('hot-list-item-current');  
+});
         
       
 

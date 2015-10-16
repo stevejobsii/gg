@@ -19,7 +19,7 @@
                     匿名
                     @endif
                 {{ $notification->present()->lableUp }}
-                <a href="{{ route('articles.show', [$notification->article->id])}}">
+                <a href="{{ route('articles.show', [$notification->article->photo])}}">
                 {{{ str_limit($notification->article->title, '100') }}}
                 </a>
                     于{{ $notification->created_at }}
