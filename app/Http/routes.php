@@ -17,7 +17,8 @@ Route::get('about','PageController@about');
 Route::get('contact','PageController@contact');
 Route::get('/', function (){return redirect('/articles');
 });
-Route::get('/test', function (){if (mt_rand(0, 1) === 0) {$zuoyou = 'right';}else{$zuoyou = 'left';};return $zuoyou;
+use Carbon\Carbon;
+Route::get('/test', function (){return Carbon::now();
 });
 # ------------------ article stuff ------------------------
 Route::resource('articles','ArticlesController');
@@ -25,6 +26,7 @@ Route::post('/articles/{id}/upvote',
         ['as' => 'articles.upvote',
         'uses' => 'ArticlesController@upvote'])->before('csrf');
 # ------------------ tag stuff ------------------------
+Route::get('tags/GIF', 'TagsController@GIF');
 Route::get('tags/{tags}', 'TagsController@show');
 # ------------------ register|login stuff ------------------------
 Route::controllers([

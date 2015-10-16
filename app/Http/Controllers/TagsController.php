@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request as urlRequest;
 use Illuminate\Http\Request;
 use App\Tag;
+use DB;
 
 class TagsController extends Controller
 {
@@ -23,4 +24,22 @@ class TagsController extends Controller
         $articles->setPath($tag->name);
         return view('articles.index', compact('articles', 'search'));
     }
+
+    public function GIF(urlRequest $request)
+    {
+        //query index 过滤'.mp4'
+        if ($search = $request->query('q')) {
+            $articles = \App\Article::search($search)->where('type','.mp4')->orderBy('created_at', 'desc')->simplepaginate(30);
+        } elseif ($search = $request->query('id')) {
+            $search = \App\Article::where('photo', $search)->firstOrFail()->id;
+            $articles = DB::table('articles')->where('type','.mp4')->where('id', '<=', $search)->orderBy('created_at', 'desc')->simplepaginate(30);
+            $search = $request->query('id');
+        } else {
+            $articles = DB::table('articles')->where('type','.mp4')->orderBy('created_at', 'desc')->simplepaginate(30);
+        }
+        $articles->setPath('articles');
+        return view('articles.index', compact('articles', 'search'));
+    }
+
 }
+

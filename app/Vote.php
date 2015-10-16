@@ -12,6 +12,12 @@ class Vote extends Model{
     {
         return $this->morphTo();
     }
+   
+    public function reply()
+    {
+        return $this->belongsTo('App\Reply','votable_id');
+    }
+
 
     public function article()
     {

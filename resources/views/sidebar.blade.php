@@ -30,15 +30,17 @@
 	    <label for="slide4"></label>
 	    </div>
 	    </script>
-	    <div id="side-bar-ad">
+	<div id="side-bar-ad">
 	    <img-slider>
 	    <img src="/images/catalog/rock.jpg">
 	    <img src="/images/catalog/grooves.jpg">
 	    <img src="/images/catalog/arch.jpg">
 	    <img src="/images/catalog/sunset.jpg">
 	    </img-slider>
-	    </div>
+	</div>
 	    <p style="text-align: center">
-	    这是投放广告，联系方式QQ:401789679，现在备案中等等
+	    这是投放广告，联系方式QQ:401789679，现在备案中等等。
 	    </p>
-	    </div>
+	    <br>
+          
+</div>

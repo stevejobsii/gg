@@ -5,24 +5,24 @@
     <div class = "col-md-8">
         <div class = "width480">	
         <h1>{{$article->title}}</h1>
-        <h4><a href="/users/{{$article->user_id}}/articles">作者：{{\App\User::find($article->user_id)->name}}</a><small>&nbsp;&nbsp;放图时间:&nbsp;{{$article->created_at}} 
+        <h3 style="padding-bottom: 10px; margin-top: 0px; border-bottom: 1px solid #e5e5e5;"><small><a href="/users/{{$article->user_id}}/articles">作者：{{\App\User::find($article->user_id)->name}}</a>
         @unless ($article->tags->isEmpty())
-        <br>
         标签 |
         @foreach($article->tags as $tag)
         <a href="{{ url('/tags',['name'=>$tag->name]) }}" title="{{ $tag->name }}" target="_blank">{{ $tag->name }}</a>
         @endforeach  
-        @endif
+        @endif</small>
         @if($previous)
             <div class = "pull-right">
-            <a href="{{ action('ArticlesController@show', $previous)}}">
-            <button  type="button"  
-                     class="btn btn-default"><strong>下一张</strong>           
-            </button>
-            </a>
+                <a href="{{ action('ArticlesController@show', $previous)}}">
+                <button  type="button"  
+                         class="btn btn-default"><strong>下一张</strong>           
+                </button>
+                </a>
             </div>
-        @endif</small></h4>
-        <hr>
+        @endif</h3>
+        </div>
+
         <!--article -->
         @if($article->type == '.jpg')
         <a href="{{ action('ArticlesController@show', [$article->photo])}}"target="_blank">
@@ -40,14 +40,13 @@
         <video  width="480" min-height="300" loop preload="auto">
         <source src="/images/catalog/{{$article->photo}}{{$article->type}}" type="video/mp4">
         Your browser does not support the video tag.
-        </video>
-        </div>
+        </video></div>
         @endif
         <h5><strong><span id="b{{$article->id}}">{{$article->vote_count}}</span>赞
         <span>&nbsp; • &nbsp;</span>{{$article->reply_count}}互动
         <span>&nbsp; • &nbsp;</span>{{$article->view_count}}观摩
         </strong></h5>
-        </div>
+        
 
             <div class="width485 votebookmark btn-vote-reply">
             <upvotebookmark when-applied="@{{toggleLike}}" when-bookmark="@{{bookmark}}"id="{{$article->id}}"title="{{$article->title}}"photoname="{{$article->photo}}"></upvotebookmark>
@@ -68,7 +67,7 @@
                 <a class="bds_tsina" data-cmd="tsina"data-photo="{{$article->photo}}"data-type="{{$article->type}}"data-title="{{$article->title}}"></a>
                 <a class="bds_qzone" data-cmd="qzone" href="#"data-photo="{{$article->photo}}"data-type="{{$article->type}}"data-title="{{$article->title}}"></a>         
                 </div> 
-            <div class="clearfix"></div>
+                <div class="clearfix"></div>
             </div>
             <hr>
 
@@ -104,9 +103,10 @@
         </div>
         
         <!-- Reply box-->   
-            <div class="reply-box form box-block">
+        <div class="reply-box form box-block">
             {!! Form::open(['route' => 'replies.store', 'id' => 'reply-form', 'method' => 'post']) !!}
             <input type="hidden" name="article_id" value="{{ $article->id }}" />
+
             <div class="form-group">
             @if(Auth::check())
             {!! Form::textarea('body', null, ['class' => 'form-control',
@@ -122,11 +122,10 @@
                                                          'id' => 'reply_content']) !!}
             @endif
             </div>
+
             <div class="form-group status-post-submit">
             @if(Auth::check())
             {!! Form::submit('回复', ['class' => 'btn btn-primary', 'id' => 'reply-create-submit']) !!}
-            @else
-            {!! Form::submit('回复', ['class' => 'btn btn-primary disabled', 'id' => 'reply-create-submit']) !!}
             @endif
             </div>
             {!! Form::close() !!}

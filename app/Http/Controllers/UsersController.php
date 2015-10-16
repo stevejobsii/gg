@@ -71,7 +71,10 @@ class UsersController extends Controller
         }else{
         $articles = Article::whose($user->id)->orderBy('created_at', 'desc')->paginate(30);}
         $articles->setPath('articles');
-        return view('articles.index',compact('articles','search','user'));
+        //sidebar
+        $hotimgs = \App\Article::where('type','LIKE',"%jpg%")->orderBy('vote_count', 'desc')->take(5)->get();
+        $hotreplies =  \App\Reply::orderBy('vote_count', 'desc')->limit(5)->get();
+        return view('articles.index',compact('articles','search','user','hotimgs','hotreplies'));
     }
     //user->relpies
     public function replies($id)

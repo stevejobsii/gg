@@ -258,6 +258,34 @@ $("#nav-search").click(function(){
 //以下为js加载部分
   with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
 
+//展开
+$('.side-bar-hot').click(function () {
+          var $this = $(this);
+          if (!$this.hasClass('side-bar-hot-full-size')) {
+            $this.addClass('side-bar-hot-full-size');
+            $this.find('.show_more').html(' &UpTeeArrow; 收起');
+          } else {
+            $this.removeClass('side-bar-hot-full-size');
+            $this.find('.show_more').html(' &DownTeeArrow; 展开');
+          }
+        })
 
 
+
+
+        $('.hot-tabs li').mouseenter(function () {
+          var tab = this.id.split('-')[1];
+          
+          var parent = $(this).parent();
+
+          parent.find('li').removeClass('current');
+          parent.parent().find('.hot-list-item').removeClass('hot-list-item-current');
+
+          $(this).addClass('current');
+          $('#list-' + tab).addClass('hot-list-item-current');
+
+            
+        });
+        
+      
 

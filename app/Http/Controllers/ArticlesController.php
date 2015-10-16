@@ -44,8 +44,12 @@ class ArticlesController extends Controller
         //$f = DB::table('votes')->whereuser_id(Auth::user()->id)->lists('votable_id');
         //http://example.com/custom/url?page=N, you should pass custom/url to the setPath
         $articles->setPath('articles');
-        return view('articles.index', compact('articles', 'search'));
+        //sidebar
+        $hotimgs = DB::table('articles')->where('type','LIKE',"%jpg%")->orderBy('vote_count', 'desc')->take(5)->get();
+        $hotreplies =  \App\Reply::orderBy('vote_count', 'desc')->limit(5)->get();
+        return view('articles.index', compact('articles', 'search' ,'hotimgs','hotreplies'));
     }
+    
 
     public function show(\App\Article $article)
     {
@@ -57,6 +61,7 @@ class ArticlesController extends Controller
 
     public function create()
     {
+        //get tags list
         $tags = \App\Tag::lists('name', 'id');
         return view('articles.create', compact('tags'));
     }

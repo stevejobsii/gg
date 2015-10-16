@@ -62,5 +62,5 @@
 	@endforeach
     </ul><h1>{!!$articles->appends(Request::except('page'))->render()!!}</h1>
     </div>
-    @include('sidebar')
+    @include('sidebarful')
 @stop
