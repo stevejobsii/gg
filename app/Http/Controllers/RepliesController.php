@@ -76,8 +76,10 @@ class RepliesController extends Controller
         $reply = \App\Reply::findOrFail($id);
         //权限
         $this->authorOrAdminPermissioinRequire($reply->user_id);
-        $reply->delete();
         $reply->article->decrement('reply_count', 1);
+        //delete Vote 
+        $reply->votes()->delete();
+        $reply->delete();
         return redirect('articles/'. $reply->article->photo);
     }
 }

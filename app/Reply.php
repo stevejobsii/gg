@@ -17,7 +17,11 @@ class Reply extends Model
 
  
     }
-
+    
+    // public function replyvote()
+    // {
+    //     return Vote::where('votable', '=', 'App\Reply')->where('votable_id', '=', $this->id)->get();
+    // }
     public function votes()
     {
         return $this->morphMany('App\Vote', 'votable');

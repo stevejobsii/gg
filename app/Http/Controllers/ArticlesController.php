@@ -39,14 +39,14 @@ class ArticlesController extends Controller
             //DB::代替Article::
             $articles = DB::table('articles')->orderBy('created_at', 'desc')->simplepaginate(30);
         }
-        //->where('id', '<', 100)
         //已经点赞{!!$articles->appends(Request::except('page'))->render()!!}
         //$f = DB::table('votes')->whereuser_id(Auth::user()->id)->lists('votable_id');
         //http://example.com/custom/url?page=N, you should pass custom/url to the setPath
         $articles->setPath('articles');
         //sidebar
         $hotimgs = \App\Article::where('type','LIKE',"%jpg%")->orderBy('vote_count', 'desc')->take(5)->get();
-        $hotreplies =  \App\Reply::orderBy('vote_count', 'desc')->limit(5)->get();
+        //return $hotimgs;
+        $hotreplies = \App\Reply::orderBy('vote_count', 'desc')->limit(5)->get();
         return view('articles.index', compact('articles', 'search' ,'hotimgs','hotreplies'));
     }
     
@@ -116,8 +116,9 @@ class ArticlesController extends Controller
         if($article->type = '_long.jpg'){
             File::delete(base_path() . '/public/images/catalog/' . $article->photo . '.jpg');
         }
-        $article->delete();
 
+        $article->votes()->delete();
+        $article->delete();
         return redirect('articles');
     }
     /**
