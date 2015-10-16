@@ -26,7 +26,7 @@ class TagsController extends Controller
         $hotimgs = \App\Article::where('type','LIKE',"%jpg%")->orderBy('vote_count', 'desc')->take(5)->get();
         //return $hotimgs;
         $hotreplies = \App\Reply::orderBy('vote_count', 'desc')->limit(5)->get();
-        return view('articles.index', compact('articles', 'search'));
+        return view('articles.index', compact('articles', 'search','hotimgs','hotreplies'));
     }
 
     public function GIF(urlRequest $request)
