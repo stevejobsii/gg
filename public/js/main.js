@@ -284,7 +284,24 @@ $('.hot-tabs li').mouseenter(function () {
   $(this).addClass('current');
   $('#list-' + tab).addClass('hot-list-item-current');  
 });
-        
+
+//sticky
+$(function(){ // document ready
+  if (!!$('.sticky').offset()) { // make sure ".sticky" element exists
+    var stickyTop = $('.sticky').offset().top; // returns number 
+    $(window).scroll(function(){ // scroll event
+      var windowTop = $(window).scrollTop();
+       // returns number 
+    var currentwidth = $('.side-bar').width();
+      if (stickyTop < windowTop){
+        $('.sticky').css({ position: 'fixed', top: 40 ,width : currentwidth});
+      }
+      else {
+        $('.sticky').css('position','static');
+      }
+    });
+  }
+});
       
 
 

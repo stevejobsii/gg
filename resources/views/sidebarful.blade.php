@@ -38,8 +38,8 @@
 	    <img src="/images/catalog/sunset.jpg">
 	    </img-slider>
 	</div>
-		<p style="text-align: center" class="text-info" id="sidebar-tail">
-	    这是投放广告，联系方式QQ:401789679，现在备案中等等。
+		<p style="text-align: center" class="text-info">
+	    这是投放广告。
 	    </p>
 	    <br>
     
@@ -83,6 +83,14 @@
 		@endforeach
 		</div>
 
+	</div>
+
+	<div class = "sticky" style="position: static; top: 0px;">
+	    <img src="/images/catalog/sunset.jpg" class = "width100">
+	    <p style="text-align: center" class="text-info">
+	    <br>
+	    联系方式QQ:401789679，现在备案中，因此较慢等等。
+	    </p>
 	</div>
 
           

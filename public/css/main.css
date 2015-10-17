@@ -4,6 +4,9 @@
 .inline-block{
   display: inline-block;
 }
+.width100{
+  width:100%;
+}
 .hot-tabs {
 	font-size: 16px;
 	line-height: 20px;
