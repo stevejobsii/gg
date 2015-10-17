@@ -24,6 +24,7 @@ elixir(function(mix) {
         'libs/sweetalert.min.js',
         'libs/vue.min.js',
         'libs/vue-resource.min.js',
+        'libs/bootstrap.min.js',
     ], 'public/js/all.js', 'resources/js');
 
     mix.version(['css/all.css', 'js/all.js']);
