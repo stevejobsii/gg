@@ -28,16 +28,16 @@ class ArticlesController extends Controller
     {
         //query
         if ($search = $request->query('q')) {
-            $articles = Article::search($search)->orderBy('created_at', 'desc')->simplepaginate(10);
+            $articles = Article::search($search)->orderBy('created_at', 'desc')->simplepaginate(15);
         } elseif ($search = $request->query('id')) {
             //查找伪id（photo）
             $search = \App\Article::where('photo', $search)->firstOrFail()->id;
-            $articles = DB::table('articles')->where('id', '<=', $search)->orderBy('created_at', 'desc')->simplepaginate(10);
+            $articles = DB::table('articles')->where('id', '<=', $search)->orderBy('created_at', 'desc')->simplepaginate(15);
             //伪搜索结果
             $search = $request->query('id');
         } else {
             //DB::代替Article::
-            $articles = DB::table('articles')->orderBy('created_at', 'desc')->simplepaginate(10);
+            $articles = DB::table('articles')->orderBy('created_at', 'desc')->simplepaginate(15);
         }
         //已经点赞{!!$articles->appends(Request::except('page'))->render()!!}
         //$f = DB::table('votes')->whereuser_id(Auth::user()->id)->lists('votable_id');
@@ -56,7 +56,9 @@ class ArticlesController extends Controller
         $article->increment('view_count', 1);
         if($article->id == DB::table('articles')->first()->id){$previous = $article->photo;}
         else{$previous = \App\Article::where('id', '<', $article->id)->orderBy('id','desc')->firstOrFail()->photo;};
-        return view('articles.show', compact('article','previous'));
+        if($article->id == DB::table('articles')->orderBy('id','desc')->first()->id){$next = $article->photo;}
+        else{$next = \App\Article::where('id', '>', $article->id)->orderBy('id','asc')->firstOrFail()->photo;};
+        return view('articles.show', compact('article','previous','next'));
     }
 
     public function create()

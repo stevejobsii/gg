@@ -14,6 +14,11 @@
         @endif</small>
         @if($previous)
             <div class = "pull-right">
+                <a href="{{ action('ArticlesController@show', $next)}}">
+                <button  type="button"  
+                         class="btn btn-default"><strong>上一张</strong>           
+                </button>
+                </a>
                 <a href="{{ action('ArticlesController@show', $previous)}}">
                 <button  type="button"  
                          class="btn btn-default"><strong>下一张</strong>           

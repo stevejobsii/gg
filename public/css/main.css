@@ -1,6 +1,9 @@
 .navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav> .open> a:hover{
 	background: transparent;
 }
+.inline-block{
+  display: inline-block;
+}
 .hot-tabs {
 	font-size: 16px;
 	line-height: 20px;

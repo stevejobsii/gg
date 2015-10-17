@@ -67,9 +67,9 @@ class UsersController extends Controller
         $user = User::findOrFail($id);
         if($search = $request->query('q'))
         {
-        $articles = Article::whose($user->id)->search($search)->orderBy('created_at', 'desc')->paginate(10);
+        $articles = Article::whose($user->id)->search($search)->orderBy('created_at', 'desc')->paginate(15);
         }else{
-        $articles = Article::whose($user->id)->orderBy('created_at', 'desc')->paginate(10);}
+        $articles = Article::whose($user->id)->orderBy('created_at', 'desc')->paginate(15);}
         $articles->setPath('articles');
         //sidebar
         $hotimgs = \App\Article::where('type','LIKE',"%jpg%")->orderBy('vote_count', 'desc')->take(5)->get();
