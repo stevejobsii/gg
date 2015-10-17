@@ -7,6 +7,7 @@
 	<link  rel="stylesheet" href="/css/all.css">
 	<link  rel="stylesheet" href="/css/main.css">
 	<meta id="token" name="token" value="{{ csrf_token() }}">
+
 	<title>好去处GoodGoTo</title>
 </head>
 <body>
@@ -25,7 +26,9 @@
 			         v-on="click: bookMark"><strong>书签</strong>           
 		    </button></li>
 		    </script>
-    <script src="/js/all.js"></script>
+		    <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+		    <script src="//cdn.bootcss.com/vue/0.12.16/vue.min.js"></script>
+		    <script src="//cdn.bootcss.com/vue-resource/0.1.16/vue-resource.min.js"></script>
     <script src="/js/main.js"></script>
 	@yield('footer')
 	@include('flash')

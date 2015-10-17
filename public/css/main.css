@@ -390,3 +390,10 @@ body {
   border-right: 4px solid transparent;
   border-top: 4px solid #fff;
 }
+.navbar-inverse {
+  background-color: #f5da55;
+} 
+.navbar-inverse .navbar-nav>li>a, .navbar-inverse .navbar-text {
+    color: #444;
+}
+

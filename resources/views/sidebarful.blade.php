@@ -38,17 +38,17 @@
 	    <img src="/images/catalog/sunset.jpg">
 	    </img-slider>
 	</div>
-	    <p style="text-align: center" class="text-info">
+		<p style="text-align: center" class="text-info" id="sidebar-tail">
 	    这是投放广告，联系方式QQ:401789679，现在备案中等等。
 	    </p>
 	    <br>
     
     <div class = "width100">
-    <ul class="hot-tabs bule-line-top">	    
+        <ul class="hot-tabs bule-line-top">	    
 		<li id="tab-votes" class = "current" >热门投票</li>
 		<li id="tab-replies" class ="hot_tab_last">热门评论</li>
-	</ul>
-	<div class="clearfix"></div>
+	    </ul>
+	    <div class="clearfix"></div>
         
         <div class = "hot-list-item hot-list-item-current" id = "list-votes">
 		@foreach($hotimgs as $hot)
@@ -66,7 +66,7 @@
         <div class = "hot-list-item" id = "list-replies">
         <br>
 		@foreach($hotreplies as $hot)
-		<article class="list-item side-bar-hot panel panel-danger">
+		<article class="list-item side-bar-hot panel panel-info">
 	       <div class= "panel-heading">
 	       <h3 style="margin-bottom: 0px; margin-top: 0px;"><small><a href="/users/{{$hot->article->user_id}}/articles">{{\App\User::find($hot->article->user_id)->name}}</a>的发布
            <a href="{{ action('ArticlesController@show', [$hot->article->photo])}}"target="_blank" >{{$hot->article->title}}</a></small></h3></small></h3>
@@ -80,5 +80,6 @@
 		</div>
 
 	</div>
+
           
 </div>

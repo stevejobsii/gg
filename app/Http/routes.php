@@ -18,7 +18,7 @@ Route::get('contact','PageController@contact');
 Route::get('/', function (){return redirect('/articles');
 });
 use Carbon\Carbon;
-Route::get('/test', function (){return Carbon::now();
+Route::get('/test', function (){return view('f');
 });
 # ------------------ article stuff ------------------------
 Route::resource('articles','ArticlesController');
