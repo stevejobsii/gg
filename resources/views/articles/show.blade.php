@@ -74,12 +74,12 @@
         <!-- Reply -->
         <div class = "reply_list ">
             @foreach($article->replies as $reply)
-            <article class="list-item" id={{$reply->id}} style="margin-top: 0px;">
-                <a href="{{ route('users.articles', [$reply->user_id]) }}"> {{\App\User::find($reply->user_id)->name}}</a>
-                <small>{{ $reply->created_at }}</small>
+            <article class="list-item" style="margin-top: 0px;">
+                <h4 style="float:left;"><a href="{{ route('users.articles', [$reply->user_id]) }}"> {{\App\User::find($reply->user_id)->name}}</a>
+                <small>{{ $reply->created_at }}</small></h4>
                 
                 <!-- Reply upvote/reply on reply-->
-                <ul class = "pull-right btn-vote-reply">
+                <ul class = "pull-right btn-vote-reply" style="margin-bottom: 0px;">
                 @if(Auth::check())
                 @if (Auth::user()->can("manage_topics") || Auth::user()->id == $reply->user_id) 
                 <li>{!! Form::open(array('route' => array('replies.destroy', $reply->id), 'method' => 'delete','style'=>"float:left")) !!}

@@ -38,7 +38,7 @@
 	    <img src="/images/catalog/sunset.jpg">
 	    </img-slider>
 	</div>
-	    <p style="text-align: center">
+	    <p style="text-align: center" class="text-info">
 	    这是投放广告，联系方式QQ:401789679，现在备案中等等。
 	    </p>
 	    <br>
@@ -53,7 +53,7 @@
         <div class = "hot-list-item hot-list-item-current" id = "list-votes">
 		@foreach($hotimgs as $hot)
 		<article class="list-item side-bar-hot">
-	       <h3 style="margin-bottom: 0px; margin-top: 0px;"><small><a href="/users/{{$hot->user_id}}/articles">{{\App\User::find($hot->user_id)->name}}</a>的图片
+	       <h3 style="margin-bottom: 0px; margin-top: 10px;"><small><a href="/users/{{$hot->user_id}}/articles">{{\App\User::find($hot->user_id)->name}}</a>的图片
 		   <a href="{{ action('ArticlesController@show', [$hot->photo])}}"target="_blank" >{{$hot->title}}</a></small></h3>
 		   <img src="/images/catalog/{{$hot->photo}}{{$hot->type}}" class = "side-bar-hot-img" alt="{{$hot->title}}">
 	       <div class = "show_more">展开</div>
@@ -66,7 +66,7 @@
         <div class = "hot-list-item" id = "list-replies">
         <br>
 		@foreach($hotreplies as $hot)
-		<article class="list-item side-bar-hot panel panel-default">
+		<article class="list-item side-bar-hot panel panel-danger">
 	       <div class= "panel-heading">
 	       <h3 style="margin-bottom: 0px; margin-top: 0px;"><small><a href="/users/{{$hot->article->user_id}}/articles">{{\App\User::find($hot->article->user_id)->name}}</a>的发布
            <a href="{{ action('ArticlesController@show', [$hot->article->photo])}}"target="_blank" >{{$hot->article->title}}</a></small></h3></small></h3>

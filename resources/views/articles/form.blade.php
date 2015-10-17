@@ -1,16 +1,17 @@
-	<div class="group">
-		{!! Form::label('title', '题目：') !!}<span class="error">*</span>
+	<div class="form-group">
+		{!! Form::label('title', '标题') !!}<span class="error">*</span>
 		{!! Form::text('title', null, ['class'=>'form-control']) !!}
 	</div>
     
     <div class="form-group">
-        {!! Form::label('tag_list', '标签分类：') !!}
+        {!! Form::label('tag_list', '标签') !!}
         {!! Form::select('tag_list[]', $tags, null, ['id' => 'tag_list', 'class' => 'form-control', 'multiple']) !!}
     </div>
     
     <div class="form-group">
-       {!! Form::label('上传图片格式:|png|jpg|jpeg|mp4|小于2M') !!}<span class="error">*</span>
+       {!! Form::label('格式： png | jpg | jpeg | mp4') !!}<span class="error">*</span>
        {!! Form::file('image', null) !!}
+       <p class="help-block">上传应小于2M。</p>
     </div>
   
 	<div class="group">

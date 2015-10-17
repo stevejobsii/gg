@@ -28,6 +28,7 @@
              </li>  
              </ul>
            </li>
+
            <li><a href="javascript:void(0)" class="dropdown-toggle" id="nav-search"><strong><i class="glyphicon glyphicon-search" aria-hidden="true"></i>&nbsp;&nbsp;搜索</strong> <span class="caret"></span></a>
            <div class = "nav-search">
            {!!Form::open(['method'=>'GET','class'=>'inner-addon  form-control-nav right-addon'])!!}
@@ -37,7 +38,7 @@
            </div>
            </li>
       </ul>   
-      
+
         <ul class="nav navbar-nav navbar-right">          
           @if (Auth::check())
            <li>
@@ -51,7 +52,7 @@
            <li class="dropdown">
            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
            <span class="glyphicon glyphicon-user" aria-hidden="true">
-           </span>{{Auth::user()->name}}
+           </span>{{Auth::user()->name}}<span class="caret"></span>
            </a>
         
            <ul class="dropdown-menu" role="menu">

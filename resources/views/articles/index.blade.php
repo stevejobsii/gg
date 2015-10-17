@@ -12,7 +12,9 @@
     @endif
 	@foreach($articles as $article)
 	<article class="list-item" id={{$article->id}} style="margin-top: 0px;">
+	    <div class = "width480">
 		<a href="{{ action('ArticlesController@show', [$article->photo])}}"target="_blank" ><h3>{{$article->title}}</h3></a>
+		</div>
 	    @if($article->type == '.jpg')
 	    <a href="{{ action('ArticlesController@show', [$article->photo])}}"target="_blank">
 	    <img src="/images/catalog/{{$article->photo}}{{$article->type}}" alt="{{$article->title}}"></a>

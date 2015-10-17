@@ -38,7 +38,7 @@
 	    <img src="/images/catalog/sunset.jpg">
 	    </img-slider>
 	</div>
-	    <p style="text-align: center">
+	    <p style="text-align: center"class = "text-info">
 	    这是投放广告，联系方式QQ:401789679，现在备案中等等。
 	    </p>
 	    <br>

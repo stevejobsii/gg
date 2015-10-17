@@ -34,7 +34,7 @@
 
         <script type="text/x-template" id="grid-template">
           <div  class="guestbook">
-          <table>
+          <table class="table table-striped">
             <thead>
               <tr>
                 <th v-repeat="key: columns"
