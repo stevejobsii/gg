@@ -20,10 +20,7 @@ elixir(function(mix) {
     ], 'public/css/all.css', 'resources/css');
 
     mix.scripts([
-        'libs/jquery-2.1.4.min.js',
         'libs/sweetalert.min.js',
-        'libs/vue.min.js',
-        'libs/vue-resource.min.js',
         'libs/bootstrap.min.js',
     ], 'public/js/all.js', 'resources/js');
 
