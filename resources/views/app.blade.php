@@ -5,6 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">	
 	<link  rel="stylesheet" href="/css/all.css">
+	<link  rel="stylesheet" href="/css/main.css">
 	<meta id="token" name="token" value="{{ csrf_token() }}">
 	<title>好去处GoodGoTo</title>
 </head>
