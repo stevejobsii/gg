@@ -288,13 +288,14 @@ $('.hot-tabs li').mouseenter(function () {
 //sticky
 $(function(){ // document ready
   if (!!$('.sticky').offset()) { // make sure ".sticky" element exists
-    var stickyTop = $('.sticky').offset().top; // returns number 
+    // returns number 
     $(window).scroll(function(){ // scroll event
-      var windowTop = $(window).scrollTop();
+      var stickyTopshowmore = $('#side-bar-related-height').height();
+      var windowTop = $(window).scrollTop();    
        // returns number 
-    var currentwidth = $('.side-bar').width();
-      if (stickyTop < windowTop){
-        $('.sticky').css({ position: 'fixed', top: 40 ,width : currentwidth});
+      var currentwidth = $('.side-bar').width();
+      if (stickyTopshowmore < windowTop){
+        $('.sticky').css({ position: 'fixed', top:40,width : currentwidth});
       }
       else {
         $('.sticky').css('position','static');
