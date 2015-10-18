@@ -58,11 +58,11 @@
 
            <li><button  type="button"   
                      class="btn btn-default index-upvote"              
-                     data-id="{{$article->id}}"><strong>x点赞</strong>
+                     data-id="{{$article->id}}"><strong>点赞</strong>
             </button></li>
             <li><button  type="button"  
                      class="btn btn-default index-bookmark"
-                     data-id="{{$article->photo}}"data-title="{{$article->title}}"><strong>x书签</strong>           
+                     data-id="{{$article->photo}}"data-title="{{$article->title}}"><strong>书签</strong>           
             </button></li>
 
 

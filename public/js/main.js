@@ -167,7 +167,9 @@ $('.votebookmark').on("click", ".index-bookmark", function () {
               confirmButtonColor: "#DD6B55",   
               confirmButtonText: "Yes,简单注册登录",   
               closeOnConfirm: false }, 
-              function(){window.location.replace('auth/login');});
+              function(){
+                var pathname = window.location.hostname;
+                window.location.replace('http://'+pathname+'/auth/login');});
        });
 });
 
