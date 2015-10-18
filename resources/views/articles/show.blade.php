@@ -54,7 +54,18 @@
         
 
             <div class="width485 votebookmark btn-vote-reply">
-            <upvotebookmark when-applied="@{{toggleLike}}" when-bookmark="@{{bookmark}}"id="{{$article->id}}"title="{{$article->title}}"photoname="{{$article->photo}}"></upvotebookmark>
+
+
+           <li><button  type="button"   
+                     class="btn btn-default index-upvote"              
+                     data-id="{{$article->id}}"><strong>x点赞</strong>
+            </button></li>
+            <li><button  type="button"  
+                     class="btn btn-default index-bookmark"
+                     data-id="{{$article->photo}}"data-title="{{$article->title}}"><strong>x书签</strong>           
+            </button></li>
+
+
             @if(Auth::check())
             @if (Auth::user()->can("manage_topics") || Auth::user()->id == $article->user_id) 
                 <li><a href="{{ action('ArticlesController@edit', [$article->photo])}}">
@@ -77,7 +88,7 @@
             <hr>
 
         <!-- Reply -->
-        <div class = "reply_list ">
+        <div class = "reply_list">
             @foreach($article->replies as $reply)
             <article class="list-item" style="margin-top: 0px;">
                 <h4 style="float:left;"><a href="{{ route('users.articles', [$reply->user_id]) }}"> {{\App\User::find($reply->user_id)->name}}</a>
@@ -93,14 +104,16 @@
                 @endif
                 @endif
                 &nbsp;&nbsp;
-                <li><span id="b{{$reply->id}}">{{$reply->vote_count}}</span>个赞</li>
-                <upvote when-applied="@{{toggleLike}}" id="{{$reply->id}}"></upvote>
+                <li><span id="br{{$reply->id}}">{{$reply->vote_count}}</span>个赞</li>
+                <li><button  type="button"   
+                         class="btn btn-default show-upvote"              
+                         data-id="{{$reply->id}}"><strong>点赞</strong>
+                </button></li>
                 <li><button class="btn btn-info"  href="javascript:void(0)" onclick="replyOne('{{ $reply->user->name }}');">@.{{\App\User::find($reply->user_id)->name}}</button></li>
                 </ul>
                 
                 <!-- Reply body-->
                 <br><br>
-                
                 回复:&nbsp;{{$reply->body}}
             <hr>
             </article>

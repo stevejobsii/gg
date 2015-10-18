@@ -43,7 +43,15 @@
 		<div class="width485">
 		<div class="pull-left">
 			<ul class="btn-vote-reply">
-            <upvotebookmark when-applied="@{{toggleLike}}" when-bookmark="@{{bookmark}}"id="{{$article->id}}"title="{{$article->title}}"photoname="{{$article->photo}}"></upvotebookmark>
+		    <li><button  type="button" 	
+			         class="btn btn-default index-upvote"	           
+			         data-id="{{$article->id}}"><strong>点赞</strong>
+		    </button></li>
+		    <li><button  type="button" 	
+			         class="btn btn-default index-bookmark"
+			         data-id="{{$article->photo}}"
+			         data-title="{{$article->title}}"><strong>书签</strong>           
+		    </button></li>
 		    <li><a href="{{ action('ArticlesController@show', [$article->photo])}}" target="_blank">
 		    <button  type="button" 	
 			         class="btn btn-default"><strong>互动</strong>           

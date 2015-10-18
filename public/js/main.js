@@ -1,75 +1,3 @@
-Vue.http.headers.common['X-CSRF-TOKEN'] = document.querySelector('#token').getAttribute('value');
-
-//页内投票
-Vue.component('upvotebookmark',{
-  template : '#upvote-bookmark-template',
-
-  props:['when-applied','when-bookmark','id','title','photoname'],//id of <upvote>component
-
-  methods:{
-      toggleLike: function(){
-      this.whenApplied(this.id);//push id to upper
-      },
-      bookMark: function(){
-      this.whenBookmark(this.photoname, this.title, this.id);
-      },
-  }
-});
-new Vue({    
-    el: '.votebookmark',
-    methods:{
-       bookmark: function(photoname,title){
-          var pathname = window.location.hostname;
-          this.$http.post('http://'+pathname+'/api/bookmark',{'bookmark':photoname},function(){
-          swal({
-              title: '图片标题:'+title+'已经设为您的书签！',
-              text: "点击右上角续看书签!",
-              type: "success",
-              timer: 2600,
-              showConfirmButton: false
-          });
-          }).error(function () {
-          swal({title: "您要登陆后才能使用书签!",   
-          type: "warning",   
-          showCancelButton: true,   
-          confirmButtonColor: "#DD6B55",   
-          confirmButtonText: "Yes,简单注册登录",   
-          closeOnConfirm: false }, 
-          function(){window.location.replace('auth/login');});
-          });
-       },//@{{bookmark}}
-       //页内点赞
-       toggleLike: function(id){
-       var pathname = window.location.hostname;
-       this.$http.post('http://'+pathname+'/articles/'+id+'/upvote',function(vote_count) {
-       this.$set('vote_count', vote_count);
-       $('#'+'b'+id).text(vote_count);});
-       },
-    }   
-});
-//reply  upvote
-Vue.component('upvote',{
-  template : '#upvote-template',
-
-  props:['when-applied','id'],//id of <upvote>component
-
-  methods:{
-      toggleLike: function(){
-      this.whenApplied(this.id);//push id to upper
-      },
-  }
-});
-new Vue({    
-    el: '.reply_list',
-    methods:{
-       toggleLike: function(id){
-       var pathname = window.location.hostname;
-       this.$http.post('http://'+pathname+'/replies/'+id+'/upvote',function(vote_count) {
-       this.$set('vote_count', vote_count);
-       $('#'+'b'+id).text(vote_count);});
-       }
-    }   
-});
 //点赞阴影
 $('.btn-default').click(function() {
     $(this).toggleClass('btn-default');
@@ -86,7 +14,7 @@ $('.video_wrap').click(function() {
         $(this).find("h2").fadeIn();     
       }
 });
-
+//永久删除
 $('.btn-danger').click(function(e) {
 e.preventDefault(); // Prevent the href from redirecting directly
     swal({
@@ -115,117 +43,7 @@ function replyOne(username){
     replyContent.val(newContent);
     moveEnd($("#reply_content"));
 };
-//guestbook
-// register the grid component
-Vue.component('demo-grid', {
-  template: '#grid-template',
-  replace: true,
-  props: ['data', 'columns', 'filter-key'],
-  data: function () {
-    return {
-      data: null,
-      columns: null,
-      sortKey: '',
-      filterKey: '',
-      reversed: {}
-    }
-  },
-  compiled: function () {
-    // initialize reverse state
-    var self = this
-    this.columns.forEach(function (key) {
-      self.reversed.$add(key, false)
-    })
-  },
-  methods: {
-    sortBy: function (key) {
-      this.sortKey = key
-      this.reversed[key] = !this.reversed[key]
-    }
-  }
-})
 
-new Vue({
-    el: '#guestbook',
-    data: {
-        searchQuery: '',
-        gridColumns: ['name', 'message'],
-        reverse : true,
-        newMessage: { name: '', message: '' },
-        submitted: false
-    },
-    computed: {
-        errors: function() {
-            for (var key in this.newMessage) {
-                if ( ! this.newMessage[key]) return true;
-            }
-            return false;
-        }
-    },
-    ready: function() {
-        this.fetchMessages();
-    },
-    methods: {
-        fetchMessages: function() {
-            this.$http.get('/api/messages', function(messages) {
-                this.$set('messages', messages);
-            });
-        },
-        onSubmitForm: function(e) {
-            e.preventDefault();
-            var message = this.newMessage;
-            this.messages.push(message);
-            this.newMessage = { name: '', message: '' };
-            this.submitted = true;
-            this.$http.post('api/messages', message);
-        }
-    }
-});
-//side-bar ad
-// define slider component
-Vue.component('img-slider', {
-  template: '#img-slider-template',
-  replace: true
-});
-// boot up demo
-new Vue({
-  el: '#side-bar-ad',
-});
-//bookmark-link
-new Vue({
-    el: '#bookmark-link',
-    methods: {
-        getbookmark: function() {
-            this.$http.get('/api/bookmark', function(bookmark) {
-                this.$set('bookmarkid', bookmark);
-                var pathname = window.location.hostname;
-                window.location = 'http://'+pathname+'/articles'+'?id='+this.bookmarkid;
-            });      
-        },
-    },
-});
-
-
-$(document).ready(function () {
-   //首先将#back-to-top隐藏
-   $("#back-to-top").hide();
-   //当滚动条的位置处于距顶部100像素以下时，跳转链接出现，否则消失
-   $(function () {
-       $(window).scroll(function () {
-           if ($(window).scrollTop() > 100) {
-               $("#back-to-top").fadeIn(1500);
-           }
-           else {
-               $("#back-to-top").fadeOut(1000);
-           }
-       });
-       //当点击跳转链接后，回到页面顶部位置
-       $("#back-to-top").click(function () {
-           $('body,html').animate({ scrollTop: 0 }, 500);
-           return false;
-       });
-   });
-});
 //search-bar hide
 $(".nav-search").hide();
 $("#nav-search").click(function(){
@@ -304,6 +122,64 @@ $(function(){ // document ready
   }
 });
       
+$(document).ready(function (){
+    $.ajaxSetup({
+        headers: { 'X-CSRF-TOKEN': $('meta[name="token"]').attr('value') }
+    });
+});
 
+$('.votebookmark').on("click", ".index-upvote", function () {
+   var myBookId = $(this).data('id');
+   var pathname = window.location.hostname;
+   var urll = 'http://'+pathname+'/articles/'+myBookId+'/upvote';
+   $.ajax({
+      method: "POST",
+      url: urll,
+    })
+    .done(function( vote_count ) {
+     $('#'+'b'+myBookId).text(vote_count);
+    });
+});
 
+$('.votebookmark').on("click", ".index-bookmark", function () {
+   var myBookId = $(this).data('id');
+   var title = $(this).data('title');
+   var pathname = window.location.hostname;
+   
+     $.ajax({
+        method: "POST",
+        url:'http://'+pathname+'/api/bookmark',
+        data:{'bookmark':myBookId}
+      })
+      .done(function() {
+        swal({
+              title: '图片标题:'+title+'已经设为您的书签！',
+              text: "点击右上角续看书签!",
+              type: "success",
+              timer: 2600,
+              showConfirmButton: false
+        });
+      })
+       .fail(function() {
+        swal({title: "您要登陆后才能使用书签!",   
+              type: "warning",   
+              showCancelButton: true,   
+              confirmButtonColor: "#DD6B55",   
+              confirmButtonText: "Yes,简单注册登录",   
+              closeOnConfirm: false }, 
+              function(){window.location.replace('auth/login');});
+       });
+});
 
+$('.reply_list').on("click", ".show-upvote", function () {
+   var myBookId = $(this).data('id');
+   var pathname = window.location.hostname;
+   var urll = 'http://'+pathname+'/replies/'+myBookId+'/upvote';
+   $.ajax({
+      method: "POST",
+      url: urll,
+    })
+    .done(function( vote_count ) {
+     $('#'+'br'+myBookId).text(vote_count);
+    });
+});

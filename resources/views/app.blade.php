@@ -17,24 +17,14 @@
 		@yield('content')
 	</div> 
 	<p id="back-to-top" ><a href="javascript:void(0)">回到顶部</a></p>
-	        <script id="upvote-bookmark-template" type="x-template">
-		    <li><button  type="button" 	
-			         class="btn btn-default"	           
-			         v-on="click: toggleLike"
-			         data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom"><strong>点赞</strong>
-		    </button></li>
-		    <li><button  type="button" 	
-			         class="btn btn-default"
-			         v-on="click: bookMark"><strong>书签</strong>           
-		    </button></li>
-		    </script>
+
 		    <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
 		    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-		    <script src="//cdn.bootcss.com/vue/0.12.16/vue.min.js"></script>
-		    <script src="//cdn.bootcss.com/vue-resource/0.1.16/vue-resource.min.js"></script>
+
 		    <script src="//cdn.bootcss.com/sweetalert/1.1.0/sweetalert.min.js"></script>
             <script src="/js/main.js"></script>
 	@yield('footer')
+	@yield('js')
 	@include('flash')
 	</body>
 </html>

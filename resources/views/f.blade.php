@@ -12,61 +12,36 @@
     <title>好去处GoodGoTo</title>
 </head>
 <body>
- <!-- Button trigger modal -->
+ 
 
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Launch demo modal
-</button>
 
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">     
-      <div style="margin: 10px 20px;">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">登录</h4>
-      </div>    
-      <div class="modal-body">
-        <div class="container-fluid">
-                  <form class="form-horizontal" role="form" method="POST" action="/auth/login">
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <div class="form-group">
-                      <label class="control-label">E-Mail 地址</label>
-                        <input type="email" class="form-control" name="email" value="{{ old('email') }}">
-                    </div>
-                    <div class="form-group">
-                      <label class="control-label">密码</label>
-                        <input type="password" class="form-control" name="password">
-                    </div>
-                    <div class="form-group">
-                        <div class="checkbox">
-                          <label>
-                            <input type="checkbox" name="remember"> Remember Me
-                          </label>
-                        </div>
-                    </div>                   
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary" style="margin-right: 15px;">
-                          登陆
-                        </button>
-                        <strong>
-                        &nbsp;
-                        <a href="/auth/register">简单注册</a>
-                        &nbsp;&nbsp; • &nbsp;&nbsp;
-                        <a href="/password/email">忘记密码？</a></strong>
-                    </div>
-                  </form>
-        </div>
-      </div> 
-      </div>
-    </div>
-  </div>
-</div>
-            <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+ <p>Link 1</p>
+<a data-toggle="modal" data-id="ISBN564541" title="Add this item" class="open-AddBookDialog btn btn-primary" href="#addBookDialog">test</a>
+
+<p>&nbsp;</p>
+
+
+<p>Link 2</p>
+<a data-toggle="modal" data-id="ISBN-001122" title="Add this item" class="open-AddBookDialog btn btn-primary" href="#addBookDialog">test</a>
+
+  <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
             <script src="//cdn.bootcss.com/vue/0.12.16/vue.min.js"></script>
              <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  
             <script src="//cdn.bootcss.com/vue-resource/0.1.16/vue-resource.min.js"></script>
+
+
+<script type="text/javascript">
+  $(document).on("click", ".open-AddBookDialog", function () {
+     var myBookId = $(this).data('id');
+     alert( myBookId );
+     // As pointed out in comments, 
+     // it is superfluous to have to manually call the modal.
+     // $('#addBookDialog').modal('show');
+});
+</script>
+
+          
             <script src="/js/main.js"></script>
    
     </body>
