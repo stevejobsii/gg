@@ -7,7 +7,7 @@
       <a class="navbar-brand" href="{{ url('articles') }}">GoodGoto好去处</a>
     </div>
     <div id="navbar" class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav hoverwhite">
            <li><a href="{{ url('articles') }}"><strong><i class="glyphicon glyphicon-picture" aria-hidden="true"></i>&nbsp;&nbsp;热门图片</strong></a></li>
            <li><a href="{{ url('articles/create') }}"><strong><i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>&nbsp;&nbsp;投稿</strong></a></li>
            <li><a href="{{ url('guestbook') }}"><strong><i class="glyphicon glyphicon-comment" aria-hidden="true"></i>&nbsp;&nbsp;留言板</strong></a></li>
@@ -186,4 +186,5 @@
     </div>
   </div>
 </div>
+
 

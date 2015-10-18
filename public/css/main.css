@@ -1,6 +1,9 @@
 .navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav> .open> a:hover{
 	background: transparent;
 }
+.navbar-inverse .hoverwhite>li:hover{
+  background: #e5e5e5;
+}
 .inline-block{
   display: inline-block;
 }
