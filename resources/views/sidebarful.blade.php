@@ -93,7 +93,7 @@
 	    <img src="/images/catalog/sunset.jpg" class = "width100">
 	    <p style="text-align: center" class="text-info">
 	    <br>
-	    联系方式QQ:401789679，现在备案中，因此较慢等等。
+	    联系方式QQ:401789679，现在备案中，诚邀共同合作等等。
 	    </p>
 	</div>
 

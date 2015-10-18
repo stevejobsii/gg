@@ -16,12 +16,12 @@ elixir(function(mix) {
 
     mix.styles([
         'libs/bootstrap.min.css',
-        'libs/sweetalert.css',
+        'libs/sweetalert.css',  
     ], 'public/css/all.css', 'resources/css');
 
     mix.scripts([
         'libs/sweetalert.min.js',
-        'libs/bootstrap.min.js',
+        'libs/vue-resource.min.js'
     ], 'public/js/all.js', 'resources/js');
 
     mix.version(['css/all.css', 'js/all.js']);
