@@ -1,4 +1,4 @@
-<ul class="list col-md-8"  style="margin-top:20px">
+<ul class="list col-md-8">
   @foreach ($upvotes as $index => $upvote)
    <article class="list-item">
     @if (count($upvote->article))
