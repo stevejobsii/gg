@@ -20,7 +20,6 @@
 
 		    <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
 		    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
 		    <script src="//cdn.bootcss.com/sweetalert/1.1.0/sweetalert.min.js"></script>
             <script src="/js/main.js"></script>
 	@yield('footer')

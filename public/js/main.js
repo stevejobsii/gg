@@ -99,6 +99,7 @@ $("#nav-search").click(function(){
   with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
 
 //展开
+$('.side-bar-hot').mouseenter(function() { $(this).addClass('side-bar-hot-full-size');$(this).find('.show_more').html(' &UpTeeArrow; 收起');});
 $('.side-bar-hot').click(function () {
           var $this = $(this);
           if (!$this.hasClass('side-bar-hot-full-size')) {
