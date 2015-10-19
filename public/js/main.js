@@ -47,7 +47,7 @@ $(document).ready(function () {
        });
    });
 });
-// reply a reply !!回复评论
+// reply a reply !!回复评论@
 function replyOne(username){
     replyContent = $("#reply_content");
     oldContent = replyContent.val();

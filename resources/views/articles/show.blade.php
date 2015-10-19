@@ -1,31 +1,30 @@
-
 @extends('app')
 
 @section('content')
     <div class = "col-md-8">
         <div class = "width480">	
-        <h1>{{$article->title}}</h1>
-        <h3 style="padding-bottom: 10px; margin-top: 0px; border-bottom: 1px solid #e5e5e5;"><small><a href="/users/{{$article->user_id}}/articles">作者：{{\App\User::find($article->user_id)->name}}</a>
-        @unless ($article->tags->isEmpty())
-        标签 |
-        @foreach($article->tags as $tag)
-        <a href="{{ url('/tags',['name'=>$tag->name]) }}" title="{{ $tag->name }}" target="_blank">{{ $tag->name }}</a>
-        @endforeach  
-        @endif</small>
-        @if($previous)
-            <div class = "pull-right">
-                <a href="{{ action('ArticlesController@show', $next)}}">
-                <button  type="button"  
-                         class="btn btn-default"><strong>上一张</strong>           
-                </button>
-                </a>
-                <a href="{{ action('ArticlesController@show', $previous)}}">
-                <button  type="button"  
-                         class="btn btn-default"><strong>下一张</strong>           
-                </button>
-                </a>
-            </div>
-        @endif</h3>
+            <h1>{{$article->title}}</h1>
+            <h3 style="padding-bottom: 10px; margin-top: 0px; border-bottom: 1px solid #e5e5e5;"><small><a href="/users/{{$article->user_id}}/articles">作者：{{\App\User::find($article->user_id)->name}}</a>
+            @unless ($article->tags->isEmpty())
+            标签 |
+            @foreach($article->tags as $tag)
+            <a href="{{ url('/tags',['name'=>$tag->name]) }}" title="{{ $tag->name }}" target="_blank">{{ $tag->name }}</a>
+            @endforeach  
+            @endif</small>
+            @if($previous)
+                <div class = "pull-right">
+                    <a href="{{ action('ArticlesController@show', $next)}}">
+                    <button  type="button"  
+                             class="btn btn-default"><strong>上一张</strong>           
+                    </button>
+                    </a>
+                    <a href="{{ action('ArticlesController@show', $previous)}}">
+                    <button  type="button"  
+                             class="btn btn-default"><strong>下一张</strong>           
+                    </button>
+                    </a>
+                </div>
+            @endif</h3>
         </div>
 
         <!--article -->
@@ -51,45 +50,43 @@
         <span>&nbsp; • &nbsp;</span>{{$article->reply_count}}互动
         <span>&nbsp; • &nbsp;</span>{{$article->view_count}}观摩
         </strong></h5>
-        
 
             <div class="width485 votebookmark btn-vote-reply">
+                <li><button  type="button"   
+                         class="btn btn-default index-upvote"              
+                         data-id="{{$article->id}}"><strong>点赞</strong>
+                </button></li>
+                <li><button  type="button"  
+                         class="btn btn-default index-bookmark"
+                         data-id="{{$article->photo}}"data-title="{{$article->title}}"><strong>书签</strong>           
+                </button></li>
 
 
-           <li><button  type="button"   
-                     class="btn btn-default index-upvote"              
-                     data-id="{{$article->id}}"><strong>点赞</strong>
-            </button></li>
-            <li><button  type="button"  
-                     class="btn btn-default index-bookmark"
-                     data-id="{{$article->photo}}"data-title="{{$article->title}}"><strong>书签</strong>           
-            </button></li>
-
-
-            @if(Auth::check())
-            @if (Auth::user()->can("manage_topics") || Auth::user()->id == $article->user_id) 
-                <li><a href="{{ action('ArticlesController@edit', [$article->photo])}}">
-                &nbsp;&nbsp;<button class="btn btn-warning">修改</button>
-                </a></li>
-                <li style="float: left" id = 'confirm'>
-                {!! Form::open(array('route' => array('articles.destroy', $article->photo), 'method' => 'delete')) !!}
-                    <button type="submit" class="btn btn-danger">删除</button>&nbsp;&nbsp;&nbsp;
-                {!! Form::close() !!} 
-                </li>      
-            @endif
-            @endif
-                <div class="pull-right bdsharebuttonbox" data-tag="share_1">
-                <a class="bds_weixin" data-cmd="weixin" data-photo="{{$article->photo}}" data-type="{{$article->type}}"data-title="{{$article->title}}"></a>
-                <a class="bds_tsina" data-cmd="tsina"data-photo="{{$article->photo}}"data-type="{{$article->type}}"data-title="{{$article->title}}"></a>
-                <a class="bds_qzone" data-cmd="qzone" href="#"data-photo="{{$article->photo}}"data-type="{{$article->type}}"data-title="{{$article->title}}"></a>         
-                </div> 
-                <div class="clearfix"></div>
+                @if(Auth::check())
+                @if (Auth::user()->can("manage_topics") || Auth::user()->id == $article->user_id) 
+                    <li><a href="{{ action('ArticlesController@edit', [$article->photo])}}">
+                    &nbsp;&nbsp;<button class="btn btn-warning">修改</button>
+                    </a></li>
+                    <li style="float: left" id = 'confirm'>
+                    {!! Form::open(array('route' => array('articles.destroy', $article->photo), 'method' => 'delete')) !!}
+                        <button type="submit" class="btn btn-danger">删除</button>&nbsp;&nbsp;&nbsp;
+                    {!! Form::close() !!} 
+                    </li>      
+                @endif
+                @endif
+                    <div class="pull-right bdsharebuttonbox" data-tag="share_1">
+                    <a class="bds_weixin" data-cmd="weixin" data-photo="{{$article->photo}}" data-type="{{$article->type}}"data-title="{{$article->title}}"></a>
+                    <a class="bds_tsina" data-cmd="tsina"data-photo="{{$article->photo}}"data-type="{{$article->type}}"data-title="{{$article->title}}"></a>
+                    <a class="bds_qzone" data-cmd="qzone" href="#"data-photo="{{$article->photo}}"data-type="{{$article->type}}"data-title="{{$article->title}}"></a>         
+                    </div> 
+                    <div class="clearfix"></div>
             </div>
             <hr>
 
         <!-- Reply -->
         <div class = "reply_list">
             @foreach($article->replies as $reply)
+            <span class="anchor" id="{{$reply->id}}"></span>
             <article class="list-item" style="margin-top: 0px;">
                 <h4 style="float:left;"><a href="{{ route('users.articles', [$reply->user_id]) }}"> {{\App\User::find($reply->user_id)->name}}</a>
                 <small>{{ $reply->created_at }}</small></h4>
@@ -115,7 +112,7 @@
                 <!-- Reply body-->
                 <br><br>
                 回复:&nbsp;{{$reply->body}}
-            <hr>
+                <hr>
             </article>
             @endforeach
         </div>
@@ -149,12 +146,6 @@
             {!! Form::close() !!}
         </div>
     </div>
-        <script id="upvote-template" type="x-template">
-                    <li><button  type="button"  
-                             class="btn btn-default"               
-                             v-on="click: toggleLike"><strong>点赞</strong>
-                    </button></li>
-        </script>
     @include('sidebar')
 @stop
 

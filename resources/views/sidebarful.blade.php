@@ -31,10 +31,10 @@
 		    <span class="sr-only">Next</span>
 		  </a>
 		</div>
-				<p style="text-align: center" class="text-info">
-			    这里投放广告， 联系方式QQ:401789679。
-			    </p>
-			    <br>
+		<p style="text-align: center" class="text-info">
+	    这里投放广告， 联系方式QQ:401789679。
+	    </p>
+	    <br>
 		    
 		    <div class = "width100">
 		        <ul class="hot-tabs bule-line-top">	    
@@ -48,8 +48,13 @@
 				@foreach($hotimgs as $index =>$hot)
 				<article class="list-item side-bar-hot panel panel-default">
 			       <div class= "panel-heading">
-			       <h5 style="margin-bottom: 0px; margin-top: -5px;"><a href="/users/{{$hot->user_id}}/articles">{{\App\User::find($hot->user_id)->name}}</a>的图片
-				   <a href="{{ action('ArticlesController@show', [$hot->photo])}}"target="_blank" >{{$hot->title}}<span class="label label-warning inline-block pull-right">#{{$index+1}}</span></a></h5>
+				       <h5 style="margin-bottom: 0px; margin-top: -5px;"><a href="/users/{{$hot->user_id}}/articles">{{\App\User::find($hot->user_id)->name}}</a>的图片
+					   <a href="{{ action('ArticlesController@show', [$hot->photo])}}"target="_blank" >{{$hot->title}}
+						   <div class = "pull-right">
+						   <span class="label label-warning inline-block">#{{$index+1}}</span>
+						   <span class="label label-warning inline-block">{{$hot->vote_count}}赞</span>
+	                       </div>
+					   </a></h5>
 				   </div>
 				   <img src="/images/catalog/{{$hot->photo}}{{$hot->type}}" class = "side-bar-hot-img" alt="{{$hot->title}}">
 			       <div class = "show_more">展开</div>
@@ -66,11 +71,16 @@
 			       <div class= "panel-heading">
 			       <h5 style="margin-bottom: 0px; margin-top: -5px;"><a href="/users/{{$hot->article->user_id}}/articles">{{\App\User::find($hot->article->user_id)->name}}</a>的发布
 		           <a href="{{ action('ArticlesController@show', [$hot->article->photo])}}"target="_blank" >{{$hot->article->title}}
-				   <a href="{{ action('ArticlesController@show', [$hot->photo])}}"target="_blank" >{{$hot->title}}<span class="label label-warning inline-block pull-right">#{{$index+1}}</span></a></h5>
+				   	   <div class = "pull-right">
+					   <span class="label label-warning inline-block">#{{$index+1}}</span>
+					   <span class="label label-warning inline-block">{{$hot->vote_count}}赞</span>
+                       </div>
+				   </a></h5>
 		           </div>
 		           <div class="panel-body">
 			       <h5 style="padding-bottom: 0px; margin-top: 0px;"><a href="/users/{{$hot->user_id}}/articles">{{\App\User::find($hot->user_id)->name}}</a>	
-				   回复:{{$hot->body}}</a></h5>
+				   回复:<a href="/articles/{{$hot->article->photo}}#{{$hot->id}}"target="_blank" >
+				   {{$hot->body}}</a></h5>
 				   </div>
 				</article>
 				@endforeach
