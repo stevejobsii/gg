@@ -1,6 +1,5 @@
 @extends('app')
 @section('content')
-      {{$user->name}}的收藏
       @include('users.partials.infonav')
       @if (count($replies))
       @include('users.partials.replies')

@@ -12,3 +12,4 @@
     <a href="{{ route('users.show', $user->id) }}" >资料</a>
   </li>
 </ul>
+<br>

@@ -1,17 +1,27 @@
 @extends('app')
 
 @section('content')
+
+    <nav id="myScrollspy">
+    <ul class="nav nav-pills nav-stacked">
+    @foreach($articles as $article)
+    <li><a href="#{{$article->photo}}">{{mb_substr($article->title, 0, 4,'utf-8')}}</a></li>
+    @endforeach
+    </ul>
+    </nav>
+
+    <div class= "col-md-8">
     @if(isset($user))
-    {{$user->name}}的收藏
+    <h5>{{$user->name}}的收藏</h5>
     @include('users.partials.infonav')
     @endif
-    <div class= "col-md-8">
 	<ul class="list votebookmark">	
 	@unless (!$search)
     <br>搜索：{{$search}}的结果
     @endif
 	@foreach($articles as $article)
-	<article class="list-item" id={{$article->id}} style="margin-top: 0px;">
+	<span class="anchor" id="{{$article->photo}}"></span>
+	<article class="list-item"  style="margin-top: 0px;">
 	    <div class = "width480">
 		<a href="{{ action('ArticlesController@show', [$article->photo])}}"target="_blank" ><h3>{{$article->title}}</h3></a>
 		</div>
@@ -69,6 +79,7 @@
 
 	</article>			      
     <hr>
+    </span>
 	@endforeach
     </ul><h1>{!!$articles->appends(Request::except('page'))->render()!!}</h1>
     </div>

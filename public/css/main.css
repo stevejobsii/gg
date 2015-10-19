@@ -4,6 +4,27 @@
 .navbar-inverse .hoverwhite>li:hover{
   background: #e5e5e5;
 }
+.anchor{
+  display: block;
+  height: 40px; /*same height as header  for search id*/
+  margin-top: -40px; /*same height as header*/
+  visibility: hidden;
+}
+ul.nav-pills {
+        top: 50px;
+        right: 20px;
+        position: fixed;  
+
+    }
+.nav-pills>li>a {
+    border-radius: 0px;
+    padding: 5px 15px;
+}
+.nav-pills>li>.active>a:focus,.nav-pills>li>.active>a:hover,.nav-pills>li.active>a,.nav-pills>li>a:focus {
+    background: transparent;
+    border-left: 2px solid #337ab7;
+    color: #337ab7; 
+}
 .inline-block{
   display: inline-block;
 }
@@ -50,7 +71,7 @@
 	display: block;
 }
 .bule-line-top {
-    border-top: 2px solid #1f5a99;
+    border-top: 2px solid #337ab7;
 }
 .hot-tabs li.current {
     background: #fff;

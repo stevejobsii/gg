@@ -11,7 +11,7 @@
 
 	<title>好去处GoodGoTo</title>
 </head>
-<body>
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="70">
 	    @include('partials.nav')
 	<div class="container page">
 		@yield('content')
