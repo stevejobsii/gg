@@ -44,9 +44,9 @@ class ArticlesController extends Controller
         //http://example.com/custom/url?page=N, you should pass custom/url to the setPath
         $articles->setPath('articles');
         //sidebar
-        $hotimgs = \App\Article::where('type','LIKE',"%jpg%")->orderBy('vote_count', 'desc')->take(5)->get();
+        $hotimgs = \App\Article::where('type','LIKE',"%jpg%")->orderBy('vote_count', 'desc')->take(10)->get();
         //return $hotimgs;
-        $hotreplies = \App\Reply::orderBy('vote_count', 'desc')->limit(5)->get();
+        $hotreplies = \App\Reply::orderBy('vote_count', 'desc')->limit(10)->get();
         return view('articles.index', compact('articles', 'search' ,'hotimgs','hotreplies'));
     }
     
