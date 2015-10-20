@@ -81,6 +81,7 @@
 <script type="text/javascript">
         //guestbook
 // register the grid component
+Vue.http.headers.common['X-CSRF-TOKEN'] = document.querySelector('#token').getAttribute('value');
 Vue.component('demo-grid', {
   template: '#grid-template',
   replace: true,
