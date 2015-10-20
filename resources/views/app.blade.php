@@ -8,7 +8,7 @@
 	<link href="//cdn.bootcss.com/sweetalert/1.1.0/sweetalert.min.css" rel="stylesheet">
 	<link  rel="stylesheet" href="/css/main.css">
 	<meta id="token" name="token" value="{{ csrf_token() }}">
-
+    <link rel="shortcut icon" href="/images/catalog/goodgotologo.jpg">
 	<title>好去处GoodGoTo</title>
 </head>
 <body data-spy="scroll" data-target="#myScrollspy" data-offset="70">
@@ -17,7 +17,7 @@
 		@yield('content')
 	</div> 
 	<p id="back-to-top" ><a href="javascript:void(0)">回到顶部</a></p>
-	
+
 		    <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
 		    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 		    <script src="//cdn.bootcss.com/sweetalert/1.1.0/sweetalert.min.js"></script>
