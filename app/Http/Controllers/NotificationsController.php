@@ -28,10 +28,11 @@ class NotificationsController extends Controller
      * @return Response
      */
     //wait to add
-    public function destroy($id)
+    public function destroy()
     {
-        Notification::destroy($id);
-        return Redirect::route('notifications.index');
+        $notification = \App\Notification::where('user_id', Auth::id());
+        $notification->delete();
+        return redirect('notifications');
     }
 
     public function count()

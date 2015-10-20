@@ -5,10 +5,16 @@
 
     @if (count($notifications))
         <div>
-            <ul class="list-group row">
-              <h5>通知中心</h5>
+              <h2>通知中心
+              <div id = 'confirm' class = "pull-right inline-block">
+                    {!! Form::open(array('route' => array('notifications.destroy'), 'method' => 'delete')) !!}
+                        <button type="submit" class="btn btn-danger">删除</button>&nbsp;&nbsp;&nbsp;
+                    {!! Form::close() !!} 
+              </div></h2>     
+             <ul class="list-group row">
+              
               @foreach ($notifications as $notification)
-                <li class="list-group-item" style="margin-top: 0px;">
+                <li class="list-group-item" style="margin-top: 0px;border-left:1px;border-right:1px;">
                 @if (count($notification->article))
                 <div class="infos">
                     @if (count($notification->from_user_id))
@@ -41,5 +47,5 @@
         <div class="empty-block">您暂时还没有什通知或信息！</div>
         </div>
     @endif
-</div>
+
 @stop

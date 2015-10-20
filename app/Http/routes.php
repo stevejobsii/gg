@@ -71,6 +71,10 @@ Route::delete('replies/{id}/destroy',  [
         'as' => 'replies.destroy',
         'uses' => 'RepliesController@destroy',
 ]);
+Route::delete('notifications/destroy', [
+        'as' => 'notifications.destroy',
+        'uses' => 'notificationsController@destroy',
+]);
 # ------------------ bookmark stuff ------------------------
 post('api/bookmark', function() {
          Auth::user()->bookmark = Request::get('bookmark');
