@@ -45,7 +45,7 @@
 			</video>
 			</div>
 			@endif	  
-		    <h5><strong><span id="b{{$article->id}}">{{$article->vote_count}}</span>赞
+		    <h5><strong><span id="b{{$article->photo}}">{{$article->vote_count}}</span>赞
 			<a href="{{ action('ArticlesController@show', [$article->photo])}}" target="_blank">
 			<span>&nbsp; • &nbsp;</span>{{$article->reply_count}}互动
 			<span>&nbsp; • &nbsp;</span>{{$article->view_count}}观摩
@@ -55,7 +55,7 @@
 				<ul class="btn-vote-reply">
 			    <li><button  type="button" 	
 				         class="btn btn-default index-upvote"	           
-				         data-id="{{$article->id}}"><strong>点赞</strong>
+				         data-id="{{$article->photo}}"><strong>点赞</strong>
 			    </button></li>
 			    <li><button  type="button" 	
 				         class="btn btn-default index-bookmark"

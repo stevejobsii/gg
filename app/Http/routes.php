@@ -22,7 +22,7 @@ Route::get('/test', function (){return view('f');
 });
 # ------------------ article stuff ------------------------
 Route::resource('articles','ArticlesController');
-Route::post('/articles/{id}/upvote', 
+Route::post('/articles/{photo}/upvote', 
         ['as' => 'articles.upvote',
         'uses' => 'ArticlesController@upvote'])->before('csrf');
 # ------------------ tag stuff ------------------------

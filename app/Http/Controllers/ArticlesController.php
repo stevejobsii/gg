@@ -173,9 +173,9 @@ class ArticlesController extends Controller
         return $article;
     }
 
-    public function upvote($id,Request $request)
+    public function upvote($photo,Request $request)
     {
-        $article = Article::find($id);
+        $article = \App\Article::where('photo', $photo)->firstOrFail();
         //notify auther 
         if (Auth::check()){
             App('App\Notification')->notify('article_upvote', Auth::user(), $article->user, $article);
