@@ -1,3 +1,4 @@
+	<div id="ajaxerror">
 	@if ($errors->any())
 
 		<ul class="alert alert-danger">
@@ -6,5 +7,5 @@
 				<li>{{ $error }}</li>
 			@endforeach
 		</ul>
-
 	@endif 
+	</div>
