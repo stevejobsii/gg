@@ -34,17 +34,17 @@ input[readonly] {
   margin-top: -40px; /*same height as header*/
   visibility: hidden;
 }
-ul.nav-pills {
+ul.articles-title-sidebar {
         top: 50px;
         right: 20px;
         position: fixed;  
 
     }
-.nav-pills>li>a {
+.articles-title-sidebar>li>a {
     border-radius: 0px;
     padding: 5px 15px;
 }
-.nav-pills>li>.active>a:focus,.nav-pills>li>.active>a:hover,.nav-pills>li.active>a,.nav-pills>li>a:focus {
+.articles-title-sidebar>li>.active>a:focus,.articles-title-sidebar>li>.active>a:hover,.articles-title-sidebar>li.active>a,.articles-title-sidebar>li>a:focus {
     background: transparent;
     border-left: 2px solid #337ab7;
     color: #337ab7; 

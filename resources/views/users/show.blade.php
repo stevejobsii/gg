@@ -9,7 +9,7 @@
 	      top: 200px;
 	      position: fixed;
 	  }
-	  div.col-sm-9 div {
+	  div.col-sm-10 div {
 	      height: 250px;
 	      font-size: 28px;
 	  }
@@ -22,7 +22,7 @@
 
 
   <div class="row">
-    <nav class="col-sm-3" id="myScrollspy">
+    <nav class="col-sm-2" id="myScrollspy">
       <ul class="nav nav-pills nav-stacked">
         <li class="active"><a href="#section1">Section 1</a></li>
         <li><a href="#section2">Section 2</a></li>
@@ -36,7 +36,7 @@
         </li>
       </ul>
     </nav>
-    <div class="col-sm-9">
+    <div class="col-sm-10">
       <div id="section1">    
         <h1>Section 1</h1>
         <p>Try to scroll this section and look at the navigation list while scrolling!</p>

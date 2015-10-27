@@ -3,7 +3,7 @@
 @section('content')
 
     <nav id="myScrollspy">
-	    <ul class="nav nav-pills nav-stacked">
+	    <ul class="nav nav-pills nav-stacked articles-title-sidebar">
 	    @foreach($articles as $article)
 	    <li><a href="#{{$article->photo}}">{{mb_substr($article->title, 0, 4,'utf-8')}}</a></li>
 	    @endforeach
@@ -15,7 +15,7 @@
 	    <h5>{{$user->name}}的收藏</h5>
 	    @include('users.partials.infonav')
 	    @endif
-		<ul class="list votebookmark">	
+		<ul class="list">	
 		@unless (!$search)
 	    <br>搜索：{{$search}}的结果
 	    @endif
