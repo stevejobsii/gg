@@ -58,7 +58,7 @@
          我的档案</a></li>
          <li class="divider"></li>         
 
-         <li><a id="bookmark-link" v-on="click : getbookmark" href="javascript:void(0)">
+         <li><a id="bookmark-link" href="javascript:void(0)">
          <span class="glyphicon glyphicon-bookmark"aria-hidden="true"></span>
          续看书签</a></li>
          

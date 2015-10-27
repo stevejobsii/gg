@@ -150,6 +150,7 @@ $(document).ready(function (){
     });
 });
 
+//post upvote/bookmark
 $('.votebookmark').on("click", ".index-upvote", function () {
    var myBookId = $(this).data('id');
    var pathname = window.location.hostname;
@@ -205,6 +206,20 @@ $('.reply_list').on("click", ".show-upvote", function () {
     })
     .done(function( vote_count ) {
      $('#'+'br'+myBookId).text(vote_count);
+    });
+});
+
+//getbookmark
+$('#bookmark-link').on("click",function () {
+   var pathname = window.location.hostname;
+   var urll = 'http://'+pathname+'/api/bookmark';
+   $.ajax({
+      method: "GET",
+      url: urll,
+    })
+    .done(function( bookmark ) {
+      var pathname = window.location.hostname;
+      window.location.replace('http://'+pathname+'/articles?id='+bookmark);
     });
 });
 

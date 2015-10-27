@@ -53,7 +53,7 @@
                 <hr>
                 <div class="form-group">
                     <div class="col-sm-4 col-sm-offset-2">
-                    <img src="/images/catalog/rock.jpg" id="avatar_0">          
+                    <img src="/images/catalog/rock.jpg" id="avatar">          
                     </div>
                 </div>
 

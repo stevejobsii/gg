@@ -57,12 +57,7 @@ class UsersController extends Controller
         $this->authorOrAdminPermissioinRequire($topic->user_id);
     }
 
-    public function bookmark(BookmarkRequest $request)
-    {       
-        $users = Auth::user()->create($request->all());
-        $users->bookmark = '300';
-        $users->save();
-    }
+    
 
     //user->article, show the user articles
     public function articles(urlRequest $request,$id)
