@@ -1,15 +1,15 @@
-   <div class="form-group fileUpload">
-       {!! Form::label('格式： png | jpg | jpeg | mp4') !!}<span class="error">*</span>
-            <div class="input-group">
-                <span class="input-group-btn">
-                    <span class="btn btn-primary btn-file">
-                        浏览&hellip;{!! Form::file('image', null) !!}
-                    </span>
-                </span>
-                <input type="text" class="form-control" readonly>
-            </div>
-       <p class="help-block">上传应小于2M。</p>
-    </div>
+  <div class="form-group fileUpload">
+     {!! Form::label('格式： png | jpg | jpeg | mp4') !!}<span class="error">*</span>
+          <div class="input-group">
+              <span class="input-group-btn">
+                  <span class="btn btn-primary btn-file">
+                      浏览&hellip;{!! Form::file('image', null) !!}
+                  </span>
+              </span>
+              <input type="text" class="form-control" readonly>
+          </div>
+     <p class="help-block">上传应小于2M。</p>
+  </div>
 
   <div class="form-group">
     {!! Form::label('title', '标题') !!}<span class="error">*</span>

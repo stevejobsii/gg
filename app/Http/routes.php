@@ -78,6 +78,11 @@ Route::get('/notifications/count', [
     'as' => 'notifications.count',
     'uses' => 'NotificationsController@count',
 ]);
+//设置
+Route::get('/settings', [
+    'as' => 'users.settings',
+    'uses' => 'UsersController@settings',
+]);
 # ------------------ delete stuff ------------------------
 Route::delete('articles/{photo}/destroy',  [
         'as' => 'articles.destroy',

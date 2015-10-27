@@ -49,6 +49,9 @@ ul.articles-title-sidebar {
     border-left: 2px solid #337ab7;
     color: #337ab7; 
 }
+.control-label{
+  padding-top: 7px;
+}
 .inline-block{
   display: inline-block;
 }

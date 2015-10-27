@@ -25,17 +25,14 @@
                     </a>
                 </div>
             @endif</h3>
-        </div>
 
         <!--article -->
         @if($article->type == '.jpg')
-        <a href="{{ action('ArticlesController@show', [$article->photo])}}"target="_blank">
-        <img src="/images/catalog/{{$article->photo}}{{$article->type}}" alt="{{$article->title}}"></a>
+        <img src="/images/catalog/{{$article->photo}}{{$article->type}}" alt="{{$article->title}}">
         @endif
 
         @if($article->type == '_long.jpg')
-        <a href="{{ action('ArticlesController@show', [$article->photo])}}"target="_blank">
-        <img src="/images/catalog/{{$article->photo}}_long.jpg" alt="{{$article->title}}"></a>
+        <img src="/images/catalog/{{$article->photo}}_long.jpg" alt="{{$article->title}}">
         @endif
 
         @if($article->type == '.mp4')
@@ -50,8 +47,9 @@
         <span>&nbsp; • &nbsp;</span>{{$article->reply_count}}互动
         <span>&nbsp; • &nbsp;</span>{{$article->view_count}}观摩
         </strong></h5>
+        </div><!-- width480 -->
 
-            <div class="width485 votebookmark btn-vote-reply">
+            <div class="width485 btn-vote-reply votebookmark">
                 <li><button  type="button"   
                          class="btn btn-default index-upvote"              
                          data-id="{{$article->photo}}"><strong>点赞</strong>

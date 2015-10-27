@@ -12,7 +12,12 @@ class UsersController extends Controller
    
     
     public function __construct(){
-        $this->middleware('auth', ['only' => ['edit', 'update', 'destroy']]);
+        $this->middleware('auth', ['only' => ['edit', 'update', 'destroy','settings']]);
+    }
+
+    public function settings()
+    {
+       return view('users.settings');
     }
 
     //show users/id

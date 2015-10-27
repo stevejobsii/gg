@@ -15,7 +15,7 @@
 	    <h5>{{$user->name}}的收藏</h5>
 	    @include('users.partials.infonav')
 	    @endif
-		<ul class="list">	
+		<ul class="list votebookmark">	
 		@unless (!$search)
 	    <br>搜索：{{$search}}的结果
 	    @endif

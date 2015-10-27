@@ -56,8 +56,7 @@
          <li><a href="/users/{{Auth::user()->id}}/articles" >
          <span class="glyphicon glyphicon-inbox" aria-hidden="true"></span>
          我的档案</a></li>
-         <li class="divider"></li>
-         
+         <li class="divider"></li>         
 
          <li><a id="bookmark-link" v-on="click : getbookmark" href="javascript:void(0)">
          <span class="glyphicon glyphicon-bookmark"aria-hidden="true"></span>
@@ -95,11 +94,11 @@
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="form-group">
                       <label class="control-label">E-Mail 地址</label>
-                        <input type="email" class="form-control" name="email" value="{{ old('email') }}">
+                        <input type="email" class="form-control" placeholder="E-Mail 地址" name="email" value="{{ old('email') }}">
                     </div>
                     <div class="form-group">
                       <label class="control-label">密码</label>
-                        <input type="password" class="form-control" name="password">
+                        <input type="password" class="form-control" placeholder="密码" name="password">
                     </div>
                     <div class="form-group">
                         <div class="checkbox">
