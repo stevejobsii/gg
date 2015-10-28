@@ -22,6 +22,7 @@
     <div class="col-md-10">
       <div id="user-info">    
         <form class="form-horizontal" id="user-data-form">
+                {{csrf_field()}}
                 <h4><i class="glyphicon glyphicon-tasks"></i>&nbsp;&nbsp;个人信息</h4>
                 <hr>
                 <div class="form-group">
@@ -38,7 +39,6 @@
                 </div>
                 <div class="form-group">
                     <div class="col-sm-4 col-sm-offset-2">
-                    {{csrf_field()}}
                     <button type="button" class="btn btn-primary" id="update-user-data">更新</button>
                     </div>
                 </div>
@@ -48,24 +48,31 @@
 
 
       <div id="user-head"> 
-        <form class="form-horizontal" method="post" action="/settings/update-avatar" enctype="multipart/form-data" target="upload-frame" id="avatar-form">
+        <form class="form-horizontal" method="post" action="/settings/update-avatar" enctype="multipart/form-data" id="avatar-form">
+                {{ csrf_field() }}
                 <h4><i class="glyphicon glyphicon-user"></i>&nbsp;&nbsp;头像设置</h4>
                 <hr>
                 <div class="form-group">
                     <div class="col-sm-4 col-sm-offset-2">
-                    <img src="/images/catalog/rock.jpg" id="avatar">          
+                    @if(file_exists(public_path('/images/catalog/avatar{{Auth::id()}}.jpg'))) 
+                       <img src="/images/catalog/avatar{{Auth::id()}}.jpg" id="avatar">  
+                    @else
+                       <img src="/images/catalog/rock.jpg" id="avatar">  
+                    @endif
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-sm-4 col-sm-offset-2">
-                    <button type="button" class="btn btn-primary" onclick="$('#avatar').click()">
-                            上传新头像
+                    <button type="button" class="btn btn-primary" onclick="$('#avatarinput').click()">
+                        上传新头像
                     </button>
                     <span class="loading"></span>
-                    <input type="file" id="avatar" name="avatar" size="1" style="display: none">
+                    <input type="file" id="avatarinput" name="avatar" size="1" style="display: none">
                     <span class="help-block">
                         头像支持jpg和png格式，上传的文件大小不超过 2M</span>
+
+                    <button type="submit" class="btn btn-primary hidden" id="avatarinput-submit">更新</button>
                     </div>
                 </div>
                
@@ -76,7 +83,8 @@
 
 
       <div id="user-keyreset">         
-       <form class="form-horizontal" id="password-form">
+       <form class="form-horizontal" role="form" method="POST" action="/password/reset">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <h4><i class="glyphicon glyphicon-wrench"></i>&nbsp;&nbsp;密码设置</h4>
                 <hr>
                 <div class="form-group">
@@ -109,6 +117,8 @@
                 </div>
             </form>
       </div>
+
+
 
     </div>
   </div>

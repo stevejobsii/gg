@@ -1,11 +1,13 @@
 <?php namespace App\Http\Controllers;
 
 use App\Article;
+use Auth;
 use App\User;
 use App\Reply;
 use App\Vote;
 use Illuminate\Http\Request as urlRequest;
-use App\Http\Requests\BookmarkRequest;
+use App\Http\Requests\AvatarRequest;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class UsersController extends Controller
 {
@@ -18,6 +20,15 @@ class UsersController extends Controller
     public function settings()
     {
        return view('users.settings');
+    }
+
+    public function avatarupdate(AvatarRequest $request)
+    {
+        Image::make($request->file('avatar'))
+            ->resize(100, 100)
+            ->encode('jpg')
+            ->save(base_path() . '/public/images/catalog/avatar' . Auth::id() . '.jpg');
+        return redirect('settings');
     }
 
     //show users/id
@@ -52,13 +63,7 @@ class UsersController extends Controller
         return Redirect::route('users.show', $id);
     }
 
-    public function destroy($id)
-    {
-        $this->authorOrAdminPermissioinRequire($topic->user_id);
-    }
-
     
-
     //user->article, show the user articles
     public function articles(urlRequest $request,$id)
     {
@@ -75,6 +80,7 @@ class UsersController extends Controller
         $hotreplies =  \App\Reply::orderBy('vote_count', 'desc')->limit(10)->get();
         return view('articles.index',compact('articles','search','user','hotimgs','hotreplies'));
     }
+    
     //user->relpies
     public function replies($id)
     {

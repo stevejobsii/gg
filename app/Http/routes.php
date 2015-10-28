@@ -73,15 +73,20 @@ Route::get('/notifications', [
     'as' => 'notifications.index',
     'uses' => 'NotificationsController@index',
 ]);
-//通知数
+//获取通知数
 Route::get('/notifications/count', [
     'as' => 'notifications.count',
     'uses' => 'NotificationsController@count',
 ]);
-//设置
+//打开个人用户设置
 Route::get('/settings', [
     'as' => 'users.settings',
     'uses' => 'UsersController@settings',
+]);
+//上传avatar
+Route::post('/settings/update-avatar', [
+    'as' => 'users.avatarupdate',
+    'uses' => 'UsersController@avatarupdate',
 ]);
 # ------------------ delete stuff ------------------------
 Route::delete('articles/{photo}/destroy',  [

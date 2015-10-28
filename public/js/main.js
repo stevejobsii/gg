@@ -222,8 +222,10 @@ $('#bookmark-link').on("click",function () {
       window.location.replace('http://'+pathname+'/articles?id='+bookmark);
     });
 });
-
-
+//upload avatar
+$('#avatarinput').change(function () {
+            $('#avatarinput-submit').click();
+        });
 
 $(document).on('change', '.btn-file :file', function() {
   var input = $(this),
@@ -242,7 +244,6 @@ $(document).ready( function() {
             input.val(log);
         } else {
             if( log ) alert(log);
-        }
-        
+        }     
     });
 });
