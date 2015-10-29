@@ -71,13 +71,13 @@ class UsersController extends Controller
         $user = User::findOrFail($id);
         if($search = $request->query('q'))
         {
-        $articles = Article::whose($user->id)->search($search)->orderBy('created_at', 'desc')->paginate(20);
+        $articles = Article::whose($user->id)->search($search)->orderBy('created_at', 'desc')->paginate(18);
         }else{
-        $articles = Article::whose($user->id)->orderBy('created_at', 'desc')->paginate(20);}
+        $articles = Article::whose($user->id)->orderBy('created_at', 'desc')->paginate(18);}
         $articles->setPath('articles');
         //sidebar
-        $hotimgs = \App\Article::where('type','LIKE',"%jpg%")->orderBy('vote_count', 'desc')->take(20)->get();
-        $hotreplies =  \App\Reply::orderBy('vote_count', 'desc')->limit(20)->get();
+        $hotimgs = \App\Article::where('type','LIKE',"%jpg%")->orderBy('vote_count', 'desc')->take(10)->get();
+        $hotreplies =  \App\Reply::orderBy('vote_count', 'desc')->limit(10)->get();
         return view('articles.index',compact('articles','search','user','hotimgs','hotreplies'));
     }
     

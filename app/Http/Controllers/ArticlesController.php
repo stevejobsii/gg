@@ -28,25 +28,25 @@ class ArticlesController extends Controller
     {
         //query
         if ($search = $request->query('q')) {
-            $articles = Article::search($search)->orderBy('created_at', 'desc')->simplepaginate(20);
+            $articles = Article::search($search)->orderBy('created_at', 'desc')->simplepaginate(18);
         } elseif ($search = $request->query('id')) {
             //查找伪id（photo）
             $search = \App\Article::where('photo', $search)->firstOrFail()->id;
-            $articles = DB::table('articles')->where('id', '<=', $search)->orderBy('created_at', 'desc')->simplepaginate(20);
+            $articles = DB::table('articles')->where('id', '<=', $search)->orderBy('created_at', 'desc')->simplepaginate(18);
             //伪搜索结果
             $search = $request->query('id');
         } else {
             //DB::代替Article::
-            $articles = DB::table('articles')->orderBy('created_at', 'desc')->simplepaginate(20);
+            $articles = DB::table('articles')->orderBy('created_at', 'desc')->simplepaginate(18);
         }
         //已经点赞{!!$articles->appends(Request::except('page'))->render()!!}
         //$f = DB::table('votes')->whereuser_id(Auth::user()->id)->lists('votable_id');
         //http://example.com/custom/url?page=N, you should pass custom/url to the setPath
         $articles->setPath('articles');
         //sidebar
-        $hotimgs = \App\Article::where('type','LIKE',"%jpg%")->orderBy('vote_count', 'desc')->take(20)->get();
+        $hotimgs = \App\Article::where('type','LIKE',"%jpg%")->orderBy('vote_count', 'desc')->take(10)->get();
         //return $hotimgs;
-        $hotreplies = \App\Reply::orderBy('vote_count', 'desc')->limit(20)->get();
+        $hotreplies = \App\Reply::orderBy('vote_count', 'desc')->limit(10)->get();
         return view('articles.index', compact('articles', 'search' ,'hotimgs','hotreplies'));
     }
     

@@ -13,19 +13,19 @@ class TagsController extends Controller
     {
         //query within tag
         if ($search = $request->query('q')) {
-            $articles = $tag->articles()->search($search)->orderBy('created_at', 'desc')->simplepaginate(20);
+            $articles = $tag->articles()->search($search)->orderBy('created_at', 'desc')->simplepaginate(18);
         } elseif ($search = $request->query('id')) {
-            $articles = $tag->articles()->where('id', '<', $search)->orderBy('created_at', 'desc')->simplepaginate(20);
+            $articles = $tag->articles()->where('id', '<', $search)->orderBy('created_at', 'desc')->simplepaginate(18);
 
         } else {
             //获取这个tag的articles并用articles.index反应
-        $articles = $tag->articles()->orderBy('created_at', 'desc')->simplepaginate(20);
+        $articles = $tag->articles()->orderBy('created_at', 'desc')->simplepaginate(18);
         }
         $articles->setPath($tag->name);
         //sidebar
-        $hotimgs = \App\Article::where('type','LIKE',"%jpg%")->orderBy('vote_count', 'desc')->take(20)->get();
+        $hotimgs = \App\Article::where('type','LIKE',"%jpg%")->orderBy('vote_count', 'desc')->take(10)->get();
         //return $hotimgs;
-        $hotreplies = \App\Reply::orderBy('vote_count', 'desc')->limit(20)->get();
+        $hotreplies = \App\Reply::orderBy('vote_count', 'desc')->limit(10)->get();
         return view('articles.index', compact('articles', 'search','hotimgs','hotreplies'));
     }
 
