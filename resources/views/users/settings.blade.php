@@ -54,7 +54,7 @@
                 <hr>
                 <div class="form-group">
                     <div class="col-sm-4 col-sm-offset-2">
-                    @if(file_exists(public_path('/images/catalog/avatar{{Auth::id()}}.jpg'))) 
+                    @if(file_exists(public_path('/images/catalog/avatar'.Auth::id().'.jpg'))) 
                        <img src="/images/catalog/avatar{{Auth::id()}}.jpg" id="avatar">  
                     @else
                        <img src="/images/catalog/rock.jpg" id="avatar">  
@@ -71,11 +71,9 @@
                     <input type="file" id="avatarinput" name="avatar" size="1" style="display: none">
                     <span class="help-block">
                         头像支持jpg和png格式，上传的文件大小不超过 2M</span>
-
                     <button type="submit" class="btn btn-primary hidden" id="avatarinput-submit">更新</button>
                     </div>
                 </div>
-               
             </form>
             <br>
       </div> 

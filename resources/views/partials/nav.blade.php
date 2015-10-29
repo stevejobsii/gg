@@ -1,7 +1,7 @@
   <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
-      <a class="navbar-brand" href="{{ url('articles') }}">GoodGoto好去处</a>
+      <a class="navbar-brand" href="{{ url('articles') }}"><i class="glyphicon glyphicon-home"></i>&nbsp;&nbsp;GoodGoto好去处</a>
     </div>
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav hoverwhite">
@@ -55,12 +55,12 @@
          <ul class="dropdown-menu" role="menu">
          <li><a href="/users/{{Auth::user()->id}}/articles" >
          <span class="glyphicon glyphicon-inbox" aria-hidden="true"></span>
-         我的档案</a></li>
+         <strong>我的档案</strong></a></li>
          <li class="divider"></li>         
 
          <li><a id="bookmark-link" href="javascript:void(0)">
          <span class="glyphicon glyphicon-bookmark"aria-hidden="true"></span>
-         续看书签</a></li>
+         <strong>续看书签</strong></a></li>
          
          <li class="divider"></li>
          <li><a href="/auth/logout"><span class="glyphicon glyphicon-remove"aria-hidden="true"></span>
@@ -79,7 +79,7 @@
   </div>
 </nav>
 
-<!-- Modal signup-->
+<!-- Modal login-->
 <div class="modal fade" id="myModallogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">     

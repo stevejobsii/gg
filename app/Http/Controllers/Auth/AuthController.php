@@ -23,7 +23,7 @@ class AuthController extends Controller
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
     //注册后返回主页
-    protected $redirectTo = '/articles';
+    protected $redirectPath = '/articles';
     /**
      * Create a new authentication controller instance.
      *

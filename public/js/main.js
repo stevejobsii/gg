@@ -82,7 +82,8 @@ $("#nav-search").click(function(){
   });
   function SetShareUrl(cmd, config) {   
         var pathname = window.location.hostname;         
-        config.bdText = title+'请访问goodgoto.com';
+        config.bdText = title+'via goodgoto.com';
+        config.bdDesc = title+'via goodgoto.com';
         config.bdUrl = 'http://'+pathname+'/images/catalog/'+ photo + type;
         config.bdPic = 'http://'+pathname+'/images/catalog/'+ photo + type;
         return config;

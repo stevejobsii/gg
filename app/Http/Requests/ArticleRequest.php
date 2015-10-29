@@ -22,7 +22,7 @@ class ArticleRequest extends Request {
 	public function rules()
 	{
 		return [
-			'title' => 'required',
+			'title' => 'required|max:255',
 			'image' => 'required|mimes:jpeg,jpg,png,bmp,mp4|max:2000'
 		];
 	}

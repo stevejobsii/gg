@@ -1,6 +1,5 @@
 @extends('app')
 
-
 @section('content')
 
     @if (count($notifications))

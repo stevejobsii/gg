@@ -42,7 +42,6 @@ class ArticlesController extends Controller
         //已经点赞{!!$articles->appends(Request::except('page'))->render()!!}
         //$f = DB::table('votes')->whereuser_id(Auth::user()->id)->lists('votable_id');
         //http://example.com/custom/url?page=N, you should pass custom/url to the setPath
-        $articles->setPath('articles');
         //sidebar
         $hotimgs = \App\Article::where('type','LIKE',"%jpg%")->orderBy('vote_count', 'desc')->take(10)->get();
         //return $hotimgs;
