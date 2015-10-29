@@ -205,6 +205,7 @@ h3 {
 .video_wrap{
 	 position: relative;
 	 width:480px;
+   cursor: pointer;
 }
 .video_wrap>h2{
 	opacity:0.9;
