@@ -32,7 +32,7 @@
 		</div>
 
 	    <p style="text-align: center"class = "text-info">
-	    这是投放广告，联系方式QQ:401789679，现在备案中等等。
+	    粤ICP备15095167号-1，联系人QQ:401789679。
 	    </p>
 	    <br>
           

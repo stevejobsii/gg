@@ -55,8 +55,13 @@
          <ul class="dropdown-menu" role="menu">
          <li><a href="/users/{{Auth::user()->id}}/articles" >
          <span class="glyphicon glyphicon-inbox" aria-hidden="true"></span>
-         <strong>我的档案</strong></a></li>
-         <li class="divider"></li>         
+         <strong>我的收藏</strong></a></li>
+         <li class="divider"></li> 
+  
+         <li><a href="/settings" >
+         <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+         <strong>我的设置</strong></a></li>
+         <li class="divider"></li> 
 
          <li><a id="bookmark-link" href="javascript:void(0)">
          <span class="glyphicon glyphicon-bookmark"aria-hidden="true"></span>

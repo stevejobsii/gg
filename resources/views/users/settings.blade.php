@@ -13,39 +13,13 @@
     <nav class="col-md-2" id="myScrollspy">
       <ul class="nav nav-pills nav-stacked">
       <h3>用户中心</h3>
-        <li class="active"><a href="#user-info">个人信息</a></li>
-        <li><a href="#user-head">头像设置</a></li>
+        <li class="active"><a href="#user-head">头像设置</a></li>
+        <li><a href="#user-info">个人信息</a></li>
         <li><a href="#user-keyreset">密码设置</a></li>
       </ul>
     </nav>
 
     <div class="col-md-10">
-      <div id="user-info">    
-        <form class="form-horizontal" id="user-data-form">
-                {{csrf_field()}}
-                <h4><i class="glyphicon glyphicon-tasks"></i>&nbsp;&nbsp;个人信息</h4>
-                <hr>
-                <div class="form-group">
-                    <label for="title" class="col-sm-2 control-label">个性签名</label>
-                    <div class="col-sm-6">
-                        <input type="text" id="title" name="title" placeholder="个性签名" class="form-control" value="">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="info" class="col-sm-2 control-label">个人介绍</label>
-                    <div class="col-sm-6">
-                        <textarea id="info" name="info" placeholder="个人介绍" class="form-control" rows="10"></textarea>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-4 col-sm-offset-2">
-                    <button type="button" class="btn btn-primary" id="update-user-data">更新</button>
-                    </div>
-                </div>
-        </form>
-      <br>
-      </div>
-
 
       <div id="user-head"> 
         <form class="form-horizontal" method="post" action="/settings/update-avatar" enctype="multipart/form-data" id="avatar-form">
@@ -78,12 +52,36 @@
             <br>
       </div> 
 
-
+      <div id="user-info">    
+        <form class="form-horizontal" id="user-data-form">
+                {{csrf_field()}}
+                <h4><i class="glyphicon glyphicon-tasks"></i>&nbsp;&nbsp;个人信息(建设中）</h4>
+                <hr>
+                <div class="form-group">
+                    <label for="title" class="col-sm-2 control-label">个性签名</label>
+                    <div class="col-sm-6">
+                        <input type="text" id="title" name="title" placeholder="个性签名" class="form-control" value="">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="info" class="col-sm-2 control-label">个人介绍</label>
+                    <div class="col-sm-6">
+                        <textarea id="info" name="info" placeholder="个人介绍" class="form-control" rows="10"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-4 col-sm-offset-2">
+                    <button type="button" class="btn btn-primary" id="update-user-data">更新</button>
+                    </div>
+                </div>
+        </form>
+      <br>
+      </div>
 
       <div id="user-keyreset">         
        <form class="form-horizontal" role="form" method="POST" action="/password/reset">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-            <h4><i class="glyphicon glyphicon-wrench"></i>&nbsp;&nbsp;密码设置</h4>
+            <h4><i class="glyphicon glyphicon-wrench"></i>&nbsp;&nbsp;密码设置(建设中）</h4>
                 <hr>
                 <div class="form-group">
                     <label for="old_password" class="col-sm-2 control-label">当前密码</label>

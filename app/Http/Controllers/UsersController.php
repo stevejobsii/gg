@@ -19,7 +19,8 @@ class UsersController extends Controller
 
     public function settings()
     {
-       return view('users.settings');
+       $user = Auth::user();
+       return view('users.settings', compact('user'));
     }
 
     public function avatarupdate(AvatarRequest $request)

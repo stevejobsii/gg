@@ -1,7 +1,9 @@
 @extends('app')
 
 @section('content')
-
+    @if(isset($user))
+	@include('users.partials.infonav')
+	@endif
     <nav id="myScrollspy">
 	    <ul class="nav nav-pills nav-stacked articles-title-sidebar">
 	    @foreach($articles as $article)
@@ -11,10 +13,6 @@
     </nav>
 
     <div class= "col-md-8">
-	    @if(isset($user))
-	    <h5>{{$user->name}}的收藏</h5>
-	    @include('users.partials.infonav')
-	    @endif
 		<ul class="list votebookmark">	
 		@unless (!$search)
 	    <br>搜索：{{$search}}的结果

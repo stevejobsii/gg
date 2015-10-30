@@ -465,5 +465,22 @@ body {
 .navbar-inverse .navbar-nav>li>a, .navbar-inverse .navbar-text {
     color: #444;
 }
+.avatar-container {
+    width: 100px;
+    height: 100px;
+    border-radius: 3px;
+    /* overflow: hidden; */
+    position: absolute;
+    left: 50%;
+    margin-left: -50px;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.2);
+}
+.profile-header {
+    position: relative;
+    color: #fff;
+    background-color: #222;
+    width: 1366;
+    height: 270px;
+}
 
 

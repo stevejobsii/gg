@@ -1,4 +1,19 @@
+
+
+<div class="avatar-container">
+@if(file_exists(public_path('/images/catalog/avatar'.$user->id.'.jpg'))) 
+   <img src="/images/catalog/avatar{{$user->id}}.jpg" id="avatar">  
+@else
+   <img src="/images/catalog/avatardefault.jpg" id="avatar">  
+@endif
+</div>
+
+
+<br><br><br><br><br><h5 style="text-align: center;">{{$user->name}}的收藏</h5><br>
+
+
 <ul class="nav nav-tabs user-info-nav" role="tablist">
+  
   <li class="{{ $user->present()->userinfoNavActive('users.articles') }}">
   	<a href="{{ route('users.articles', $user->id) }}" >上传</a>
   </li>
@@ -7,9 +22,6 @@
   </li>
   <li class="{{ $user->present()->userinfoNavActive('users.upvotes') }}">
   	<a href="{{ route('users.upvotes', $user->id) }}" >点赞</a>
-  </li>
-  <li class="{{ $user->present()->userinfoNavActive('users.show') }}">
-    <a href="{{ route('users.show', $user->id) }}" >资料</a>
   </li>
 </ul>
 <br>
