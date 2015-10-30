@@ -1,4 +1,13 @@
 {
+    "repositories": [
+        {   
+            "packagist": false
+        },  
+        {   
+            "type": "composer", 
+            "url": "http://packagist.cn"
+        }   
+    ],
     "name": "laravel/laravel",
     "description": "The Laravel Framework.",
     "keywords": ["framework", "laravel"],
@@ -58,4 +67,5 @@
     "config": {
         "preferred-install": "dist"
     }
+
 }
