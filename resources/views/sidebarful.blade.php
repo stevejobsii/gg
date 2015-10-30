@@ -32,7 +32,7 @@
 		  </a>
 		</div>
 		<p style="text-align: center" class="text-info">
-	    这里投放广告， 联系方式QQ:401789679。
+	    工信部备案号：粤ICP备15095167号，这里投放广告， 联系方式QQ:401789679。
 	    </p>
 	    <br>
 		    
@@ -94,7 +94,7 @@
 	    <img src="/images/catalog/sunset.jpg" class = "width100">
 	    <p style="text-align: center" class="text-info">
 	    <br>
-	    联系方式QQ:401789679，现在备案中，诚邀共同合作等等。
+	    联系方式QQ:401789679，工信部备案号：粤ICP备15095167号，诚邀共同合作等等。
 	    </p>
 	</div>
 

@@ -271,10 +271,6 @@ body {
 .page {
     width: 1000px;
 }
-.btn-naked{
-	background: none;
-	border: none;
-}
 .not_favorited{
 	color: black;
 	height: 44px;
@@ -469,4 +465,5 @@ body {
 .navbar-inverse .navbar-nav>li>a, .navbar-inverse .navbar-text {
     color: #444;
 }
+
 

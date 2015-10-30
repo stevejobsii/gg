@@ -10,7 +10,7 @@
 	<link href="//cdn.bootcss.com/sweetalert/1.1.0/sweetalert.min.css" rel="stylesheet">
 	<link  rel="stylesheet" href="/css/main.css">
     <link rel="shortcut icon" href="/images/catalog/goodgotologo.jpg">
-    <title>好去处GoodGoTo</title>
+    <title>GoodGoto好去处</title>
 </head>
    
 <body data-spy="scroll" data-target="#myScrollspy" data-offset="70">
