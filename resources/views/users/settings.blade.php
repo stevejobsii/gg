@@ -31,7 +31,7 @@
                     @if(file_exists(public_path('/images/catalog/avatar'.Auth::id().'.jpg'))) 
                        <img src="/images/catalog/avatar{{Auth::id()}}.jpg" id="avatar">  
                     @else
-                       <img src="/images/catalog/rock.jpg" id="avatar">  
+                       <img src="/images/catalog/avatardefault.jpg" id="avatar">  
                     @endif
                     </div>
                 </div>
@@ -49,7 +49,7 @@
                     </div>
                 </div>
             </form>
-            <br>
+            <br><br>
       </div> 
 
       <div id="user-info">    
@@ -75,11 +75,11 @@
                     </div>
                 </div>
         </form>
-      <br>
+      <br><br>
       </div>
 
       <div id="user-keyreset">         
-       <form class="form-horizontal" role="form" method="POST" action="/password/reset">
+       <form class="form-horizontal" role="form" method="POST">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <h4><i class="glyphicon glyphicon-wrench"></i>&nbsp;&nbsp;密码设置(建设中）</h4>
                 <hr>

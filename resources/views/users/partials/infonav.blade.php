@@ -13,7 +13,6 @@
 
 
 <ul class="nav nav-tabs user-info-nav" role="tablist">
-  
   <li class="{{ $user->present()->userinfoNavActive('users.articles') }}">
   	<a href="{{ route('users.articles', $user->id) }}" >上传</a>
   </li>
