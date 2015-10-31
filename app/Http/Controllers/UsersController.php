@@ -31,6 +31,10 @@ class UsersController extends Controller
             ->resize(100, 100)
             ->encode('jpg')
             ->save(base_path() . '/public/images/catalog/avatar' . Auth::id() . '.jpg');
+        Image::make($request->file('avatar'))
+            ->resize(31, 31)
+            ->encode('jpg')
+            ->save(base_path() . '/public/images/catalog/30avatar' . Auth::id() . '.jpg');
         return redirect('settings');
     }
     

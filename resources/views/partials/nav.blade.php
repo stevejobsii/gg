@@ -47,9 +47,14 @@
          </li>
          
          <li class="dropdown">
-         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-         <span class="glyphicon glyphicon-user" aria-hidden="true">
-         </span>{{Auth::user()->name}}<span class="caret"></span>
+         <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="padding-top: 10px;padding-bottom: 1px;">
+              <div class="avatar-container-nav">
+              @if(file_exists(public_path('/images/catalog/avatar'.Auth::id().'.jpg'))) 
+                 <img src="/images/catalog/30avatar{{Auth::id()}}.jpg" id="avatar">
+              @else
+                 <img src="/images/catalog/30avatardefault.jpg" id="avatar"> 
+              @endif
+              </div>
          </a>
       
          <ul class="dropdown-menu" role="menu">
@@ -83,7 +88,7 @@
     </div>
   </div>
 </nav>
-
+<br>
 <!-- Modal login-->
 <div class="modal fade" id="myModallogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">

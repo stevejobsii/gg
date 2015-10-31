@@ -198,6 +198,8 @@ a:hover{
 }
 h3 {
     color: #444;
+    font-size: 20px;
+    margin-top: 10px;
 }
 .inner-addon { 
     position: relative; 
@@ -482,5 +484,14 @@ body {
     width: 1366;
     height: 270px;
 }
-
+.avatar-container-nav{
+    display: block;
+    height: 31px;
+    width: 31px;
+    background-color: rgba(255,255,255,.2);
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+    opacity: 0.90;
+}
 
