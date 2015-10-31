@@ -53,27 +53,28 @@
       </div> 
 
       <div id="user-info">    
-        {!! Form::model($user, ['method'=>'PATCH', 'action'=>['UsersController@update',$user->name],'files' => false,'class'=>'form-horizontal']) !!} 
-                <h4><i class="glyphicon glyphicon-tasks"></i>&nbsp;&nbsp;个人信息</h4>
+        <form class="form-horizontal" id="user-data-form">
+                {{csrf_field()}}
+                <h4><i class="glyphicon glyphicon-tasks"></i>&nbsp;&nbsp;个人信息(建设中）</h4>
                 <hr>
                 <div class="form-group">
                     <label for="title" class="col-sm-2 control-label">个性签名</label>
                     <div class="col-sm-6">
-                    {!! Form::text('title', null, ['class'=>'form-control']) !!}
+                        <input type="text" id="title" name="title" placeholder="个性签名" class="form-control" value="">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="info" class="col-sm-2 control-label">个人介绍</label>
                     <div class="col-sm-6">
-                        {!! Form::textarea('info', null, ['class'=>'form-control']) !!}
+                        <textarea id="info" name="info" placeholder="个人介绍" class="form-control" rows="10"></textarea>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-4 col-sm-offset-2">
-                    <button type="submit" class="btn btn-primary" id="update-user-data">更新</button>
+                    <button type="button" class="btn btn-primary" id="update-user-data">更新</button>
                     </div>
                 </div>
-        {!! Form::close() !!}
+        </form>
       <br><br>
       </div>
 
