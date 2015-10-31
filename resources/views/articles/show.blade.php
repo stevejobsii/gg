@@ -5,6 +5,7 @@
         <div class = "width480">	
             <h1>{{$article->title}}</h1>
             <h3 style="padding-bottom: 10px; margin-top: 0px; border-bottom: 1px solid #e5e5e5;"><small><a href="/users/{{$article->user_id}}/articles">作者：{{\App\User::find($article->user_id)->name}}</a>
+            ({{\App\User::find($article->user_id)->title}})
             @unless ($article->tags->isEmpty())
             标签 |
             @foreach($article->tags as $tag)
@@ -87,7 +88,7 @@
             <span class="anchor" id="{{$reply->id}}"></span>
             <article class="list-item" style="margin-top: 0px;">
                 <h4 style="float:left;"><a href="{{ route('users.articles', [$reply->user_id]) }}"> {{\App\User::find($reply->user_id)->name}}</a>
-                <small>{{ $reply->created_at }}</small></h4>
+                <small>({{\App\User::find($reply->user_id)->title}})于{{ $reply->created_at }}</small></h4>
                 
                 <!-- Reply upvote/reply on reply-->
                 <ul class = "pull-right btn-vote-reply" style="margin-bottom: 0px;">
