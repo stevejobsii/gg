@@ -7,7 +7,7 @@
               <h2>通知中心
               <div id = 'confirm' class = "pull-right inline-block">
                     {!! Form::open(array('route' => array('notifications.destroy'), 'method' => 'delete')) !!}
-                        <button type="submit" class="btn btn-danger">删除</button>&nbsp;&nbsp;&nbsp;
+                        <button type="submit" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></button>&nbsp;&nbsp;&nbsp;
                     {!! Form::close() !!} 
               </div></h2>     
              <ul class="list-group row">

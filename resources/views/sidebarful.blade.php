@@ -31,7 +31,7 @@
 		    <span class="sr-only">Next</span>
 		  </a>
 		</div>
-		<p style="text-align: center" class="text-info">
+		<p style="text-align: center">
 	    粤ICP备15095167号-1，联系人QQ:401789679。
 	    </p>
 	    <br>
@@ -92,7 +92,7 @@
 
 	<div class = "sticky" style="position: static; top: 0px;">
 	    <img src="/images/catalog/sunset.jpg" class = "width100">
-	    <p style="text-align: center" class="text-info">
+	    <p style="text-align: center">
 	    <br>
 	    粤ICP备15095167号-1，联系人QQ:401789679。
 	    </p>

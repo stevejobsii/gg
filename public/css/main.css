@@ -1,3 +1,17 @@
+.btn-vote-reply button,
+.btn-vote-reply button:active,
+.btn-vote-reply button:focus, 
+.btn-vote-reply button:hover,
+.btn-default,
+.btn-default:active, 
+.btn-default:focus, 
+.btn-default:hover{   
+    outline:none !important;
+    width:44px;
+    font-size: 20px;
+    padding-top: 2px;
+    padding-bottom: 0px;
+}
 .navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav> .open> a:hover{
 	background: transparent;
 }
@@ -46,11 +60,15 @@ ul.articles-title-sidebar {
 .articles-title-sidebar>li>a {
     border-radius: 0px;
     padding: 5px 15px;
+    color: #444;
+}
+#back-to-top>a{
+  color: #444;
 }
 .articles-title-sidebar>li>.active>a:focus,.articles-title-sidebar>li>.active>a:hover,.articles-title-sidebar>li.active>a,.articles-title-sidebar>li>a:focus {
     background: transparent;
-    border-left: 2px solid #337ab7;
-    color: #337ab7; 
+    border-left: 2px solid #f5da55;
+    color: #f5da55; 
 }
 .control-label{
   padding-top: 7px;
@@ -73,8 +91,8 @@ ul.articles-title-sidebar {
   width:100%;
 }
 .hot-tabs {
-	font-size: 16px;
-	line-height: 20px;
+	  font-size: 16px;
+	  line-height: 20px;
     height: 41px;
     padding-left:0px;
     width:100%;
@@ -83,14 +101,14 @@ ul.articles-title-sidebar {
 }
 .hot-tabs li {
     font-weight: bold;
-	list-style-type: none;
-	text-align: center;
+	  list-style-type: none;
+	  text-align: center;
     cursor: pointer;
     float: left;
     width: 50%;
     height: 41px;
     padding-top: 12px;
-    border: 1px solid #e5e5e5;
+    border: 2px solid #e5e5e5;
     border-top:0px;
     background-color: #e5e5e5;
 }
@@ -101,7 +119,7 @@ ul.articles-title-sidebar {
 	display: block;
 }
 .bule-line-top {
-    border-top: 2px solid #337ab7;
+    border-top: 2px solid #444;
 }
 .hot-tabs li.current {
     background: #fff;
@@ -181,7 +199,8 @@ strong{
 	color:#444;
 }
 .btn-default{
-	background-color: #f5da55;
+	background-color: #fff;
+  width: 44px;
 }
 .remove-padding-horizontal {
   padding-bottom: 0px;
@@ -493,5 +512,13 @@ body {
     overflow: hidden;
     position: relative;
     opacity: 0.90;
+}
+
+a {
+    color: #444;
+    text-decoration: none;
+}
+a:hover{
+  color: #f5da55;
 }
 

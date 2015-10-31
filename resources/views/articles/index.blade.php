@@ -43,33 +43,36 @@
 			</video>
 			</div>
 			@endif	  
-		    <h5><strong><span id="b{{$article->photo}}">{{$article->vote_count}}</span>赞
+		    <h5><small><strong><span id="b{{$article->photo}}">{{$article->vote_count}}</span>赞
 			<span>&nbsp; • &nbsp;</span>{{$article->reply_count}}互动
 			<span>&nbsp; • &nbsp;</span>{{$article->view_count}}观摩
-			</strong></h5>
+			</strong></small></h5>
 			<div class="width485">
 			<div class="pull-left">
 				<ul class="btn-vote-reply">
 			    <li><button  type="button" 	
 				         class="btn btn-default index-upvote"	           
-				         data-id="{{$article->photo}}"><strong>点赞</strong>
+				         data-id="{{$article->photo}}"
+				         data-toggle="tooltip" data-placement="bottom" title="点赞"><i class="glyphicon glyphicon-thumbs-up"></i>
 			    </button></li>
 			    <li><button  type="button" 	
 				         class="btn btn-default index-bookmark"
 				         data-id="{{$article->photo}}"
-				         data-title="{{$article->title}}"><strong>书签</strong>           
+				         data-title="{{$article->title}}"
+				         data-toggle="tooltip" data-placement="bottom" title="书签"><i class="glyphicon glyphicon-bookmark"></i>        
 			    </button></li>
 			    <li><a href="{{ action('ArticlesController@show', [$article->photo])}}" target="_blank">
 			    <button  type="button" 	
-				         class="btn btn-default"><strong>互动</strong>           
+				         class="btn btn-default"
+				         data-toggle="tooltip" data-placement="bottom" title="互动"><i class="glyphicon glyphicon-comment"></i>         
 			    </button>
 			    </a></li>
 			    </ul>
 			</div>
 	        <div class="pull-right bdsharebuttonbox" data-tag="share_1">
-	        <a class="bds_weixin" data-cmd="weixin" data-photo="{{$article->photo}}" data-type="{{$article->type}}"data-title="{{$article->title}}"></a>
-	        <a class="bds_tsina" data-cmd="tsina"data-photo="{{$article->photo}}"data-type="{{$article->type}}"data-title="{{$article->title}}"></a>
-	        <a class="bds_qzone" data-cmd="qzone" href="#"data-photo="{{$article->photo}}"data-type="{{$article->type}}"data-title="{{$article->title}}"></a>	        
+	        <a class="bds_weixin" data-cmd="weixin" data-photo="{{$article->photo}}" data-type="{{$article->type}}"data-title="{{$article->title}}"data-toggle="tooltip" data-placement="bottom" title="分享微信"></a>
+	        <a class="bds_tsina" data-cmd="tsina"data-photo="{{$article->photo}}"data-type="{{$article->type}}"data-title="{{$article->title}}"data-toggle="tooltip" data-placement="bottom" title="分享微博"></a>
+	        <a class="bds_qzone" data-cmd="qzone" href="#"data-photo="{{$article->photo}}"data-type="{{$article->type}}"data-title="{{$article->title}}"data-toggle="tooltip" data-placement="bottom" title="分享QQ空间"></a>	        
 	        </div> 
 	        </div>
 		    <div class="clearfix"></div>

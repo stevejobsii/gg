@@ -15,12 +15,12 @@
                 <div class = "pull-right">
                     <a href="{{ action('ArticlesController@show', $next)}}">
                     <button  type="button"  
-                             class="btn btn-default"><strong>上一张</strong>           
+                             class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i>          
                     </button>
                     </a>
                     <a href="{{ action('ArticlesController@show', $previous)}}">
                     <button  type="button"  
-                             class="btn btn-default"><strong>下一张</strong>           
+                             class="btn btn-default"><i class="glyphicon glyphicon-chevron-right"></i>         
                     </button>
                     </a>
                 </div>
@@ -52,22 +52,24 @@
             <div class="width485 btn-vote-reply votebookmark">
                 <li><button  type="button"   
                          class="btn btn-default index-upvote"              
-                         data-id="{{$article->photo}}"><strong>点赞</strong>
+                         data-id="{{$article->photo}}"
+                         data-toggle="tooltip" data-placement="bottom" title="点赞"><i class="glyphicon glyphicon-thumbs-up"></i>
                 </button></li>
                 <li><button  type="button"  
                          class="btn btn-default index-bookmark"
-                         data-id="{{$article->photo}}"data-title="{{$article->title}}"><strong>书签</strong>           
+                         data-id="{{$article->photo}}"data-title="{{$article->title}}"
+                         data-toggle="tooltip" data-placement="bottom" title="书签"><i class="glyphicon glyphicon-bookmark"></i>           
                 </button></li>
 
 
                 @if(Auth::check())
                 @if (Auth::user()->can("manage_topics") || Auth::user()->id == $article->user_id) 
                     <li><a href="{{ action('ArticlesController@edit', [$article->photo])}}">
-                    &nbsp;&nbsp;<button class="btn btn-warning">修改</button>
+                    &nbsp;&nbsp;<button class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></button>
                     </a></li>
                     <li style="float: left" id = 'confirm'>
                     {!! Form::open(array('route' => array('articles.destroy', $article->photo), 'method' => 'delete')) !!}
-                        <button type="submit" class="btn btn-danger">删除</button>&nbsp;&nbsp;&nbsp;
+                        <button type="submit" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></button>&nbsp;&nbsp;&nbsp;
                     {!! Form::close() !!} 
                     </li>      
                 @endif
@@ -75,7 +77,7 @@
                     <div class="pull-right bdsharebuttonbox" data-tag="share_1">
                     <a class="bds_weixin" data-cmd="weixin" data-photo="{{$article->photo}}" data-type="{{$article->type}}"data-title="{{$article->title}}"></a>
                     <a class="bds_tsina" data-cmd="tsina"data-photo="{{$article->photo}}"data-type="{{$article->type}}"data-title="{{$article->title}}"></a>
-                    <a class="bds_qzone" data-cmd="qzone" href="#"data-photo="{{$article->photo}}"data-type="{{$article->type}}"data-title="{{$article->title}}"></a>         
+                    <a class="bds_qzone" data-cmd="qzone" href="#"da@ta-photo="{{$article->photo}}"data-type="{{$article->type}}"data-title="{{$article->title}}"></a>         
                     </div> 
                     <div class="clearfix"></div>
             </div>
@@ -94,7 +96,7 @@
                 @if(Auth::check())
                 @if (Auth::user()->can("manage_topics") || Auth::user()->id == $reply->user_id) 
                 <li>{!! Form::open(array('route' => array('replies.destroy', $reply->id), 'method' => 'delete','style'=>"float:left")) !!}
-                <button type="submit" class="btn btn-danger">删除</button>
+                <button type="submit" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></button>
                 {!! Form::close() !!}</li>
                 @endif
                 @endif
@@ -102,9 +104,10 @@
                 <li><span id="br{{$reply->id}}">{{$reply->vote_count}}</span>个赞</li>
                 <li><button  type="button"   
                          class="btn btn-default show-upvote"              
-                         data-id="{{$reply->id}}"><strong>点赞</strong>
+                         data-id="{{$reply->id}}"
+                         data-toggle="tooltip" data-placement="bottom" title="点赞"><strong><i class="glyphicon glyphicon-thumbs-up"></i></strong>
                 </button></li>
-                <li><button class="btn btn-info"  href="javascript:void(0)" onclick="replyOne('{{ $reply->user->name }}');">@.{{\App\User::find($reply->user_id)->name}}</button></li>
+                <li><button class="btn btn-warning"  href="javascript:void(0)" onclick="replyOne('{{ $reply->user->name }}');" data-toggle="tooltip" data-placement="bottom" title="@.Ta">@</button></li>
                 </ul>
                 
                 <!-- Reply body-->
