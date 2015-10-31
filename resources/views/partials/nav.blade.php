@@ -47,7 +47,7 @@
          </li>
          
          <li class="dropdown">
-         <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="padding-top: 10px;padding-bottom: 1px;">
+         <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="padding-top: 10px;padding-bottom: 0px;">
               <div class="avatar-container-nav">
               @if(file_exists(public_path('/images/catalog/avatar'.Auth::id().'.jpg'))) 
                  <img src="/images/catalog/30avatar{{Auth::id()}}.jpg" id="avatar">
