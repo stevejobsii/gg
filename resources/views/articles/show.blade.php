@@ -75,9 +75,9 @@
                 @endif
                 @endif
                     <div class="pull-right bdsharebuttonbox" data-tag="share_1">
-                    <a class="bds_weixin" data-cmd="weixin" data-photo="{{$article->photo}}" data-type="{{$article->type}}"data-title="{{$article->title}}"></a>
-                    <a class="bds_tsina" data-cmd="tsina"data-photo="{{$article->photo}}"data-type="{{$article->type}}"data-title="{{$article->title}}"></a>
-                    <a class="bds_qzone" data-cmd="qzone" href="#"da@ta-photo="{{$article->photo}}"data-type="{{$article->type}}"data-title="{{$article->title}}"></a>         
+                    <a class="bds_weixin" data-cmd="weixin" data-photo="{{$article->photo}}" data-type="{{$article->type}}"data-title="{{$article->title}}"data-toggle="tooltip" data-placement="bottom" title="分享微信"></a>
+                    <a class="bds_tsina" data-cmd="tsina"data-photo="{{$article->photo}}"data-type="{{$article->type}}"data-title="{{$article->title}}"data-toggle="tooltip" data-placement="bottom" title="分享微博"></a>
+                    <a class="bds_qzone" data-cmd="qzone" href="#"da@ta-photo="{{$article->photo}}"data-type="{{$article->type}}"data-title="{{$article->title}}"data-toggle="tooltip" data-placement="bottom" title="分享QQ空间"></a>         
                     </div> 
                     <div class="clearfix"></div>
             </div>

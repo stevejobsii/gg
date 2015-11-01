@@ -20,7 +20,7 @@
     </nav>
 
     <div class="col-md-10">
-      <div id="user-head" class="anchor"> 
+      <div id="user-head" > 
         <form class="form-horizontal" method="post" action="/settings/update-avatar" enctype="multipart/form-data" id="avatar-form">
                 {{ csrf_field() }}
                 <h4><i class="glyphicon glyphicon-user"></i>&nbsp;&nbsp;头像设置</h4>
@@ -53,7 +53,7 @@
             <br><br>
       </div> 
 
-      <div id="user-info"class="anchor">    
+      <div id="user-info">    
         {!! Form::model($user, ['method'=>'PATCH', 'action'=>['UsersController@update',$user->name],'files' => false,'class'=>'form-horizontal']) !!} 
                 <h4><i class="glyphicon glyphicon-tasks"></i>&nbsp;&nbsp;个人信息</h4>
                 <hr>
@@ -78,7 +78,7 @@
       <br><br>
       </div>
 
-      <div id="user-keyreset"class="anchor">         
+      <div id="user-keyreset">         
        <form class="form-horizontal" role="form" method="POST">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <h4><i class="glyphicon glyphicon-wrench"></i>&nbsp;&nbsp;密码设置(建设中）</h4>
