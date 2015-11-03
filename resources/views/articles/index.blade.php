@@ -43,10 +43,11 @@
 			</video>
 			</div>
 			@endif	  
-		    <h5><small><strong><span id="b{{$article->photo}}">{{$article->vote_count}}</span>赞
+		    <div class="vote-reply-view-count"><a href="{{ action('ArticlesController@show', [$article->photo])}}"target="_blank">
+		    <span id="b{{$article->photo}}">{{$article->vote_count}}</span>赞
 			<span>&nbsp; • &nbsp;</span>{{$article->reply_count}}互动
 			<span>&nbsp; • &nbsp;</span>{{$article->view_count}}观摩
-			</strong></small></h5>
+			</a></div>
 			<div class="width485">
 			<div class="pull-left">
 				<ul class="btn-vote-reply">
