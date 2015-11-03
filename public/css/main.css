@@ -278,7 +278,7 @@ h3 {
 .error { font-weight: bold; color: red; }
 body {
     padding-top: 50px;
-    font-family: "Microsoft YaHei", Helvetica Neue, Arial, sans-serif;
+    font-family: Helvetica Neue, "Microsoft YaHei", Arial, sans-serif;
     color: #444;
 }
 
@@ -286,6 +286,7 @@ body {
 	background-color: #f5da55;
 	border: 0px solid #444;
 	width: 200px;
+  font-size: 18px;
 }
 .container {
     margin-top: -10px;
@@ -544,10 +545,11 @@ a:hover{
 .vote-reply-view-count{
   font-size: 13px;
   color: #666;
-  margin-top: 7.5px;
-  margin-bottom: 7.5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 .index-article-title{
   font-weight: bold;
   margin-top: 0px;
+  font-size: 18px;
 }
