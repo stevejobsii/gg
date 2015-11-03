@@ -65,11 +65,11 @@
                 @if(Auth::check())
                 @if (Auth::user()->can("manage_topics") || Auth::user()->id == $article->user_id) 
                     <li><a href="{{ action('ArticlesController@edit', [$article->photo])}}">
-                    &nbsp;&nbsp;<button class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></button>
+                    &nbsp;&nbsp;<button class="btn btn-warning"data-toggle="tooltip" data-placement="bottom" title="修改"><i class="glyphicon glyphicon-edit"></i></button>
                     </a></li>
                     <li style="float: left" id = 'confirm'>
                     {!! Form::open(array('route' => array('articles.destroy', $article->photo), 'method' => 'delete')) !!}
-                        <button type="submit" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></button>&nbsp;&nbsp;&nbsp;
+                        <button type="submit" class="btn btn-danger"data-toggle="tooltip" data-placement="bottom" title="删除"><i class="glyphicon glyphicon-trash"></i></button>
                     {!! Form::close() !!} 
                     </li>      
                 @endif
@@ -77,7 +77,7 @@
                     <div class="pull-right bdsharebuttonbox" data-tag="share_1">
                     <a class="bds_weixin" data-cmd="weixin" data-photo="{{$article->photo}}" data-type="{{$article->type}}"data-title="{{$article->title}}"data-toggle="tooltip" data-placement="bottom" title="分享微信"></a>
                     <a class="bds_tsina" data-cmd="tsina"data-photo="{{$article->photo}}"data-type="{{$article->type}}"data-title="{{$article->title}}"data-toggle="tooltip" data-placement="bottom" title="分享微博"></a>
-                    <a class="bds_qzone" data-cmd="qzone" href="#"da@ta-photo="{{$article->photo}}"data-type="{{$article->type}}"data-title="{{$article->title}}"data-toggle="tooltip" data-placement="bottom" title="分享QQ空间"></a>         
+                    <a class="bds_qzone" data-cmd="qzone" href="#"data-photo="{{$article->photo}}"data-type="{{$article->type}}"data-title="{{$article->title}}"data-toggle="tooltip" data-placement="bottom" title="分享QQ空间"></a>         
                     </div> 
                     <div class="clearfix"></div>
             </div>
@@ -88,32 +88,48 @@
             @foreach($article->replies as $reply)
             <span class="anchor" id="{{$reply->id}}"></span>
             <article class="list-item" style="margin-top: 0px;">
-                <h4 style="float:left;"><a href="{{ route('users.articles', [$reply->user_id]) }}"> {{\App\User::find($reply->user_id)->name}}</a>
-                <small>{{ $reply->created_at }}</small></h4>
-                
+                <div class="comment-avatar">
+                <a href="{{ route('users.articles', [$reply->user_id]) }}"> 
+                    @if(file_exists(public_path('/images/catalog/avatar'.Auth::id().'.jpg'))) 
+                        <img src="/images/catalog/avatar{{Auth::id()}}.jpg" id="avatar">
+                    @else
+                        <img src="/images/catalog/avatardefault.jpg" id="avatar"> 
+                    @endif
+                </a>
+                </div>
+
+                <div class="comment-info">
+                <h5><a href="{{ route('users.articles', [$reply->user_id]) }}"> {{\App\User::find($reply->user_id)->name}}</a>
+                <small><span id="br{{$reply->id}}">{{$reply->vote_count}}</span>赞&nbsp; • &nbsp;{{ $reply->created_at }}</small></h5>
                 <!-- Reply upvote/reply on reply-->
-                <ul class = "pull-right btn-vote-reply" style="margin-bottom: 0px;">
+
+                <div class="comment-content">
+                {{$reply->body}}
+                </div>
+               
+                <ul class = "btn-vote-reply">
                 @if(Auth::check())
                 @if (Auth::user()->can("manage_topics") || Auth::user()->id == $reply->user_id) 
                 <li>{!! Form::open(array('route' => array('replies.destroy', $reply->id), 'method' => 'delete','style'=>"float:left")) !!}
-                <button type="submit" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></button>
+                <button type="submit" class="btn btn-danger btn-xs"data-toggle="tooltip" data-placement="bottom" title="删除"><i class="glyphicon glyphicon-trash"></i></button>
                 {!! Form::close() !!}</li>
                 @endif
                 @endif
                 &nbsp;&nbsp;
-                <li><span id="br{{$reply->id}}">{{$reply->vote_count}}</span>个赞</li>
-                <li><button  type="button"   
-                         class="btn btn-default show-upvote"              
+                <li><a href="javascript:void(0)"
+                         class="show-upvote"              
                          data-id="{{$reply->id}}"
                          data-toggle="tooltip" data-placement="bottom" title="点赞"><strong><i class="glyphicon glyphicon-thumbs-up"></i></strong>
-                </button></li>
-                <li><button class="btn btn-warning"  href="javascript:void(0)" onclick="replyOne('{{ $reply->user->name }}');" data-toggle="tooltip" data-placement="bottom" title="@.Ta">@</button></li>
+                </a></li>
+                <li><a href="javascript:void(0)" onclick="replyOne('{{ $reply->user->name }}');" data-toggle="tooltip" data-placement="bottom" title="@.Ta">@</a></li>
                 </ul>
+                </div>
                 
                 <!-- Reply body-->
-                <br><br>
-                回复:&nbsp;{{$reply->body}}
-                <hr>
+
+                
+
+                <div class="clearfix"></div>
             </article>
             @endforeach
         </div>
