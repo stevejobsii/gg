@@ -21,7 +21,7 @@
 		<span class="anchor" id="{{$article->photo}}"></span>
 		<article class="list-item"  style="margin-top: 0px;">
 		    <div class = "width480">
-			<a href="{{ action('ArticlesController@show', [$article->photo])}}"target="_blank" ><h3>{{$article->title}}</h3></a>
+			<a href="{{ action('ArticlesController@show', [$article->photo])}}"target="_blank" ><h3 class="index-article-title">{{$article->title}}</h3></a>
 			</div>
 		    @if($article->type == '.jpg')
 		    <a href="{{ action('ArticlesController@show', [$article->photo])}}"target="_blank">
