@@ -550,6 +550,7 @@ a:hover{
 }
 .index-article-title{
   font-weight: bold;
+  height: 25px;
   margin-top: 0px;
-  font-size: 18px;
+  font-size: 20px;
 }
