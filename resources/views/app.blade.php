@@ -9,9 +9,18 @@
     <meta name="baidu_union_verify" content="3c05d5a3879ebffd964063aada5f8721">
 	<link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 	<link href="//cdn.bootcss.com/sweetalert/1.1.0/sweetalert.min.css" rel="stylesheet">
-	<link  rel="stylesheet" href="/css/main.css">
+	<link rel="stylesheet" href="/css/main.css">
     <link rel="shortcut icon" href="/images/catalog/goodgotologo.jpg">
     <title>GoodGoto好去处</title>
+    <script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "//hm.baidu.com/hm.js?0e017dd4be7147b6bbbf67e79b2ae93f";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
 </head>
    
 <body data-spy="scroll" data-target="#myScrollspy" data-offset="70">
