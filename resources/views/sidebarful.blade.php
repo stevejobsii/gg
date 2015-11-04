@@ -32,7 +32,7 @@
 		  </a>
 		</div>
 		<p style="text-align: center">
-	    粤ICP备15095167号-1，联系人QQ:401789679。
+	    备案号：粤ICP备15095167号-1。
 	    </p>
 	    <br>
 		    
