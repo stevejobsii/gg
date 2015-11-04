@@ -77,11 +77,11 @@
          退出</a></li>
          </ul>
          </li>
-        
+
         @else        
-         <li><a href="javascript:void(0)" data-toggle="modal" data-target="#myModalregister"><span class="glyphicon glyphicon-edit"aria-hidden="true"></span>
+         <li><a style="cursor: pointer;" data-toggle="modal" data-target="#myModalregister"><span class="glyphicon glyphicon-edit"aria-hidden="true"></span>
          简单注册</a></li>
-         <li><a href="javascript:void(0)" data-toggle="modal" data-target="#myModallogin"><span class="glyphicon glyphicon-check"aria-hidden="true"></span>
+         <li><a style="cursor: pointer;" data-toggle="modal" data-target="#myModallogin"><span class="glyphicon glyphicon-check"aria-hidden="true"></span>
          登陆</a></li>
         @endif
       </ul>
@@ -125,7 +125,7 @@
                         &nbsp;
                         <a href="/auth/register">简单注册</a>
                         &nbsp;&nbsp; • &nbsp;&nbsp;
-                        <a href="/password/email">忘记密码？</a><
+                        <a href="/password/email">忘记密码？</a>
                     </div>
                   </form>
         </div>
