@@ -558,8 +558,7 @@ abstract class AbstractFtpAdapter extends AbstractAdapter
      */
     public function getConnection()
     {
-        if (! $this->isConnected()) {
-            $this->disconnect();
+        if (! $this->connection) {
             $this->connect();
         }
 
@@ -603,11 +602,4 @@ abstract class AbstractFtpAdapter extends AbstractAdapter
      * Close the connection.
      */
     abstract public function disconnect();
-
-    /**
-     * Check if a connection is active.
-     *
-     * @return bool
-     */
-    abstract public function isConnected();
 }

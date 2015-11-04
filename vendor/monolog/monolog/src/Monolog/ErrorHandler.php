@@ -174,11 +174,9 @@ class ErrorHandler
                 array('code' => $lastError['type'], 'message' => $lastError['message'], 'file' => $lastError['file'], 'line' => $lastError['line'])
             );
 
-            if ($this->logger instanceof Logger) {
-                foreach ($this->logger->getHandlers() as $handler) {
-                    if ($handler instanceof AbstractHandler) {
-                        $handler->close();
-                    }
+            foreach ($this->logger->getHandlers() as $handler) {
+                if ($handler instanceof AbstractHandler) {
+                    $handler->close();
                 }
             }
         }

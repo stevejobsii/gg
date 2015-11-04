@@ -138,7 +138,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Illuminate\Html\HtmlServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
-        Weboap\Visitor\VisitorServiceProvider::class,
+       
         Zizaco\Entrust\EntrustServiceProvider::class,
         /*
          * Application Service Providers...

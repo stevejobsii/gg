@@ -856,12 +856,14 @@ Failed asserting that two objects are equal.
 -        'obj' => stdClass Object &$ahash (
 -            'foo' => 'bar'
 -        )
+-        'inf' => null
+-    )
+-    '$bhash' => Array &1 (
 +SplObjectStorage Object &$storage2hash (
 +    '$bhash' => Array &0 (
-+        'obj' => stdClass Object &$bhash ()
+         'obj' => stdClass Object &$bhash ()
          'inf' => null
      )
--    '$bhash' => Array &0
  )
 
 EOF
@@ -3478,8 +3480,7 @@ EOF
     /**
      * Removes spaces in front of newlines
      *
-     * @param string $string
-     *
+     * @param  string $string
      * @return string
      */
     private function trimnl($string)

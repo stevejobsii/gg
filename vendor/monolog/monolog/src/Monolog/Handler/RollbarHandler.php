@@ -58,7 +58,7 @@ class RollbarHandler extends AbstractProcessingHandler
             $exception = $context['exception'];
             unset($context['exception']);
 
-            $payload = array();
+            $payload = [];
             if (isset($context['payload'])) {
                 $payload = $context['payload'];
                 unset($context['payload']);

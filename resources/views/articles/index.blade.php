@@ -37,7 +37,7 @@
 		    @if($article->type == '.mp4')
 		    <div class = "video_wrap">
 		    <h2 class="video_text">Gif</h2>
-		    <video  width="480" min-height="300" max-height="200"loop preload="auto" >
+		    <video  width="480" min-height="300" loop preload="auto" >
 			  <source src="/images/catalog/{{$article->photo}}{{$article->type}}" type="video/mp4">
 			Your browser does not support the video tag.
 			</video>

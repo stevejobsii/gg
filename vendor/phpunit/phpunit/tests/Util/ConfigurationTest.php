@@ -313,7 +313,6 @@ class Util_ConfigurationTest extends PHPUnit_Framework_TestCase
 
     /**
      * @backupGlobals enabled
-     *
      * @see https://github.com/sebastianbergmann/phpunit/issues/1181
      */
     public function testHandlePHPConfigurationDoesNotOverwrittenExistingEnvArrayVariables()
@@ -327,7 +326,6 @@ class Util_ConfigurationTest extends PHPUnit_Framework_TestCase
 
     /**
      * @backupGlobals enabled
-     *
      * @see https://github.com/sebastianbergmann/phpunit/issues/1181
      */
     public function testHandlePHPConfigurationDoesNotOverriteVariablesFromPutEnv()
@@ -418,7 +416,6 @@ class Util_ConfigurationTest extends PHPUnit_Framework_TestCase
      * @covers PHPUnit_Util_Configuration::getPHPUnitConfiguration
      * @covers PHPUnit_Util_Configuration::getTestSuiteConfiguration
      * @covers PHPUnit_Util_Configuration::getFilterConfiguration
-     *
      * @uses   PHPUnit_Util_Configuration::getInstance
      */
     public function testWithEmptyConfigurations()
