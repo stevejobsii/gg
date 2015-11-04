@@ -21,7 +21,7 @@
         "zizaco/entrust": "dev-laravel-5",
         "guzzlehttp/guzzle": "~5.0",
         "laracasts/presenter": "0.2.*",
-        "overtrue/laravel-wechat": "2.1.*"
+        "weboap/visitor": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

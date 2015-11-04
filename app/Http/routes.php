@@ -18,7 +18,7 @@ Route::get('contact','PageController@contact');
 Route::get('/', function (){return redirect('/articles');
 });
 use Carbon\Carbon;
-Route::get('/test', function (){return view('f');
+Route::get('/test', function (){return Visitor::all(true);
 });
 Route::post('/upload', function () {
     //check if file was uploaded
