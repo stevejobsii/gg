@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">	
     <meta id="token" name="token" value="{{ csrf_token() }}">
     <meta name="keywords" content="搞笑 幽默 好去处 goodgoto 游戏 女性 恶搞 gif 笑笑小电影">
+    <meta name="baidu_union_verify" content="3c05d5a3879ebffd964063aada5f8721">
 	<link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 	<link href="//cdn.bootcss.com/sweetalert/1.1.0/sweetalert.min.css" rel="stylesheet">
 	<link  rel="stylesheet" href="/css/main.css">
