@@ -49,5 +49,7 @@ class TagsController extends Controller
         return view('articles.index', compact('articles', 'search','hotimgs','hotreplies'));
     }
 
+
+
 }
 
