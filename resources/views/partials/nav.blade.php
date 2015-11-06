@@ -28,11 +28,11 @@
 
            <li><a href="javascript:void(0)" class="dropdown-toggle" id="nav-search"><i class="glyphicon glyphicon-search" aria-hidden="true"></i>&nbsp;&nbsp;搜索<span class="caret"></span></a>
                <div class = "nav-search">
-               {!!Form::open(['method'=>'GET','class'=>'inner-addon  form-control-nav right-addon'])!!}
-                  <i class="glyphicon glyphicon-search"aria-hidden="true"></i>
-                  {!!Form::input('search','q',null,['placeholder'=>'搜索','class'=>'form-control'])!!}
-               {!!Form::close()!!}
-               </div>
+                 {!!Form::open(['method'=>'GET','class'=>'inner-addon  form-control-nav right-addon'])!!}
+                    <i class="glyphicon glyphicon-search"aria-hidden="true"></i>
+                    {!!Form::input('search','q',null,['placeholder'=>'搜索','class'=>'form-control'])!!}
+                 {!!Form::close()!!}
+                 </div>
            </li>
       </ul>   
 
