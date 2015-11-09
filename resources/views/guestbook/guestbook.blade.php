@@ -1,6 +1,10 @@
 @extends('app')
 
 @section('content')
+<div class = "guestbook-main-shadow-top"></div>
+  <img src="/images/catalog/womansmiling.jpg" width="940">
+
+
 
 <div id="guestbook" class="col-md-8" style="margin-top:10px;">
         <form method="POST" v-on="submit: onSubmitForm">
