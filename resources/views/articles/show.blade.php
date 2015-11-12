@@ -111,7 +111,7 @@
                 @if(Auth::check())
                 @if (Auth::user()->can("manage_topics") || Auth::user()->id == $reply->user_id) 
                 <li>{!! Form::open(array('route' => array('replies.destroy', $reply->id), 'method' => 'delete','style'=>"float:left")) !!}
-                <button type="submit" class="btn btn-danger btn-xs"data-toggle="tooltip" data-placement="bottom" title="删除"><i class="glyphicon glyphicon-trash"></i></button>
+                <button type="submit" class="btn btn-danger"data-toggle="tooltip" data-placement="bottom" title="删除"><i class="glyphicon glyphicon-trash"></i></button>
                 {!! Form::close() !!}</li>
                 @endif
                 @endif

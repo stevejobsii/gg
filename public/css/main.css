@@ -134,6 +134,7 @@ ul.articles-title-sidebar {
 }
 .side-bar-hot-img{
 	width: 100%;
+  cursor: pointer;
 }
 .side-bar-hot{
 	position: relative;

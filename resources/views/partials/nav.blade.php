@@ -5,23 +5,23 @@
     </div>
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav hoverwhite">
-           <li><a href="{{ url('articles') }}"><i class="glyphicon glyphicon-picture" aria-hidden="true"></i>&nbsp;&nbsp;热门图片</a></li>
+           <li><a href="{{ url('articles') }}"><i class="glyphicon glyphicon-picture" aria-hidden="true"></i>&nbsp;&nbsp;热门</a></li>
            <li><a href="{{ url('articles/create') }}"><i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>&nbsp;&nbsp;投稿</a></li>
-           <li><a href="{{ url('guestbook') }}"><i class="glyphicon glyphicon-comment" aria-hidden="true"></i>&nbsp;&nbsp;留言板</a></li>
+           <li><a href="{{ url('guestbook') }}"><i class="glyphicon glyphicon-comment" aria-hidden="true"></i>&nbsp;&nbsp;留言</a></li>
            <li class="dropdown ">
              <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-tags" aria-hidden="true"></i>&nbsp;&nbsp;标签<span class="caret"></span></a>
                <ul class="dropdown-menu" role="menu">           
                <li >
-               <a href="{{ url('tags/amaze') }}">奇奇图片</a>
+               <a href="{{ url('tags/amaze') }}">新奇哒</a>
                </li>     
                <li >
-               <a href="{{ url('tags/cool') }}">酷酷图片</a>
+               <a href="{{ url('tags/cool') }}">酷酷哒</a>
                </li>
                <li>
-               <a href="{{ url('tags/cute') }}">萌萌图片</a>
+               <a href="{{ url('tags/cute') }}">萌萌哒</a>
                </li>
                <li>
-               <a href="{{ url('tags/shy') }}">羞羞图片</a>
+               <a href="{{ url('tags/shy') }}">羞羞哒</a>
                </li>                  
                <li>
                <a href="{{ url('tags/GIF') }}">GIF</a>
