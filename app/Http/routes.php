@@ -20,21 +20,8 @@ Route::get('/', function (){return redirect('/articles');
 use Carbon\Carbon;
 Route::get('/test', function (){return view('f');
 });
-Route::post('/upload', function () {
-    //check if file was uploaded
-    var_dump(Request::all());
-    if (Request::hasFile('image'))
-    {
-        //houston we have a file!
-        $file = Request::file('image');
-
-        //move it to our public folder and rename it to $name
-        //Request::file('file')->move('images', 'insert_file_name.'.$file->getClientOriginalExtension());
-       // echo 'file uploaded!';
-        var_dump($file);
-    }else{
-        echo 'no file, no bueno';
-    }
+Route::post('/tagsset', function () {
+    
 });
 # ------------------ article stuff ------------------------
 Route::resource('articles','ArticlesController');
@@ -43,7 +30,7 @@ Route::post('/articles/{photo}/upvote',
         'uses' => 'ArticlesController@upvote'])->before('csrf');
 # ------------------ tag stuff ------------------------
 Route::get('tags/GIF', 'TagsController@GIF');
-Route::get('tags/{tags}', 'TagsController@show');
+Route::resource('tags', 'TagsController');
 # ------------------ register|login stuff ------------------------
 Route::controllers([
 			'auth'=>'Auth\AuthController',

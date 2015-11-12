@@ -64,7 +64,7 @@ class ArticlesController extends Controller
     public function create()
     {
         //get tags list
-        $tags = \App\Tag::lists('name', 'id');
+        $tags = \App\Tag::lists('cname', 'id');
         return view('articles.create', compact('tags'));
     }
 
@@ -85,7 +85,7 @@ class ArticlesController extends Controller
     {
         //权限
         $this->authorOrAdminPermissioinRequire($article->user_id);
-        $tags = \App\Tag::lists('name', 'id');
+        $tags = \App\Tag::lists('cname', 'id');
         return view('articles.edit', compact('article', 'tags'));
     }
 

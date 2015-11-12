@@ -12,15 +12,18 @@
              <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-tags" aria-hidden="true"></i>&nbsp;&nbsp;标签<span class="caret"></span></a>
                <ul class="dropdown-menu" role="menu">           
                <li >
-               <a href="{{ url('tags/China') }}">国内图片</a>
+               <a href="{{ url('tags/amaze') }}">奇奇图片</a>
                </li>     
                <li >
-               <a href="{{ url('tags/Asia') }}">亚洲图片</a>
+               <a href="{{ url('tags/cool') }}">酷酷图片</a>
                </li>
-               <li >
-               <a href="{{ url('tags/EU') }}">欧美图片</a>
-               </li>                
-               <li >
+               <li>
+               <a href="{{ url('tags/cute') }}">萌萌图片</a>
+               </li>
+               <li>
+               <a href="{{ url('tags/shy') }}">羞羞图片</a>
+               </li>                  
+               <li>
                <a href="{{ url('tags/GIF') }}">GIF</a>
                </li>  
                </ul>

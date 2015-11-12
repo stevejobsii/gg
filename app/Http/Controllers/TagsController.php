@@ -3,9 +3,10 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request as urlRequest;
-use Illuminate\Http\Request;
 use App\Tag;
 use DB;
+use Request;
+
 
 class TagsController extends Controller
 {
@@ -48,8 +49,34 @@ class TagsController extends Controller
         $hotreplies = \App\Reply::orderBy('vote_count', 'desc')->limit(5)->get();
         return view('articles.index', compact('articles', 'search','hotimgs','hotreplies'));
     }
+        
+    public function create()
+    {
+        $author_id = '1';
+        $this->authorOrAdminPermissioinRequire($author_id);
+        return view('tags.create');
+    }
 
+    public function store()
+    {
+        $tag = \App\Tag::create(Request::all());
+        return redirect('articles');
+    }
 
+    public function edit(\App\Tag $tag)
+    {
+        //权限/tags/China/edit
+        $author_id = '1';
+        $this->authorOrAdminPermissioinRequire($author_id);
+        return view('tags.edit', compact('tag'));
+    }
+    
+    public function update(\App\Tag $tag)
+    {
+        //修改标签
+        $tag->update(Request::all());
+        return redirect('articles');
+    }
 
 }
 

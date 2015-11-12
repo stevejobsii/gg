@@ -2,7 +2,7 @@
 
 @section('content')
 <div class = "guestbook-main-shadow-top"></div>
-  <img src="/images/catalog/womansmiling.jpg" width="940">
+  <img src="/images/catalog/womansmiling.jpg">
 
 
 

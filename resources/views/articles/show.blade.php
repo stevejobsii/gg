@@ -8,7 +8,7 @@
             @unless ($article->tags->isEmpty())
             标签 |
             @foreach($article->tags as $tag)
-            <a href="{{ url('/tags',['name'=>$tag->name]) }}" title="{{ $tag->name }}" target="_blank">{{ $tag->name }}</a>
+            <a href="{{ url('/tags',['name'=>$tag->name]) }}" title="{{ $tag->cname }}" target="_blank">{{ $tag->cname }}</a>
             @endforeach  
             @endif</small>
             @if($previous)
