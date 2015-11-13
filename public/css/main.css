@@ -569,3 +569,9 @@ body > footer > p{
     line-height: 50px;
     margin-bottom: 0;
 }
+body > div.container.page > div.col-md-8 > ul{
+  padding-left: 0px;
+}
+#guestbook > img{
+  width: 100%;
+}

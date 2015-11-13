@@ -1,12 +1,13 @@
 @extends('app')
 
 @section('content')
-<div class = "guestbook-main-shadow-top"></div>
+
+
+
+
+<div id="guestbook" class="col-md-12" style="margin-top:10px;">
+  <div class = "guestbook-main-shadow-top"></div>
   <img src="/images/catalog/womansmiling.jpg">
-
-
-
-<div id="guestbook" class="col-md-8" style="margin-top:10px;">
         <form method="POST" v-on="submit: onSubmitForm">
 
             <div class="form-group">
@@ -75,8 +76,7 @@
             columns="@{{gridColumns}}"
             filter-key="@{{searchQuery}}">
         </demo-grid>
-</div>
-@include('sidebar')   
+</div>  
 @stop
 
 @section('js')
