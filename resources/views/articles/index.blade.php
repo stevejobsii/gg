@@ -4,7 +4,7 @@
     @if(isset($user))
 	@include('users.partials.infonav')
 	@endif
-    <nav id="myScrollspy">
+    <nav id="myScrollspy" class = "hidden-xs hidden-sm">
 	    <ul class="nav nav-pills nav-stacked articles-title-sidebar">
 	    @foreach($articles as $article)
 	    <li><a href="#{{$article->photo}}">{{mb_substr($article->title, 0, 4,'utf-8')}}</a></li>

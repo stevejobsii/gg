@@ -164,6 +164,9 @@ ul.articles-title-sidebar {
 .col-md-8{
 	margin-top:-10px;
 }
+.col-md-4{
+  margin-top:-10px;
+}
 .navbar-nav>li>a{
 	padding-bottom: 6px;
 }
@@ -557,4 +560,12 @@ a:hover{
 }
 .guestbook-main-shadow-top{
 
+}
+body > footer{
+    border-top: 1px solid #c1e1ec;
+    height: 50px;
+}
+body > footer > p{
+    line-height: 50px;
+    margin-bottom: 0;
 }

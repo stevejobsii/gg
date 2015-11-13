@@ -28,7 +28,7 @@
 	</div> 
 	<p id="back-to-top" ><a href="javascript:void(0)">回到顶部</a></p>
     <script src="/js/all.js"></script>
-	@yield('footer')
+	@include('footer')
 	@yield('js')
 	@include('flash')
 	</body>

@@ -136,7 +136,7 @@ $(function(){ // document ready
        // returns number 
       var currentwidth = $('.side-bar').width();
       if (stickyTopshowmore < windowTop){
-        $('.sticky').css({ position: 'fixed', top:40,width : currentwidth});
+        $('.sticky').css({ position: 'fixed', top:40, width : currentwidth});
       }
       else {
         $('.sticky').css('position','static');
@@ -144,6 +144,7 @@ $(function(){ // document ready
     });
   }
 });
+    
       
 $(document).ready(function (){
     $.ajaxSetup({
