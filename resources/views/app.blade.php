@@ -8,8 +8,8 @@
     <meta name="keywords" content="无厘头 搞笑 幽默 好去处 goodgoto 游戏 女性 恶搞 gif 笑笑小电影">
 	<link rel="stylesheet" href="/css/all.css">
 	<link rel="stylesheet" href="/css/main.css">
-    <link rel="shortcut icon" href="/images/catalog/goodgotologo.jpg">
-    <title>GoodGoto好去处</title>
+    <link rel="shortcut icon" href="/images/catalog/30avatardefault.jpg">
+    <title>好去处 - Fun Time</title>
     <script>
 		var _hmt = _hmt || [];
 		(function() {
