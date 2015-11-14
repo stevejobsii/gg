@@ -7,7 +7,7 @@
     <nav id="myScrollspy" class = "hidden-xs hidden-sm hidden-md col-md-1">
 	    <ul class="nav nav-pills nav-stacked articles-title-sidebar">
 	    @foreach($articles as $article)
-	    <li><a href="#{{$article->photo}}">{{mb_substr($article->title, 0, 6,'utf-8')}}</a></li>
+	    <li><a href="#{{$article->photo}}">{{mb_substr($article->title, 0, 4,'utf-8')}}</a></li>
 	    @endforeach
 	    </ul>
     </nav>
