@@ -42,7 +42,7 @@ class TagsController extends Controller
         } else {
             $articles = DB::table('articles')->orderBy('vote_count', 'desc')->simplepaginate(30);
         }
-        $articles->setPath('articles');
+        $articles->setPath('hot');
                //sidebar
         $hotimgs = \App\Article::where('type','LIKE',"%jpg%")->orderBy('vote_count', 'desc')->take(5)->get();
         //return $hotimgs;
@@ -63,7 +63,7 @@ class TagsController extends Controller
         } else {
             $articles = DB::table('articles')->where('type','.mp4')->orderBy('created_at', 'desc')->simplepaginate(30);
         }
-        $articles->setPath('articles');
+        $articles->setPath('GIF');
                //sidebar
         $hotimgs = \App\Article::where('type','LIKE',"%jpg%")->orderBy('vote_count', 'desc')->take(5)->get();
         //return $hotimgs;
