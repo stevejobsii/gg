@@ -30,6 +30,27 @@ class TagsController extends Controller
         return view('articles.index', compact('articles', 'search','hotimgs','hotreplies'));
     }
 
+    public function hot(urlRequest $request)
+    {
+        //query index 过滤'.mp4'
+        if ($search = $request->query('q')) {
+            $articles = \App\Article::search($search)->orderBy('vote_count', 'desc')->simplepaginate(30);
+        } elseif ($search = $request->query('id')) {
+            $search = \App\Article::where('photo', $search)->firstOrFail()->id;
+            $articles = DB::table('articles')->where('id', '<=', $search)->orderBy('vote_count', 'desc')->simplepaginate(30);
+            $search = $request->query('id');
+        } else {
+            $articles = DB::table('articles')->orderBy('vote_count', 'desc')->simplepaginate(30);
+        }
+        $articles->setPath('articles');
+               //sidebar
+        $hotimgs = \App\Article::where('type','LIKE',"%jpg%")->orderBy('vote_count', 'desc')->take(5)->get();
+        //return $hotimgs;
+        $hotreplies = \App\Reply::orderBy('vote_count', 'desc')->limit(5)->get();
+        return view('articles.index', compact('articles', 'search','hotimgs','hotreplies'));
+    }
+
+
     public function GIF(urlRequest $request)
     {
         //query index 过滤'.mp4'

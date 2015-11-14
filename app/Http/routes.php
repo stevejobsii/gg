@@ -29,6 +29,7 @@ Route::post('/articles/{photo}/upvote',
         ['as' => 'articles.upvote',
         'uses' => 'ArticlesController@upvote'])->before('csrf');
 # ------------------ tag stuff ------------------------
+Route::get('tags/hot', 'TagsController@hot');
 Route::get('tags/GIF', 'TagsController@GIF');
 Route::resource('tags', 'TagsController');
 # ------------------ register|login stuff ------------------------
