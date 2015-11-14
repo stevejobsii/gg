@@ -166,6 +166,8 @@ ul.articles-title-sidebar {
 }
 .col-md-4{
   margin-top:-10px;
+  padding-left: 25px;
+  padding-right: 25px;
 }
 
 .navbar-nav>li>a{
@@ -295,7 +297,7 @@ body {
     margin-top: -10px;
 }
 .page {
-    width: 1000px;
+    width: 1100px;
 }
 .not_favorited{
 	color: black;
@@ -557,9 +559,7 @@ a:hover{
   margin-top: 0px;
   font-size: 20px;
 }
-.guestbook-main-shadow-top{
 
-}
 body > footer{
     border-top: 1px solid #c1e1ec;
     height: 50px;

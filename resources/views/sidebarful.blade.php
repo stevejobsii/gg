@@ -1,4 +1,4 @@
-<div class="col-md-4 side-bar hidden-xs hidden-sm"style="padding-right:0px;">
+<div class="col-md-4 side-bar hidden-xs hidden-sm">
     <div id="side-bar-related-height">
 		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="width:100%;">
 		  <!-- Indicators -->
