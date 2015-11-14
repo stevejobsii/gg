@@ -3,7 +3,7 @@
 @section('content')
     @if(isset($user))
 	@include('users.partials.infonav')
-	@endif
+	@else
     <nav id="myScrollspy" class = "hidden-xs hidden-sm hidden-md col-md-1">
 	    <ul class="nav nav-pills nav-stacked articles-title-sidebar">
 	    @foreach($articles as $article)
@@ -11,6 +11,7 @@
 	    @endforeach
 	    </ul>
     </nav>
+    @endif
 
     <div class= "col-md-7">
 		<ul class="list votebookmark">	
