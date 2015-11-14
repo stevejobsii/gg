@@ -53,10 +53,7 @@ input[readonly] {
   visibility: hidden;
 }
 ul.articles-title-sidebar {
-        top: 50px;
-        right: 20px;
         position: fixed;  
-
     }
 .articles-title-sidebar>li>a {
     border-radius: 0px;
@@ -171,12 +168,10 @@ ul.articles-title-sidebar {
 	padding-bottom: 6px;
 }
 #back-to-top{
-	width: 40px;
-    height: 40px;
-    text-align: center;
-    border: 1px solid #ddd;
-    color: #999;
-    border-radius: 3px;
+    width: 52px;
+    height: 132px;
+    background: url(/images/catalog/backtop.png) no-repeat;
+    cursor: pointer;
     position: fixed;
     right: 20px;
     bottom: 20px;
@@ -564,6 +559,8 @@ a:hover{
 body > footer{
     border-top: 1px solid #c1e1ec;
     height: 50px;
+
+
 }
 body > footer > p{
     line-height: 50px;

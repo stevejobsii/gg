@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="/css/all.css">
 	<link rel="stylesheet" href="/css/main.css">
     <link rel="shortcut icon" href="/images/catalog/30avatardefault.jpg">
-    <title>好去处 - Fun Time</title>
+    <title>好去处 - Have Fun Now</title>
     <script>
 		var _hmt = _hmt || [];
 		(function() {
@@ -26,7 +26,7 @@
 	<div class="container page">
 		@yield('content')
 	</div> 
-	<p id="back-to-top" ><a href="javascript:void(0)">回到顶部</a></p>
+	<p id="back-to-top" ><a href="javascript:void(0)"></a></p>
     <script src="/js/all.js"></script>
 	@include('footer')
 	@yield('js')

@@ -4,15 +4,15 @@
     @if(isset($user))
 	@include('users.partials.infonav')
 	@endif
-    <nav id="myScrollspy" class = "hidden-xs hidden-sm hidden-md">
+    <nav id="myScrollspy" class = "hidden-xs hidden-sm hidden-md col-md-1">
 	    <ul class="nav nav-pills nav-stacked articles-title-sidebar">
 	    @foreach($articles as $article)
-	    <li><a href="#{{$article->photo}}">{{mb_substr($article->title, 0, 4,'utf-8')}}</a></li>
+	    <li><a href="#{{$article->photo}}">{{mb_substr($article->title, 0, 6,'utf-8')}}</a></li>
 	    @endforeach
 	    </ul>
     </nav>
 
-    <div class= "col-md-8">
+    <div class= "col-md-7">
 		<ul class="list votebookmark">	
 		@unless (!$search)
 	    <br>搜索：{{$search}}的结果
