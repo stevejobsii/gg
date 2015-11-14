@@ -34,13 +34,13 @@ class TagsController extends Controller
     {
         //query index 过滤'.mp4'
         if ($search = $request->query('q')) {
-            $articles = \App\Article::search($search)->orderBy('vote_count', 'desc')->simplepaginate(30);
+            $articles = \App\Article::search($search)->orderBy('vote_count', 'desc')->simplepaginate(18);
         } elseif ($search = $request->query('id')) {
             $search = \App\Article::where('photo', $search)->firstOrFail()->id;
-            $articles = DB::table('articles')->where('id', '<=', $search)->orderBy('vote_count', 'desc')->simplepaginate(30);
+            $articles = DB::table('articles')->where('id', '<=', $search)->orderBy('vote_count', 'desc')->simplepaginate(18);
             $search = $request->query('id');
         } else {
-            $articles = DB::table('articles')->orderBy('vote_count', 'desc')->simplepaginate(30);
+            $articles = DB::table('articles')->orderBy('vote_count', 'desc')->simplepaginate(18);
         }
         $articles->setPath('hot');
                //sidebar
@@ -55,13 +55,13 @@ class TagsController extends Controller
     {
         //query index 过滤'.mp4'
         if ($search = $request->query('q')) {
-            $articles = \App\Article::search($search)->where('type','.mp4')->orderBy('created_at', 'desc')->simplepaginate(30);
+            $articles = \App\Article::search($search)->where('type','.mp4')->orderBy('created_at', 'desc')->simplepaginate(18);
         } elseif ($search = $request->query('id')) {
             $search = \App\Article::where('photo', $search)->firstOrFail()->id;
-            $articles = DB::table('articles')->where('type','.mp4')->where('id', '<=', $search)->orderBy('created_at', 'desc')->simplepaginate(30);
+            $articles = DB::table('articles')->where('type','.mp4')->where('id', '<=', $search)->orderBy('created_at', 'desc')->simplepaginate(18);
             $search = $request->query('id');
         } else {
-            $articles = DB::table('articles')->where('type','.mp4')->orderBy('created_at', 'desc')->simplepaginate(30);
+            $articles = DB::table('articles')->where('type','.mp4')->orderBy('created_at', 'desc')->simplepaginate(18);
         }
         $articles->setPath('GIF');
                //sidebar
