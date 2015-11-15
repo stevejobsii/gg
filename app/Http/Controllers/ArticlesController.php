@@ -118,9 +118,7 @@ class ArticlesController extends Controller
         if($article->type = '_long.jpg'){
             File::delete(base_path() . '/public/images/catalog/' . $article->photo . '.jpg');
         }
-
-        $article->votes()->delete();
-        $article->delete();
+        App\Article::destroy($article->id);
         return redirect('articles');
     }
     /**

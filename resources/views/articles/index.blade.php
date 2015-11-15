@@ -22,34 +22,34 @@
 		<span class="anchor" id="{{$article->photo}}"></span>
 		<article class="list-item"  style="margin-top: 0px;">
 		    <div class = "width480">
-			<a href="{{ action('ArticlesController@show', [$article->photo])}}"target="_blank" ><h3 class="index-article-title">{{$article->title}}</h3></a>
+			<a href="{{ action('ArticlesController@show', [$article->photo])}}"target="_blank" ><h3 class="index-article-title">{{$article->title}}
+            <div class="pull-right">
+                <span class="label label-default inline-block"><span id="b{{$article->photo}}">{{$article->vote_count}}</span>赞
+				<span>&nbsp; • &nbsp;</span>{{$article->reply_count}}互动
+				<span>&nbsp; • &nbsp;</span>{{$article->view_count}}观摩</span>
+            </div></h3></a>
 			</div>
-		    @if($article->type == '.jpg')
-		    <a href="{{ action('ArticlesController@show', [$article->photo])}}"target="_blank">
-		    <img src="/images/catalog/{{$article->photo}}{{$article->type}}" alt="{{$article->title}}"></a>
-		    @endif
-		    @if($article->type == '_long.jpg')
-	        <div class="long-post-wrap">
-		    <a href="{{ action('ArticlesController@show', [$article->photo])}}"target="_blank">
-		    <img src="/images/catalog/{{$article->photo}}.jpg" alt="{{$article->title}}"></a>
-	        <a href="{{ action('ArticlesController@show', [$article->photo])}}"target="_blank"class="post-read-more"><i class="glyphicon glyphicon-new-window"></i>&nbsp;&nbsp;查看完整</a>       
-	        </div>
-		    @endif
-		    @if($article->type == '.mp4')
-		    <div class = "video_wrap">
-		    <h2 class="video_text">Gif</h2>
-		    <video  width="480" style="max-height:500px;min-height:300px" loop preload="auto" >
-			  <source src="/images/catalog/{{$article->photo}}{{$article->type}}" type="video/mp4">
-			Your browser does not support the video tag.
-			</video>
-			</div>
-			@endif	  
-		    <div class="vote-reply-view-count"><a href="{{ action('ArticlesController@show', [$article->photo])}}"target="_blank">
-		    <span id="b{{$article->photo}}">{{$article->vote_count}}</span>赞
-			<span>&nbsp; • &nbsp;</span>{{$article->reply_count}}互动
-			<span>&nbsp; • &nbsp;</span>{{$article->view_count}}观摩
-			</a></div>
-			<div class="width485">
+			    @if($article->type == '.jpg')
+			    <a href="{{ action('ArticlesController@show', [$article->photo])}}"target="_blank">
+			    <img src="/images/catalog/{{$article->photo}}{{$article->type}}" alt="{{$article->title}}"></a>
+			    @endif
+			    @if($article->type == '_long.jpg')
+		        <div class="long-post-wrap">
+			    <a href="{{ action('ArticlesController@show', [$article->photo])}}"target="_blank">
+			    <img src="/images/catalog/{{$article->photo}}.jpg" alt="{{$article->title}}"></a>
+		        <a href="{{ action('ArticlesController@show', [$article->photo])}}"target="_blank"class="post-read-more"><i class="glyphicon glyphicon-new-window"></i>&nbsp;&nbsp;查看完整</a>       
+		        </div>
+			    @endif
+			    @if($article->type == '.mp4')
+			    <div class = "video_wrap">
+			    <h2 class="video_text">Gif</h2>
+			    <video  width="480" style="max-height:500px;min-height:300px" loop preload="auto" >
+				  <source src="/images/catalog/{{$article->photo}}{{$article->type}}" type="video/mp4">
+				Your browser does not support the video tag.
+				</video>
+				</div>
+				@endif	          
+			<div class="width485" style="margin-top:10px">
 			<div class="pull-left">
 				<ul class="btn-vote-reply">
 			    <li><button  type="button" 	
