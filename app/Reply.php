@@ -42,6 +42,7 @@ class Reply extends Model
         return $query->where('user_id', '=', $user_id);
     }
 
+
     public function scopeRecent($query)
     {
         return $query->orderBy('created_at', 'desc');
