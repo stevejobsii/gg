@@ -1,7 +1,8 @@
 @extends('app')
 
 @section('content')
-    <div class = "col-md-8">
+    <div class = "col-md-1"></div>
+    <div class = "col-md-7">
         <div class = "width480">	
             <h2>{{$article->title}}</h2>
             <h3 style="padding-bottom: 10px; margin-top: 0px;"><small><a href="/users/{{$article->user_id}}/articles">作者：{{\App\User::find($article->user_id)->name}}</a>
