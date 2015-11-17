@@ -71,33 +71,6 @@ $("#nav-search").click(function(){
     $(".nav-search").toggle();
 });
 
-//百度分享
-  var photoname = "";
-  $(function () {
-      $(".bdsharebuttonbox a").mouseover(function () {
-          photo = $(this).attr("data-photo");
-          title = $(this).attr("data-title");
-          type  = $(this).attr("data-type");
-      });
-  });
-  function SetShareUrl(cmd, config) {   
-        var pathname = window.location.hostname;         
-        config.bdText = title+'via goodgoto.com';
-        config.bdDesc = title+'via goodgoto.com';
-        config.bdUrl = 'http://'+pathname+'/images/catalog/'+ photo + type;
-        config.bdPic = 'http://'+pathname+'/images/catalog/'+ photo + type;
-        return config;
-  };
-  window._bd_share_config = {
-  common : {
-  onBeforeClick: SetShareUrl,
-  },
-  share : [{
-  "bdSize" : 32, 
-  }],
-  }
-//以下为js加载部分
-  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
 
 //展开
 $('.side-bar-hot').mouseenter(function() { $(this).addClass('side-bar-hot-full-size');$(this).find('.show_more').html(' &UpTeeArrow; 收起');});
@@ -259,3 +232,31 @@ $('#navbar li').hover(function(){
 },function(){
   $(this).children('ul').stop(true,true).slideUp(500);
 });
+//百度分享
+  var photoname = "";
+  $(function () {
+      $(".bdsharebuttonbox a").mouseover(function () {
+          photo = $(this).attr("data-photo");
+          title = $(this).attr("data-title");
+          type  = $(this).attr("data-type");
+      });
+  });
+  function SetShareUrl(cmd, config) {   
+        var pathname = window.location.hostname;         
+        config.bdText = title+'via goodgoto.com';
+        config.bdDesc = title+'via goodgoto.com';
+        config.bdUrl = 'http://'+pathname+'/images/catalog/'+ photo + type;
+        config.bdPic = 'http://'+pathname+'/images/catalog/'+ photo + type;
+        return config;
+  };
+  window._bd_share_config = {
+  common : {
+  onBeforeClick: SetShareUrl,
+  },
+  share : [{
+  "bdSize" : 32, 
+  }],
+  }
+//以下为js加载部分
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+
