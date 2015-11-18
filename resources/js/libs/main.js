@@ -232,6 +232,10 @@ $('#navbar li').hover(function(){
 },function(){
   $(this).children('ul').stop(true,true).slideUp(500);
 });
+//sidebarful－ad的时间
+$('.carousel').carousel({
+  interval: 1500
+})
 //百度分享
   var photoname = "";
   $(function () {

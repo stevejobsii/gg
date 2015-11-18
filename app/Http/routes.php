@@ -23,6 +23,19 @@ Route::get('/test', function (){return view('f');
 Route::post('/tagsset', function () {
     
 });
+#  ------------------admin info stuff ------------------------
+Route::resource('info','InfoController');
+
+get('info', function() {
+    return view('guestbook/guestbook');
+});
+// API
+get('api/messages', function() {
+    return App\Article::all();
+});
+post('api/messages', function() {
+    return App\Article::create(Request::all());
+});
 # ------------------ article stuff ------------------------
 Route::resource('articles','ArticlesController');
 Route::post('/articles/{photo}/upvote', 
