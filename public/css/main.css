@@ -572,3 +572,8 @@ body > footer > p{
 #guestbook > img{
   width: 100%;
 }
+.sidebarful-label{
+  position: absolute;
+  top: 40px;
+  right: 10px;
+}
