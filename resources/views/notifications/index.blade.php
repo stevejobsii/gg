@@ -42,8 +42,9 @@
             </ul>
         </div>
     @else
-        <div class="panel-body">
-        <div class="empty-block">您暂时还没有什通知或信息！</div>
+        <div class="alert alert-info" role="alert">
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>               
+           <strong>您暂时还没有什通知或信息！</strong>
         </div>
     @endif
 

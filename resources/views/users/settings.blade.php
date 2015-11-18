@@ -9,8 +9,7 @@
 	  }
 	  </style>
 
-  <div class="row">
-    <nav class="col-md-2" id="myScrollspy">
+    <nav class="col-md-2 hidden-xs hidden-sm" id="myScrollspy">
       <ul class="nav nav-pills nav-stacked">
       <h3>用户中心</h3>
         <li class="active"><a href="#user-head">头像设置</a></li>
@@ -58,17 +57,33 @@
                 <h4><i class="glyphicon glyphicon-tasks"></i>&nbsp;&nbsp;个人信息</h4>
                 <hr>
                 <div class="form-group">
-                    <label for="title" class="col-sm-2 control-label">个性签名</label>
+                    <label for="name" class="col-sm-2 control-label">用户名字</label>
                     <div class="col-sm-6">
-                    {!! Form::text('title', null, ['class'=>'form-control']) !!}
+                        {!! Form::text('name', null, ['class'=>'form-control']) !!}
                     </div>
                 </div>
+          
+                <div class="form-group">
+                    <label for="email" class="col-sm-2 control-label">电子邮箱</label>
+                    <div class="col-sm-6">
+                        {!! Form::text('email', null, ['class'=>'form-control']) !!}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="title" class="col-sm-2 control-label">个性签名</label>
+                    <div class="col-sm-6">
+                        {!! Form::text('title', null, ['class'=>'form-control']) !!}
+                    </div>
+                </div>
+
                 <div class="form-group">
                     <label for="info" class="col-sm-2 control-label">个人介绍</label>
                     <div class="col-sm-6">
                         {!! Form::textarea('info', null, ['class'=>'form-control']) !!}
                     </div>
                 </div>
+
                 <div class="form-group">
                     <div class="col-sm-4 col-sm-offset-2">
                     <button type="submit" class="btn btn-primary" id="update-user-data">更新</button>
@@ -78,45 +93,49 @@
       <br><br>
       </div>
 
-      <div id="user-keyreset">         
-       <form class="form-horizontal" role="form" method="POST">
+      <div id="user-keyreset"> 
+       @if (count($errors) > 0)
+                        <div class="alert alert-danger">
+                            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+        @endif        
+        <form class="form-horizontal" method="post" action="/settings/resetPassword" enctype="multipart/form-data">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-            <h4><i class="glyphicon glyphicon-wrench"></i>&nbsp;&nbsp;密码设置(建设中）</h4>
+            <h4><i class="glyphicon glyphicon-wrench"></i>&nbsp;&nbsp;密码设置</h4>
                 <hr>
                 <div class="form-group">
                     <label for="old_password" class="col-sm-2 control-label">当前密码</label>
                     <div class="col-sm-4">
-                    <input type="password" id="old_password" name="old_password" placeholder="请输入您当前的密码" class="form-control">
+                    <input type="password" name="old_password" placeholder="请输入您当前的密码" class="form-control">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="new_password" class="col-sm-2 control-label">新密码</label>
                     <div class="col-sm-4">
-                    <input type="password" id="new_password" name="new_password" placeholder="请输入新密码" class="form-control">
+                    <input type="password" name="password" placeholder="请输入新密码" class="form-control">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="new_password" class="col-sm-2 control-label">密码确认</label>
                     <div class="col-sm-4">
-                    <input type="password" id="new_password2" name="new_password2" placeholder="请再次输入新密码" class="form-control">
+                    <input type="password" name="password_confirmation" placeholder="请再次输入新密码" class="form-control">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-4 col-sm-offset-2">
                         <label for="update-password" class="pure-checkbox">
-                            <button type="button" class="btn btn-primary" id="update-password">更新
+                            <button type="submit" class="btn btn-primary" id="update-password">更新
                             </button>
-                            <span class="loading"></span>
                         </label>
-                        <input type="hidden" name="csrf_token" value="3fc44390">
                     </div>
                 </div>
             </form>
       </div>
-
-
-
     </div>
-  </div>
 
 @stop

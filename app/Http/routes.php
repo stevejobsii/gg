@@ -76,6 +76,11 @@ Route::post('/settings/update-avatar', [
     'as' => 'users.avatarupdate',
     'uses' => 'UsersController@avatarupdate',
 ]);
+//上传修改秘密
+Route::post('/settings/resetPassword',[
+    'as' => 'users.resetPassword',
+    'uses' => 'UsersController@resetPassword',
+]);
 # ------------------ delete stuff ------------------------
 Route::delete('articles/{photo}/destroy',  [
         'as' => 'articles.destroy',

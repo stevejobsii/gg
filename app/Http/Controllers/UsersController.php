@@ -2,12 +2,14 @@
 
 use App\Article;
 use Auth;
+use Hash;
 use App\User;
 use App\Reply;
 use App\Vote;
 use Request;
 use Illuminate\Http\Request as urlRequest;
 use App\Http\Requests\AvatarRequest;
+use App\Http\Requests\PasswordresetRequest;
 use Intervention\Image\ImageManagerStatic as Image;
 
 class UsersController extends Controller
@@ -43,6 +45,37 @@ class UsersController extends Controller
         $user = Auth::user();
         $user->update(Request::all());
         return redirect('settings');
+    }
+
+    protected function resetPassword(PasswordresetRequest $request)
+    {
+        $user = Auth::user();
+      
+        if(Hash::check($request->only('old_password')['old_password'], $user->password)){  
+        
+            $password = $request->only('password')['password'];
+
+            $password_confirmation = $request->only('password_confirmation')['password_confirmation'];
+
+            if(!($password == $password_confirmation)){
+                   flash()->info('当前输入新密码与错密码不一致!', '请重新输入');
+                   return redirect('settings');
+            } else {
+
+            $user->password = Hash::make($request->only('password')['password']);
+
+            $user->save();
+
+            flash()->success('密码修改成功!', 'Have a good time!');
+
+            return redirect('settings');}
+
+        } else {
+            
+            flash()->error('输入当前密码输入错误!', '请重新输入');
+            
+            return redirect('settings');
+        }
     }
 
     public function articles(urlRequest $request,$id)
