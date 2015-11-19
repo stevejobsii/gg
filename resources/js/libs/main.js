@@ -234,7 +234,7 @@ $('#navbar li').hover(function(){
 });
 //sidebarful－ad的时间
 $('.carousel').carousel({
-  interval: 1500
+  interval: 2500
 })
 //百度分享
   var photoname = "";
