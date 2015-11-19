@@ -104,7 +104,7 @@
 
                 <div class="comment-info">
                     <h5><a href="{{ route('users.articles', [$reply->user_id]) }}"> {{\App\User::find($reply->user_id)->name}}</a>
-                    <small>{{ $reply->created_at }}</small></h5>
+                    <small><i class = "glyphicon glyphicon-calendar"></i>{{ $reply->created_at }}</small></h5>
                     <!-- Reply upvote/reply on reply-->
 
                     <div class="comment-content">
