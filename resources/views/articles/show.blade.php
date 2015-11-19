@@ -99,31 +99,38 @@
                 </a>
                 </div>
 
-                <div class="comment-info">
-                <h5><a href="{{ route('users.articles', [$reply->user_id]) }}"> {{\App\User::find($reply->user_id)->name}}</a>
-                <small><span id="br{{$reply->id}}">{{$reply->vote_count}}</span>赞&nbsp; • &nbsp;{{ $reply->created_at }}</small></h5>
-                <!-- Reply upvote/reply on reply-->
 
-                <div class="comment-content">
-                {{$reply->body}}
-                </div>
-               
-                <ul class = "btn-vote-reply">
-                @if(Auth::check())
-                @if (Auth::user()->can("manage_topics") || Auth::user()->id == $reply->user_id) 
-                <li>{!! Form::open(array('route' => array('replies.destroy', $reply->id), 'method' => 'delete','style'=>"float:left")) !!}
-                <button type="submit" class="btn btn-danger"data-toggle="tooltip" data-placement="bottom" title="删除"><i class="glyphicon glyphicon-trash"></i></button>
-                {!! Form::close() !!}</li>
-                @endif
-                @endif
-                &nbsp;&nbsp;
-                <li><a href="javascript:void(0)"
-                         class="show-upvote"              
-                         data-id="{{$reply->id}}"
-                         data-toggle="tooltip" data-placement="bottom" title="点赞"><strong><i class="glyphicon glyphicon-thumbs-up"></i></strong>
-                </a></li>
-                <li><a href="javascript:void(0)" onclick="replyOne('{{ $reply->user->name }}');" data-toggle="tooltip" data-placement="bottom" title="@.Ta">@</a></li>
-                </ul>
+
+
+                <div class="comment-info">
+                    <h5><a href="{{ route('users.articles', [$reply->user_id]) }}"> {{\App\User::find($reply->user_id)->name}}</a>
+                    <small>{{ $reply->created_at }}</small></h5>
+                    <!-- Reply upvote/reply on reply-->
+
+                    <div class="comment-content">
+                    {{$reply->body}}
+                    </div>
+                    
+                    <div class = "show-reply-vote-count label label-default inline-block">
+                        <span id="br{{$reply->id}}">{{$reply->vote_count}}</span>赞
+                    </div>
+
+                    <ul class = "btn-vote-reply">
+                    @if(Auth::check())
+                    @if (Auth::user()->can("manage_topics") || Auth::user()->id == $reply->user_id) 
+                    <li>{!! Form::open(array('route' => array('replies.destroy', $reply->id), 'method' => 'delete','style'=>"float:left")) !!}
+                    <button type="submit" class="btn btn-danger"data-toggle="tooltip" data-placement="bottom" title="删除"><i class="glyphicon glyphicon-trash"></i></button>
+                    {!! Form::close() !!}</li>
+                    @endif
+                    @endif
+                    &nbsp;&nbsp;
+                    <li><a href="javascript:void(0)"
+                             class="show-upvote"              
+                             data-id="{{$reply->id}}"
+                             data-toggle="tooltip" data-placement="bottom" title="点赞"><strong><i class="glyphicon glyphicon-thumbs-up"></i></strong>
+                    </a></li>
+                    <li><a class="show-upvote" href="javascript:void(0)" onclick="replyOne('{{ $reply->user->name }}');" data-toggle="tooltip" data-placement="bottom" title="@.Ta">@</a></li>
+                    </ul>
                 </div>
                 
                 <!-- Reply body-->
