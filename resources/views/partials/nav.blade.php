@@ -100,35 +100,47 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">登录</h4>
-      </div>    
+      </div>
+      
+      <br>
       <div class="modal-body">
-        <div class = "col-md-7">
-          <div class="container-fluid">
-                  <form class="form-horizontal" role="form" method="POST" action="/auth/login">
-                      <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                      <div class="form-group">
-                        <label class="control-label">E-Mail 地址</label>
-                          <input type="email" class="form-control" placeholder="E-Mail 地址" name="email" value="{{ old('email') }}">
+          <div class = "col-md-7">
+              <form class="form-horizontal" role="form" method="POST" action="/auth/login">
+                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                  <div class="form-group">
+                    <label class="control-label">E-Mail 地址</label>
+                      <input type="email" class="form-control" placeholder="E-Mail 地址" name="email" value="{{ old('email') }}">
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">密码</label>
+                      <input type="password" class="form-control" placeholder="密码" name="password">
+                  </div>
+                  <div class="form-group">
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" name="remember"> 保存登陆
+                        </label>
                       </div>
-                      <div class="form-group">
-                        <label class="control-label">密码</label>
-                          <input type="password" class="form-control" placeholder="密码" name="password">
-                      </div>
-                      <div class="form-group">
-                          <div class="checkbox">
-                            <label>
-                              <input type="checkbox" name="remember"> 保存登陆
-                            </label>
-                          </div>
-                      </div>                   
-                      <div class="form-group">
-                          <button  style = "float:left;margin-right:30px;" type="submit" class="btn btn-primary btn-lg" style="margin-right: 15px;">
-                            登陆
-                          </button>
-                          <li><a href="/auth/register">简单注册</a></li>
-                          <li><a href="/password/email">重设密码</a></li>
-                  </form>
-                </div>
+                  </div>                   
+                  <div class="form-group">
+                      <button  style = "float:left;margin-right:30px;" type="submit" class="btn btn-primary btn-lg" style="margin-right: 15px;">
+                        登陆
+                      </button>
+                      <ul class="list-unstyled">
+                        <li><a href="/auth/register">简单注册</a></li>
+                        <li><a href="/password/email">重设密码</a></li>
+                      </ul>
+                  </div>
+              </form>
+          </div>
+
+          <div class = "col-md-5">
+            <p><strong>使用第三方登录</strong></p>
+            <ul class="list-unstyled">
+              <li><a href="#"><i class ="iconfont icon-qq" style="font-size: 50px;"></i>QQ登录</a></li>
+              <li><a href="#"><i class ="iconfont icon-weixin" style="font-size: 50px;"></i>微信登录</a></li>
+              <li><a href="#"><i class ="iconfont icon-weibo" style="font-size: 50px;"></i>微博登录</a></li>
+            </ul>
           </div>
         </div>
       </div> 
