@@ -20,15 +20,13 @@
         "intervention/image": "^2.3",
         "zizaco/entrust": "dev-laravel-5",
         "guzzlehttp/guzzle": "~5.0",
-        "laracasts/presenter": "0.2.*",
-        "overtrue/laravel-wechat": "2.1.*",
+        "laracasts/presenter": "0.2.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
         "phpunit/phpunit": "~4.0",
         "phpspec/phpspec": "~2.1"
-
     },
     "autoload": {
         "classmap": [
