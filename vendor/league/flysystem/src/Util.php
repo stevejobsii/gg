@@ -271,10 +271,6 @@ class Util
      */
     protected static function emulateObjectDirectories(array $object, array $directories, array $listedDirectories)
     {
-        if ($object['type'] === 'dir') {
-            $listedDirectories[] = $object['path'];
-        }
-
         if (empty($object['dirname'])) {
             return [$directories, $listedDirectories];
         }

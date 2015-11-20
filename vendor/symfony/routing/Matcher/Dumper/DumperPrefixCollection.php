@@ -15,8 +15,6 @@ namespace Symfony\Component\Routing\Matcher\Dumper;
  * Prefix tree of routes preserving routes order.
  *
  * @author Arnaud Le Blanc <arnaud.lb@gmail.com>
- *
- * @internal
  */
 class DumperPrefixCollection extends DumperCollection
 {

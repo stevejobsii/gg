@@ -45,11 +45,6 @@ class Local extends AbstractAdapter
     protected $pathSeparator = DIRECTORY_SEPARATOR;
 
     /**
-     * @var array
-     */
-    protected $permissionMap;
-
-    /**
      * @var int
      */
     protected $writeFlags;
@@ -64,12 +59,9 @@ class Local extends AbstractAdapter
      * @param string $root
      * @param int    $writeFlags
      * @param int    $linkHandling
-     * @param array  $permissions
      */
-    public function __construct($root, $writeFlags = LOCK_EX, $linkHandling = self::DISALLOW_LINKS, array $permissions = [])
+    public function __construct($root, $writeFlags = LOCK_EX, $linkHandling = self::DISALLOW_LINKS)
     {
-        // permissionMap needs to be set before ensureDirectory() is called.
-        $this->permissionMap = array_replace_recursive(static::$permissions, $permissions);
         $realRoot = $this->ensureDirectory($root);
 
         if (! is_dir($realRoot) || !is_readable($realRoot)) {
@@ -92,7 +84,7 @@ class Local extends AbstractAdapter
     {
         if (! is_dir($root)) {
             $umask = umask(0);
-            mkdir($root, $this->permissionMap['dir']['public'], true);
+            mkdir($root, static::$permissions['dir']['public'], true);
             umask($umask);
         }
 
@@ -328,7 +320,7 @@ class Local extends AbstractAdapter
     {
         $location = $this->applyPathPrefix($path);
         $type = is_dir($location) ? 'dir' : 'file';
-        chmod($location, $this->permissionMap[$type][$visibility]);
+        chmod($location, static::$permissions[$type][$visibility]);
 
         return compact('visibility');
     }
@@ -342,7 +334,7 @@ class Local extends AbstractAdapter
         $umask = umask(0);
         $visibility = $config->get('visibility', 'public');
 
-        if (! is_dir($location) && !mkdir($location, $this->permissionMap['dir'][$visibility], true)) {
+        if (! is_dir($location) && !mkdir($location, static::$permissions['dir'][$visibility], true)) {
             $return = false;
         } else {
             $return = ['path' => $dirname, 'type' => 'dir'];

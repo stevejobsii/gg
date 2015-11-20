@@ -74,9 +74,7 @@ abstract class AbstractProcessTest extends \PHPUnit_Framework_TestCase
 
     public function testStopWithTimeoutIsActuallyWorking()
     {
-        if (!extension_loaded('pcntl')) {
-            $this->markTestSkipped('Extension pcntl is required.');
-        }
+        $this->verifyPosixIsEnabled();
 
         // exec is mandatory here since we send a signal to the process
         // see https://github.com/symfony/symfony/issues/5030 about prepending
@@ -174,9 +172,6 @@ abstract class AbstractProcessTest extends \PHPUnit_Framework_TestCase
      */
     public function testSetStreamAsInput($code, $size)
     {
-        if ('\\' === DIRECTORY_SEPARATOR) {
-            $this->markTestIncomplete('This test fails with a timeout on Windows, can someone investigate please?');
-        }
         $expected = str_repeat(str_repeat('*', 1024), $size).'!';
         $expectedLength = (1024 * $size) + 1;
 
@@ -184,7 +179,7 @@ abstract class AbstractProcessTest extends \PHPUnit_Framework_TestCase
         fwrite($stream, $expected);
         rewind($stream);
 
-        $p = $this->getProcess(sprintf('%s -r %s', self::$phpBin, escapeshellarg($code)), null, null, null, 5);
+        $p = $this->getProcess(sprintf('%s -r %s', self::$phpBin, escapeshellarg($code)));
         $p->setInput($stream);
         $p->run();
 
@@ -529,7 +524,7 @@ abstract class AbstractProcessTest extends \PHPUnit_Framework_TestCase
         $process = $this->getProcess('echo foo');
 
         $this->assertSame($process, $process->mustRun());
-        $this->assertEquals('foo'.PHP_EOL, $process->getOutput());
+        $this->assertEquals("foo".PHP_EOL, $process->getOutput());
     }
 
     public function testSuccessfulMustRunHasCorrectExitCode()
@@ -564,7 +559,7 @@ abstract class AbstractProcessTest extends \PHPUnit_Framework_TestCase
         $start = microtime(true);
         $process->start();
         $end = microtime(true);
-        $this->assertLessThan(0.4, $end - $start);
+        $this->assertLessThan(0.2, $end-$start);
         $process->wait();
     }
 
@@ -642,10 +637,8 @@ abstract class AbstractProcessTest extends \PHPUnit_Framework_TestCase
     {
         $process = $this->getProcess(self::$phpBin.' -r "sleep(1);"');
         $process->start();
-
-        $this->assertFalse($process->isSuccessful());
-
         while ($process->isRunning()) {
+            $this->assertFalse($process->isSuccessful());
             usleep(300000);
         }
 
@@ -724,8 +717,12 @@ abstract class AbstractProcessTest extends \PHPUnit_Framework_TestCase
 
     public function testProcessThrowsExceptionWhenExternallySignaled()
     {
+        if ('\\' === DIRECTORY_SEPARATOR) {
+            $this->markTestSkipped('Windows does not support POSIX signals');
+        }
+
         if (!function_exists('posix_kill')) {
-            $this->markTestSkipped('Function posix_kill is required.');
+            $this->markTestSkipped('posix_kill is required for this test');
         }
 
         $termSignal = defined('SIGKILL') ? SIGKILL : 9;
@@ -847,9 +844,6 @@ abstract class AbstractProcessTest extends \PHPUnit_Framework_TestCase
 
     public function testIdleTimeoutNotExceededWhenOutputIsSent()
     {
-        if ('\\' === DIRECTORY_SEPARATOR) {
-            $this->markTestIncomplete('This test fails with a timeout on Windows, can someone investigate please?');
-        }
         $process = $this->getProcess(sprintf('%s -r %s', self::$phpBin, escapeshellarg('$n = 30; while ($n--) {echo "foo\n"; usleep(100000); }')));
         $process->setTimeout(2);
         $process->setIdleTimeout(1);
@@ -902,9 +896,7 @@ abstract class AbstractProcessTest extends \PHPUnit_Framework_TestCase
 
     public function testSignal()
     {
-        if (!extension_loaded('pcntl')) {
-            $this->markTestSkipped('Extension pcntl is required.');
-        }
+        $this->verifyPosixIsEnabled();
 
         $process = $this->getProcess('exec php -f '.__DIR__.'/SignalListener.php');
         $process->start();
@@ -920,9 +912,7 @@ abstract class AbstractProcessTest extends \PHPUnit_Framework_TestCase
 
     public function testExitCodeIsAvailableAfterSignal()
     {
-        if (!extension_loaded('pcntl')) {
-            $this->markTestSkipped('Extension pcntl is required.');
-        }
+        $this->verifyPosixIsEnabled();
 
         $process = $this->getProcess('sleep 4');
         $process->start();
@@ -943,10 +933,7 @@ abstract class AbstractProcessTest extends \PHPUnit_Framework_TestCase
      */
     public function testSignalProcessNotRunning()
     {
-        if (!extension_loaded('pcntl')) {
-            $this->markTestSkipped('Extension pcntl is required.');
-        }
-
+        $this->verifyPosixIsEnabled();
         $process = $this->getProcess(self::$phpBin.' -v');
         $process->signal(SIGHUP);
     }
@@ -998,6 +985,16 @@ abstract class AbstractProcessTest extends \PHPUnit_Framework_TestCase
             array('hasBeenStopped'),
             array('getStopSignal'),
         );
+    }
+
+    private function verifyPosixIsEnabled()
+    {
+        if ('\\' === DIRECTORY_SEPARATOR) {
+            $this->markTestSkipped('POSIX signals do not work on Windows');
+        }
+        if (!defined('SIGUSR1')) {
+            $this->markTestSkipped('The pcntl extension is not enabled');
+        }
     }
 
     /**

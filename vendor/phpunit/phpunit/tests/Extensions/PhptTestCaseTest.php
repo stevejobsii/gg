@@ -24,6 +24,7 @@ class Extensions_PhptTestCaseTest extends \PHPUnit_Framework_TestCase
         );
 
         $this->assertEquals($expected, $settings);
+
     }
 }
 

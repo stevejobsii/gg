@@ -1,4 +1,13 @@
 {
+    "repositories": [
+        {   
+            "packagist": false
+        },  
+        {   
+            "type": "composer", 
+            "url": "http://packagist.cn"
+        }   
+    ],
     "name": "laravel/laravel",
     "description": "The Laravel Framework.",
     "keywords": ["framework", "laravel"],
@@ -10,14 +19,16 @@
         "illuminate/html": "~5.0",
         "intervention/image": "^2.3",
         "zizaco/entrust": "dev-laravel-5",
-        "guzzlehttp/guzzle": "~6.0",
-        "laracasts/presenter": "0.2.*"
+        "guzzlehttp/guzzle": "~5.0",
+        "laracasts/presenter": "0.2.*",
+        "overtrue/laravel-wechat": "2.1.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
         "phpunit/phpunit": "~4.0",
         "phpspec/phpspec": "~2.1"
+
     },
     "autoload": {
         "classmap": [

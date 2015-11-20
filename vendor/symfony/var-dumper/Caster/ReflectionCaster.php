@@ -109,14 +109,10 @@ class ReflectionCaster
 
         self::addMap($a, $c, array(
             'returnsReference' => 'returnsReference',
-            'returnType' => 'getReturnType',
             'class' => 'getClosureScopeClass',
             'this' => 'getClosureThis',
         ));
 
-        if (isset($a[$prefix.'returnType'])) {
-            $a[$prefix.'returnType'] = (string) $a[$prefix.'returnType'];
-        }
         if (isset($a[$prefix.'this'])) {
             $a[$prefix.'this'] = new CutStub($a[$prefix.'this']);
         }
@@ -134,7 +130,7 @@ class ReflectionCaster
 
         if ($v = $c->getStaticVariables()) {
             foreach ($v as $k => &$v) {
-                $a[$prefix.'use']['$'.$k] = &$v;
+                $a[$prefix.'use']['$'.$k] =& $v;
             }
             unset($v);
         }
@@ -223,7 +219,7 @@ class ReflectionCaster
 
     private static function addExtra(&$a, \Reflector $c)
     {
-        $a = &$a[Caster::PREFIX_VIRTUAL.'extra'];
+        $a =& $a[Caster::PREFIX_VIRTUAL.'extra'];
 
         if (method_exists($c, 'getFileName') && $m = $c->getFileName()) {
             $a['file'] = $m;

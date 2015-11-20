@@ -15,8 +15,6 @@ use Monolog\TestCase;
 
 class DynamoDbHandlerTest extends TestCase
 {
-    private $client;
-
     public function setUp()
     {
         if (!class_exists('Aws\DynamoDb\DynamoDbClient')) {

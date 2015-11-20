@@ -12,7 +12,6 @@
 namespace Symfony\Component\HttpKernel\Tests;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\HttpKernel\Bundle\BundleInterface;
 use Symfony\Component\HttpKernel\Config\EnvParametersResource;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
@@ -766,7 +765,7 @@ EOF;
     }
 
     /**
-     * Returns a mock for the BundleInterface.
+     * Returns a mock for the BundleInterface
      *
      * @return BundleInterface
      */
