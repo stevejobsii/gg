@@ -1,3 +1,27 @@
+@font-face {font-family: "iconfont";
+  src: url('../fonts/iconfont.eot'); /* IE9*/
+  src: url('../fonts/iconfont.eot?#iefix') format('embedded-opentype'), 
+  url('../fonts/iconfont.woff') format('woff'), 
+  url('../fonts/iconfont.ttf') format('truetype'), 
+  url('../fonts/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:36px;
+  color: #666;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-weixin:before { content: "\e60c"; }
+.icon-qqkongjian:before { content: "\e647"; }
+.icon-weibo:before { content: "\e748"; }
+.icon-qq:before { content: "\e746"; }
+
+
 .btn-vote-reply button,
 .btn-vote-reply button:active,
 .btn-vote-reply button:focus, 
@@ -255,7 +279,7 @@ h3 {
 	float:left;
 	list-style: outside none none;
 	margin:0 10px 0 0;
-	padding-top: 6px;
+	padding-top: 11px;
 }
 .btn-vote-reply{
      padding:0;

@@ -102,35 +102,34 @@
         <h4 class="modal-title" id="myModalLabel">登录</h4>
       </div>    
       <div class="modal-body">
-        <div class="container-fluid">
+        <div class = "col-md-7">
+          <div class="container-fluid">
                   <form class="form-horizontal" role="form" method="POST" action="/auth/login">
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <div class="form-group">
-                      <label class="control-label">E-Mail 地址</label>
-                        <input type="email" class="form-control" placeholder="E-Mail 地址" name="email" value="{{ old('email') }}">
-                    </div>
-                    <div class="form-group">
-                      <label class="control-label">密码</label>
-                        <input type="password" class="form-control" placeholder="密码" name="password">
-                    </div>
-                    <div class="form-group">
-                        <div class="checkbox">
-                          <label>
-                            <input type="checkbox" name="remember"> Remember Me
-                          </label>
-                        </div>
-                    </div>                   
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary btn-lg" style="margin-right: 15px;">
-                          登陆
-                        </button>
-                        
-                        &nbsp;
-                        <a href="/auth/register">简单注册</a>
-                        &nbsp;&nbsp; • &nbsp;&nbsp;
-                        <a href="/password/email">忘记密码？</a>
-                    </div>
+                      <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                      <div class="form-group">
+                        <label class="control-label">E-Mail 地址</label>
+                          <input type="email" class="form-control" placeholder="E-Mail 地址" name="email" value="{{ old('email') }}">
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label">密码</label>
+                          <input type="password" class="form-control" placeholder="密码" name="password">
+                      </div>
+                      <div class="form-group">
+                          <div class="checkbox">
+                            <label>
+                              <input type="checkbox" name="remember"> 保存登陆
+                            </label>
+                          </div>
+                      </div>                   
+                      <div class="form-group">
+                          <button  style = "float:left;margin-right:30px;" type="submit" class="btn btn-primary btn-lg" style="margin-right: 15px;">
+                            登陆
+                          </button>
+                          <li><a href="/auth/register">简单注册</a></li>
+                          <li><a href="/password/email">重设密码</a></li>
                   </form>
+                </div>
+          </div>
         </div>
       </div> 
       </div>

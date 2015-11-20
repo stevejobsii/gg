@@ -5,11 +5,11 @@
     <div class = "col-md-7">
         <div class = "width480">	
             <h2>{{$article->title}}</h2>
-            <h3 style="padding-bottom: 10px; margin-top: 0px;"><small><a href="/users/{{$article->user_id}}/articles">作者：{{\App\User::find($article->user_id)->name}}</a>
+            <h3 style="padding-bottom: 10px; margin-top: 0px;"><small><a style = "color:#777;" href="/users/{{$article->user_id}}/articles"><i class = "glyphicon glyphicon-knight"></i>&nbsp;&nbsp;作者：{{\App\User::find($article->user_id)->name}}</a>           
             @unless ($article->tags->isEmpty())
-            标签 |
+            &nbsp;&nbsp;<i class = "glyphicon glyphicon-tags"></i>&nbsp;&nbsp;标签 |
             @foreach($article->tags as $tag)
-            <a href="{{ url('/tags',['name'=>$tag->name]) }}" title="{{ $tag->cname }}" target="_blank">{{ $tag->cname }}</a>
+            <a style = "color:#777;" href="{{ url('/tags',['name'=>$tag->name]) }}" title="{{ $tag->cname }}" target="_blank">{{ $tag->cname }}</a>
             @endforeach  
             @endif</small>
             @if($previous)
@@ -50,7 +50,7 @@
         </strong></h5>
         </div><!-- width480 -->
 
-            <div class="width485 btn-vote-reply votebookmark">
+            <div class="width480 btn-vote-reply votebookmark">
                 <li><button  type="button"   
                          class="btn btn-default index-upvote"              
                          data-id="{{$article->photo}}"
@@ -76,9 +76,9 @@
                 @endif
                 @endif
                     <div class="pull-right bdsharebuttonbox" data-tag="share_1">
-                    <a class="bds_weixin" data-cmd="weixin" data-photo="{{$article->photo}}" data-type="{{$article->type}}"data-title="{{$article->title}}"data-toggle="tooltip" data-placement="bottom" title="分享微信"></a>
-                    <a class="bds_tsina" data-cmd="tsina"data-photo="{{$article->photo}}"data-type="{{$article->type}}"data-title="{{$article->title}}"data-toggle="tooltip" data-placement="bottom" title="分享微博"></a>
-                    <a class="bds_qzone" data-cmd="qzone" href="#"data-photo="{{$article->photo}}"data-type="{{$article->type}}"data-title="{{$article->title}}"data-toggle="tooltip" data-placement="bottom" title="分享QQ空间"></a>         
+                    <a class="iconfont icon-weixin" data-cmd="weixin" href="#" data-photo="{{$article->photo}}" data-type="{{$article->type}}"data-title="{{$article->title}}"data-toggle="tooltip" data-placement="bottom" title="分享微信"></a>
+                    <a class="iconfont icon-weibo" data-cmd="tsina" href="#" data-photo="{{$article->photo}}"data-type="{{$article->type}}"data-title="{{$article->title}}"data-toggle="tooltip" data-placement="bottom" title="分享微博"></a>
+                    <a class="iconfont icon-qqkongjian" data-cmd="qzone" href="#"data-photo="{{$article->photo}}"data-type="{{$article->type}}"data-title="{{$article->title}}"data-toggle="tooltip" data-placement="bottom" title="分享QQ空间"></a>         
                     </div> 
                     <div class="clearfix"></div>
             </div>
@@ -104,7 +104,7 @@
 
                 <div class="comment-info">
                     <h5><a href="{{ route('users.articles', [$reply->user_id]) }}"> {{\App\User::find($reply->user_id)->name}}</a>
-                    <small><i class = "glyphicon glyphicon-calendar"></i>{{ $reply->created_at }}</small></h5>
+                    <small><i class = "glyphicon glyphicon-calendar"></i>&nbsp;&nbsp;{{ $reply->created_at }}</small></h5>
                     <!-- Reply upvote/reply on reply-->
 
                     <div class="comment-content">

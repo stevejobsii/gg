@@ -56,7 +56,7 @@
                 @endif
 				</h4>
 			</a>       
-			<div class="width485">
+			<div class="width480">
 			<div class="pull-left">
 				<ul class="btn-vote-reply">
 			    <li><button  type="button" 	
@@ -79,9 +79,9 @@
 			    </ul>
 			</div>
 	        <div class="pull-right bdsharebuttonbox" data-tag="share_1">
-	        <a class="bds_weixin" data-cmd="weixin" data-photo="{{$article->photo}}" data-type="{{$article->type}}"data-title="{{$article->title}}"data-toggle="tooltip" data-placement="bottom" title="分享微信"></a>
-	        <a class="bds_tsina" data-cmd="tsina"data-photo="{{$article->photo}}"data-type="{{$article->type}}"data-title="{{$article->title}}"data-toggle="tooltip" data-placement="bottom" title="分享微博"></a>
-	        <a class="bds_qzone" data-cmd="qzone" href="#"data-photo="{{$article->photo}}"data-type="{{$article->type}}"data-title="{{$article->title}}"data-toggle="tooltip" data-placement="bottom" title="分享QQ空间"></a>	        
+	        <a class="iconfont icon-weixin" data-cmd="weixin" href="#" data-photo="{{$article->photo}}" data-type="{{$article->type}}"data-title="{{$article->title}}"data-toggle="tooltip" data-placement="bottom" title="分享微信"></a>
+	        <a class="iconfont icon-weibo" data-cmd="tsina"href="#" data-photo="{{$article->photo}}"data-type="{{$article->type}}"data-title="{{$article->title}}"data-toggle="tooltip" data-placement="bottom" title="分享微博"></a>
+	        <a class="iconfont icon-qqkongjian" data-cmd="qzone" href="#"data-photo="{{$article->photo}}"data-type="{{$article->type}}"data-title="{{$article->title}}"data-toggle="tooltip" data-placement="bottom" title="分享QQ空间"></a>	        
 	        </div> 
 	        </div>
 		    <div class="clearfix"></div>

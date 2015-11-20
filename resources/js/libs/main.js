@@ -259,6 +259,7 @@ $('.carousel').carousel({
   },
   share : [{
   "bdSize" : 32, 
+  "bdCustomStyle":"./css/main.css", 
   }],
   }
 //以下为js加载部分
