@@ -12,7 +12,7 @@
              <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-tags" aria-hidden="true"></i>&nbsp;&nbsp;标签<span class="caret"></span></a>
                <ul class="dropdown-menu" role="menu">           
                <li >
-               <a href="{{ url('tags/amaze') }}">新奇哒</a>
+               <a href="{{ url('tags/amaze') }}">新奇哒1</a>
                </li>     
                <li >
                <a href="{{ url('tags/cool') }}">酷酷哒</a>
