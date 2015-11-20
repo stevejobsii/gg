@@ -140,6 +140,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
        
         Zizaco\Entrust\EntrustServiceProvider::class,
+        SocialiteProviders\Manager\ServiceProvider::class,
         /*
          * Application Service Providers...
          */
