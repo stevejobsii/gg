@@ -1,6 +1,6 @@
 <div class="col-md-4 side-bar hidden-xs hidden-sm">
     <div id="side-bar-related-height">
-     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="width:100%;">
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="width:100%;">
 		  <!-- Indicators -->
 		  <ol class="carousel-indicators">
 		    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -30,12 +30,17 @@
 		    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 		    <span class="sr-only">Next</span>
 		  </a>
-		</div>
-		<p style="text-align: center">
-	    备案号：粤ICP备15095167号-1。
-	    </p>
-	    <br>
-		    
+		</div><br>
+
+		<div id = "sidebaradtop" class = "width100">
+			<!-- sidebaradtop -->
+			<ins class="adsbygoogle"
+			     style="display:inline-block;width:100%;height:250px"
+			     data-ad-client="ca-pub-9854929025598162"
+			     data-ad-slot="8161311933"></ins>
+	    </div>
+
+	    <br>    
 		    <div class = "width100">
 		        <ul class="hot-tabs bule-line-top">	    
 				<li id="tab-votes" class = "current" >热门投票</li>
@@ -89,10 +94,10 @@
 				</div>
 			</div>
 	</div>
-	<div class = "sticky" style="position: static; top: 0px;" id = "adsense">
+	<div class = "sticky" style="position: static; top: 0px; width:100%;" id = "adsense">
 	    	<!-- sidebarad -->
 		     <ins class="adsbygoogle"
-		     style="display:inline-block;width:300px;height:600px"
+		     style="display:inline-block;width:100%;height:600px"
 		     data-ad-client="ca-pub-9854929025598162"
 		     data-ad-slot="9917246736"></ins>
 	</div>   
