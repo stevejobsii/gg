@@ -89,11 +89,11 @@
 				</div>
 			</div>
 	</div>
-	<div class = "sticky" style="position: static; top: 0px;">
-	    <img src="/images/catalog/sunset.jpg" class = "width100">
-	    <p style="text-align: center">
-	    <br>
-	    粤ICP备15095167号-1，众里寻他千八度，蓦然回首，那人却在QQ:401789679。
-	    </p>
+	<div class = "sticky" style="position: static; top: 0px;" id = "adsense">
+	    	<!-- sidebarad -->
+		     <ins class="adsbygoogle"
+		     style="display:inline-block;width:300px;height:600px"
+		     data-ad-client="ca-pub-9854929025598162"
+		     data-ad-slot="9917246736"></ins>
 	</div>      
 </div>

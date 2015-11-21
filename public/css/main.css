@@ -183,6 +183,9 @@ ul.articles-title-sidebar {
 #side-bar-ad img{
 	max-width:100%;
 }
+#adsense ins{
+  width:100%;
+}
 
 .col-md-7{
 	margin-top:-10px;
