@@ -11,11 +11,7 @@
 		  <!-- Wrapper for slides -->
 		  <div class="carousel-inner" role="listbox">
 		    <div class="item active">
-		      <!-- sidebaradtop -->
-			    <ins class="adsbygoogle"
-			     style="display:inline-block;width:300px;height:250px"
-			     data-ad-client="ca-pub-9854929025598162"
-			     data-ad-slot="8161311933"></ins>
+		      <img src="/images/catalog/rock.jpg">
 		    </div>
 		    <div class="item">
 		      <img src="/images/catalog/grooves.jpg">
