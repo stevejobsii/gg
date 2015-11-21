@@ -135,11 +135,11 @@
           </div>
 
           <div class = "col-md-5">
-            <p><strong>使用第三方登录</strong></p>
+            <p style="margin-bottom:0px;"><strong>使用第三方登录</strong></p>
             <ul class="list-unstyled">
-              <li><a href="#"><i class ="iconfont icon-qq" style="font-size: 50px;"></i>QQ登录</a></li>
-              <li><a href="#"><i class ="iconfont icon-weixin" style="font-size: 50px;"></i>微信登录</a></li>
-              <li><a href="#"><i class ="iconfont icon-weibo" style="font-size: 50px;"></i>微博登录</a></li>
+              <li style="height:60px;"><a href="#"><i class ="iconfont icon-qq" style="font-size: 50px;"></i>QQ登录</a></li>
+              <li style="height:60px;"><a href="#"><i class ="iconfont icon-weixin" style="font-size: 50px;"></i>微信登录</a></li>
+              <li style="height:60px;"><a href="#"><i class ="iconfont icon-weibo" style="font-size: 50px;"></i>微博登录</a></li>
             </ul>
           </div>
         </div>

@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "52f382f4814705ad4eec5d00d13b4b14",
-    "content-hash": "3bf113d13bdc0bde97e21287fa159b03",
+    "hash": "def9f7b516f9ee03b4e161781efab343",
+    "content-hash": "8a0139c21b0ad31d1adc476e16d9548a",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -1561,6 +1561,80 @@
             ],
             "description": "Qq.com OAuth2 Provider for Laravel Socialite",
             "time": "2015-09-01 06:46:56"
+        },
+        {
+            "name": "socialiteproviders/weibo",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SocialiteProviders/Weibo.git",
+                "reference": "761232f499b28a651cfa30df3d8d155907f10acd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SocialiteProviders/Weibo/zipball/761232f499b28a651cfa30df3d8d155907f10acd",
+                "reference": "761232f499b28a651cfa30df3d8d155907f10acd",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.0",
+                "socialiteproviders/manager": "~1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "SocialiteProviders\\Weibo\\": "src/"
+                }
+            },
+            "notification-url": "http://packagist.cn/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "xyxu",
+                    "email": "techxu@gmail.com"
+                }
+            ],
+            "description": "weibo.com OAuth2 Provider for Laravel Socialite",
+            "time": "2015-06-29 05:47:15"
+        },
+        {
+            "name": "socialiteproviders/weixin",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SocialiteProviders/Weixin.git",
+                "reference": "4ccf95bc7907fcc7324e1761c27e581c0e29bc2d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SocialiteProviders/Weixin/zipball/4ccf95bc7907fcc7324e1761c27e581c0e29bc2d",
+                "reference": "4ccf95bc7907fcc7324e1761c27e581c0e29bc2d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.0",
+                "socialiteproviders/manager": "~1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "SocialiteProviders\\Weixin\\": "src/"
+                }
+            },
+            "notification-url": "http://packagist.cn/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "xyxu",
+                    "email": "techxu@gmail.com"
+                }
+            ],
+            "description": "Weixin OAuth2 Provider for Laravel Socialite",
+            "time": "2015-07-13 13:51:52"
         },
         {
             "name": "swiftmailer/swiftmailer",
