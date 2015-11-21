@@ -31,7 +31,6 @@
 		    <span class="sr-only">Next</span>
 		  </a>
 		</div><br>
-
 		<div id = "sidebaradtop" class = "width100">
 			<!-- sidebaradtop -->
 			<ins class="adsbygoogle"
@@ -39,16 +38,15 @@
 			     data-ad-client="ca-pub-9854929025598162"
 			     data-ad-slot="8161311933"></ins>
 	    </div>
-
 	    <br>    
-		    <div class = "width100">
+	    <div class = "width100">
 		        <ul class="hot-tabs bule-line-top">	    
 				<li id="tab-votes" class = "current" >热门投票</li>
 				<li id="tab-replies" class ="hot_tab_last">热门评论</li>
 			    </ul>
-			    <div class="clearfix"></div>
-		        
-		        <div class = "hot-list-item hot-list-item-current" id = "list-votes">
+		    <div class="clearfix"></div>
+	        
+	        <div class = "hot-list-item hot-list-item-current" id = "list-votes">
 		        <br>
 				@foreach($hotimgs as $index =>$hot)
 				<article class="list-item side-bar-hot panel panel-default">
@@ -66,11 +64,8 @@
 				</article>
 				<br>
 				@endforeach
-				</div>
-
-
-		        
-		        <div class = "hot-list-item" id = "list-replies">
+			</div>		        
+	        <div class = "hot-list-item" id = "list-replies">
 		        <br>
 				@foreach($hotreplies as  $index =>$hot)
 				<article class="list-item side-bar-hot panel panel-default">
@@ -91,14 +86,14 @@
 				</article>
 				<br>
 				@endforeach
-				</div>
 			</div>
+		</div>
 	</div>
-	<div class = "sticky" style="position: static; top: 0px; width:100%;" id = "adsense">
-	    	<!-- sidebaradtop -->
-			<ins class="adsbygoogle"
-			     style="display:inline-block;width:100%;height:250px"
-			     data-ad-client="ca-pub-9854929025598162"
-			     data-ad-slot="8161311933"></ins>
+	<div class = "sticky" style="position: static; top: 0px;" id = "adsense">
+    	<!-- sidebaradtop -->
+		<ins class="adsbygoogle"
+		     style="display:inline-block;width:100%;height:250px"
+		     data-ad-client="ca-pub-9854929025598162"
+		     data-ad-slot="8161311933"></ins>
 	</div>   
 </div>
