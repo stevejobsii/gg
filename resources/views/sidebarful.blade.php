@@ -11,7 +11,11 @@
 		  <!-- Wrapper for slides -->
 		  <div class="carousel-inner" role="listbox">
 		    <div class="item active">
-		      <img src="/images/catalog/rock.jpg">
+		      <!-- sidebaradtop -->
+			    <ins class="adsbygoogle"
+			     style="display:inline-block;width:300px;height:250px"
+			     data-ad-client="ca-pub-9854929025598162"
+			     data-ad-slot="8161311933"></ins>
 		    </div>
 		    <div class="item">
 		      <img src="/images/catalog/grooves.jpg">
@@ -95,5 +99,5 @@
 		     style="display:inline-block;width:300px;height:600px"
 		     data-ad-client="ca-pub-9854929025598162"
 		     data-ad-slot="9917246736"></ins>
-	</div>      
+	</div>   
 </div>
