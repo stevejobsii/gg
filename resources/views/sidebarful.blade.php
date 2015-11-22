@@ -31,14 +31,6 @@
 		    <span class="sr-only">Next</span>
 		  </a>
 		</div><br>
-		<div class = "width100">
-			<!-- sidebaradtop -->
-			<ins class="adsbygoogle"
-			     style="display:inline-block;width:100%;height:250px"
-			     data-ad-client="ca-pub-9854929025598162"
-			     data-ad-slot="8161311933"></ins>
-	    </div>
-	    <br>    
 	    <div class = "width100">
 		        <ul class="hot-tabs bule-line-top">	    
 				<li id="tab-votes" class = "current" >热门投票</li>
@@ -90,10 +82,6 @@
 		</div>
 	</div>
 	<div class = "sticky width100" style="position: static; top: 0px;">
-		<!-- sidebarad -->
-		<ins class="adsbygoogle"
-		     style="display:inline-block;width:100%;height:600px"
-		     data-ad-client="ca-pub-9854929025598162"
-		     data-ad-slot="9917246736"></ins>
+	    <img src="/images/catalog/rock.jpg">
 	</div>   
 </div>

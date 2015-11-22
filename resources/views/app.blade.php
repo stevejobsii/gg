@@ -20,7 +20,6 @@
 		  s.parentNode.insertBefore(hm, s);
 		})();
 	</script>
-	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
    
 <body data-spy="scroll" data-target="#myScrollspy" data-offset="70">
@@ -33,8 +32,5 @@
 	@include('footer')
 	@include('flash')
 	@yield('js')
-	<script>
-		(adsbygoogle = window.adsbygoogle || []).push({});
-	</script>
 </body>
 </html>
