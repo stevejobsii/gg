@@ -90,12 +90,10 @@
 		</div>
 	</div>
 	<div class = "sticky" style="position: static; top: 0px;" id = "adsense">
-    	<!-- sidebaradtop -->
-    	<img src="/images/catalog/rock.jpg">
+		<!-- sidebarad -->
 		<ins class="adsbygoogle"
-		     style="display:inline-block;width:100%;height:600px"
+		     style="display:inline-block;width:300px;height:600px"
 		     data-ad-client="ca-pub-9854929025598162"
-		     data-ad-slot="4649442331"></ins>
-		     <p>gfdgfd</p>
+		     data-ad-slot="9917246736"></ins>
 	</div>   
 </div>
