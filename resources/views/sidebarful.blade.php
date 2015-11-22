@@ -95,5 +95,6 @@
 		     style="display:inline-block;width:100%;height:600px"
 		     data-ad-client="ca-pub-9854929025598162"
 		     data-ad-slot="9917246736"></ins>
+		     <p>gfdgfd</p>
 	</div>   
 </div>
