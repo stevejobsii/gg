@@ -31,7 +31,7 @@
 		    <span class="sr-only">Next</span>
 		  </a>
 		</div><br>
-		<div id = "sidebaradtop" class = "width100">
+		<div class = "width100">
 			<!-- sidebaradtop -->
 			<ins class="adsbygoogle"
 			     style="display:inline-block;width:100%;height:250px"
@@ -89,7 +89,7 @@
 			</div>
 		</div>
 	</div>
-	<div class = "sticky width100" style="position: static; top: 0px;" id = "adsense">
+	<div class = "sticky width100" style="position: static; top: 0px;">
 		<!-- sidebarad -->
 		<ins class="adsbygoogle"
 		     style="display:inline-block;width:100%;height:600px"
