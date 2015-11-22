@@ -82,6 +82,6 @@
 		</div>
 	</div>
 	<div class = "sticky width100" style="position: static; top: 0px;">
-	    <img src="/images/catalog/rock.jpg">
+	    <img src="/images/catalog/rock.jpg"style="max-width:100%">
 	</div>   
 </div>
