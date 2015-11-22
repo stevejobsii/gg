@@ -27,6 +27,10 @@
 	    @include('partials.nav')
 	<div class="container page">
 		@yield('content')
+		<ins class="adsbygoogle"
+		     style="display:inline-block;width:100%;height:600px"
+		     data-ad-client="ca-pub-9854929025598162"
+		     data-ad-slot="9917246736"></ins>
 	</div> 
 	<p id="back-to-top" ><a href="javascript:void(0)"></a></p>
     <script src="/js/all.js"></script>
