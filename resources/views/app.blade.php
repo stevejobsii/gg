@@ -33,5 +33,8 @@
 	@include('footer')
 	@include('flash')
 	@yield('js')
+	<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
 </body>
 </html>
