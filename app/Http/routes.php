@@ -21,20 +21,6 @@ use Carbon\Carbon;
 Route::get('/test', function (){return view('f');
 });
 Route::post('/tagsset', function () {
-    
-});
-#  ------------------admin info stuff ------------------------
-Route::resource('info','InfoController');
-
-get('info', function() {
-    return view('guestbook/guestbook');
-});
-// API
-get('api/messages', function() {
-    return App\Article::all();
-});
-post('api/messages', function() {
-    return App\Article::create(Request::all());
 });
 # ------------------ article stuff ------------------------
 Route::resource('articles','ArticlesController');
@@ -46,6 +32,8 @@ Route::get('tags/hot', 'TagsController@hot');
 Route::get('tags/GIF', 'TagsController@GIF');
 Route::resource('tags', 'TagsController');
 # ------------------ register|login stuff ------------------------
+Route::get('auth/qq','Auth\AuthController@qq');
+Route::get('auth/callback', 'Auth\AuthController@callback');
 Route::controllers([
 			'auth'=>'Auth\AuthController',
 			'password'=>'Auth\PasswordController'
@@ -135,3 +123,14 @@ Route::post('password/email', 'Auth\PasswordController@postEmail');
 // Password reset routes...
 Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
 Route::post('password/reset', 'Auth\PasswordController@postReset');
+#  ------------------admin info stuff (建设中）------------------------
+Route::resource('info','InfoController');
+get('info', function() {
+    return view('guestbook/guestbook');
+});
+get('api/messages', function() {
+    return App\Article::all();
+});
+post('api/messages', function() {
+    return App\Article::create(Request::all());
+});

@@ -140,7 +140,8 @@ return [
         Intervention\Image\ImageServiceProvider::class,
        
         Zizaco\Entrust\EntrustServiceProvider::class,
-        //SocialiteProviders\Manager\ServiceProvider::class,
+        //Laravel\Socialite\SocialiteServiceProvider::class,
+        SocialiteProviders\Manager\ServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -200,6 +201,7 @@ return [
         'Image'     => Intervention\Image\Facades\Image::class,
         
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
     ],
 
 ];

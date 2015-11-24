@@ -28,7 +28,7 @@ class Mention
 
         foreach ($this->users as $user) {
             $search =  '@@'.$user->name;
-            $place = ''.$search.'('.route('users.show', $user->id).')';
+            $place = link_to('users.show', $search);
             //$place = route('users.show', $user->id);
             //$place = $search.route('users.show', $user->id);
             

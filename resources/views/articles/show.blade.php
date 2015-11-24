@@ -5,7 +5,7 @@
     <div class = "col-md-7">
         <div class = "width480">	
             <h2>{{$article->title}}</h2>
-            <h3 style="padding-bottom: 10px; margin-top: 0px;"><small><a style = "color:#777;" href="/users/{{$article->user_id}}/articles"><i class = "glyphicon glyphicon-knight"></i>&nbsp;&nbsp;作者：{{\App\User::find($article->user_id)->name}}</a>           
+            <h3 style="padding-bottom: 10px; margin-top: 0px;"><small><a style = "color:#777;" href="/users/{{$article->user_id}}/articles"><i style = "font-style: italic;">by</i>&nbsp;&nbsp;作者：{{\App\User::find($article->user_id)->name}}</a>           
             @unless ($article->tags->isEmpty())
             &nbsp;&nbsp;<i class = "glyphicon glyphicon-tags"></i>&nbsp;&nbsp;标签 |
             @foreach($article->tags as $tag)
