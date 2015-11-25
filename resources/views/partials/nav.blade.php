@@ -85,7 +85,7 @@
          <li><a style="cursor: pointer;" data-toggle="modal" data-target="#myModallogin"><span class="glyphicon glyphicon-check"aria-hidden="true"></span>
          登陆</a></li>
          <li><a style="cursor: pointer;" data-toggle="modal" data-target="#myModalregister"><span class="glyphicon glyphicon-edit"aria-hidden="true"></span>
-         简单注册</a></li>
+         注册</a></li>
         @endif
       </ul>
     </div>
@@ -109,16 +109,16 @@
             <div class="clearfix"></div>
       </div>
       <div class="modal-body">
-            <h4><p><small>邮箱登录</small></p></h4>
+            <h4 style="margin-bottom:20px;"><p><small>邮箱登录</small></p></h4>
               <form role="form" method="POST" action="/auth/login">
                   <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                  <div class="form-group">
+                  <div class="form-group"style="margin-bottom:20px;">
                       <input type="email" class="form-control" placeholder="E-Mail 地址" name="email" value="{{ old('email') }}">
                   </div>
-                  <div class="form-group">
+                  <div class="form-group"style="margin-bottom:20px;">
                       <input type="password" class="form-control" placeholder="密码" name="password">
                   </div>     
-                  <div class="form-group">
+                  <div class="form-group"style="margin-bottom:20px;">
                       <div class="checkbox">
                         <label>
                           <input type="checkbox" name="remember"> Remember Me
@@ -130,7 +130,7 @@
                         登陆
                       </button>
                       <div style = "padding-top:7px;">
-                      &nbsp;<a href="/auth/register">简单注册</a>
+                      &nbsp;<a href="/auth/register">邮箱注册</a>
                       &nbsp;&nbsp; • &nbsp;&nbsp;
                       <a href="/password/email">忘记密码？</a>
                       </div>
