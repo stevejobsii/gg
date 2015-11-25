@@ -128,6 +128,7 @@ $(document).ready(function (){
 //post upvote/bookmark
 $('.votebookmark').on("click", ".index-upvote", function () {
    var myBookId = $(this).data('id');
+   var title = $(this).data('title');
    var pathname = window.location.hostname;
    var urll = 'http://'+pathname+'/articles/'+myBookId+'/upvote';
    $.ajax({
@@ -135,7 +136,7 @@ $('.votebookmark').on("click", ".index-upvote", function () {
       url: urll,
     })
     .done(function( vote_count ) {
-     $('#'+'b'+myBookId).text(vote_count);
+      $('#'+'b'+myBookId).text(vote_count);
     });
 });
 
@@ -151,14 +152,14 @@ $('.votebookmark').on("click", ".index-bookmark", function () {
       })
       .done(function() {
         swal({
-              title: '图片标题:'+title+'已经设为您的书签！',
+              title: title+'已经设为您的书签！',
               text: "点击右上角续看书签!",
               type: "success",
               timer: 2600,
               showConfirmButton: false
         });
       })
-       .fail(function() {
+      .fail(function() {
         swal({title: "您要登陆后才能使用书签!",   
               type: "warning",   
               showCancelButton: true,   

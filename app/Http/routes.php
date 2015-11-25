@@ -13,14 +13,11 @@
 */
 # ------------------ test stuff ------------------------
 Route::get('/home',function (){return redirect('/articles'); });
-Route::get('about','PageController@about');
-Route::get('contact','PageController@contact');
 Route::get('/', function (){return redirect('/articles');
 });
-use Carbon\Carbon;
+Route::get('about','PageController@about');
+Route::get('contact','PageController@contact');
 Route::get('/test', function (){return view('f');
-});
-Route::post('/tagsset', function () {
 });
 # ------------------ article stuff ------------------------
 Route::resource('articles','ArticlesController');

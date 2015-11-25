@@ -11,10 +11,10 @@
            <li class="dropdown ">
              <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-tags" aria-hidden="true"></i>&nbsp;&nbsp;标签<span class="caret"></span></a>
                <ul class="dropdown-menu" role="menu">           
-               <li >
+               <li>
                <a href="{{ url('tags/amaze') }}">新奇哒</a>
                </li>     
-               <li >
+               <li>
                <a href="{{ url('tags/cool') }}">酷酷哒</a>
                </li>
                <li>
@@ -97,50 +97,48 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">     
       <div style="margin: 10px 20px;">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">登录</h4>
+        <h4 class="modal-title" id="myModalLabel">登录
+            <p><small>社交登录</small></p></h4>
+            <ul class="oauth-wrap">
+              <li style="height:50px;"><a href="/auth/qq"><i class ="iconfont icon-qq" style="font-size: 50px;"></i></a></li>
+              <li style="height:50px;"><a href="/auth/weixin"><i class ="iconfont icon-weixin" style="font-size: 50px;"></i></a></li>
+              <li style="height:50px;"><a href="/auth/weibo"><i class ="iconfont icon-weibo" style="font-size: 50px;"></i></a></li>
+            </ul>
+            <div class="clearfix"></div>
       </div>
-      <br>
       <div class="modal-body">
-          <div class = "col-md-7">
-              <form class="form-horizontal" role="form" method="POST" action="/auth/login">
+            <h4><p><small>邮箱登录</small></p></h4>
+              <form role="form" method="POST" action="/auth/login">
                   <input type="hidden" name="_token" value="{{ csrf_token() }}">
                   <div class="form-group">
-                    <label class="control-label">E-Mail 地址</label>
                       <input type="email" class="form-control" placeholder="E-Mail 地址" name="email" value="{{ old('email') }}">
                   </div>
                   <div class="form-group">
-                    <label class="control-label">密码</label>
                       <input type="password" class="form-control" placeholder="密码" name="password">
-                  </div>
+                  </div>     
                   <div class="form-group">
                       <div class="checkbox">
                         <label>
-                          <input type="checkbox" name="remember"> 保存登陆
+                          <input type="checkbox" name="remember"> Remember Me
                         </label>
                       </div>
-                  </div>                   
+                  </div>          
                   <div class="form-group">
-                      <button  style = "float:left;margin-right:30px;" type="submit" class="btn btn-primary btn-lg" style="margin-right: 15px;">
+                      <button  style = "float:left;margin-right:30px;" type="submit" class="btn btn-primary" style="margin-right: 15px;">
                         登陆
                       </button>
-                      <ul class="list-unstyled">
-                        <li><a href="/auth/register">简单注册</a></li>
-                        <li><a href="/password/email">重设密码</a></li>
-                      </ul>
+                      <div style = "padding-top:7px;">
+                      &nbsp;<a href="/auth/register">简单注册</a>
+                      &nbsp;&nbsp; • &nbsp;&nbsp;
+                      <a href="/password/email">忘记密码？</a>
+                      </div>
                   </div>
               </form>
-          </div>
+         
 
-          <div class = "col-md-5">
-            <p style="margin-bottom:0px;"><strong>使用第三方登录</strong></p>
-            <ul class="list-unstyled">
-              <li style="height:60px;"><a href="/auth/qq"><i class ="iconfont icon-qq" style="font-size: 50px;"></i>QQ登录</a></li>
-              <li style="height:60px;"><a href="/auth/weixin"><i class ="iconfont icon-weixin" style="font-size: 50px;"></i>微信登录</a></li>
-              <li style="height:60px;"><a href="/auth/weibo"><i class ="iconfont icon-weibo" style="font-size: 50px;"></i>微博登录</a></li>
-            </ul>
-          </div>
+
         </div>
       </div> 
       </div>

@@ -53,7 +53,7 @@
             <div class="width480 btn-vote-reply votebookmark">
                 <li><button  type="button"   
                          class="btn btn-default index-upvote"              
-                         data-id="{{$article->photo}}"
+                         data-id="{{$article->photo}}"data-title="{{$article->title}}"
                          data-toggle="tooltip" data-placement="bottom" title="点赞"><i class="glyphicon glyphicon-thumbs-up"></i>
                 </button></li>
                 <li><button  type="button"  
