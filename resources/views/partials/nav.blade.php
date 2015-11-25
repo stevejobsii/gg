@@ -52,10 +52,10 @@
          <li class="dropdown">
          <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="padding-top: 10px;padding-bottom: 0px;">
               <div class="avatar-container-nav">
-              @if(file_exists(public_path('/images/catalog/avatar'.Auth::id().'.jpg'))) 
-                 <img src="/images/catalog/30avatar{{Auth::id()}}.jpg" id="avatar">
+              @if(file_exists(public_path('/images/avatar/avatar'.Auth::id().'.jpg'))) 
+                 <img src="/images/avatar/30avatar{{Auth::id()}}.jpg" id="avatar">
               @else
-                 <img src="/images/catalog/30avatardefault.jpg" id="avatar"> 
+                 <img src="/images/avatar/30avatardefault.jpg" id="avatar"> 
               @endif
               </div>
          </a>
@@ -166,14 +166,14 @@
                   <div class="form-group">
                     <label class="col-sm-3 control-label">名字</label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="name" value="{{ old('name') }}">
+                      <input type="text" class="form-control" name="name">
                     </div>
                   </div>
 
                   <div class="form-group">
                     <label class="col-sm-3 control-label">E-Mail</label>
                     <div class="col-sm-9">
-                      <input type="email" class="form-control" name="email" value="{{ old('email') }}">
+                      <input type="email" class="form-control" name="email">
                     </div>
                   </div>
 

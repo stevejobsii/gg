@@ -26,12 +26,12 @@
                 <hr>
                 <div class="form-group">
                     <div class="col-sm-4 col-sm-offset-2">
-                    @if(file_exists(public_path('/images/catalog/avatar'.Auth::id().'.jpg'))) 
-                       <img src="/images/catalog/avatar{{Auth::id()}}.jpg" id="avatar">
-                       <img src="/images/catalog/30avatar{{Auth::id()}}.jpg" id="avatar">
+                    @if(file_exists(public_path('/images/avatar/avatar'.Auth::id().'.jpg'))) 
+                       <img src="/images/avatar/avatar{{Auth::id()}}.jpg" id="avatar">
+                       <img src="/images/avatar/30avatar{{Auth::id()}}.jpg" id="avatar">
                     @else
-                       <img src="/images/catalog/avatardefault.jpg" id="avatar">  
-                       <img src="/images/catalog/30avatardefault.jpg" id="avatar"> 
+                       <img src="/images/avatar/avatardefault.jpg" id="avatar">  
+                       <img src="/images/avatar/30avatardefault.jpg" id="avatar"> 
                     @endif
                     </div>
                 </div>
