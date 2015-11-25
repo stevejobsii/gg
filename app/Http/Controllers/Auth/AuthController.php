@@ -71,8 +71,6 @@ class AuthController extends Controller
 
     public function callback() {
         $oauthUser = \Socialite::with('qq')->user();
-
-    
         dd($oauthUser);
         // var_dump($oauthUser->getId());
         // var_dump($oauthUser->getNickname());
