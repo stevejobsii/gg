@@ -35,7 +35,6 @@ Route::resource('tags', 'TagsController');
 Route::get('auth/qq','Auth\AuthController@qq');
 Route::get('auth/callback', 'Auth\AuthController@callback');
 
-
 Route::controllers([
 			'auth'=>'Auth\AuthController',
 			'password'=>'Auth\PasswordController'

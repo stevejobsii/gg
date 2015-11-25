@@ -7,8 +7,8 @@
     <meta id="token" name="token" value="{{ csrf_token() }}">
     <meta name="keywords" content="无厘头 搞笑 幽默 好去处 goodgoto 游戏 女性 恶搞 gif 笑笑小电影">
     <meta property="qc:admins" content="4457261067477476375" />
-	<link rel="stylesheet" href="/css/all.css">
-	<link rel="stylesheet" href="/css/main.css">
+	<link rel="stylesheet" href="{{ url('/css/all.css') }}">
+	<link rel="stylesheet" href="{{ url('/css/main.css') }}">
     <link rel="shortcut icon" href="/images/catalog/30avatardefault.jpg">
     <title>好去处 - Have Fun Now</title>
     <script>

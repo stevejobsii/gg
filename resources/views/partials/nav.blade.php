@@ -82,10 +82,10 @@
          </li>
 
         @else        
-         <li><a style="cursor: pointer;" data-toggle="modal" data-target="#myModalregister"><span class="glyphicon glyphicon-edit"aria-hidden="true"></span>
-         简单注册</a></li>
          <li><a style="cursor: pointer;" data-toggle="modal" data-target="#myModallogin"><span class="glyphicon glyphicon-check"aria-hidden="true"></span>
          登陆</a></li>
+         <li><a style="cursor: pointer;" data-toggle="modal" data-target="#myModalregister"><span class="glyphicon glyphicon-edit"aria-hidden="true"></span>
+         简单注册</a></li>
         @endif
       </ul>
     </div>
@@ -101,7 +101,6 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">登录</h4>
       </div>
-      
       <br>
       <div class="modal-body">
           <div class = "col-md-7">
@@ -159,52 +158,50 @@
         <h4 class="modal-title" id="myModalLabel">简单注册</h4>
       </div>    
       <div class="modal-body">
-        <div class="container-fluid">
-              <form class="form-horizontal" role="form" method="POST" action="/auth/register">
-                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
+      <form class="form-horizontal" role="form" method="POST" action="/auth/register">
+          <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-                  <div class="form-group">
-                    <label class="col-sm-3 control-label">名字</label>
-                    <div class="col-sm-9">
-                      <input type="text" class="form-control" name="name">
-                    </div>
-                  </div>
+          <div class="form-group">
+            <label class="col-sm-3 control-label">名字</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" name="name">
+            </div>
+          </div>
 
-                  <div class="form-group">
-                    <label class="col-sm-3 control-label">E-Mail</label>
-                    <div class="col-sm-9">
-                      <input type="email" class="form-control" name="email">
-                    </div>
-                  </div>
+          <div class="form-group">
+            <label class="col-sm-3 control-label">E-Mail</label>
+            <div class="col-sm-9">
+              <input type="email" class="form-control" name="email">
+            </div>
+          </div>
 
-                  <div class="form-group">
-                    <label class="col-sm-3 control-label">密码</label>
-                    <div class="col-sm-9">
-                      <input type="password" class="form-control" name="password">
-                    </div>
-                  </div>
+          <div class="form-group">
+            <label class="col-sm-3 control-label">密码</label>
+            <div class="col-sm-9">
+              <input type="password" class="form-control" name="password">
+            </div>
+          </div>
 
-                  <div class="form-group">
-                    <label class="col-sm-3 control-label">确定密码</label>
-                    <div class="col-sm-9">
-                      <input type="password" class="form-control" name="password_confirmation">
-                    </div>
-                  </div>
+          <div class="form-group">
+            <label class="col-sm-3 control-label">确定密码</label>
+            <div class="col-sm-9">
+              <input type="password" class="form-control" name="password_confirmation">
+            </div>
+          </div>
 
-                  <div class="form-group">
-                    <div class = "col-sm-3"></div>
-                    <div class = "col-sm-9">
-                      <button type="submit" class="btn btn-primary btn-lg">
-                        注册
-                      </button>
-                    </div>
-                  </div>
-              </form>
-        </div>
+          <div class="form-group">
+            <div class = "col-sm-3"></div>
+            <div class = "col-sm-9">
+              <button type="submit" class="btn btn-primary btn-lg">
+                注册
+              </button>
+            </div>
+          </div>
+      </form>
       </div> 
       </div>
     </div>
   </div>
 </div>
-
+  
 

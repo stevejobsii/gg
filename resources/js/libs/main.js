@@ -237,7 +237,7 @@ $('.carousel').carousel({
   interval: 2500
 })
 //百度分享
-  var photoname = "";
+  var pathname = window.location.hostname;  
   $(function () {
       $(".bdsharebuttonbox a").mouseover(function () {
           photo = $(this).attr("data-photo");
@@ -259,7 +259,7 @@ $('.carousel').carousel({
   },
   share : [{
   "bdSize" : 32, 
-  "bdCustomStyle":"./css/main.css", 
+  "bdCustomStyle":'http://'+pathname+'/css/main.css', 
   }],
   }
 //以下为js加载部分
