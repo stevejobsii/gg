@@ -2,9 +2,6 @@
 
 @section('content')
 
-
-
-
 <div id="guestbook" class="col-md-12" style="margin-top:10px;">
   <div class = "guestbook-main-shadow-top"></div>
   <img src="/images/catalog/womansmiling.jpg">
@@ -149,42 +146,6 @@ new Vue({
             this.$http.post('api/messages', message);
         }
     }
-});
-
-//bookmark-link
-new Vue({
-    el: '#bookmark-link',
-    methods: {
-        getbookmark: function() {
-            this.$http.get('/api/bookmark', function(bookmark) {
-                this.$set('bookmarkid', bookmark);
-                var pathname = window.location.hostname;
-                window.location = 'http://'+pathname+'/articles'+'?id='+this.bookmarkid;
-            });      
-        },
-    },
-});
-
-
-$(document).ready(function () {
-   //首先将#back-to-top隐藏
-   $("#back-to-top").hide();
-   //当滚动条的位置处于距顶部100像素以下时，跳转链接出现，否则消失
-   $(function () {
-       $(window).scroll(function () {
-           if ($(window).scrollTop() > 100) {
-               $("#back-to-top").fadeIn(1500);
-           }
-           else {
-               $("#back-to-top").fadeOut(1000);
-           }
-       });
-       //当点击跳转链接后，回到页面顶部位置
-       $("#back-to-top").click(function () {
-           $('body,html').animate({ scrollTop: 0 }, 500);
-           return false;
-       });
-   });
 });
 </script>
 @stop
