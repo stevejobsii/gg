@@ -155,49 +155,45 @@
       <div style="margin: 10px 20px;">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">简单注册</h4>
+        <h4 class="modal-title" id="myModalLabel">同志好！</h4>
+
       </div>    
       <div class="modal-body">
-      <form class="form-horizontal" role="form" method="POST" action="/auth/register">
-          <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-          <div class="form-group">
-            <label class="col-sm-3 control-label">名字</label>
-            <div class="col-sm-9">
-              <input type="text" class="form-control" name="name">
+        <form class="form-horizontal" role="form" method="POST" action="/auth/register">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <div class="form-group">
+              <label class="col-sm-3 control-label">名字</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" name="name">
+              </div>
             </div>
-          </div>
-
-          <div class="form-group">
-            <label class="col-sm-3 control-label">E-Mail</label>
-            <div class="col-sm-9">
-              <input type="email" class="form-control" name="email">
+            <div class="form-group">
+              <label class="col-sm-3 control-label">E-Mail</label>
+              <div class="col-sm-9">
+                <input type="email" class="form-control" name="email">
+              </div>
             </div>
-          </div>
-
-          <div class="form-group">
-            <label class="col-sm-3 control-label">密码</label>
-            <div class="col-sm-9">
-              <input type="password" class="form-control" name="password">
+            <div class="form-group">
+              <label class="col-sm-3 control-label">密码</label>
+              <div class="col-sm-9">
+                <input type="password" class="form-control" name="password">
+              </div>
             </div>
-          </div>
-
-          <div class="form-group">
-            <label class="col-sm-3 control-label">确定密码</label>
-            <div class="col-sm-9">
-              <input type="password" class="form-control" name="password_confirmation">
+            <div class="form-group">
+              <label class="col-sm-3 control-label">确定密码</label>
+              <div class="col-sm-9">
+                <input type="password" class="form-control" name="password_confirmation">
+              </div>
             </div>
-          </div>
-
-          <div class="form-group">
-            <div class = "col-sm-3"></div>
-            <div class = "col-sm-9">
-              <button type="submit" class="btn btn-primary btn-lg">
-                注册
-              </button>
+            <div class="form-group">
+              <div class = "col-sm-3"></div>
+              <div class = "col-sm-9">
+                <button type="submit" class="btn btn-primary btn-lg">
+                  注册
+                </button>
+              </div>
             </div>
-          </div>
-      </form>
+        </form>
       </div> 
       </div>
     </div>
