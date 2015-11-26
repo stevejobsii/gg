@@ -83,9 +83,7 @@
 
         @else        
          <li><a style="cursor: pointer;" data-toggle="modal" data-target="#myModallogin"><span class="glyphicon glyphicon-check"aria-hidden="true"></span>
-         登陆</a></li>
-         <li><a style="cursor: pointer;" data-toggle="modal" data-target="#myModalregister"><span class="glyphicon glyphicon-edit"aria-hidden="true"></span>
-         注册</a></li>
+         登陆/注册</a></li>
         @endif
       </ul>
     </div>
@@ -99,103 +97,39 @@
       <div style="margin: 10px 20px;">
       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       <div class="modal-header">
-        <h4 class="modal-title" id="myModalLabel">登录
-            <p><small>社交登录</small></p></h4>
+            <h4 class="modal-title" id="myModalLabel">登录
+            <p style="margin-bottom:0px;"><small>社交登录</small></p></h4>
             <ul class="oauth-wrap">
               <li style="height:50px;"><a href="/auth/qq"><i class ="iconfont icon-qq" style="font-size: 50px;"></i></a></li>
               <li style="height:50px;"><a href="/auth/weixin"><i class ="iconfont icon-weixin" style="font-size: 50px;"></i></a></li>
-              <li style="height:50px;"><a href="/auth/weibo"><i class ="iconfont icon-weibo" style="font-size: 50px;"></i></a></li>
+              <li style="height:50px;margin-bottom:30px;"><a href="/auth/weibo"><i class ="iconfont icon-weibo" style="font-size: 50px;"></i></a></li>
             </ul>
             <div class="clearfix"></div>
       </div>
       <div class="modal-body">
-            <h4 style="margin-bottom:20px;"><p><small>邮箱登录</small></p></h4>
+            <h4 style="margin-bottom:20px;"><p><small>或邮箱登录</small></p></h4>
               <form role="form" method="POST" action="/auth/login">
                   <input type="hidden" name="_token" value="{{ csrf_token() }}">
                   <div class="form-group"style="margin-bottom:20px;">
                       <input type="email" class="form-control" placeholder="E-Mail 地址" name="email" value="{{ old('email') }}">
                   </div>
-                  <div class="form-group"style="margin-bottom:20px;">
+                  <div class="form-group"style="margin-bottom:30px;">
                       <input type="password" class="form-control" placeholder="密码" name="password">
-                  </div>     
-                  <div class="form-group"style="margin-bottom:20px;">
-                      <div class="checkbox">
-                        <label>
-                          <input type="checkbox" name="remember"> Remember Me
-                        </label>
-                      </div>
-                  </div>          
+                  </div>             
                   <div class="form-group">
                       <button  style = "float:left;margin-right:30px;" type="submit" class="btn btn-primary" style="margin-right: 15px;">
                         登陆
                       </button>
-                      <div style = "padding-top:7px;">
-                      &nbsp;<a href="/auth/register">邮箱注册</a>
+                      <div style = "padding-top:7px;float:right;">
+                      <strong><a href="/auth/register">邮箱注册</a>
                       &nbsp;&nbsp; • &nbsp;&nbsp;
-                      <a href="/password/email">忘记密码？</a>
+                      <a href="/password/email">忘记密码？</a></strong>
                       </div>
                   </div>
               </form>
-         
-
-
         </div>
       </div> 
       </div>
     </div>
   </div>
 </div>
-
-<!-- Modal signup-->
-<div class="modal fade" id="myModalregister" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">     
-      <div style="margin: 10px 20px;">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">同志好！</h4>
-
-      </div>    
-      <div class="modal-body">
-        <form class="form-horizontal" role="form" method="POST" action="/auth/register">
-            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-            <div class="form-group">
-              <label class="col-sm-3 control-label">名字</label>
-              <div class="col-sm-9">
-                <input type="text" class="form-control" name="name">
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-sm-3 control-label">E-Mail</label>
-              <div class="col-sm-9">
-                <input type="email" class="form-control" name="email">
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-sm-3 control-label">密码</label>
-              <div class="col-sm-9">
-                <input type="password" class="form-control" name="password">
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-sm-3 control-label">确定密码</label>
-              <div class="col-sm-9">
-                <input type="password" class="form-control" name="password_confirmation">
-              </div>
-            </div>
-            <div class="form-group">
-              <div class = "col-sm-3"></div>
-              <div class = "col-sm-9">
-                <button type="submit" class="btn btn-primary btn-lg">
-                  注册
-                </button>
-              </div>
-            </div>
-        </form>
-      </div> 
-      </div>
-    </div>
-  </div>
-</div>
-  
-
