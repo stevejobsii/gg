@@ -83,7 +83,7 @@
 
         @else        
          <li><a style="cursor: pointer;" data-toggle="modal" data-target="#myModallogin"><span class="glyphicon glyphicon-check"aria-hidden="true"></span>
-         登陆/注册</a></li>
+         登陆 or 注册</a></li>
         @endif
       </ul>
     </div>
