@@ -13,7 +13,7 @@ class AddTitleToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->TEXT('title')->default('暂没有个性签名');
+            $table->string('title')->default('暂没有个性签名');
         });
     }
 

@@ -75,6 +75,7 @@ class AuthController extends Controller
             'name' => $oauthUser->getNickname(),
             'email'=> null,
             ]);
+        
        // dd($oauthUser);
         // var_dump($oauthUser->getId());
         // var_dump($oauthUser->getNickname());

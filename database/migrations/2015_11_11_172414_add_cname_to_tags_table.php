@@ -13,7 +13,7 @@ class AddCnameToTagsTable extends Migration
     public function up()
     {
         Schema::table('tags', function (Blueprint $table) {
-            $table->TEXT('cname')->default('标签');
+            $table->string('cname')->default('标签');
         });
     }
 
