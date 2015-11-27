@@ -62,7 +62,6 @@ return [
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
             'strict'    => false,
-            'port'      => '3306',
         ],
 
         'pgsql' => [
