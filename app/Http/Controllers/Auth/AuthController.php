@@ -22,6 +22,7 @@ class AuthController extends Controller
     |
     */
 
+
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
     //注册后返回主页
     protected $redirectPath = '/articles';
@@ -79,13 +80,8 @@ class AuthController extends Controller
             'avatar'=> $oauthUser->avatar,
         ]);
         
-        dd ($user);
+        Auth::login($user,true);
         return redirect('articles');
-        // var_dump($oauthUser->getId());
-        // var_dump($oauthUser->getNickname());
-        // var_dump($oauthUser->getName());
-        // var_dump($oauthUser->getEmail());
-        // var_dump($oauthUser->getAvatar());
     }
 }
 
