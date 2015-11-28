@@ -74,14 +74,17 @@ class AuthController extends Controller
 
     public function callback() {
         $oauthUser = \Socialite::with('qq')->user();
-        dd($oauthUser);
+        dd($oauthUser->avatar);
         $user = User::firstOrCreate([
             'name' => $oauthUser->nickname,
             'email'=> $oauthUser->email,
-            'avatar'=> $oauthUser->avatar,
         ]);
-        
         Auth::login($user,true);
+        if ($user->avata == '/images/avatar/avatardefault.jpg'){
+        Image::make($oauthUser->avatar)
+            ->resize(100, 100)
+            ->encode('jpg')
+            ->save(base_path() . '/public/images/avatar/avatar' . Auth::id() . '.jpg');}
         return redirect('articles');
     }
 }
