@@ -78,7 +78,6 @@ class AuthController extends Controller
             'name' => $oauthUser->nickname,
             'email'=> $oauthUser->email,
         ]);
-        dd($user->avatar);
         if ($user->avatar == '/images/avatar/avatardefault.jpg'){
         Image::make($oauthUser->avatar)
             ->resize(100, 100)
