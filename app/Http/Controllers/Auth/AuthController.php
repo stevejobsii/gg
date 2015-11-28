@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use Validator;
+use 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class AuthController extends Controller
 {
@@ -71,12 +73,20 @@ class AuthController extends Controller
 
     public function callback() {
         $oauthUser = \Socialite::with('qq')->user();
-        $user = User::firstOrCreate([
-            'name' => $oauthUser->getNickname(),
-            'email'=> $oauthUser->getEmail(),
-            ]);
+        // $user = User::firstOrCreate([
+        //     'name' => $oauthUser->getNickname(),
+        //     'email'=> $oauthUser->getEmail(),
+        // ]);
+        // Image::make($oauthUser->getAvatar())
+        //     ->resize(100, 100)
+        //     ->encode('jpg')
+        //     ->save(base_path() . '/public/images/avatar/avatar' . $user->id . '.jpg');
+        // Image::make($oauthUser->getAvatar())
+        //     ->resize(31, 31)
+        //     ->encode('jpg')
+        //     ->save(base_path() . '/public/images/avatar/30avatar' . $user->id . '.jpg');
         
-        // dd($oauthUser);
+         dd($oauthUser);
         // var_dump($oauthUser->getId());
         // var_dump($oauthUser->getNickname());
         // var_dump($oauthUser->getName());
