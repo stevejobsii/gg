@@ -77,11 +77,8 @@ class AuthController extends Controller
         $user = User::firstOrCreate([
             'name' => $oauthUser->nickname,
         ]);
-        if ($user->avatar == '/images/avatar/avatardefault.jpg'){
-        Image::make($oauthUser->avatar)
-            ->save(base_path() . '/public/images/avatar/avatar' . $user->id . '.jpg');
-        $user->avatar = '/images/avatar/avatar' . $user->id . '.jpg';
-        $user->save();}
+        $user->avatar = $oauthUser->avatar;
+        $user->save();
         Auth::login($user,true);
         return redirect('articles');
     }

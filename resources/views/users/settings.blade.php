@@ -37,7 +37,6 @@
                 <div class="form-group">
                     <div class="col-sm-4 col-sm-offset-2">
                        <img src="{{Auth::user()->avatar}}" id="avatar">
-                       <img src="/images/avatar/30avatar{{Auth::id()}}.jpg"> 
                     </div>
                 </div>
 
