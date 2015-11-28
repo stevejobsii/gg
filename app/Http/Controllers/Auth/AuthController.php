@@ -79,7 +79,7 @@ class AuthController extends Controller
             'avatar'=> $oauthUser->avatar,
         ]);
         
-        dd ($oauthUser);
+        dd ($user);
         return redirect('articles');
         // var_dump($oauthUser->getId());
         // var_dump($oauthUser->getNickname());
