@@ -76,15 +76,10 @@ class AuthController extends Controller
         $user = User::firstOrCreate([
             'name' => $oauthUser->getNickname(),
             'email'=> $oauthUser->getEmail(),
+            'avatar'=> $oauthUser->getAvatar(),
         ]);
-        Image::make($oauthUser->getAvatar())
-            ->resize(100, 100)
-            ->encode('jpg')
-            ->save(base_path() . '/public/images/avatar/avatar' . $user->id . '.jpg');
-        Image::make($oauthUser->getAvatar())
-            ->resize(31, 31)
-            ->encode('jpg')
-            ->save(base_path() . '/public/images/avatar/30avatar' . $user->id . '.jpg');
+        
+        dd ($user);
         return redirect('articles');
         // var_dump($oauthUser->getId());
         // var_dump($oauthUser->getNickname());
