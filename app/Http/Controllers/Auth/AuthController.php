@@ -72,6 +72,7 @@ class AuthController extends Controller
 
     public function callback() {
         $oauthUser = \Socialite::with('qq')->user();
+       
         $user = User::firstOrCreate([
             'name' => $oauthUser->getNickname(),
             'email'=> $oauthUser->getEmail(),

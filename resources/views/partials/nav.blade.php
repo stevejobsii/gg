@@ -113,13 +113,18 @@
                   <div class="form-group"style="margin-bottom:20px;">
                       <input type="email" class="form-control" placeholder="E-Mail 地址" name="email" value="{{ old('email') }}">
                   </div>
-                  <div class="form-group"style="margin-bottom:30px;">
+                  <div class="form-group"style="margin-bottom:20px;">
                       <input type="password" class="form-control" placeholder="密码" name="password">
-                  </div>             
+                  </div>    
                   <div class="form-group">
-                      <button  style = "float:left;margin-right:30px;" type="submit" class="btn btn-primary" style="margin-right: 15px;">
+                      <button  style = "float:left; margin-right:30px;" type="submit" class="btn btn-primary" style="margin-right: 15px;">
                         登陆
                       </button>
+                      <div class="checkbox" style = "float:left;margin-top:7px;">
+                        <label><strong>
+                          <input type="checkbox" name="remember"> 记住登录</strong>
+                        </label>
+                      </div>
                       <div style = "padding-top:7px;float:right;">
                       <strong><a href="/auth/register">邮箱注册</a>
                       &nbsp;&nbsp; • &nbsp;&nbsp;
