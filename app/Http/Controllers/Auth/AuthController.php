@@ -74,7 +74,6 @@ class AuthController extends Controller
 
     public function callback() {
         $oauthUser = \Socialite::with('qq')->user();
-        dd($oauthUser->avatar);
         $user = User::firstOrCreate([
             'name' => $oauthUser->nickname,
             'email'=> $oauthUser->email,
@@ -84,7 +83,14 @@ class AuthController extends Controller
         Image::make($oauthUser->avatar)
             ->resize(100, 100)
             ->encode('jpg')
-            ->save(base_path() . '/public/images/avatar/avatar' . Auth::id() . '.jpg');}
+            ->save(base_path() . '/public/images/avatar/avatar' . Auth::id() . '.jpg');
+        Image::make($oauthUser->avatar)
+            ->resize(31, 31)
+            ->encode('jpg')
+            ->save(base_path() . '/public/images/avatar/30avatar' . Auth::id() . '.jpg');
+        $user = Auth::user();
+        $user->avatar = '/images/avatar/avatar' . Auth::id() . '.jpg';
+        $user->save();}
         return redirect('articles');
     }
 }
