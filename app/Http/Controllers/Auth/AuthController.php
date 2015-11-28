@@ -72,20 +72,19 @@ class AuthController extends Controller
 
     public function callback() {
         $oauthUser = \Socialite::with('qq')->user();
-        // $user = User::firstOrCreate([
-        //     'name' => $oauthUser->getNickname(),
-        //     'email'=> $oauthUser->getEmail(),
-        // ]);
-        // Image::make($oauthUser->getAvatar())
-        //     ->resize(100, 100)
-        //     ->encode('jpg')
-        //     ->save(base_path() . '/public/images/avatar/avatar' . $user->id . '.jpg');
-        // Image::make($oauthUser->getAvatar())
-        //     ->resize(31, 31)
-        //     ->encode('jpg')
-        //     ->save(base_path() . '/public/images/avatar/30avatar' . $user->id . '.jpg');
-        
-         dd($oauthUser);
+        $user = User::firstOrCreate([
+            'name' => $oauthUser->getNickname(),
+            'email'=> $oauthUser->getEmail(),
+        ]);
+        Image::make($oauthUser->getAvatar())
+            ->resize(100, 100)
+            ->encode('jpg')
+            ->save(base_path() . '/public/images/avatar/avatar' . $user->id . '.jpg');
+        Image::make($oauthUser->getAvatar())
+            ->resize(31, 31)
+            ->encode('jpg')
+            ->save(base_path() . '/public/images/avatar/30avatar' . $user->id . '.jpg');
+        return $oauthUser;
         // var_dump($oauthUser->getId());
         // var_dump($oauthUser->getNickname());
         // var_dump($oauthUser->getName());
