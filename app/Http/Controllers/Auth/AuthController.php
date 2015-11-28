@@ -76,7 +76,6 @@ class AuthController extends Controller
         $oauthUser = \Socialite::with('qq')->user();
         $user = User::firstOrCreate([
             'name' => $oauthUser->nickname,
-            'email'=> $oauthUser->email,
         ]);
         if ($user->avatar == '/images/avatar/avatardefault.jpg'){
         Image::make($oauthUser->avatar)
