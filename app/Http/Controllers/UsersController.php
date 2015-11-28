@@ -37,6 +37,9 @@ class UsersController extends Controller
             ->resize(31, 31)
             ->encode('jpg')
             ->save(base_path() . '/public/images/avatar/30avatar' . Auth::id() . '.jpg');
+        $user = Auth::user();
+        $user->avatar = '/images/avatar/avatar' . Auth::id() . '.jpg';
+        $user->save();
         return redirect('settings');
     }
     

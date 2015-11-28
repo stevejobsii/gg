@@ -36,13 +36,7 @@
                 <hr>
                 <div class="form-group">
                     <div class="col-sm-4 col-sm-offset-2">
-                    @if(file_exists(public_path('/images/avatar/avatar'.Auth::id().'.jpg'))) 
-                       <img src="/images/avatar/avatar{{Auth::id()}}.jpg" id="avatar">
-                       <img src="/images/avatar/30avatar{{Auth::id()}}.jpg" id="avatar">
-                    @else
-                       <img src="/images/avatar/avatardefault.jpg" id="avatar">  
-                       <img src="/images/avatar/30avatardefault.jpg" id="avatar"> 
-                    @endif
+                       <img src="{{Auth::user()->avatar}}" id="avatar">  
                     </div>
                 </div>
 
