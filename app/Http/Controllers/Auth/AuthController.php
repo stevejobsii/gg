@@ -78,7 +78,6 @@ class AuthController extends Controller
             'name' => $oauthUser->nickname,
             'email'=> $oauthUser->email,
         ]);
-        Auth::login($user,true);
         if ($user->avata == '/images/avatar/avatardefault.jpg'){
         Image::make($oauthUser->avatar)
             ->resize(100, 100)
@@ -90,6 +89,7 @@ class AuthController extends Controller
             ->save(base_path() . '/public/images/avatar/30avatar' . Auth::id() . '.jpg');
         $user->avatar = '/images/avatar/avatar' . Auth::id() . '.jpg';
         $user->save();}
+        Auth::login($user,true);
         return redirect('articles');
     }
 }
