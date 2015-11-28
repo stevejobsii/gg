@@ -78,16 +78,16 @@ class AuthController extends Controller
             'name' => $oauthUser->nickname,
             'email'=> $oauthUser->email,
         ]);
-        if ($user->avata == '/images/avatar/avatardefault.jpg'){
+        if ($user->avatar == '/images/avatar/avatardefault.jpg'){
         Image::make($oauthUser->avatar)
             ->resize(100, 100)
             ->encode('jpg')
-            ->save(base_path() . '/public/images/avatar/avatar' . Auth::id() . '.jpg');
+            ->save(base_path() . '/public/images/avatar/avatar' . $user->id . '.jpg');
         Image::make($oauthUser->avatar)
             ->resize(31, 31)
             ->encode('jpg')
-            ->save(base_path() . '/public/images/avatar/30avatar' . Auth::id() . '.jpg');
-        $user->avatar = '/images/avatar/avatar' . Auth::id() . '.jpg';
+            ->save(base_path() . '/public/images/avatar/30avatar' . $user->id . '.jpg');
+        $user->avatar = '/images/avatar/avatar' . $user->id . '.jpg';
         $user->save();}
         Auth::login($user,true);
         return redirect('articles');
