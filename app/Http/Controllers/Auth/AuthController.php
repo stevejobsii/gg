@@ -74,9 +74,9 @@ class AuthController extends Controller
         $oauthUser = \Socialite::with('qq')->user();
        
         $user = User::firstOrCreate([
-            'name' => $oauthUser->getNickname(),
-            'email'=> $oauthUser->getEmail(),
-            'avatar'=> $oauthUser->getAvatar(),
+            'name' => $oauthUser->nickname,
+            'email'=> $oauthUser->email,
+            'avatar'=> $oauthUser->avatar,
         ]);
         
         dd ($oauthUser);
