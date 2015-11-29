@@ -48,7 +48,7 @@
 				</div>
 				@endif	 
 			<a href="{{ action('ArticlesController@show', [$article->photo])}}"target="_blank">  
-			    <h4 style="margin-bottom:1px;"><span class="label label-default inline-block"><span id="b{{$article->photo}}">{{$article->vote_count}}</span>赞
+			    <h4 style="margin-bottom:2px;"><span class="label label-default inline-block"><span id="b{{$article->photo}}">{{$article->vote_count}}</span>赞
 				<span>&nbsp; • &nbsp;</span>{{$article->reply_count}}互动
 				<span>&nbsp; • &nbsp;</span>{{$article->view_count}}观摩</span>
 				@if(!$article->reply_count == 0)
