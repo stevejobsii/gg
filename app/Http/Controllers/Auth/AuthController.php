@@ -80,6 +80,7 @@ class AuthController extends Controller
     }
 
     public function callback() {
+        dd($this->socialprovider);
         $oauthUser = \Socialite::with($this->socialprovider)->user();
         if (is_null($user = User::where('name', '=', $oauthUser->nickname)->first())){
         $user = User::create([
