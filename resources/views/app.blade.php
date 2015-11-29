@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="{{ url('/css/all.css') }}">
 	<link rel="stylesheet" href="{{ url('/css/main.css') }}">
     <link rel="shortcut icon" href="/images/catalog/30avatardefault.jpg">
+    <meta property="qc:admins" content="4457261067477476375" />
     <title>好去处 - Fun Right Now</title>
 
 </head>
