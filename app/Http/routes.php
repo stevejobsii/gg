@@ -31,7 +31,7 @@ Route::resource('tags', 'TagsController');
 # ------------------ register|login stuff ------------------------
 Route::get('auth/qq','Auth\AuthController@qq');
 Route::get('auth/weibo','Auth\AuthController@weibo');
-Route::get('auth/callback', 'Auth\AuthController@callback');
+Route::get('auth/{provider}/callback', 'Auth\AuthController@callback');
 
 Route::controllers([
 			'auth'=>'Auth\AuthController',
