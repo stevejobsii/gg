@@ -15,7 +15,7 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         'SocialiteProviders\Manager\SocialiteWasCalled' => [
             'SocialiteProviders\Qq\QqExtendSocialite@handle',
-            //'SocialiteProviders\Weibo\WeiboExtendSocialite@handle',
+            'SocialiteProviders\Weibo\WeiboExtendSocialite@handle',
         ],
     ];
 
