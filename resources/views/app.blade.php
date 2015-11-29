@@ -9,7 +9,8 @@
 	<link rel="stylesheet" href="{{ url('/css/all.css') }}">
 	<link rel="stylesheet" href="{{ url('/css/main.css') }}">
     <link rel="shortcut icon" href="/images/catalog/30avatardefault.jpg">
-    <title>好去处 - Have Fun Now</title>
+    <title>好去处 - Fun Right Now</title>
+
 </head>
    
 <body data-spy="scroll" data-target="#myScrollspy" data-offset="70">
@@ -19,6 +20,8 @@
 	</div> 
 	<p id="back-to-top" ><a href="javascript:void(0)"></a></p>
     <script src="/js/all.js"></script>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 	@include('footer')
 	@include('flash')
 	@yield('js')
