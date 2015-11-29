@@ -95,7 +95,6 @@
                 </a>
                 </div>
 
-
                 <div class="comment-info">
                     <h5><a href="{{ route('users.articles', [$reply->user_id]) }}"> {{\App\User::find($reply->user_id)->name}}</a>
                     <small><i class = "glyphicon glyphicon-calendar"></i>&nbsp;&nbsp;{{ $reply->created_at }}</small></h5>

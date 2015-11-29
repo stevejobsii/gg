@@ -16,23 +16,36 @@
                 <li class="list-group-item" style="margin-top: 0px;border-left:1px;border-right:1px;">
                 @if (count($notification->article))
                 <div class="infos">
-                    @if (count($notification->from_user_id))
-                    <a href="{{ route('users.articles', [$notification->from_user_id]) }}">
-                    {{ $notification->fromUser->name }}
-                    </a>
-                    @else
-                    匿名
-                    @endif
-                {{ $notification->present()->lableUp }}
-                <a href="{{ route('articles.show', [$notification->article->photo])}}">
-                {{{ str_limit($notification->article->title, '100') }}}
-                </a>
-                    于{{ $notification->created_at }}
-                <div>
-                @if ($notification->body)
-                评论：{{ $notification->body }}
-                @endif
-                </div>
+                    <div class="comment-avatar">
+                        @if (count($notification->from_user_id))
+                        <a href="{{ route('users.articles', [$notification->from_user_id]) }}">
+                            <img src="{{$notification->fromUser->avatar}}" id="avatar">
+                        </a>
+                        @else
+                            <img src="/images/avatar/avatardefault.jpg">
+                        @endif
+                    </div>
+                     
+                    <div class="comment-info">
+                        @if (count($notification->from_user_id))
+                        <a href="{{ route('users.articles', [$notification->from_user_id]) }}">
+                        {{ $notification->fromUser->name }}
+                        </a>
+                        @else
+                        匿名
+                        @endif
+
+                        {{ $notification->present()->lableUp }}
+                        <a href="{{ route('articles.show', [$notification->article->photo])}}">
+                        {{{ str_limit($notification->article->title, '100') }}}
+                        </a>
+                            于{{ $notification->created_at }}
+                        <div>
+                        @if ($notification->body)
+                        评论：{{ $notification->body }}
+                        @endif
+                        </div>
+                    </div>
                 </div>
                 @else
                 <div class="deleted text-center">Data has been deleted.</div>
