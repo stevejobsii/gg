@@ -20,8 +20,6 @@
 	</div> 
 	<p id="back-to-top" ><a href="javascript:void(0)"></a></p>
     <script src="/js/all.js"></script>
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 	@include('footer')
 	@include('flash')
 	@yield('js')

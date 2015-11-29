@@ -80,13 +80,17 @@
 				@endforeach
 			</div>
 		</div>
+	</div>
+	    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- sidebarbottomstick -->
 		<ins class="adsbygoogle"
-		     style="display:inline-block;width:300px;height:600px;width:100%"
+		     style="display:inline-block;width:300px;height:600px"
 		     data-ad-client="ca-pub-9854929025598162"
 		     data-ad-slot="9474117931"></ins>
-	</div>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
 	<div class = "sticky width100" style="position: static; top: 0px;">
-		<!-- sidebarbottomstick -->
-		
+	    <img src="/images/catalog/rock.jpg"style="max-width:100%">
 	</div>   
 </div>
