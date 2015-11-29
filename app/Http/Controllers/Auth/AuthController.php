@@ -68,12 +68,14 @@ class AuthController extends Controller
     }
 
     public function qq() {
-        global $socialprovider = 'qq';
+        global $socialprovider;
+        $socialprovider = 'qq';
         return \Socialite::with('qq')->redirect();
     }
 
     public function weiweibo() {
-        global $socialprovider = 'weibo';
+        global $socialprovider;
+        $socialprovider = 'weibo';
         return \Socialite::with('weibo')->redirect();
     }
 
