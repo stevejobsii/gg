@@ -68,16 +68,17 @@ class AuthController extends Controller
     }
 
     public function qq() {
+        $provider = 'qq';
         return \Socialite::with('qq')->redirect();
     }
 
-    public function weixin() {
-
-
+    public function weiweibo() {
+        $provider = 'weibo';
+        return \Socialite::with('weibo')->redirect();
     }
 
     public function callback() {
-        $oauthUser = \Socialite::with('qq')->user();
+        $oauthUser = \Socialite::with($provider)->user();
         if (is_null($user = User::where('name', '=', $oauthUser->nickname)->first())){
         $user = User::create([
             'name' => $oauthUser->nickname,
