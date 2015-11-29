@@ -4,6 +4,6 @@
       @if (count($replies))
       @include('users.partials.replies')
       @else
-      <div class="empty-block">Dont have any data Yet~~</div>
+      <div class="empty-block">没有任何记录哦~~</div>
       @endif
 @stop

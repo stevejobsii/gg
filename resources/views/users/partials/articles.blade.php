@@ -9,9 +9,6 @@
         {{ $article->reply_count }}
         <span> • </span>
         <span class="timeago">{{ $article->created_at }}</span>
-
-
-
   </li>
   @endforeach
 

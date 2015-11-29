@@ -18,6 +18,7 @@
 		@unless (!$search)
 	    <br>搜索：{{$search}}的结果
 	    @endif
+	  @if (count($articles))
 		@foreach($articles as $article)
 		<span class="anchor" id="{{$article->photo}}"></span>
 		<article class="list-item"  style="margin-top: 0px;">
@@ -90,6 +91,9 @@
 		</article>			      
 	    <hr>
 		@endforeach
+	  @else
+        <div class="empty-block">没有任何记录哦~~</div>
+      @endif
 	    </ul><h1>{!!$articles->appends(Request::except('page'))->render()!!}</h1>
     </div>
     @include('sidebarful')

@@ -3,7 +3,7 @@
   @foreach ($upvotes as $index => $upvote)
    <article class="list-item">
     @if (count($upvote->article))
-     <a href="{{ route('articles.show', [$upvote->article_id]) }}">
+      <a href="{{ route('articles.show', [$upvote->article_id]) }}">
       <h2>{{ $upvote->article->title }}</h2>
       </a>
       @if(($upvote->article->type) == '.jpg')
