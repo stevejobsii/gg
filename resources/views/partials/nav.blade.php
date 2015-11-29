@@ -52,11 +52,7 @@
          <li class="dropdown">
          <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="padding-top: 10px;padding-bottom: 0px;">
               <div class="avatar-container-nav">
-              @if(file_exists(public_path('/images/avatar/avatar'.Auth::id().'.jpg'))) 
-                 <img src="/images/avatar/30avatar{{Auth::id()}}.jpg" id="avatar">
-              @else
-                 <img src="/images/avatar/30avatardefault.jpg" id="avatar"> 
-              @endif
+                  <img src="{{Auth::user()->avatar}}" id="avatar">
               </div>
          </a>
       

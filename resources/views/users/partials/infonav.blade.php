@@ -1,10 +1,6 @@
 
 <div class="avatar-container">
-@if(file_exists(public_path('/images/avatar/avatar'.$user->id.'.jpg'))) 
-   <img src="/images/avatar/avatar{{$user->id}}.jpg" id="avatar">  
-@else
-   <img src="/images/avatar/avatardefault.jpg" id="avatar">  
-@endif
+    <img src="{{$user->avatar}}" id="avatar">
 </div>
 
 

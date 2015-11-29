@@ -91,15 +91,9 @@
             <article class="list-item" style="margin-top: 0px;">
                 <div class="comment-avatar">
                 <a href="{{ route('users.articles', [$reply->user_id]) }}"> 
-                    @if(file_exists(public_path('/images/avatar/avatar'.Auth::id().'.jpg'))) 
-                        <img src="/images/avatar/avatar{{Auth::id()}}.jpg" id="avatar">
-                    @else
-                        <img src="/images/avatar/avatardefault.jpg" id="avatar"> 
-                    @endif
+                    <img src="{{$reply->user->avatar}}" id="avatar">
                 </a>
                 </div>
-
-
 
 
                 <div class="comment-info">
