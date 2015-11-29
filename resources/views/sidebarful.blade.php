@@ -80,12 +80,13 @@
 				@endforeach
 			</div>
 		</div>
-	</div>
-	<div class = "sticky width100" style="position: static; top: 0px;">
-		<!-- sidebarbottomstick -->
 		<ins class="adsbygoogle"
 		     style="display:inline-block;width:300px;height:600px;width:100%"
 		     data-ad-client="ca-pub-9854929025598162"
 		     data-ad-slot="9474117931"></ins>
+	</div>
+	<div class = "sticky width100" style="position: static; top: 0px;">
+		<!-- sidebarbottomstick -->
+		
 	</div>   
 </div>
