@@ -70,7 +70,7 @@ class AuthController extends Controller
     protected $socialprovider;
 
     public function qq() {       
-        $this->socialprovider = 'qq';
+        $socialprovider = 'qq';
         return \Socialite::with('qq')->redirect();
     }
 
@@ -80,7 +80,7 @@ class AuthController extends Controller
     }
 
     public function callback() {
-        dd($this->socialprovider);
+        dd($socialprovider);
         $oauthUser = \Socialite::with($this->socialprovider)->user();
         if (is_null($user = User::where('name', '=', $oauthUser->nickname)->first())){
         $user = User::create([
