@@ -30,6 +30,7 @@ Route::get('tags/GIF', 'TagsController@GIF');
 Route::resource('tags', 'TagsController');
 # ------------------ register|login stuff ------------------------
 Route::get('auth/qq','Auth\AuthController@qq');
+Route::get('auth/weixin','Auth\AuthController@weixin');
 Route::get('auth/weibo','Auth\AuthController@weibo');
 Route::get('auth/{provider}/callback', 'Auth\AuthController@callback');
 

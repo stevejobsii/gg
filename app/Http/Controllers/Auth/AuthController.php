@@ -72,6 +72,10 @@ class AuthController extends Controller
         return \Socialite::with('qq')->redirect();
     }
 
+    public function weixin() {
+        return \Socialite::with('weixin')->redirect();
+    }
+    
     public function weibo() {
         return \Socialite::with('weibo')->redirect();
     }
