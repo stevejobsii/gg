@@ -26,25 +26,26 @@
                         @endif
                     </div>
                      
-                    <div class="comment-info">
-                        @if (count($notification->from_user_id))
-                        <a href="{{ route('users.articles', [$notification->from_user_id]) }}">
-                        {{ $notification->fromUser->name }}
-                        </a>
-                        @else
-                        匿名
-                        @endif
-
-                        {{ $notification->present()->lableUp }}
-                        <a href="{{ route('articles.show', [$notification->article->photo])}}">
-                        {{{ str_limit($notification->article->title, '100') }}}
-                        </a>
-                            于{{ $notification->created_at }}
-                        <div>
-                        @if ($notification->body)
-                        评论：{{ $notification->body }}
-                        @endif
-                        </div>
+                    <div class="noti-comment-info">
+                        <div class="noti-comment-info-middle">
+                            @if (count($notification->from_user_id))
+                            <a href="{{ route('users.articles', [$notification->from_user_id]) }}">
+                            {{ $notification->fromUser->name }}
+                            </a>
+                            @else
+                            匿名
+                            @endif
+                            {{ $notification->present()->lableUp }}
+                            <a href="{{ route('articles.show', [$notification->article->photo])}}">
+                            {{{ str_limit($notification->article->title, '100') }}}
+                            </a>
+                                于{{ $notification->created_at }}
+                            @if ($notification->body)
+                            
+                            <div class="noti-reply-body">
+                               评论：{{ $notification->body }}
+                            </div>
+                            @endif
                     </div>
                 </div>
                 @else

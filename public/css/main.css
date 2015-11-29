@@ -587,6 +587,14 @@ a:hover{
   margin-left: 60px;
   padding-bottom: 10px;
 }
+.noti-comment-info{
+  display: table;
+  margin-left: 60px;
+  height: 45px;
+}
+.noti-comment-info-middle{
+display: table-cell;vertical-align: middle;
+}
 .vote-reply-view-count{
   margin-top: 10px;
   margin-bottom: 10px;
