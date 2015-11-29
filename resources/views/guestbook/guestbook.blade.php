@@ -2,9 +2,8 @@
 
 @section('content')
 
-<div id="guestbook" class="col-md-12" style="margin-top:10px;">
-  <div class = "guestbook-main-shadow-top"></div>
-  <img src="/images/catalog/womansmiling.jpg">
+<div id="guestbook" class="col-md-12" style="margin-top:-20px;">
+  <img src="/images/catalog/womansmiling.jpg"style="margin-bottom:10px;">
         <form method="POST" v-on="submit: onSubmitForm">
 
             <div class="form-group">

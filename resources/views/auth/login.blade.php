@@ -18,11 +18,11 @@
 						</div>
 					@endif
       
-					<label class="col-md-4 control-label" style = "padding-top:35px;text-align: right;">第三方社交登录</label>
+					<label class="col-md-4 control-label" style = "padding-top:35px;text-align: right;">使用社交登录</label>
                     <div class="col-md-6">
 						<ul class="oauth-wrap">
 			              <li style="height:50px;"><a href="/auth/qq"><i class ="iconfont icon-qq" style="font-size: 50px;"></i></a></li>
-			              <li style="height:50px;"><a href="/auth/weixin"><i class ="iconfont icon-weixin" style="font-size: 50px;"></i>（微信审核中）</a></li>
+			              <li style="height:50px;"><a href="/auth/weixin"><i class ="iconfont icon-weixin" style="font-size: 50px;"></i>（微信审批中）</a></li>
 			              <li style="height:50px;margin-bottom:30px;"><a href="/auth/weibo"><i class ="iconfont icon-weibo" style="font-size: 50px;"></i></a></li>
 			            </ul>			            
                     </div>

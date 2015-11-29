@@ -54,7 +54,6 @@
 				   <img src="/images/catalog/{{$hot->photo}}{{$hot->type}}" class = "side-bar-hot-img" alt="{{$hot->title}}">
 			       <div class = "show_more">展开</div>
 				</article>
-				<br>
 				@endforeach
 			</div>		        
 	        <div class = "hot-list-item" id = "list-replies">
@@ -76,7 +75,6 @@
 				   {{$hot->body}}</a></h5>
 				   </div>
 				</article>
-				<br>
 				@endforeach
 			</div>
 		</div>

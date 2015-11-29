@@ -88,8 +88,8 @@ class UsersController extends Controller
         $articles = Article::whose($user->id)->orderBy('created_at', 'desc')->paginate(18);}
         $articles->setPath('articles');
         //sidebar
-        $hotimgs = \App\Article::where('type','LIKE',"%jpg%")->orderBy('vote_count', 'desc')->take(5)->get();
-        $hotreplies =  \App\Reply::orderBy('vote_count', 'desc')->limit(5)->get();
+        $hotimgs = \App\Article::where('type','LIKE',"%jpg%")->orderBy('vote_count', 'desc')->take(8)->get();
+        $hotreplies =  \App\Reply::orderBy('vote_count', 'desc')->limit(8)->get();
         return view('articles.index',compact('articles','search','user','hotimgs','hotreplies'));
     }
     
