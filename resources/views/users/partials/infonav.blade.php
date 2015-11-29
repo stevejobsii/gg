@@ -18,4 +18,4 @@
   	<a href="{{ route('users.upvotes', $user->id) }}" >点赞</a>
   </li>
 </ul>
-<br>
+<br><br>
