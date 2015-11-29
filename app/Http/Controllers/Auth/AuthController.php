@@ -66,15 +66,15 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+    
+    global $socialprovider;
 
-    public function qq() {
-        global $socialprovider;
+    public function qq() {       
         $socialprovider = 'qq';
         return \Socialite::with('qq')->redirect();
     }
 
     public function weiweibo() {
-        global $socialprovider;
         $socialprovider = 'weibo';
         return \Socialite::with('weibo')->redirect();
     }
