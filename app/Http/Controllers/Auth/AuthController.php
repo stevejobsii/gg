@@ -67,9 +67,13 @@ class AuthController extends Controller
         ]);
     }
 
-     public function qq() {
+    public function qq() {
         return \Socialite::with('qq')->redirect();
-        // return \Socialite::with('weibo')->scopes(array('email'))->redirect();
+    }
+
+    public function weixin() {
+
+
     }
 
     public function callback() {
