@@ -67,7 +67,7 @@ class AuthController extends Controller
         ]);
     }
     
-    global $socialprovider;
+    protected $socialprovider;
 
     public function qq() {       
         $socialprovider = 'qq';
