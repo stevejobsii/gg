@@ -70,17 +70,17 @@ class AuthController extends Controller
     protected $socialprovider;
 
     public function qq() {       
-        $socialprovider = 'qq';
+        $this->socialprovider = 'qq';
         return \Socialite::with('qq')->redirect();
     }
 
     public function weiweibo() {
-        $socialprovider = 'weibo';
+        $this->socialprovider = 'weibo';
         return \Socialite::with('weibo')->redirect();
     }
 
     public function callback() {
-        $oauthUser = \Socialite::with($socialprovider)->user();
+        $oauthUser = \Socialite::with($this->socialprovider)->user();
         if (is_null($user = User::where('name', '=', $oauthUser->nickname)->first())){
         $user = User::create([
             'name' => $oauthUser->nickname,
