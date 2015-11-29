@@ -35,7 +35,7 @@
                 <h4><i class="glyphicon glyphicon-user"></i>&nbsp;&nbsp;头像设置</h4>
                 <hr>
                 <div class="form-group">
-                    <div class="col-sm-4 col-sm-offset-2 avatar-container">
+                    <div class="col-sm-4 col-sm-offset-2 avatar-setting-container">
                        <img src="{{Auth::user()->avatar}}" id="avatar">
                     </div>
                 </div>
