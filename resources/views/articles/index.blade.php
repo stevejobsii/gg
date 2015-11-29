@@ -64,26 +64,26 @@
 				         class="btn btn-default index-upvote"	           
 				         data-id="{{$article->photo}}"
 				         data-title="{{$article->title}}"
-				         data-toggle="tooltip" data-placement="bottom" title="点赞"><i class="glyphicon glyphicon-thumbs-up"></i>
+				         data-toggle="tooltip" data-trigger="hover" data-placement="bottom" title="点赞"><i class="glyphicon glyphicon-thumbs-up"></i>
 			    </button></li>
 			    <li><button  type="button" 	
 				         class="btn btn-default index-bookmark"
 				         data-id="{{$article->photo}}"
 				         data-title="{{$article->title}}"
-				         data-toggle="tooltip" data-placement="bottom" title="书签"><i class="glyphicon glyphicon-bookmark"></i>        
+				         data-toggle="tooltip" data-trigger="hover" data-placement="bottom" title="书签"><i class="glyphicon glyphicon-bookmark"></i>        
 			    </button></li>
 			    <li><a href="{{ action('ArticlesController@show', [$article->photo])}}" target="_blank">
 			    <button  type="button" 	
 				         class="btn btn-default"
-				         data-toggle="tooltip" data-placement="bottom" title="互动"><i class="glyphicon glyphicon-comment"></i>         
+				         data-toggle="tooltip" data-trigger="hover" data-placement="bottom" title="互动"><i class="glyphicon glyphicon-comment"></i>         
 			    </button>
 			    </a></li>
 			    </ul>
 			</div>
 	        <div class="pull-right bdsharebuttonbox" data-tag="share_1">
-	        <a class="iconfont icon-weixin" data-cmd="weixin" href="#" data-photo="{{$article->photo}}" data-type="{{$article->type}}"data-title="{{$article->title}}"data-toggle="tooltip" data-placement="bottom" title="分享微信"></a>
-	        <a class="iconfont icon-weibo" data-cmd="tsina"href="#" data-photo="{{$article->photo}}"data-type="{{$article->type}}"data-title="{{$article->title}}"data-toggle="tooltip" data-placement="bottom" title="分享微博"></a>
-	        <a class="iconfont icon-qqkongjian" data-cmd="qzone" href="#"data-photo="{{$article->photo}}"data-type="{{$article->type}}"data-title="{{$article->title}}"data-toggle="tooltip" data-placement="bottom" title="分享QQ空间"></a>	        
+	        <a class="iconfont icon-weixin" data-cmd="weixin" href="#" data-photo="{{$article->photo}}" data-trigger="hover" data-type="{{$article->type}}"data-title="{{$article->title}}"data-toggle="tooltip" data-placement="bottom" title="分享微信"></a>
+	        <a class="iconfont icon-weibo" data-cmd="tsina"href="#" data-photo="{{$article->photo}}" data-trigger="hover" data-type="{{$article->type}}"data-title="{{$article->title}}"data-toggle="tooltip" data-placement="bottom" title="分享微博"></a>
+	        <a class="iconfont icon-qqkongjian" data-cmd="qzone" href="#"data-photo="{{$article->photo}}" data-trigger="hover" data-type="{{$article->type}}"data-title="{{$article->title}}"data-toggle="tooltip" data-placement="bottom" title="分享QQ空间"></a>	        
 	        </div> 
 	        </div>
 		    <div class="clearfix"></div>

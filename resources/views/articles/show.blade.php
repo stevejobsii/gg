@@ -54,31 +54,31 @@
                 <li><button  type="button"   
                          class="btn btn-default index-upvote"              
                          data-id="{{$article->photo}}"data-title="{{$article->title}}"
-                         data-toggle="tooltip" data-placement="bottom" title="点赞"><i class="glyphicon glyphicon-thumbs-up"></i>
+                         data-toggle="tooltip" data-placement="bottom" title="点赞"data-trigger="hover"><i class="glyphicon glyphicon-thumbs-up"></i>
                 </button></li>
                 <li><button  type="button"  
                          class="btn btn-default index-bookmark"
                          data-id="{{$article->photo}}"data-title="{{$article->title}}"
-                         data-toggle="tooltip" data-placement="bottom" title="书签"><i class="glyphicon glyphicon-bookmark"></i>           
+                         data-toggle="tooltip" data-placement="bottom" title="书签"data-trigger="hover"><i class="glyphicon glyphicon-bookmark"></i>           
                 </button></li>
 
 
                 @if(Auth::check())
                 @if (Auth::user()->can("manage_topics") || Auth::user()->id == $article->user_id) 
                     <li><a href="{{ action('ArticlesController@edit', [$article->photo])}}">
-                    &nbsp;&nbsp;<button class="btn btn-warning"data-toggle="tooltip" data-placement="bottom" title="修改"><i class="glyphicon glyphicon-edit"></i></button>
+                    &nbsp;&nbsp;<button class="btn btn-warning"data-toggle="tooltip" data-placement="bottom" title="修改"data-trigger="hover"><i class="glyphicon glyphicon-edit"></i></button>
                     </a></li>
                     <li style="float: left" id = 'confirm'>
                     {!! Form::open(array('route' => array('articles.destroy', $article->photo), 'method' => 'delete')) !!}
-                        <button type="submit" class="btn btn-danger"data-toggle="tooltip" data-placement="bottom" title="删除"><i class="glyphicon glyphicon-trash"></i></button>
+                        <button type="submit" class="btn btn-danger"data-toggle="tooltip" data-placement="bottom" title="删除"data-trigger="hover"><i class="glyphicon glyphicon-trash"></i></button>
                     {!! Form::close() !!} 
                     </li>      
                 @endif
                 @endif
                     <div class="pull-right bdsharebuttonbox" data-tag="share_1">
-                    <a class="iconfont icon-weixin" data-cmd="weixin" href="#" data-photo="{{$article->photo}}" data-type="{{$article->type}}"data-title="{{$article->title}}"data-toggle="tooltip" data-placement="bottom" title="分享微信"></a>
-                    <a class="iconfont icon-weibo" data-cmd="tsina" href="#" data-photo="{{$article->photo}}"data-type="{{$article->type}}"data-title="{{$article->title}}"data-toggle="tooltip" data-placement="bottom" title="分享微博"></a>
-                    <a class="iconfont icon-qqkongjian" data-cmd="qzone" href="#"data-photo="{{$article->photo}}"data-type="{{$article->type}}"data-title="{{$article->title}}"data-toggle="tooltip" data-placement="bottom" title="分享QQ空间"></a>         
+                    <a class="iconfont icon-weixin" data-cmd="weixin" href="#" data-photo="{{$article->photo}}" data-type="{{$article->type}}"data-title="{{$article->title}}"data-toggle="tooltip" data-placement="bottom" data-trigger="hover" title="分享微信"></a>
+                    <a class="iconfont icon-weibo" data-cmd="tsina" href="#" data-photo="{{$article->photo}}"data-type="{{$article->type}}"data-title="{{$article->title}}"data-toggle="tooltip" data-placement="bottom" data-trigger="hover" title="分享微博"></a>
+                    <a class="iconfont icon-qqkongjian" data-cmd="qzone" href="#"data-photo="{{$article->photo}}"data-type="{{$article->type}}"data-title="{{$article->title}}"data-toggle="tooltip" data-placement="bottom" data-trigger="hover" title="分享QQ空间"></a>         
                     </div> 
                     <div class="clearfix"></div>
             </div>
@@ -120,9 +120,9 @@
                     <li><a href="javascript:void(0)"
                              class="show-upvote"              
                              data-id="{{$reply->id}}"
-                             data-toggle="tooltip" data-placement="bottom" title="点赞"><strong><i class="glyphicon glyphicon-thumbs-up"></i></strong>
+                             data-toggle="tooltip" data-placement="bottom" data-trigger="hover" title="点赞"><strong><i class="glyphicon glyphicon-thumbs-up"></i></strong>
                     </a></li>
-                    <li><a class="show-upvote" href="javascript:void(0)" onclick="replyOne('{{ $reply->user->name }}');" data-toggle="tooltip" data-placement="bottom" title="@.Ta">@</a></li>
+                    <li><a class="show-upvote" href="javascript:void(0)" onclick="replyOne('{{ $reply->user->name }}');" data-toggle="tooltip" data-trigger="hover" data-placement="bottom" title="@.Ta">@</a></li>
                     </ul>
                 </div>
                 

@@ -227,10 +227,6 @@ ul.articles-title-sidebar {
 strong{
 	color:#444;
 }
-.btn-default{
-	background-color: #fff;
-  width: 44px;
-}
 .remove-padding-horizontal {
   padding-bottom: 0px;
   padding-top: 0px;
@@ -559,7 +555,6 @@ body {
     width: 100%;
     height: 100%;
 }
-
 a {
     color: #444;
     text-decoration: none;
@@ -567,7 +562,6 @@ a {
 a:hover{
   color: #f5da55;
 }
-
 .comment-avatar {
     float: left;
     width: 45px;
