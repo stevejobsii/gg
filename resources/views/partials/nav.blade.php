@@ -1,26 +1,24 @@
   <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
-      <a class="navbar-brand" href="{{ url('articles') }}"><i class="glyphicon glyphicon-home"></i>&nbsp;&nbsp;GoodGoto好去处</a>
+      <a class="navbar-brand" href="{{ url('articles') }}"><i class="glyphicon glyphicon-home"></i>&nbsp;&nbsp;GoodGoto好去处<div class="nav-new">最新</div></a>
     </div>
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav hoverwhite">
            <li class="dropdown">
-             <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-fire" aria-hidden="true"></i>&nbsp;&nbsp;热门<span class="caret"></span></a>
+             <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-fire" aria-hidden="true"></i>&nbsp;&nbsp;热点<span class="caret"></span></a>
              <ul class="dropdown-menu" role="menu">           
                <li>
-               <a href="{{ url('tags/week/hot') }}"><strong>一周热门</strong></a>
+               <a href="{{ url('tags/week/hot') }}"><strong>最近一周</strong></a>
                </li><li class="divider"></li>      
                <li>
-               <a href="{{ url('tags/month/hot') }}"><strong>一月热门</strong></a>
+               <a href="{{ url('tags/month/hot') }}"><strong>最近一月</strong></a>
                </li><li class="divider"></li> 
                <li>
-               <a href="{{ url('tags/hot') }}"><strong>历史热门</strong></a>
+               <a href="{{ url('tags/hot') }}"><strong>历史热点</strong></a>
                </li>
                </ul>
            </li>
-           <li><a href="{{ url('articles/create') }}"><i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>&nbsp;&nbsp;投稿</a></li>
-           <li><a href="{{ url('guestbook') }}"><i class="glyphicon glyphicon-comment" aria-hidden="true"></i>&nbsp;&nbsp;留言</a></li>
            <li class="dropdown">
              <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-tags" aria-hidden="true"></i>&nbsp;&nbsp;标签<span class="caret"></span></a>
                <ul class="dropdown-menu" role="menu">           
@@ -41,7 +39,8 @@
                </li>  
                </ul>
            </li>
-
+           <li><a href="{{ url('articles/create') }}"><i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>&nbsp;&nbsp;投稿</a></li>
+           <li><a href="{{ url('guestbook') }}"><i class="glyphicon glyphicon-comment" aria-hidden="true"></i>&nbsp;&nbsp;留言</a></li>
            <li><a href="javascript:void(0)" class="dropdown-toggle" id="nav-search"><i class="glyphicon glyphicon-search" aria-hidden="true"></i>&nbsp;&nbsp;搜索<span class="caret"></span></a>
                <div class = "nav-search">
                  {!!Form::open(['method'=>'GET','class'=>'inner-addon  form-control-nav right-addon'])!!}

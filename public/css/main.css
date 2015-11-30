@@ -23,7 +23,6 @@
 .icon-weibo:before { content: "\e748"; }
 .icon-qq:before { content: "\e746"; }
 
-
 .btn-vote-reply button,
 .btn-vote-reply button:active,
 .btn-vote-reply button:focus, 
@@ -48,12 +47,32 @@
 .navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav> .open> a:hover{
 background: transparent;
 }
-.navbar-inverse .hoverwhite>li:hover{
+.hoverwhite>li:hover{
   background: #e5e5e5;
 }
-.navbar-inverse .navbar-brand {
+.hoverwhite{
+   padding-left: 10px;
+}
+.nav-new{
+    position: absolute;
+    padding: 0 3px;
+    top: 12px;
+    right: 0;
+    color: #fff;
+    font-size: 8px;
+    border-radius: 2px;
+    background-color: #00a256;
+    height: 12px;
+    line-height: 12px;
+}
+.navbar-brand{
+    position: relative;
+    padding-right: 35px;
+}
+.navbar-inverse .navbar-brand{
     color: #444;
 }
+
 .btn-file {
   position: relative;
   overflow: hidden;
