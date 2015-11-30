@@ -5,24 +5,37 @@
     </div>
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav hoverwhite">
-           <li><a href="{{ url('tags/hot') }}"><i class="glyphicon glyphicon-picture" aria-hidden="true"></i>&nbsp;&nbsp;热门</a></li>
+           <li class="dropdown">
+             <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-fire" aria-hidden="true"></i>&nbsp;&nbsp;热门<span class="caret"></span></a>
+             <ul class="dropdown-menu" role="menu">           
+               <li>
+               <a href="{{ url('tags/week/hot') }}"><strong>一周热门</strong></a>
+               </li><li class="divider"></li>      
+               <li>
+               <a href="{{ url('tags/month/hot') }}"><strong>一月热门</strong></a>
+               </li><li class="divider"></li> 
+               <li>
+               <a href="{{ url('tags/hot') }}"><strong>历史热门</strong></a>
+               </li>
+               </ul>
+           </li>
            <li><a href="{{ url('articles/create') }}"><i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>&nbsp;&nbsp;投稿</a></li>
            <li><a href="{{ url('guestbook') }}"><i class="glyphicon glyphicon-comment" aria-hidden="true"></i>&nbsp;&nbsp;留言</a></li>
-           <li class="dropdown ">
+           <li class="dropdown">
              <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-tags" aria-hidden="true"></i>&nbsp;&nbsp;标签<span class="caret"></span></a>
                <ul class="dropdown-menu" role="menu">           
                <li>
-               <a href="{{ url('tags/amaze') }}">新奇哒</a>
-               </li>     
+               <a href="{{ url('tags/amaze') }}"><strong>新奇图片</strong></a>
+               </li><li class="divider"></li>      
                <li>
-               <a href="{{ url('tags/cool') }}">酷酷哒</a>
-               </li>
+               <a href="{{ url('tags/cool') }}"><strong>酷酷图片</strong></a>
+               </li><li class="divider"></li> 
                <li>
-               <a href="{{ url('tags/cute') }}">萌萌哒</a>
-               </li>
+               <a href="{{ url('tags/cute') }}"><strong>萌萌图片</strong></a>
+               </li><li class="divider"></li> 
                <li>
-               <a href="{{ url('tags/shy') }}">羞羞哒</a>
-               </li>                  
+               <a href="{{ url('tags/shy') }}"><strong>羞羞图片</strong></a>
+               </li><li class="divider"></li>                   
                <li>
                <a href="{{ url('tags/GIF') }}">GIF</a>
                </li>  
@@ -96,9 +109,9 @@
             <h4 class="modal-title" id="myModalLabel">登录
             <p style="margin-bottom:0px;"><small>社交登录</small></p></h4>
             <ul class="oauth-wrap">
-              <li style="height:50px;"><a href="/auth/qq"><i class ="iconfont icon-qq" style="font-size: 50px;"></i></a></li>
-              <li style="height:50px;"><a href="/auth/weixin"><i class ="iconfont icon-weixin" style="font-size: 50px;"></i>（微信审批中）</a></li>
-              <li style="height:50px;margin-bottom:30px;"><a href="/auth/weibo"><i class ="iconfont icon-weibo" style="font-size: 50px;"></i></a></li>
+              <li style="height:50px;"><a href="/auth/qq"><i class ="iconfont icon-qq" style="font-size: 50px;" data-toggle="tooltip" data-trigger="hover" data-placement="bottom" title="QQ登录" ></i></a></li>
+              <li style="height:50px;"><a href="/auth/weixin"><i class ="iconfont icon-weixin" style="font-size: 50px;" data-toggle="tooltip" data-trigger="hover" data-placement="bottom" title="微信登录"></i>（微信审批中）</a></li>
+              <li style="height:50px;margin-bottom:30px;"><a href="/auth/weibo"><i class ="iconfont icon-weibo" style="font-size: 50px;"data-toggle="tooltip" data-trigger="hover" data-placement="bottom" title="微博登录"></i></a></li>
             </ul>
             <div class="clearfix"></div>
       </div>

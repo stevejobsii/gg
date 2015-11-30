@@ -13,7 +13,7 @@ class AddBookmarkToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->integer('bookmark')->nullable();
+            $table->string('bookmark')->nullable();
         });
     }
 

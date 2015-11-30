@@ -6,6 +6,7 @@ use Illuminate\Http\Request as urlRequest;
 use App\Tag;
 use DB;
 use Request;
+use Carbon\Carbon;
 
 
 class TagsController extends Controller
@@ -19,7 +20,7 @@ class TagsController extends Controller
             $articles = $tag->articles()->where('id', '<', $search)->orderBy('created_at', 'desc')->simplepaginate(18);
 
         } else {
-            //获取这个tag的articles并用articles.index反应
+        //获取这个tag的articles并用articles.index反应
         $articles = $tag->articles()->orderBy('created_at', 'desc')->simplepaginate(18);
         }
         $articles->setPath($tag->name);
@@ -49,11 +50,44 @@ class TagsController extends Controller
         $hotreplies = \App\Reply::orderBy('vote_count', 'desc')->limit(10)->get();
         return view('articles.index', compact('articles', 'search','hotimgs','hotreplies'));
     }
+    
+    public function weekhot(urlRequest $request)
+    {
+        if ($search = $request->query('q')) {
+            $articles = \App\Article::search($search)->where('created_at', '>=', Carbon::now()->subWeek())->orderBy('vote_count', 'desc')->simplepaginate(18);
+        } elseif ($search = $request->query('id')) {
+            $search = \App\Article::where('photo', $search)->firstOrFail()->id;
+            $articles = DB::table('articles')->where('created_at', '>=', Carbon::now()->subWeek())->where('id', '<=', $search)->orderBy('vote_count', 'desc')->simplepaginate(18);
+            $search = $request->query('id');
+        } else {
+            $articles = DB::table('articles')->where('created_at', '>=', Carbon::now()->subWeek())->orderBy('vote_count', 'desc')->simplepaginate(18);
+        }
+        $articles->setPath('week\hot');
+        $hotimgs = \App\Article::where('type','LIKE',"%jpg%")->orderBy('vote_count', 'desc')->take(10)->get();
+        $hotreplies = \App\Reply::orderBy('vote_count', 'desc')->limit(10)->get();
+        return view('articles.index', compact('articles', 'search','hotimgs','hotreplies'));
+    }
+
+    public function monthhot(urlRequest $request)
+    {
+        if ($search = $request->query('q')) {
+            $articles = \App\Article::search($search)->where('created_at', '>=', Carbon::now()->subMonth())->where('created_at', '>=', Carbon::now()->subWeek())->orderBy('vote_count', 'desc')->simplepaginate(18);
+        } elseif ($search = $request->query('id')) {
+            $search = \App\Article::where('photo', $search)->firstOrFail()->id;
+            $articles = DB::table('articles')->where('created_at', '>=', Carbon::now()->subMonth())->where('id', '<=', $search)->orderBy('vote_count', 'desc')->simplepaginate(18);
+            $search = $request->query('id');
+        } else {
+            $articles = DB::table('articles')->where('created_at', '>=', Carbon::now()->subMonth())->orderBy('vote_count', 'desc')->simplepaginate(18);
+        }
+        $articles->setPath('month\hot');
+        $hotimgs = \App\Article::where('type','LIKE',"%jpg%")->orderBy('vote_count', 'desc')->take(10)->get();
+        $hotreplies = \App\Reply::orderBy('vote_count', 'desc')->limit(10)->get();
+        return view('articles.index', compact('articles', 'search','hotimgs','hotreplies'));
+    }
 
 
     public function GIF(urlRequest $request)
     {
-        //query index 过滤'.mp4'
         if ($search = $request->query('q')) {
             $articles = \App\Article::search($search)->where('type','.mp4')->orderBy('created_at', 'desc')->simplepaginate(18);
         } elseif ($search = $request->query('id')) {
@@ -64,9 +98,7 @@ class TagsController extends Controller
             $articles = DB::table('articles')->where('type','.mp4')->orderBy('created_at', 'desc')->simplepaginate(18);
         }
         $articles->setPath('GIF');
-               //sidebar
         $hotimgs = \App\Article::where('type','LIKE',"%jpg%")->orderBy('vote_count', 'desc')->take(10)->get();
-        //return $hotimgs;
         $hotreplies = \App\Reply::orderBy('vote_count', 'desc')->limit(10)->get();
         return view('articles.index', compact('articles', 'search','hotimgs','hotreplies'));
     }
