@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "def9f7b516f9ee03b4e161781efab343",
-    "content-hash": "8a0139c21b0ad31d1adc476e16d9548a",
+    "hash": "0f021aba3ce72595cd03e68d8491cb23",
+    "content-hash": "fb91a6ce609e4d7e724699687357ae55",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -1635,6 +1635,43 @@
             ],
             "description": "Weixin OAuth2 Provider for Laravel Socialite",
             "time": "2015-07-13 13:51:52"
+        },
+        {
+            "name": "socialiteproviders/weixin-web",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SocialiteProviders/Weixin-Web.git",
+                "reference": "33ef175d51670428fba99f441f733e4087f4d88c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SocialiteProviders/Weixin-Web/zipball/33ef175d51670428fba99f441f733e4087f4d88c",
+                "reference": "33ef175d51670428fba99f441f733e4087f4d88c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.0",
+                "socialiteproviders/manager": "~1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "SocialiteProviders\\WeixinWeb\\": "src/"
+                }
+            },
+            "notification-url": "http://packagist.cn/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "xyxu",
+                    "email": "techxu@gmail.com"
+                }
+            ],
+            "description": "Weixin-Web OAuth2 Provider for Laravel Socialite",
+            "time": "2015-07-13 14:06:01"
         },
         {
             "name": "swiftmailer/swiftmailer",

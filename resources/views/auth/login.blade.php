@@ -22,7 +22,7 @@
                     <div class="col-md-6">
 						<ul class="oauth-wrap">
 			              <li style="height:50px;"><a href="/auth/qq"><i class ="iconfont icon-qq" style="font-size: 50px;"></i></a></li>
-			              <li style="height:50px;"><a href="/auth/weixin"><i class ="iconfont icon-weixin" style="font-size: 50px;"></i>审批中很快可以</a></li>
+			              <li style="height:50px;"><a href="/auth/weixin"><i class ="iconfont icon-weixin" style="font-size: 50px;"></i>审批中</a></li>
 			              <li style="height:50px;margin-bottom:30px;"><a href="/auth/weibo"><i class ="iconfont icon-weibo" style="font-size: 50px;"></i></a></li>
 			            </ul>			            
                     </div>

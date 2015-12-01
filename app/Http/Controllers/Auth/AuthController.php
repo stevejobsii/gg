@@ -75,10 +75,14 @@ class AuthController extends Controller
     public function weixin() {
         return \Socialite::with('weixin')->redirect();
     }
-    
+
     public function weibo() {
         return \Socialite::with('weibo')->redirect();
     }
+
+    // public function weixinweb() {
+    //     return \Socialite::with('weixinweb')->redirect();
+    // }
 
     public function callback($provider) {
         $oauthUser = \Socialite::with($provider)->user();

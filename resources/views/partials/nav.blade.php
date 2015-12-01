@@ -109,7 +109,7 @@
             <p style="margin-bottom:0px;"><small>社交登录</small></p></h4>
             <ul class="oauth-wrap">
               <li style="height:50px;"><a href="/auth/qq"><i class ="iconfont icon-qq" style="font-size: 50px;" data-toggle="tooltip" data-trigger="hover" data-placement="bottom" title="QQ登录" ></i></a></li>
-              <li style="height:50px;"><a href="/auth/weixin"><i class ="iconfont icon-weixin" style="font-size: 50px;" data-toggle="tooltip" data-trigger="hover" data-placement="bottom" title="微信登录"></i></a></li>
+              <li style="height:50px;"><a href="/auth/weixin"><i class ="iconfont icon-weixin" style="font-size: 50px;" data-toggle="tooltip" data-trigger="hover" data-placement="bottom" title="微信登录"></i>（审批中300元一年。。）</a></li>
               <li style="height:50px;margin-bottom:30px;"><a href="/auth/weibo"><i class ="iconfont icon-weibo" style="font-size: 50px;"data-toggle="tooltip" data-trigger="hover" data-placement="bottom" title="微博登录"></i></a></li>
             </ul>
             <div class="clearfix"></div>

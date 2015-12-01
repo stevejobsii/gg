@@ -34,6 +34,7 @@ Route::resource('tags', 'TagsController');
 Route::get('auth/qq','Auth\AuthController@qq');
 Route::get('auth/weixin','Auth\AuthController@weixin');
 Route::get('auth/weibo','Auth\AuthController@weibo');
+//Route::get('auth/weixinweb','Auth\AuthController@weixinweb');
 Route::get('auth/{provider}/callback', 'Auth\AuthController@callback');
 
 Route::controllers([
