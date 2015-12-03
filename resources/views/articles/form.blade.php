@@ -8,7 +8,7 @@
               </span>
               <input type="text" class="form-control" readonly>
           </div>
-     <p class="help-block">上传应小于2M。</p>
+     <p class="help-block">上传应小于3M。</p>
   </div>
 
   <div class="form-group">

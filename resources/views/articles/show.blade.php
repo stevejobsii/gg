@@ -101,7 +101,7 @@
                     <!-- Reply upvote/reply on reply-->
 
                     <div class="comment-content">
-                    {{$reply->body}}
+                    {!!$reply->body!!}
                     </div>
                     
                     <div class = "show-reply-vote-count label label-default inline-block">

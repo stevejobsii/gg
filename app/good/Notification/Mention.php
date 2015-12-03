@@ -1,6 +1,7 @@
 <?php  namespace App\good\Notification;
 
 use App\User;
+use Html;
 
 class Mention
 {
@@ -27,12 +28,15 @@ class Mention
         $this->body_parsed = $this->body_original;
 
         foreach ($this->users as $user) {
-            $search =  '@@'.$user->name;
-            $place = link_to('users.show', $search);
+            $search =  '@'.$user->name;
+            //dd($user->id);
+            $place = Html::link('users/'.$user->id.'/articles',$search);
+            //dd($place);
+            //$place = Html::linkAction('UsersController@articles',$user->id);
             //$place = route('users.show', $user->id);
             //$place = $search.route('users.show', $user->id);
-            
-            $this->body_parsed = str_replace($search, $place, $this->body_parsed);
+            //$this->body_parsed = 'ddd';
+           $this->body_parsed = str_replace($search, $place, $this->body_parsed);
         }
     }
 
