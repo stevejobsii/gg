@@ -2,13 +2,13 @@
      {!! Form::label('格式： png | jpg | jpeg | mp4') !!}<span class="error">*</span>
           <div class="input-group">
               <span class="input-group-btn">
-                  <span class="btn btn-primary btn-file">
-                      拉到这儿 or 点击浏览&hellip;{!! Form::file('image', null) !!}
+                  <span class="btn btn-file">
+                      <i class="glyphicon glyphicon-cloud-upload text-center"style="color:#777;font-size:60px;"></i>
+                      <p style="color:#777;font-size: 20px;">拉这儿  or  浏览</p>{!! Form::file('image', null) !!}
                   </span>
               </span>
-              <input type="text" class="form-control" readonly>
+              <input type="text" class="form-control"  placeholder="上传文件名字" readonly>
           </div>
-     <p class="help-block">上传应小于3M。</p>
   </div>
 
   <div class="form-group">

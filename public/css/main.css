@@ -76,7 +76,11 @@ background: transparent;
 .btn-file {
   position: relative;
   overflow: hidden;
-  width:180px;
+  width:500px;
+  height: 100px;
+  background-color: #e5e5e5;
+      border: 1px solid #ddd;
+    border-radius: 4px;
 }
 .btn-file input[type=file] {
   position: absolute;
@@ -84,7 +88,6 @@ background: transparent;
   right: 0;
   min-width: 100%;
   min-height: 100%;
-  font-size: 100px;
   text-align: right;
   filter: alpha(opacity=0);
   opacity: 0;
@@ -96,6 +99,10 @@ input[readonly] {
   background-color: white !important;
   cursor: text !important;
   margin-top: 0px;
+  height: 100px;
+  border: 0px solid #ddd;
+  box-shadow:none;
+  font-size: 16px;
 }
 .anchor{
   display: block;
