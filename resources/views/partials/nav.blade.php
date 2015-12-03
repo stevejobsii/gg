@@ -122,7 +122,7 @@
                       <input type="email" class="form-control" placeholder="E-Mail 地址" name="email" value="{{ old('email') }}">
                   </div>
                   <div class="form-group"style="margin-bottom:20px;">
-                      <input type="password" class="form-control" placeholder="密码" name="password">
+                      <input type="password" class="form-control" placeholder="密码（1位或以上）" name="password">
                   </div>    
                   <div class="form-group">
                       <button  style = "float:left; margin-right:30px;" type="submit" class="btn btn-primary" style="margin-right: 15px;">

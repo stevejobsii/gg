@@ -41,7 +41,7 @@
 						<div class="form-group">
 							<label class="col-md-4 control-label"style = "padding-top:24px;">密码</label>
 							<div class="col-md-6">
-								<input type="password" class="form-control" name="password">
+								<input type="password" class="form-control" placeholder="密码（1位或以上）" name="password">
 							</div>
 						</div>
 
