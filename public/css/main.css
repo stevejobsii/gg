@@ -76,7 +76,7 @@ background: transparent;
 .btn-file {
   position: relative;
   overflow: hidden;
-  width:100px;
+  width:180px;
 }
 .btn-file input[type=file] {
   position: absolute;
@@ -294,6 +294,10 @@ h3 {
     background-color: #444;
     padding: 3px 7px;
     color: #f5da55;
+}
+.badge-notification-count:hover{
+    color:#444;
+    background-color:#e5e5e5;
 }
 .clearfix{
 	clear:both;

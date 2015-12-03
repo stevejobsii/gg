@@ -3,7 +3,7 @@
           <div class="input-group">
               <span class="input-group-btn">
                   <span class="btn btn-primary btn-file">
-                      浏览&hellip;{!! Form::file('image', null) !!}
+                      拉到这儿 or 点击浏览&hellip;{!! Form::file('image', null) !!}
                   </span>
               </span>
               <input type="text" class="form-control" readonly>
