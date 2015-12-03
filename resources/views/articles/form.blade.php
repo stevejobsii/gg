@@ -4,7 +4,7 @@
               <span class="input-group-btn">
                   <span class="btn btn-file">
                       <i class="glyphicon glyphicon-cloud-upload text-center"style="color:#777;font-size:60px;"></i>
-                      <p style="color:#777;font-size: 20px;">拉这儿  or  浏览</p>{!! Form::file('image', null) !!}
+                      <p style="color:#777;font-size: 20px;">1拉这儿  or  浏览</p>{!! Form::file('image', null) !!}
                   </span>
               </span>
               <input type="text" class="form-control"  placeholder="上传文件名字" readonly>
