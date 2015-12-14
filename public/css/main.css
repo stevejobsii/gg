@@ -240,6 +240,11 @@ ul.articles-title-sidebar {
     right: 20px;
     bottom: 20px;
 }
+#qq-connect{
+    right: 20px;
+    top:150px;
+    position: fixed;
+}
 #side-bar-ad{
 	margin-top: 10px;
 }
