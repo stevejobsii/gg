@@ -35,7 +35,7 @@
 	        max-width: 100%;
 		}
 		#first-layer{
-			margin-top: 50px;
+			margin-top: 30px;
 		}
 		#second-layer div{
 	        padding: 0;
@@ -176,9 +176,9 @@
 				</div>
 		    </div>
 		    <div id="footer" class="footer">
-				<h4>指导单位：国家卫生计生委宣传司</h4>
-				<h4>主办单位：中国卫生摄影协会、健康报社</h4>
-				<h4>2016年4月至2016年6月</h4>
+				<h5>指导单位：国家卫生计生委宣传司</h5>
+				<h5>主办单位：中国卫生摄影协会、健康报社</h5>
+				<h5>2016年4月至2016年6月</h5>
 			</div>
 		</div>
 	</body>
