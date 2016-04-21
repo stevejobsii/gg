@@ -30,9 +30,8 @@
             margin:0 auto;
 			color: white;
 			position: absolute;
-			text-align: center;
 	        height: auto; 
-	        max-width: 100%;
+	        width: 100%;
 		}
 		#first-layer{
 			margin-top: 30px;
@@ -175,11 +174,11 @@
 				    </div>
 				</div>
 		    </div>
-		    <div id="footer" class="footer">
-				<h5>指导单位：国家卫生计生委宣传司</h5>
-				<h5>主办单位：中国卫生摄影协会、健康报社</h5>
-				<h5>2016年4月至2016年6月</h5>
-			</div>
+		</div>
+		<div id="footer" class="footer">
+			<h5>指导单位：国家卫生计生委宣传司</h5>
+			<h5>主办单位：中国卫生摄影协会、健康报社</h5>
+			<h5>2016年4月至2016年6月</h5>
 		</div>
 	</body>
 </html>
