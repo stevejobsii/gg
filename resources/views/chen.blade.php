@@ -136,6 +136,9 @@
 			text-align: center;
 			margin-top: 10px;
 		}
+		p{
+			font-weight: bold;
+		}
     </style>
 </head>
 	<body id="body">
@@ -146,7 +149,7 @@
 		    <div class="container">
 			    <div id="first-layer">
 				    <div class="col-md-4 col-sm-4 col-xs-4">
-	                    <i class="link link1 glyphicon glyphicon-envelope"></i><p class="link-1"style="font-weight: bold;">大赛通知</p>
+	                    <i class="link link1 glyphicon glyphicon-envelope"></i><p class="link-1">大赛通知</p>
 				    </div>
 			        <div class="col-md-4 col-sm-4 col-xs-4">
 				        <i class="link link2 glyphicon glyphicon-camera"></i><p class="link-2">摄影投稿</p>
