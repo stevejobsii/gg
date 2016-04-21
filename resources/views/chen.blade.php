@@ -20,8 +20,9 @@
             margin:0 auto;
         }
         #title{
+        	margin-top: 40px;
         	text-align: center;
-        	color: orange;
+        	color: rgb(43,34,125);
         }
 		#footer{
             width:90%;
@@ -31,23 +32,33 @@
 			position: fixed;
 			text-align: center;
 		}
-		#first-layer,#second-layer{
-      
+		#first-layer{
+			margin-top: 50px;
 		}
 		#second-layer div{
-			padding-left: 0px;
-			padding-right: 0px;
+	        padding: 0;
 		}
+		.new{
+		    position: absolute;
+		    padding: 0 3px;
+		    top: 20px;
+		    right: 10px;
+		    color: #fff;
+		    font-size: 15px;
+		    border-radius: 5px;
+		    background-color: #00a256;
+		    height: 25px;
+		    line-height: 25px;
+        }
 		.link{
-			background: #222 none repeat scroll 0 0;
 		    border: 5px solid #f5da55;
 		    border-radius: 50px;
 		    width: 70px;
 		    height: 70px;
 		    line-height: 60px;
 		    color: #f5da55;
-		    font-size: 10px;
-		    font-weight: 700;
+		    font-size: 40px;
+		    font-weight: 400;
 		    opacity: 1;
 		    text-align: center;
 			color: white;
@@ -55,40 +66,107 @@
 			margin-left: auto;
 			margin-right: auto;
 		}
-		
-
+		.link1{
+			background: rgb(7,0,0);
+		}
+		.link2{
+			background: rgb(43,34,125);
+		}
+		.link3{
+			background: rgb(247,216,195);
+		}
+		.link4{
+			background: rgb(250,162,90);
+		}
+		.link5{
+			background: rgb(143,36,62);
+		}
+		.link6{
+			background: rgb(145,94,161);
+		}
+		.link7{
+			background: rgb(181,176,208);
+		}
+		.link-1{
+			color: rgb(7,0,0);
+			width: 70px;
+			font-size: 16px;
+			text-align: center;
+			margin-top: 10px;
+		}
+		.link-2{
+			color: rgb(7,0,0);
+			width: 70px;
+			font-size: 16px;
+			text-align: center;
+			margin-top: 10px;
+		}
+		.link-3{
+			color: rgb(7,0,0);
+			width: 70px;
+			font-size: 16px;
+			text-align: center;
+			margin-top: 10px;
+		}
+		.link-4{
+			color: rgb(7,0,0);
+			width: 70px;
+			font-size: 16px;
+			text-align: center;
+			margin-top: 10px;
+		}
+		.link-5{
+			color: rgb(7,0,0);
+			width: 70px;
+			font-size: 16px;
+			text-align: center;
+			margin-top: 10px;
+		}
+		.link-6{
+			color: rgb(7,0,0);
+			width: 70px;
+			font-size: 16px;
+			text-align: center;
+			margin-top: 10px;
+		}
+		.link-7{
+			color: rgb(7,0,0);
+			width: 70px;
+			font-size: 16px;
+			text-align: center;
+			margin-top: 10px;
+		}
     </style>
 </head>
 	<body id="body">
 	    <div id="title">
-	    <h2>全国卫生计生系统</h2><h1>摄影大赛</h1>
-	    <br>
+	      <h2>全国卫生计生系统</h2><h1>摄影大赛</h1><div class="new">最新</div>
 	    </div>
 		<div class="wrap">
 		    <div class="container">
 			    <div id="first-layer">
 				    <div class="col-md-4 col-sm-4 col-xs-4">
-	                    <p class="link">大赛通知</p>
+	                    <i class="link link1 glyphicon glyphicon-envelope"></i><p class="link-1">大赛通知</p>
 				    </div>
 			        <div class="col-md-4 col-sm-4 col-xs-4">
-				        <p class="link">摄影投稿</p>
+				        <i class="link link2 glyphicon glyphicon-camera"></i><p class="link-2">摄影投稿</p>
 				    </div>	   
 				    <div class="col-md-4 col-sm-4 col-xs-4">
-				        <p class="link">媒体登记</p>
+				        <i class="link link3 glyphicon glyphicon-facetime-video"></i><p class="link-3">媒体登记</p>
 				    </div>
 				</div>
 				<div id="second-layer">
 				    <div class="col-md-3 col-sm-3 col-xs-3">
-	                    <p class="link">作品展示</p>
+	                    <i class="link link4 glyphicon glyphicon-picture"></i><p class="link-4">作品展示</p>
 				    </div>
 			        <div class="col-md-3 col-sm-3 col-xs-3">
-				        <p class="link">省赛区</p>
+				        <i class="link link5 glyphicon glyphicon-knight"></i><p class="link-5">省赛区</p>
 				    </div>	   
 				    <div class="col-md-3 col-sm-3 col-xs-3">
-				        <p class="link">总决赛</p>
+				        <i class="link link6 glyphicon glyphicon-king"></i><p class="link-6">总决赛</p>
 				    </div>
 				    <div class="col-md-3 col-sm-3 col-xs-3">
-                        <p class="link">摄影培训</p>
+                        <i class="link link7 glyphicon glyphicon-grain"></i><p class="link-7">摄影培训</p>
 				    </div>
 				</div>
 				<div id="footer" class="footer">
