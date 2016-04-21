@@ -88,49 +88,49 @@
 			background: rgb(181,176,208);
 		}
 		.link-1{
-			color: rgb(7,0,0);
+			color: rgb(43,34,125);
 			width: 70px;
 			font-size: 16px;
 			text-align: center;
 			margin-top: 10px;
 		}
 		.link-2{
-			color: rgb(7,0,0);
+			color: rgb(43,34,125);
 			width: 70px;
 			font-size: 16px;
 			text-align: center;
 			margin-top: 10px;
 		}
 		.link-3{
-			color: rgb(7,0,0);
+			color: rgb(43,34,125);
 			width: 70px;
 			font-size: 16px;
 			text-align: center;
 			margin-top: 10px;
 		}
 		.link-4{
-			color: rgb(7,0,0);
+			color: rgb(43,34,125);
 			width: 70px;
 			font-size: 16px;
 			text-align: center;
 			margin-top: 10px;
 		}
 		.link-5{
-			color: rgb(7,0,0);
+			color: rgb(43,34,125);
 			width: 70px;
 			font-size: 16px;
 			text-align: center;
 			margin-top: 10px;
 		}
 		.link-6{
-			color: rgb(7,0,0);
+			color: rgb(43,34,125);
 			width: 70px;
 			font-size: 16px;
 			text-align: center;
 			margin-top: 10px;
 		}
 		.link-7{
-			color: rgb(7,0,0);
+			color: rgb(43,34,125);
 			width: 70px;
 			font-size: 16px;
 			text-align: center;
@@ -146,7 +146,7 @@
 		    <div class="container">
 			    <div id="first-layer">
 				    <div class="col-md-4 col-sm-4 col-xs-4">
-	                    <i class="link link1 glyphicon glyphicon-envelope"></i><p class="link-1">大赛通知</p>
+	                    <i class="link link1 glyphicon glyphicon-envelope"></i><p class="link-1"style="font-weight: bold;">大赛通知</p>
 				    </div>
 			        <div class="col-md-4 col-sm-4 col-xs-4">
 				        <i class="link link2 glyphicon glyphicon-camera"></i><p class="link-2">摄影投稿</p>
