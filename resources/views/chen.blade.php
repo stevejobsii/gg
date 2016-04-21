@@ -7,7 +7,6 @@
     <title>朱迪作业</title>
     <link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <style>   
-        display: block; height: auto; max-width: 100%;
         h4{
 			text-align: center;
 		}
@@ -25,12 +24,13 @@
         	color: rgb(43,34,125);
         }
 		#footer{
-            width:90%;
 			bottom: 5%;
             margin:0 auto;
 			color: white;
-			position: fixed;
+			position: absolute;
 			text-align: center;
+	        height: auto; 
+	        max-width: 100%;
 		}
 		#first-layer{
 			margin-top: 50px;
@@ -169,12 +169,12 @@
                         <i class="link link7 glyphicon glyphicon-grain"></i><p class="link-7">摄影培训</p>
 				    </div>
 				</div>
-				<div id="footer" class="footer">
-					<h4>指导单位：国家卫生计生委宣传司</h4>
-					<h4>主办单位：中国卫生摄影协会、健康报社</h4>
-					<h4>2016年4月至2016年6月</h4>
-			    </div>
 		    </div>
+		    <div id="footer" class="footer">
+				<h4>指导单位：国家卫生计生委宣传司</h4>
+				<h4>主办单位：中国卫生摄影协会、健康报社</h4>
+				<h4>2016年4月至2016年6月</h4>
+			</div>
 		</div>
         <script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
         <script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
