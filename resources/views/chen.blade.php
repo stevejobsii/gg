@@ -6,6 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">	
     <title>朱迪作业</title>
     <link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <style>   
         h4{
 			text-align: center;
@@ -24,7 +26,7 @@
         	color: rgb(43,34,125);
         }
 		#footer{
-			bottom: 5%;
+			bottom: 4%;
             margin:0 auto;
 			color: white;
 			position: absolute;
@@ -179,8 +181,6 @@
 				<h4>2016年4月至2016年6月</h4>
 			</div>
 		</div>
-        <script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
-        <script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	</body>
 </html>
 
