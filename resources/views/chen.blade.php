@@ -151,27 +151,27 @@
 		    <div class="container">
 			    <div id="first-layer">
 				    <div class="col-md-4 col-sm-4 col-xs-4">
-	                    <i class="link link1 glyphicon glyphicon-envelope"></i><p class="link-1">大赛通知</p>
+	                    <i class="link link1 glyphicon glyphicon-envelope" aria-hidden="true"></i><p class="link-1">大赛通知</p>
 				    </div>
 			        <div class="col-md-4 col-sm-4 col-xs-4">
-				        <i class="link link2 glyphicon glyphicon-camera"></i><p class="link-2">摄影投稿</p>
+				        <i class="link link2 glyphicon glyphicon-camera" aria-hidden="true"></i><p class="link-2">摄影投稿</p>
 				    </div>	   
 				    <div class="col-md-4 col-sm-4 col-xs-4">
-				        <i class="link link3 glyphicon glyphicon-facetime-video"></i><p class="link-3">媒体登记</p>
+				        <i class="link link3 glyphicon glyphicon-facetime-video" aria-hidden="true"></i><p class="link-3">媒体登记</p>
 				    </div>
 				</div>
 				<div id="second-layer">
 				    <div class="col-md-3 col-sm-3 col-xs-3">
-	                    <i class="link link4 glyphicon glyphicon-picture"></i><p class="link-4">作品展示</p>
+	                    <i class="link link4 glyphicon glyphicon-picture" aria-hidden="true"></i><p class="link-4">作品展示</p>
 				    </div>
 			        <div class="col-md-3 col-sm-3 col-xs-3">
-				        <i class="link link5 glyphicon glyphicon-knight"></i><p class="link-5">省赛区</p>
+				        <i class="link link5 glyphicon glyphicon-knight" aria-hidden="true"></i><p class="link-5">省赛区</p>
 				    </div>	   
 				    <div class="col-md-3 col-sm-3 col-xs-3">
-				        <i class="link link6 glyphicon glyphicon-king"></i><p class="link-6">总决赛</p>
+				        <i class="link link6 glyphicon glyphicon-king" aria-hidden="true"></i><p class="link-6">总决赛</p>
 				    </div>
 				    <div class="col-md-3 col-sm-3 col-xs-3">
-                        <i class="link link7 glyphicon glyphicon-grain"></i><p class="link-7">摄影培训</p>
+                        <i class="link link7 glyphicon glyphicon-grain" aria-hidden="true"></i><p class="link-7">摄影培训</p>
 				    </div>
 				</div>
 		    </div>
