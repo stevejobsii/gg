@@ -13,11 +13,11 @@
 			text-align: center;
 		}
         body{
-			background:url(images/460.jpg) no-repeat top center;
+			background:url(images/bg.png) no-repeat top center;
             background-size:cover;		
         }
         .wrap{
-            width:90%;
+            width:100%;
             margin:0 auto;
         }
         #title{
@@ -26,7 +26,7 @@
         	color: rgb(43,34,125);
         }
 		#footer{
-			bottom: 4%;
+			bottom: 2%;
             margin:0 auto;
 			color: white;
 			position: absolute;
@@ -51,26 +51,39 @@
 		    height: 25px;
 		    line-height: 25px;
         }
+        .container-fluid{
+        	padding: 10px
+        }
         #title img{
         	max-width: 90%;
         	max-height: 90%;
+        	text-align: center;
         }
         #first-layer {
         	margin-top: 30px;
         }
+        #second-layer {
+        	margin: 0px;
+        }
         #first-layer img, #second-layer img{
         	width: 70px;
 		    height: 70px;
+		    display: block;
+		    margin-right: auto;
+		    margin-left: auto;
         }
 		.link{
-			color: rgb(43,34,125);
+			color: white;
 			width: 70px;
 			font-size: 16px;
 			text-align: center;
 			margin-top: 10px;
 		}
-		p{
+		#first-layer p, #second-layer p{
 			font-weight: bold;
+		    display: block;
+		    margin-right: auto;
+		    margin-left: auto;
 		}
     </style>
 </head>
@@ -79,8 +92,8 @@
 	      <img src="/images/title.png"><div class="new">最新</div>
 	    </div>
 		<div class="wrap">
-		    <div class="container">
-			    <div id="first-layer">
+		    <div class="container-fluid">
+			    <div id="first-layer"class="raw">
 				    <div class="col-md-4 col-sm-4 col-xs-4">
 	                    <img src="/images/i1.png"><p class="link">大赛通知</p>
 				    </div>
@@ -91,7 +104,7 @@
 				        <img src="/images/i3.png"><p class="link">媒体登记</p>
 				    </div>
 				</div>
-				<div id="second-layer">
+				<div id="second-layer"class="raw">
 				    <div class="col-md-3 col-sm-3 col-xs-3">
 	                    <img src="/images/i4.png"><p class="link">作品展示</p>
 				    </div>
