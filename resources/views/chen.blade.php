@@ -5,7 +5,6 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">	
     <title>朱迪作业</title>
-    <link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
     <script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <style>   
@@ -56,7 +55,7 @@
         	max-height: 90%;
         }
         #first-layer {
-        	margin-top: 50px;
+        	margin-top: 30px;
         }
         #first-layer img{
         	width: 70px;
