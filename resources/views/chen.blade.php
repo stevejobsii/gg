@@ -58,58 +58,11 @@
         #first-layer {
         	margin-top: 30px;
         }
-        #first-layer img{
+        #first-layer img, #second-layer img{
         	width: 70px;
 		    height: 70px;
         }
-
-        #second-layer img{
-        	width: 70px;
-		    height: 70px;
-        }
-		.link-1{
-			color: rgb(43,34,125);
-			width: 70px;
-			font-size: 16px;
-			text-align: center;
-			margin-top: 10px;
-		}
-		.link-2{
-			color: rgb(43,34,125);
-			width: 70px;
-			font-size: 16px;
-			text-align: center;
-			margin-top: 10px;
-		}
-		.link-3{
-			color: rgb(43,34,125);
-			width: 70px;
-			font-size: 16px;
-			text-align: center;
-			margin-top: 10px;
-		}
-		.link-4{
-			color: rgb(43,34,125);
-			width: 70px;
-			font-size: 16px;
-			text-align: center;
-			margin-top: 10px;
-		}
-		.link-5{
-			color: rgb(43,34,125);
-			width: 70px;
-			font-size: 16px;
-			text-align: center;
-			margin-top: 10px;
-		}
-		.link-6{
-			color: rgb(43,34,125);
-			width: 70px;
-			font-size: 16px;
-			text-align: center;
-			margin-top: 10px;
-		}
-		.link-7{
+		.link{
 			color: rgb(43,34,125);
 			width: 70px;
 			font-size: 16px;
@@ -129,27 +82,27 @@
 		    <div class="container">
 			    <div id="first-layer">
 				    <div class="col-md-4 col-sm-4 col-xs-4">
-	                    <img src="/images/i1.png"><p class="link-1">大赛通知</p>
+	                    <img src="/images/i1.png"><p class="link">大赛通知</p>
 				    </div>
 			        <div class="col-md-4 col-sm-4 col-xs-4">
-				        <img src="/images/i2.png"><p class="link-2">摄影投稿</p>
+				        <img src="/images/i2.png"><p class="link">摄影投稿</p>
 				    </div>	   
 				    <div class="col-md-4 col-sm-4 col-xs-4">
-				        <img src="/images/i3.png"><p class="link-3">媒体登记</p>
+				        <img src="/images/i3.png"><p class="link">媒体登记</p>
 				    </div>
 				</div>
 				<div id="second-layer">
 				    <div class="col-md-3 col-sm-3 col-xs-3">
-	                    <img src="/images/i4.png"><p class="link-4">作品展示</p>
+	                    <img src="/images/i4.png"><p class="link">作品展示</p>
 				    </div>
 			        <div class="col-md-3 col-sm-3 col-xs-3">
-				        <img src="/images/i5.png"><p class="link-5">省赛区</p>
+				        <img src="/images/i5.png"><p class="link">省赛区</p>
 				    </div>	   
 				    <div class="col-md-3 col-sm-3 col-xs-3">
-				        <img src="/images/i6.png"><p class="link-6">总决赛</p>
+				        <img src="/images/i6.png"><p class="link">总决赛</p>
 				    </div>
 				    <div class="col-md-3 col-sm-3 col-xs-3">
-                        <img src="/images/i7.png"><p class="link-7">摄影培训</p>
+                        <img src="/images/i7.png"><p class="link">摄影培训</p>
 				    </div>
 				</div>
 		    </div>
