@@ -8,14 +8,22 @@
     <link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
     <script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <style>   
+    <style> 	
+		@media (min-device-width: 350px){
+          body{
+	    	background:url(images/bg.png) no-repeat top center;
+            background-size:cover;		
+          }
+		}
+        @media (max-device-width: 350px) {
+          body{
+	    	background:url(images/bg-lowerpixel.png) no-repeat top center;
+            background-size:cover;		
+          }
+        }
         h5{
 			text-align: center;
-		}
-        body{
-			background:url(images/bg.png) no-repeat top center;
-            background-size:cover;		
-        }
+		}	
         .wrap{
             width:100%;
             margin:0 auto;
@@ -36,21 +44,9 @@
 		#first-layer{
 			margin-top: 30px;
 		}
-		#second-layer div{
+		#second-layer div, #first-layer div{
 	        padding: 0;
 		}
-		.new{
-		    position: absolute;
-		    padding: 0 3px;
-		    top: 20px;
-		    right: 10px;
-		    color: #fff;
-		    font-size: 15px;
-		    border-radius: 5px;
-		    background-color: #00a256;
-		    height: 25px;
-		    line-height: 25px;
-        }
         .container-fluid{
         	padding: 10px
         }
@@ -65,7 +61,14 @@
         #second-layer {
         	margin: 0px;
         }
-        #first-layer img, #second-layer img{
+        #first-layer img {
+        	width: 75px;
+		    height: 75px;
+		    display: block;
+		    margin-right: auto;
+		    margin-left: auto;
+        }
+        #second-layer img{
         	width: 70px;
 		    height: 70px;
 		    display: block;
@@ -85,11 +88,12 @@
 		    margin-right: auto;
 		    margin-left: auto;
 		}
+ 
     </style>
 </head>
 	<body id="body">
 	    <div id="title">
-	      <img src="/images/title.png"><div class="new">最新</div>
+	      <img src="/images/title.png">
 	    </div>
 		<div class="wrap">
 		    <div class="container-fluid">

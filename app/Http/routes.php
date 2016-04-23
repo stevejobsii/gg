@@ -17,10 +17,9 @@ Route::get('/', function (){return redirect('/articles');
 });
 Route::get('about','PageController@about');
 Route::get('contact','PageController@contact');
-Route::get('/test', function (){return view('chen');
-});
 Route::get('/test1', function (){return view('chen1');
 });
+Route::resource('test','TestController');
 
 # ------------------ article stuff ------------------------
 Route::resource('articles','ArticlesController');
