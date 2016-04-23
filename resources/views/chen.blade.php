@@ -29,7 +29,10 @@
         #title{
         	margin-top: 50px;
         	text-align: center;
-        	color: rgb(43,34,125);
+        }
+        #title img{
+        	max-width: 90%;
+        	max-height: 90%;
         }
 		#footer{
 			bottom: 2%;
@@ -42,22 +45,13 @@
 		#second-layer div, #first-layer div{
 	        padding: 0;
 		}
-
-        #title img{
-        	max-width: 90%;
-        	max-height: 90%;
-        	text-align: center;
-        }
         #first-layer {
-        	width:86%;
-        	margin-top: 30px;
-        }
-        #second-layer {
-        	margin: 0px;
+        	width:90%;
+        	margin-top: 45px;
         }
         #first-layer img {
-        	width: 80px;
-		    height: 80px;
+        	width: 78px;
+		    height: 78px;
 		    display: block;
 		    margin-right: auto;
 		    margin-left: auto;
@@ -69,6 +63,12 @@
 		    margin-right: auto;
 		    margin-left: auto;
         }
+		#first-layer p, #second-layer p{
+			font-weight: bold;
+		    display: block;
+		    margin-right: auto;
+		    margin-left: auto;
+		}
 		.link{
 			color: white;
 			width: 70px;
@@ -76,13 +76,6 @@
 			text-align: center;
 			margin-top: 10px;
 		}
-		#first-layer p, #second-layer p{
-			font-weight: bold;
-		    display: block;
-		    margin-right: auto;
-		    margin-left: auto;
-		}
- 
     </style>
 </head>
 	<body id="body">
