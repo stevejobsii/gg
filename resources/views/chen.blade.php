@@ -62,8 +62,8 @@
         	margin: 0px;
         }
         #first-layer img {
-        	width: 75px;
-		    height: 75px;
+        	width: 80px;
+		    height: 80px;
 		    display: block;
 		    margin-right: auto;
 		    margin-left: auto;
