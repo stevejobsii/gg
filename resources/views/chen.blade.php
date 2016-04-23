@@ -39,21 +39,17 @@
 	        height: auto; 
 	        width: 100%;
 		}
-		#first-layer{
-			margin-top: 30px;
-		}
 		#second-layer div, #first-layer div{
 	        padding: 0;
 		}
-        .container-fluid{
-        	padding: 10px
-        }
+
         #title img{
         	max-width: 90%;
         	max-height: 90%;
         	text-align: center;
         }
         #first-layer {
+        	width:86%;
         	margin-top: 30px;
         }
         #second-layer {
@@ -94,8 +90,8 @@
 	      <img src="/images/title.png">
 	    </div>
 		<div class="wrap">
-		    <div class="container-fluid">
-			    <div id="first-layer"class="raw">
+		    <div  id="first-layer" class="container-fluid">
+			    <div class="raw">
 				    <div class="col-md-4 col-sm-4 col-xs-4">
 	                    <img src="/images/i1.png"><p class="link">大赛通知</p>
 				    </div>
@@ -106,7 +102,9 @@
 				        <img src="/images/i3.png"><p class="link">媒体登记</p>
 				    </div>
 				</div>
-				<div id="second-layer"class="raw">
+			</div>
+			<div id="second-layer" class="container-fluid">
+				<div class="raw">
 				    <div class="col-md-3 col-sm-3 col-xs-3">
 	                    <img src="/images/i4.png"><p class="link">作品展示</p>
 				    </div>
@@ -121,11 +119,13 @@
 				    </div>
 				</div>
 		    </div>
-		</div>
+		
 		<div id="footer" class="footer">
 			<h5>指导单位：国家卫生计生委宣传司</h5>
 			<h5>主办单位：中国卫生摄影协会、健康报社</h5>
 			<h5>2016年4月至2016年6月</h5>
+		</div>
+
 		</div>
 		<script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
         <script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
