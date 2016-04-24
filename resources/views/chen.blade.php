@@ -65,6 +65,10 @@
         }
 		.link{
 			font-weight: bold;
+		    display: block;
+		    margin-right: auto;
+		    margin-left: auto;
+			font-weight: bold;
 			color: white;
 			width: 70px;
 			font-size: 16px;
