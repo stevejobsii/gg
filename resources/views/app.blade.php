@@ -20,7 +20,7 @@
 		@yield('content')
 	</div> 
 	<p id="back-to-top" ><a href="javascript:void(0)"></a></p>
-	<div id="qq-connect"><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=401789679&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:401789679:53" alt="点击这里给我发消息" title="点击这里给我发消息"/></a></div>
+	<div id="qq-connect"><a target="_blank" href="https://wpa.qq.com/msgrd?v=3&uin=401789679&site=qq&menu=yes"><img border="0" src="https://wpa.qq.com/pa?p=2:401789679:53" alt="点击这里给我发消息" title="点击这里给我发消息"/></a></div>
     <script src="/js/all.js"></script>
 	@include('footer')
 	@include('flash')
