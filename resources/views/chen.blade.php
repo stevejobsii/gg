@@ -7,13 +7,13 @@
     <title>朱迪作业</title>
     <link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <style> 	
-		@media (min-device-width: 350px){
+		@media (min-width: 350px){
           body{
 	    	background:url(images/bg.png) no-repeat top center;
             background-size:cover;		
           }
 		}
-        @media (max-device-width: 350px){
+        @media (max-width: 350px){
           body{
 	    	background:url(images/bg-lowerpixel.png) no-repeat top center;
             background-size:cover;		
@@ -24,10 +24,9 @@
 		}	
         .wrap{
             width:100%;
-            margin:0 auto;
         }
         #title{
-        	margin-top: 50px;
+        	margin-top: 15%;
         	text-align: center;
         }
         #title img{
@@ -36,44 +35,25 @@
         }
 		#footer{
 			bottom: 2%;
-            margin:0 auto;
 			color: white;
 			position: absolute;
-	        height: auto; 
 	        width: 100%;
 		}
 		#second-layer div, #first-layer div{
-	        padding: 0;
+	        padding: 2px;
 		}
         #first-layer {
         	width:90%;
-        	margin-top: 45px;
+        	margin-top: 10%;
         }
-        #first-layer img {
-        	width: 78px;
-		    height: 78px;
-		    display: block;
-		    margin-right: auto;
-		    margin-left: auto;
-        }
-        #second-layer img{
-        	width: 70px;
-		    height: 70px;
-		    display: block;
-		    margin-right: auto;
-		    margin-left: auto;
-        }
+ 
 		.link{
 			font-weight: bold;
-		    display: block;
-		    margin-right: auto;
-		    margin-left: auto;
-			font-weight: bold;
+            width: 100%;
 			color: white;
-			width: 70px;
 			font-size: 16px;
 			text-align: center;
-			margin-top: 10px;
+			margin-top: 5%;
 		}
     </style>
 </head>
@@ -85,33 +65,32 @@
 		    <div  id="first-layer" class="container-fluid">
 			    <div class="raw">
 				    <div class="col-md-4 col-sm-4 col-xs-4">
-	                    <img src="/images/i1.png"><p class="link">大赛通知</p>
+	                    <img src="/images/i1.png" class="img-responsive"><p class="link">大赛通知</p>
 				    </div>
 			        <div class="col-md-4 col-sm-4 col-xs-4">
-				        <img src="/images/i2.png"><p class="link">摄影投稿</p>
+				        <img src="/images/i2.png" class="img-responsive"><p class="link">摄影投稿</p>
 				    </div>	   
 				    <div class="col-md-4 col-sm-4 col-xs-4">
-				        <img src="/images/i3.png"><p class="link">媒体登记</p>
+				        <img src="/images/i3.png" class="img-responsive"><p class="link">媒体登记</p>
 				    </div>
 				</div>
 			</div>
 			<div id="second-layer" class="container-fluid">
 				<div class="raw">
 				    <div class="col-md-3 col-sm-3 col-xs-3">
-	                    <img src="/images/i4.png"><p class="link">作品展示</p>
+	                    <img src="/images/i4.png" class="img-responsive"><p class="link">作品展示</p>
 				    </div>
 			        <div class="col-md-3 col-sm-3 col-xs-3">
-				        <img src="/images/i5.png"><p class="link">省赛区</p>
+				        <img src="/images/i5.png" class="img-responsive"><p class="link">省赛区</p>
 				    </div>	   
 				    <div class="col-md-3 col-sm-3 col-xs-3">
-				        <img src="/images/i6.png"><p class="link">总决赛</p>
+				        <img src="/images/i6.png" class="img-responsive"><p class="link">总决赛</p>
 				    </div>
 				    <div class="col-md-3 col-sm-3 col-xs-3">
-                        <img src="/images/i7.png"><p class="link">摄影培训</p>
+                        <img src="/images/i7.png" class="img-responsive"><p class="link">摄影培训</p>
 				    </div>
 				</div>
 		    </div>
-		
 		<div id="footer" class="footer">
 			<h5>指导单位：国家卫生计生委宣传司</h5>
 			<h5>主办单位：中国卫生摄影协会、健康报社</h5>
