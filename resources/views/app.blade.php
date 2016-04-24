@@ -9,7 +9,6 @@
 	<link rel="stylesheet" href="{{ url('/css/all.css') }}">
 	<link rel="stylesheet" href="{{ url('/css/main.css') }}">
     <link rel="shortcut icon" href="/images/catalog/30avatardefault.jpg">
-    <meta property="qc:admins" content="4457261067477476375" />
     <title>好去处 - Just For Fun</title>
 
 </head>
@@ -20,7 +19,7 @@
 		@yield('content')
 	</div> 
 	<p id="back-to-top" ><a href="javascript:void(0)"></a></p>
-	<div id="qq-connect"><a target="_blank" href="https://wpa.qq.com/msgrd?v=3&uin=401789679&site=qq&menu=yes"><img border="0" src="https://wpa.qq.com/pa?p=2:401789679:53" alt="点击这里给我发消息" title="点击这里给我发消息"/></a></div>
+
     <script src="/js/all.js"></script>
 	@include('footer')
 	@include('flash')
