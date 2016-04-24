@@ -13,7 +13,7 @@
             background-size:cover;		
           }
 		}
-        @media (max-device-width: 350px) {
+        @media (max-device-width: 350px){
           body{
 	    	background:url(images/bg-lowerpixel.png) no-repeat top center;
             background-size:cover;		
@@ -63,13 +63,8 @@
 		    margin-right: auto;
 		    margin-left: auto;
         }
-		#first-layer p, #second-layer p{
-			font-weight: bold;
-		    display: block;
-		    margin-right: auto;
-		    margin-left: auto;
-		}
 		.link{
+			font-weight: bold;
 			color: white;
 			width: 70px;
 			font-size: 16px;
