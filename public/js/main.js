@@ -84,8 +84,8 @@ $("#nav-search").click(function(){
         var pathname = window.location.hostname;         
         config.bdText = title+'via goodgoto.com';
         config.bdDesc = title+'via goodgoto.com';
-        config.bdUrl = 'http://'+pathname+'/images/catalog/'+ photo + type;
-        config.bdPic = 'http://'+pathname+'/images/catalog/'+ photo + type;
+        config.bdUrl = 'https://'+pathname+'/images/catalog/'+ photo + type;
+        config.bdPic = 'https://'+pathname+'/images/catalog/'+ photo + type;
         return config;
   };
   window._bd_share_config = {
@@ -97,7 +97,7 @@ $("#nav-search").click(function(){
   }],
   }
 //以下为js加载部分
-  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='https://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
 
 //展开
 $('.side-bar-hot').mouseenter(function() { $(this).addClass('side-bar-hot-full-size');$(this).find('.show_more').html(' &UpTeeArrow; 收起');});
@@ -155,7 +155,7 @@ $(document).ready(function (){
 $('.votebookmark').on("click", ".index-upvote", function () {
    var myBookId = $(this).data('id');
    var pathname = window.location.hostname;
-   var urll = 'http://'+pathname+'/articles/'+myBookId+'/upvote';
+   var urll = 'https://'+pathname+'/articles/'+myBookId+'/upvote';
    $.ajax({
       method: "POST",
       url: urll,
@@ -172,7 +172,7 @@ $('.votebookmark').on("click", ".index-bookmark", function () {
    
      $.ajax({
         method: "POST",
-        url:'http://'+pathname+'/api/bookmark',
+        url:'https://'+pathname+'/api/bookmark',
         data:{'bookmark':myBookId}
       })
       .done(function() {
@@ -193,14 +193,14 @@ $('.votebookmark').on("click", ".index-bookmark", function () {
               closeOnConfirm: false }, 
               function(){
                 var pathname = window.location.hostname;
-                window.location.replace('http://'+pathname+'/auth/login');});
+                window.location.replace('https://'+pathname+'/auth/login');});
        });
 });
 
 $('.reply_list').on("click", ".show-upvote", function () {
    var myBookId = $(this).data('id');
    var pathname = window.location.hostname;
-   var urll = 'http://'+pathname+'/replies/'+myBookId+'/upvote';
+   var urll = 'https://'+pathname+'/replies/'+myBookId+'/upvote';
    $.ajax({
       method: "POST",
       url: urll,
@@ -213,14 +213,14 @@ $('.reply_list').on("click", ".show-upvote", function () {
 //getbookmark
 $('#bookmark-link').on("click",function () {
    var pathname = window.location.hostname;
-   var urll = 'http://'+pathname+'/api/bookmark';
+   var urll = 'https://'+pathname+'/api/bookmark';
    $.ajax({
       method: "GET",
       url: urll,
     })
     .done(function( bookmark ) {
       var pathname = window.location.hostname;
-      window.location.replace('http://'+pathname+'/articles?id='+bookmark);
+      window.location.replace('https://'+pathname+'/articles?id='+bookmark);
     });
 });
 //upload avatar
