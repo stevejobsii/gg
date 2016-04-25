@@ -40,7 +40,7 @@
 	        width: 100%;
 		}
 		#second-layer div, #first-layer div{
-	        padding: 2px;
+	        padding: 1px;
 		}
         #first-layer {
         	width:90%;
