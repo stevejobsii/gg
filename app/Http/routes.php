@@ -19,6 +19,7 @@ Route::get('about','PageController@about');
 Route::get('contact','PageController@contact');
 Route::resource('test1','Test1Controller');
 Route::resource('test','TestController');
+Route::resource('test2','Test2Controller');
 
 # ------------------ article stuff ------------------------
 Route::resource('articles','ArticlesController');
