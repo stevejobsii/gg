@@ -34,7 +34,7 @@
         	max-height: 90%;
         }
 		#footer{
-			bottom: 2%;
+			bottom: 1%;
 			color: white;
 			position: absolute;
 	        width: 100%;
