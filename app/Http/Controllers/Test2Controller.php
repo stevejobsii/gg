@@ -3,6 +3,7 @@
 use App\Http\Controllers\Controller;
 use Illuminate\HttpResponse;
 use Illuminate\Http\Request;
+use Captcha;
 
 class Test2Controller extends Controller
 {
@@ -13,6 +14,8 @@ class Test2Controller extends Controller
 
     public function index(Request $request)
     {
-    	return view('chen2');
+    	return captcha_img();
+    	//return Captcha::create();
+    	//return view('chen2');
     }
 }
