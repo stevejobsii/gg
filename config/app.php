@@ -142,13 +142,13 @@ return [
         Zizaco\Entrust\EntrustServiceProvider::class,
         //Laravel\Socialite\SocialiteServiceProvider::class,
         SocialiteProviders\Manager\ServiceProvider::class,
-        Mews\Captcha\CaptchaServiceProvider::class,
         /*
          * Application Service Providers...
          */
         App\Providers\AppServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
     ],
 
     /*
@@ -202,7 +202,6 @@ return [
         
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
-        'Captcha' => Mews\Captcha\Facades\Captcha::class,
     ],
 
 ];
