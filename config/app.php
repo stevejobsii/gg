@@ -140,7 +140,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
        
         Zizaco\Entrust\EntrustServiceProvider::class,
-        //Laravel\Socialite\SocialiteServiceProvider::class,
+        ///Laravel\Socialite\SocialiteServiceProvider::class,
         SocialiteProviders\Manager\ServiceProvider::class,
         Mews\Captcha\CaptchaServiceProvider::class,
         /*
