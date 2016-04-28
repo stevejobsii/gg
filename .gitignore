@@ -4,3 +4,5 @@ Homestead.yaml
 .env
 
 storage/logs/laravel.log
+
+storage/logs/laravel.log
