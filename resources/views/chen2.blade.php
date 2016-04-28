@@ -60,12 +60,6 @@
     </style>
 </head>
 	<body id="body">
-
-        <form method="post" action="captcha-test">
-        <input type="hidden" name="_token" value="' . csrf_token() . '">
-        {!!captcha_img()!!}
-        <p><input type="text" name="captcha"></p>
-        <p><button type="submit" name="check">Check</button></p>
          </form>
 	    <div id="title">
 	      <img src="/images/title.png">
