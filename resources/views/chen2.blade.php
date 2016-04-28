@@ -5,6 +5,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">	
     <title>朱迪作业</title>
+    		<script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+        <script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <style> 	
 		@media (min-width: 350px){
@@ -56,17 +58,15 @@
 			margin-top: 5%;
 		}
     </style>
-    <script type="text/javascript">    	
-    $(window).on('resize', function() {
-	    if($(window).width() > 350) {
-	        $('body').addClass('limit1200');
-	    }else{
-	        $('body').addClass('limit400');
-	    }
-    })
-    </script>
 </head>
 	<body id="body">
+
+        <form method="post" action="captcha-test">
+        <input type="hidden" name="_token" value="' . csrf_token() . '">
+        {!!captcha_img()!!}
+        <p><input type="text" name="captcha"></p>
+        <p><button type="submit" name="check">Check</button></p>
+         </form>
 	    <div id="title">
 	      <img src="/images/title.png">
 	    </div>
@@ -107,8 +107,7 @@
 		</div>
 
 		</div>
-		<script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
-        <script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
 	</body>
 </html>
 

@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'url' => 'http://localhost',
+    'url' => '',
 
     /*
     |--------------------------------------------------------------------------
@@ -137,16 +137,18 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Illuminate\Html\HtmlServiceProvider::class,
-        Intervention\Image\ImageServiceProvider::class,
+       // Intervention\Image\ImageServiceProvider::class,
        
+        
+        Intervention\Image\ImageServiceProvider::class,
         Zizaco\Entrust\EntrustServiceProvider::class,
         ///Laravel\Socialite\SocialiteServiceProvider::class,
         SocialiteProviders\Manager\ServiceProvider::class,
-        Mews\Captcha\CaptchaServiceProvider::class,
+        //Mews\Captcha\CaptchaServiceProvider::class,
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
+       App\Providers\AppServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
@@ -203,7 +205,7 @@ return [
         
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
-        'Captcha'   => Mews\Captcha\Facades\Captcha::class,
+       // 'Captcha'   => Mews\Captcha\Facades\Captcha::class,
     ],
 
 ];

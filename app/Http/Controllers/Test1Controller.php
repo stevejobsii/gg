@@ -13,7 +13,7 @@ class Test1Controller extends Controller
 
     public function index(Request $request)
     {
-    	return $request->ip();
-    	//return view('chen1');
+    	//return $request->ip();
+    	return view('chen1');
     }
 }
