@@ -259,13 +259,13 @@ display: inline-block;
 	    var values = captcha.getValidate();
 	    var query = "geetest_challenge=" + values.geetest_challenge + "&geetest_validate=" + values.geetest_validate + "&geetest_seccode=" + values.geetest_seccode + "&callback=handlerResult";
 	    var script = document.createElement("script");
-	    script.src = "http://webapi.geetest.com/apis/mobile-server-validate/?" + query;
+	    script.src = "https://webapi.geetest.com/apis/mobile-server-validate/?" + query;
 	    script.charset = "utf-8";
 	    document.body.appendChild(script);
 	    window.handlerResult = cb;
 	};
 	var script = document.createElement("script");
-	script.src = "http://webapi.geetest.com/apis/start-mobile-captcha/?callback=init";
+	script.src = "https://webapi.geetest.com/apis/start-mobile-captcha/?callback=init";
 	script.charset = "utf-8";
 	document.body.appendChild(script);
 	$('.login').on("click",
