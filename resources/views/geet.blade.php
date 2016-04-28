@@ -118,7 +118,7 @@ display: inline-block;
 	            <h1 class="index-article-title">{!!$article->title!!}    共<span id="b{{$article->photo}}">{!!$article->vote_count!!}</span>赞</h1>			
 
 		                    <button  	type="button"  	
-						             class="btn btn-defaul show login"
+						             class="btn btn-defaul login"
 						             data-id="{{$article->photo}}"
 				                     data-title="{{$article->title}}">
 						          <i class="glyphicon glyphicon-thumbs-up"></i>
