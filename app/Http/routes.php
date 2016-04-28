@@ -18,30 +18,13 @@ Route::get('/', function (){return redirect('/articles');
 Route::resource('test1','Test1Controller');
 Route::resource('test','TestController');
 Route::resource('test2','Test2Controller');
-  Route::any('captcha-test', function()
-    {
-        if (Request::getMethod() == 'POST')
-        {
-            $rules = ['captcha' => 'required|captcha'];
-            $validator = Validator::make(Input::all(), $rules);
-            if ($validator->fails())
-            {
-                echo '<p style="color: #ff0000;">Incorrect!</p>';
-            }
-            else
-            {
-                echo '<p style="color: #00ff30;">Matched :)</p>';
-            }
-        }
-
-        $form = '<form method="post" action="captcha-test">';
-        $form .= '<input type="hidden" name="_token" value="' . csrf_token() . '">';
-        $form .= '<p>' . captcha_img() . '</p>';
-        $form .= '<p><input type="text" name="captcha"></p>';
-        $form .= '<p><button type="submit" name="check">Check</button></p>';
-        $form .= '</form>';
-        return $form;
-    });
+Route::resource('gt','GtController');
+Route::resource('gt1','GtController@gt1');
+Route::resource('gt2','GtController@gt2');
+Route::post('/gt/{photo}/upvote', 
+        ['as' => 'gt.upvote',
+        'uses' => 'GtController@upvote'])->before('csrf');
+ 
 # ------------------ article stuff ------------------------
 Route::resource('articles','ArticlesController');
 Route::post('/articles/{photo}/upvote', 
