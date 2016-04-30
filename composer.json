@@ -21,7 +21,8 @@
         "socialiteproviders/qq": "^1.1",
         "socialiteproviders/weixin": "^1.0",
         "socialiteproviders/weibo": "^1.0",
-        "socialiteproviders/weixin-web": "^1.0"
+        "socialiteproviders/weixin-web": "^1.0",
+      "overtrue/wechat": "~3.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
