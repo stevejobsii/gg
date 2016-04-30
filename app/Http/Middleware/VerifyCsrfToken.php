@@ -13,5 +13,6 @@ class VerifyCsrfToken extends BaseVerifier
      */
     protected $except = [
         '/gt/*/upvote',
+        'https://goodgoto.com/gt/*/upvote',
     ];
 }
