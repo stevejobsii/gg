@@ -280,7 +280,7 @@ $(document).ready(function (){
 	function() {
 		 window.myBookId = $(this).data('id');
 		 window.pathname = window.location.hostname;
-		 window.urll = 'http://'+pathname+'/gt/'+myBookId+'/upvote';
+		 window.urll = 'https://'+pathname+'/gt/'+myBookId+'/upvote';
 	    if (o) {
 	        o.refresh();
 	    }
