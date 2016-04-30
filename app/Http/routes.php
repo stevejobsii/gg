@@ -18,14 +18,19 @@ Route::get('/', function (){return redirect('/articles');
 Route::resource('test1','Test1Controller');
 Route::resource('test','TestController');
 Route::resource('test2','Test2Controller');
-Route::resource('weixingame','TestController@weixingame');
+
+#------weixin----------
+Route::resource('api/v1', 'WeixinController');
+Route::resource('weixingame','weixinController@weixingame');
+
+
+#------geetest---------
 Route::resource('gt','GtController');
 Route::resource('gt1','GtController@gt1');
 Route::resource('gt2','GtController@gt2');
 Route::post('/gt/{photo}/upvote', 
         ['as' => 'gt.upvote',
         'uses' => 'GtController@upvote'])->before('csrf');
- 
 # ------------------ article stuff ------------------------
 Route::resource('articles','ArticlesController');
 Route::post('/articles/{photo}/upvote', 

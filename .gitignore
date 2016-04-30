@@ -6,3 +6,5 @@ Homestead.yaml
 storage/logs/laravel.log
 
 storage/logs/laravel.log
+
+composer.lock
