@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Log;
 use App\Http\Controllers\Controller;
 use EasyWeChat\Foundation\Application;
 
@@ -16,23 +17,19 @@ class WeixinController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+    public function serve()
     {
-    $options = [
-    'debug'  => true,
-    'app_id' => 'wxe1288621d8386e3c',
-    'secret' => '912527273869accea1d8cb794164f24f',
-    'token'  => 'whatthefuck',
-    // 'aes_key' => null, // 可选
-    'log' => [
-        'level' => 'debug',
-        'file'  => '/tmp/weixinwechat.log', // XXX: 绝对路径！！！！
-    ],
-    //...
-    ];
-    $app = new Application($options);
-    // 将响应输出
-    $app->server->serve()->send();
+        Log::info('request arrived.'); # 注意：Log 为 Laravel 组件，所以它记的日志去 Laravel 日志看，而不是 EasyWeChat 日志
+
+        $wechat = app('wechat');
+        $wechat->server->setMessageHandler(function($message){
+            return "欢迎关注 overtrue！";
+        });
+
+        Log::info('return response.');
+
+        return $wechat->server->serve();
     }
 
 

@@ -8,3 +8,5 @@ storage/logs/laravel.log
 storage/logs/laravel.log
 
 composer.lock
+
+storage/logs/wechat.log
