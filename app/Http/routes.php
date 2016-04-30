@@ -21,7 +21,7 @@ Route::resource('test2','Test2Controller');
 
 #------weixin----------
 Route::resource('weixin', 'WeixinController');
-Route::resource('weixingame','weixinController@weixingame');
+Route::resource('weixingame','WeixinController@weixingame');
 
 
 #------geetest---------
