@@ -18,22 +18,21 @@ class WeixinController extends Controller
      */
     public function index()
     {
-    // $options = [
-    // 'debug'  => true,
-    // 'app_id' => 'wxe1288621d8386e3c',
-    // 'secret' => '912527273869accea1d8cb794164f24f',
-    // 'token'  => 'whatthefuck',
-    // // 'aes_key' => null, // 可选
-    // 'log' => [
-    //     'level' => 'debug',
-    //     'file'  => '/tmp/easywechat.log', // XXX: 绝对路径！！！！
-    // ],
-    // //...
-    // ];
-    // $app = new Application($options);
-    // // 将响应输出
-    // $app->server->serve()->send();
-    return 'whatthefuck';
+    $options = [
+    'debug'  => true,
+    'app_id' => 'wxe1288621d8386e3c',
+    'secret' => '912527273869accea1d8cb794164f24f',
+    'token'  => 'whatthefuck',
+    // 'aes_key' => null, // 可选
+    'log' => [
+        'level' => 'debug',
+        'file'  => '/tmp/weixinwechat.log', // XXX: 绝对路径！！！！
+    ],
+    //...
+    ];
+    $app = new Application($options);
+    // 将响应输出
+    $app->server->serve()->send();
     }
 
 
