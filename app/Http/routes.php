@@ -18,6 +18,7 @@ Route::get('/', function (){return redirect('/articles');
 Route::resource('test1','Test1Controller');
 Route::resource('test','TestController');
 Route::resource('test2','Test2Controller');
+Route::resource('weixingame','TestController@weixingame');
 Route::resource('gt','GtController');
 Route::resource('gt1','GtController@gt1');
 Route::resource('gt2','GtController@gt2');
