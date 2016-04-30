@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>朱迪调试滑动验证＋投票</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta id="token" name="token" value="{{ csrf_token() }}">
 <link href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
 <script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -141,6 +142,11 @@ display: inline-block;
 
 
 <script>
+$(document).ready(function (){
+    $.ajaxSetup({
+        headers: { 'X-CSRF-TOKEN': $('meta[name="token"]').attr('value') }
+    });
+});
 	// alert(document.documentElement.clientWidth);
 	var initGeetest = (function(window, document) {
 	    var random = function() {
@@ -210,7 +216,7 @@ display: inline-block;
 	} (window, document));
 	var tasteEle = document.getElementById("taste");
 	var popEle = document.getElementById("pop");
-	var successEle = document.getElementById("success");
+	//var successEle = document.getElementById("success");
 	//var loginBtn = document.getElementById("login");
 	var show = function(ele) {
 	    ele.className = ele.className.replace("hide", "show");
@@ -218,6 +224,7 @@ display: inline-block;
 	var hide = function(ele) {
 	    ele.className = ele.className.replace("show", "hide");
 	};
+	
 	window.init = function(config) {
 	    console.log(config);
 	    initGeetest({
@@ -255,6 +262,7 @@ display: inline-block;
 	        });
 	    });
 	};
+	
 	var validate = function(captcha, cb) {
 	    var values = captcha.getValidate();
 	    var query = "geetest_challenge=" + values.geetest_challenge + "&geetest_validate=" + values.geetest_validate + "&geetest_seccode=" + values.geetest_seccode + "&callback=handlerResult";
@@ -272,7 +280,7 @@ display: inline-block;
 	function() {
 		 window.myBookId = $(this).data('id');
 		 window.pathname = window.location.hostname;
-		 window.urll = 'https://'+pathname+'/gt/'+myBookId+'/upvote';
+		 window.urll = 'http://'+pathname+'/gt/'+myBookId+'/upvote';
 	    if (o) {
 	        o.refresh();
 	    }
