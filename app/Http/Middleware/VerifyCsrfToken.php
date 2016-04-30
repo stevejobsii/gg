@@ -13,5 +13,7 @@ class VerifyCsrfToken extends BaseVerifier
      */
     protected $except = [
         '/weixin/*',
+        'weixin',
+        '/weixin',
     ];
 }
