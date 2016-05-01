@@ -44,8 +44,8 @@ class WeixinController extends Controller
         //     ],
         // ];
         // $menu->add($buttons);
-        // Log::info('return response.');
-        // return $wechat->server->serve();
+        Log::info('return response.');
+        return $wechat->server->serve();
     }
 
     public function demo1()
