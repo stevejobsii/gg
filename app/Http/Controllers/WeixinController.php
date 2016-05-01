@@ -21,9 +21,16 @@ class WeixinController extends Controller
         return $server->serve();
     }
 
-    public function demo(Application $wechat)
+    public function demo1()
     {
-        // $wechat 则为容器中 EasyWeChat\Foundation\Application 的实例
+        $app = new Application($options);
+
+        $userService = $app->user;
+
+        $user = $userService->get($openId);
+
+        echo $user->nickname; 
+
     }
 
     public function weixingame(Request $request)

@@ -20,6 +20,7 @@ Route::resource('test2','Test2Controller');
 
 #------weixin----------
 Route::any('/weixin', 'WeixinController@serve');
+Route::any('/weixin/demo1', 'WeixinController@demo1');
 Route::resource('weixingame','WeixinController@weixingame');
 
 
