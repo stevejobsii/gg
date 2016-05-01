@@ -1,5 +1,4 @@
-<?php
-
+<?php 
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -15,7 +14,6 @@ class WeixinController extends Controller
     {
         Log::info('request arrived.'); 
         $server = app('wechat')->server;
-
         $server->setMessageHandler(function($message){
             return "欢迎关注 overtrue！";
         });
