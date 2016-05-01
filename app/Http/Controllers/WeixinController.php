@@ -20,6 +20,7 @@ class WeixinController extends Controller
         });
         
         $menu = $wechat->menu;
+        $menus = $menu->current();
         $buttons = [
             [
                 "type" => "click",
