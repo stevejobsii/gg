@@ -18,30 +18,30 @@ class WeixinController extends Controller
             return "欢迎访问兔朱迪的窝！"; 
         });
         
-        $menu = $wechat->menu;
-        $buttons = [
-            [
-                "type" => "click",
-                "name" => "今日歌曲",
-                "key"  => "V1001_TODAY_MUSIC"
-            ],
-            [
-                "name"       => "菜单",
-                "sub_button" => [
-                    [
-                        "type" => "view",
-                        "name" => "搜索",
-                        "url"  => "http://www.soso.com/"
-                    ],
-                    [
-                        "type" => "view",
-                        "name" => "视频",
-                        "url"  => "http://v.qq.com/"
-                    ],
-                ],
-            ],
-        ];
-        $menu->add($buttons);
+        // $menu = $wechat->menu;
+        // $buttons = [
+        //     [
+        //         "type" => "click",
+        //         "name" => "今日歌曲",
+        //         "key"  => "V1001_TODAY_MUSIC"
+        //     ],
+        //     [
+        //         "name"       => "菜单",
+        //         "sub_button" => [
+        //             [
+        //                 "type" => "view",
+        //                 "name" => "搜索",
+        //                 "url"  => "http://www.soso.com/"
+        //             ],
+        //             [
+        //                 "type" => "view",
+        //                 "name" => "视频",
+        //                 "url"  => "http://v.qq.com/"
+        //             ],
+        //         ],
+        //     ],
+        // ];
+        // $menu->add($buttons);
         Log::info('return response.');
         return $wechat->server->serve();
     }
