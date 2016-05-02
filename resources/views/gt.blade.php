@@ -135,7 +135,7 @@ display: inline-block;
 
 <script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-				<script src="http://static.geetest.com/static/tools/gt.js"></script>
+				<script src="https://static.geetest.com/static/tools/gt.js"></script>
 				<script>
 				$(document).ready(function (){
 				    $.ajaxSetup({
@@ -160,7 +160,6 @@ display: inline-block;
 				        // 获取id，challenge，success（是否启用failback）
 				        url: "gt1?rand="+Math.round(Math.random()*100),
 				        type: "get",
-				        width: "301px",
 				        dataType: "json", // 使用jsonp格式
 				        success: function (data) {
 				            // 使用initGeetest接口
