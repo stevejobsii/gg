@@ -22,11 +22,17 @@ class GtController extends Controller
     public function index()
     {
         $articles = DB::table('articles')->simplepaginate(3);
-        // return view('gt',compact('articles'));
+         //return view('gt',compact('articles'));
         return view('geet',compact('articles'));
     }
-    
 
+    public function mygtid()
+    {
+        $articles = DB::table('articles')->simplepaginate(3);
+        return view('gt',compact('articles'));
+    }
+
+    
     public function gt1()
     {
         $GtSdk = new GeetestLib(CAPTCHA_ID, PRIVATE_KEY);
@@ -35,16 +41,19 @@ class GtController extends Controller
         $status = $GtSdk->pre_process($user_id);
         $_SESSION['gtserver'] = $status;
         $_SESSION['user_id'] = $user_id;
-        echo $GtSdk->get_response_str();
+
+        echo  $GtSdk->get_response_str();
     }
 
-    public function gt2()
-    {
+    public function gt2(Request $request)
+    {  
+       // return 'dfsf';
+        //return $request->geetest_challenge;
         session_start();
         $GtSdk = new GeetestLib(CAPTCHA_ID, PRIVATE_KEY);
         $user_id = $_SESSION['user_id'];
         if ($_SESSION['gtserver'] == 1) {
-            $result = $GtSdk->success_validate($_POST['geetest_challenge'], $_POST['geetest_validate'], $_POST['geetest_seccode'], $user_id);
+            $result = $GtSdk->success_validate($request->geetest_challenge, $request->geetest_validate, $request->geetest_seccode, $user_id);
             if ($result) {
                 echo 'Yes!';
             } else{

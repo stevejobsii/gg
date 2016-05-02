@@ -203,7 +203,7 @@ var sign;
   function jsonpCallback(data) {
     sign = data.sign;
     wx.config({
-      debug: false,
+      debug: true,
       appId: 'wxe1288621d8386e3c',
       timestamp: sign.timestamp,
       nonceStr: sign.nonceStr,
@@ -222,20 +222,27 @@ var sign;
   script_elem.src = str + href;
   document.body.appendChild(script_elem);
   
-wx.onMenuShareAppMessage({
-    title: '你能戳几下？', // 分享标题
-    desc: '戳了-999下！请您不要用脚点，用手行么！', // 分享描述
-    link: 'http://gdws.cn/2016gamecs/index.html', // 分享链接
-    imgUrl: 'http://gdws.cn/2016gamecs/index.html/public/images/screenshot.jpg', // 分享图标
-    type: '', // 分享类型,music、video或link，不填默认为link
-    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
-    success: function () { 
-        // 用户确认分享后执行的回调函数
-    },
-    cancel: function () { 
-        // 用户取消分享后执行的回调函数
-    }
+
+$('#onMenuShareAppMessage').click(function() {
+    alert('dfds');
+	wx.onMenuShareAppMessage({
+	    title: '你能戳几下？', // 分享标题
+	    desc: '戳了-999下！请您不要用脚点，用手行么！', // 分享描述
+	    link: 'http://gdws.cn/2016gamecs/index.html', // 分享链接
+	    imgUrl: 'http://gdws.cn/2016gamecs/index.html/public/images/screenshot.jpg', // 分享图标
+	    type: '', // 分享类型,music、video或link，不填默认为link
+	    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+	    success: function () { 
+	        // 用户确认分享后执行的回调函数	
+	        alert('d');
+	    },
+	    cancel: function () { 
+	        // 用户取消分享后执行的回调函数
+	        alert('df');
+	    }
+	});
 });
+
 </script>
 </body>
 </html>

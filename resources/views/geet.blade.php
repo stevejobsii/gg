@@ -223,7 +223,6 @@ $(document).ready(function (){
 	var hide = function(ele) {
 	    ele.className = ele.className.replace("show", "hide");
 	};
-	
 	window.init = function(config) {
 	    console.log(config);
 	    initGeetest({
@@ -260,8 +259,7 @@ $(document).ready(function (){
 	            });
 	        });
 	    });
-	};
-	
+	};	
 	var validate = function(captcha, cb) {
 	    var values = captcha.getValidate();
 	    var query = "geetest_challenge=" + values.geetest_challenge + "&geetest_validate=" + values.geetest_validate + "&geetest_seccode=" + values.geetest_seccode + "&callback=handlerResult";
@@ -271,10 +269,12 @@ $(document).ready(function (){
 	    document.body.appendChild(script);
 	    window.handlerResult = cb;
 	};
+	
 	var script = document.createElement("script");
 	script.src = "https://webapi.geetest.com/apis/start-mobile-captcha/?callback=init";
 	script.charset = "utf-8";
 	document.body.appendChild(script);
+	//点击点赞按钮
 	$('.login').on("click",
 	function() {
 		 window.myBookId = $(this).data('id');
@@ -286,6 +286,7 @@ $(document).ready(function (){
 	    //alert(urll);
 	    show(popEle);
 	});
+	//隐藏＃pop
 	popEle.addEventListener("click",
 	function() {
 	    hide(popEle);

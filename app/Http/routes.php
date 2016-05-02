@@ -26,8 +26,9 @@ Route::resource('weixingame','WeixinController@weixingame');
 
 #------geetest---------
 Route::resource('gt','GtController');
-Route::resource('gt1','GtController@gt1');
-Route::resource('gt2','GtController@gt2');
+Route::any('mygtid','GtController@mygtid');
+Route::any('gt1','GtController@gt1');
+Route::any('gt2','GtController@gt2');
 Route::post('/gt/{photo}/upvote', 
         ['as' => 'gt.upvote',
         'uses' => 'GtController@upvote'])->before('csrf');
