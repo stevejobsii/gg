@@ -17,33 +17,25 @@ class WeixinController extends Controller
         $wechat->server->setMessageHandler(function($message){
             return "欢迎访问兔朱迪的窝！"; 
         });
-        
-        // $menu = $wechat->menu;
-        // $buttons = [
-        //     [
-        //         "type" => "click",
-        //         "name" => "今日歌曲",
-        //         "key"  => "V1001_TODAY_MUSIC"
-        //     ],
-        //     [
-        //         "name"       => "菜单",
-        //         "sub_button" => [
-        //             [
-        //                 "type" => "view",
-        //                 "name" => "搜索",
-        //                 "url"  => "http://www.soso.com/"
-        //             ],
-        //             [
-        //                 "type" => "view",
-        //                 "name" => "视频",
-        //                 "url"  => "http://v.qq.com/"
-        //             ],
-        //         ],
-        //     ],
-        // ];
-        // $menu->add($buttons);
         Log::info('return response.');
         return $wechat->server->serve();
+    }
+
+    public function weixingame()
+    {
+        $wechat = app('wechat');
+        $js = $wechat->js;
+        return view('weixingame',compact('js'));
+    }
+
+    public function jssdk()
+    {
+        $wechat = app('wechat');
+        $js = $wechat->js;
+
+
+
+
     }
 
     public function demo1()
@@ -56,10 +48,5 @@ class WeixinController extends Controller
 
         echo $user->nickname; 
 
-    }
-
-    public function weixingame(Request $request)
-    {
-        return view('weixingame');
     }
 }

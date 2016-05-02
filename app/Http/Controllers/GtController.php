@@ -14,11 +14,7 @@ define("CAPTCHA_ID", "6ec021792ad83ec2c0743ec6bcbc1074");
 define("PRIVATE_KEY", "54959c09c8d89670480d1cdbb4c8cb49");
 class GtController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $articles = DB::table('articles')->simplepaginate(3);
@@ -47,8 +43,6 @@ class GtController extends Controller
 
     public function gt2(Request $request)
     {  
-       // return 'dfsf';
-        //return $request->geetest_challenge;
         session_start();
         $GtSdk = new GeetestLib(CAPTCHA_ID, PRIVATE_KEY);
         $user_id = $_SESSION['user_id'];
@@ -68,12 +62,6 @@ class GtController extends Controller
         }
     }
 
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function upvote($photo,Request $request)
     {
                     $article = \App\Article::where('photo', $photo)->firstOrFail();
@@ -85,61 +73,5 @@ class GtController extends Controller
                     $article->increment('vote_count', 1);
                     }
                     return $article->vote_count;       
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }
