@@ -10,8 +10,8 @@ use App\Http\Controllers\Controller;
 use App\Article as Article;
 use DB;
 
-define("CAPTCHA_ID", "b46d1900d0a894591916ea94ea91bd2c");
-define("PRIVATE_KEY", "36fc3fe98530eea08dfc6ce76e3d24c4");
+define("CAPTCHA_ID", "3945d747904af599d23d2f287b4055c6");
+define("PRIVATE_KEY", "2388884d50fc63a350392eb1e9de1c6b");
 class GtController extends Controller
 {
     /**
