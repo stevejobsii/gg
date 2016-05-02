@@ -206,7 +206,7 @@ display: inline-block;
 						window.myBookId = $(this).data('id');
 					    window.pathname = window.location.hostname;
 						window.urll = 'https://'+pathname+'/gt/'+myBookId+'/upvote';
-						if (typeof maybeObject != "undefined") {
+						if (typeof o != "undefined") {
 					        o.refresh();
 					    }
 					    //alert(urll);
