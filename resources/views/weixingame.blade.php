@@ -202,7 +202,7 @@ function hideCover() {
 wx.config(<?php echo $js->config(array('onMenuShareQQ', 'onMenuShareWeibo','onMenuShareAppMessage'), true) ?>);
 
  
-
+wx.ready(function () {
 document.querySelector('#onMenuShareAppMessage').onclick = function () {
     wx.onMenuShareAppMessage({
         title: '你能戳几下？', // 分享标题
@@ -225,7 +225,7 @@ document.querySelector('#onMenuShareAppMessage').onclick = function () {
     });
     alert('已注册获取“发送给朋友”状态事件');
   };
-
+});
 
   
 
