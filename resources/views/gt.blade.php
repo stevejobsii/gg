@@ -151,15 +151,16 @@ display: inline-block;
 				        width: '100%',
 				        dataType: "json", // 使用jsonp格式
 				        success: function (data) {
+				        	//console.log(data);
 				            // 使用initGeetest接口
 				            // 参数1：配置参数，与创建Geetest实例时接受的参数一致
 				            // 参数2：回调，回调的第一个参数验证码对象，之后可以使用它做appendTo之类的事件
 				            initGeetest({
-				            	width: "301px",
 				                gt: data.gt,
-				                challenge: data.challenge,
-				                product: "embed", // 产品形式
-				                offline: !data.success
+						        challenge: data.challenge,
+						        product: "embed",
+						        width: "301px",
+						        offline: !data.success
 				                //更多前端参数配置 http://www.geetest.com/install/sections/idx-client-sdk.html#config-para
 				            }, 
 							function(obj) {
@@ -172,7 +173,7 @@ display: inline-block;
 								            });
 								        });
 								        o.onSuccess(function() {
-								            validate(o)		            
+								            validate(o)	            
 								        });
 				            });
 				        }
@@ -205,7 +206,7 @@ display: inline-block;
 						window.myBookId = $(this).data('id');
 					    window.pathname = window.location.hostname;
 						window.urll = 'https://'+pathname+'/gt/'+myBookId+'/upvote';
-						if (o) {
+						if (typeof maybeObject != "undefined") {
 					        o.refresh();
 					    }
 					    //alert(urll);
