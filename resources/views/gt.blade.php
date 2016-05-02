@@ -38,18 +38,6 @@ width: 260px;
 overflow: hidden;
 display: inline-block;
 }
-.font-28 {
-font-size: 28px;
-}
-.font-15 {
-font-size: 15px;
-}
-.font-14 {
-font-size: 14px;
-}
-.font-16 {
-font-size: 16px;
-}
 .btn {
 line-height: 40px;
 cursor: pointer;
@@ -160,12 +148,14 @@ display: inline-block;
 				        // 获取id，challenge，success（是否启用failback）
 				        url: "gt1?rand="+Math.round(Math.random()*100),
 				        type: "get",
+				        width: '100%',
 				        dataType: "json", // 使用jsonp格式
 				        success: function (data) {
 				            // 使用initGeetest接口
 				            // 参数1：配置参数，与创建Geetest实例时接受的参数一致
 				            // 参数2：回调，回调的第一个参数验证码对象，之后可以使用它做appendTo之类的事件
 				            initGeetest({
+				            	width: "301px",
 				                gt: data.gt,
 				                challenge: data.challenge,
 				                product: "embed", // 产品形式

@@ -269,7 +269,7 @@ $(document).ready(function (){
 	    document.body.appendChild(script);
 	    window.handlerResult = cb;
 	};
-	
+
 	var script = document.createElement("script");
 	script.src = "https://webapi.geetest.com/apis/start-mobile-captcha/?callback=init";
 	script.charset = "utf-8";

@@ -14,8 +14,7 @@ class TestController extends Controller
 
     public function index(Request $request)
     {
-    	//return view('chen');
-    	return 'dfd';
+    	return view('chen');
     }
 
 }
