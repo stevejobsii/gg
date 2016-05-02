@@ -199,31 +199,32 @@ function hideCover() {
 </footer>
 <script type="text/javascript"src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script type="text/javascript">
-wx.config(<?php echo $js->config(array('onMenuShareQQ', 'onMenuShareWeibo'), true) ?>);
+wx.config(<?php echo $js->config(array('onMenuShareQQ', 'onMenuShareWeibo','onMenuShareAppMessage'), true) ?>);
 
  
 
-$('#onMenuShareAppMessage').click(function onBridgeReady() {
-			WeixinJSBridge.call('showOptionMenu');
-		WeixinJSBridge.on('menu:share:appmessage', function(argv) {
-			WeixinJSBridge.invoke('sendAppMessage', {
-				"img_url": window.shareData.imgUrl,
-				"link": window.shareData.link,
-				"desc": window.shareData.desc,
-				"title": window.shareData.title
-			}, function(res) {
-			})
-		});
-		WeixinJSBridge.on('menu:share:timeline', function(argv) {
-			WeixinJSBridge.invoke('shareTimeline', {
-				"img_url": window.shareData.imgUrl,
-				"link": window.shareData.link,
-				"desc": window.shareData.desc,
-				"title": window.shareData.title
-			}, function(res) {
-			});
-		});
-	}, false);
+document.querySelector('#onMenuShareAppMessage').onclick = function () {
+    wx.onMenuShareAppMessage({
+      title: '互联网之子',
+      desc: '在长大的过程中，我才慢慢发现，我身边的所有事，别人跟我说的所有事，那些所谓本来如此，注定如此的事，它们其实没有非得如此，事情是可以改变的。更重要的是，有些事既然错了，那就该做出改变。',
+      link: 'http://movie.douban.com/subject/25785114/',
+      imgUrl: 'http://demo.open.weixin.qq.com/jssdk/images/p2166127561.jpg',
+      trigger: function (res) {
+        // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+        alert('用户点击发送给朋友');
+      },
+      success: function (res) {
+        alert('已分享');
+      },
+      cancel: function (res) {
+        alert('已取消');
+      },
+      fail: function (res) {
+        alert(JSON.stringify(res));
+      }
+    });
+    alert('已注册获取“发送给朋友”状态事件');
+  };
 
 
   
