@@ -204,7 +204,7 @@ wx.ready(function () {
 document.querySelector('#onMenuShareAppMessage').onclick = function () {
     wx.onMenuShareAppMessage({
         title: '你能戳几下？', // 分享标题
-        url: "http://gdws.cn/2016gamecs/index.html", // 分享链接
+        link: "http://gdws.cn/2016gamecs/index.html", // 分享链接
         imgUrl: 'http://gdws.cn/2016gamecs/index.html/public/images/screenshot.jpg', // 分享图标
         desc: "戳了-999下！请您不要用脚点，用手行么！",
         domain:"http://gdws.cn",
