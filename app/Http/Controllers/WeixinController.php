@@ -18,7 +18,8 @@ class WeixinController extends Controller
             return "欢迎访问广州市浩立生物科技有限公司！"; 
         });
 
-        $menu = app('wechat')->menu;
+        $app = new Application($options);
+        $menu = $app->menu;
         $buttons = [
             [
                 "type" => "click",
