@@ -12,13 +12,12 @@ class WeixinController extends Controller
 {
     public function serve()
     {
-        Log::info('request arrived.'); 
-        $wechat = app('wechat');
-        $wechat->server->setMessageHandler(function($message){
+        $server = app('wechat')->server;
+        $server->setMessageHandler(function($message){
             return "欢迎访问广州市浩立生物科技有限公司！"; 
         });
         Log::info('return response.');
-        return $wechat->server->serve();
+        return $erver->serve();
     }
 
     public function weixingame()
