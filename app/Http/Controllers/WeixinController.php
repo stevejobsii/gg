@@ -15,7 +15,7 @@ class WeixinController extends Controller
         Log::info('request arrived.'); 
         $wechat = app('wechat');
         $wechat->server->setMessageHandler(function($message){
-            return "欢迎访问兔朱迪的窝！"; 
+            return "欢迎访问广州市浩立生物科技有限公司！"; 
         });
         Log::info('return response.');
         return $wechat->server->serve();
