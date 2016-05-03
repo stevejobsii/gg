@@ -18,30 +18,30 @@ class WeixinController extends Controller
             return "欢迎访问广州市浩立生物科技有限公司！"; 
         });
         
-        $menu = app('wechat')->menu;
-        $buttons = [
-            [
-                "type" => "click",
-                "name" => "网易",
-                "key"  => "www.163.com"
-            ],
-            [
-                "name"       => "菜单",
-                "sub_button" => [
-                    [
-                        "type" => "view",
-                        "name" => "搜索",
-                        "url"  => "http://www.soso.com/"
-                    ],
-                    [
-                        "type" => "view",
-                        "name" => "视频",
-                        "url"  => "http://v.qq.com/"
-                    ],
-                ],
-            ],
-        ];
-        $menu->add($buttons);
+        // $menu = app('wechat')->menu;
+        // $buttons = [
+        //     [
+        //         "type" => "click",
+        //         "name" => "网易",
+        //         "key"  => "www.163.com"
+        //     ],
+        //     [
+        //         "name"       => "菜单",
+        //         "sub_button" => [
+        //             [
+        //                 "type" => "view",
+        //                 "name" => "搜索",
+        //                 "url"  => "http://www.soso.com/"
+        //             ],
+        //             [
+        //                 "type" => "view",
+        //                 "name" => "视频",
+        //                 "url"  => "http://v.qq.com/"
+        //             ],
+        //         ],
+        //     ],
+        // ];
+        // $menu->add($buttons);
 
         Log::info('return response.');
         return $server->serve();
