@@ -17,9 +17,8 @@ class WeixinController extends Controller
         $server->setMessageHandler(function($message){
             return "欢迎访问广州市浩立生物科技有限公司！"; 
         });
-
-        $app = new Application($options);
-        $menu = $app->menu;
+        
+        $menu = app('wechat')->menu;
         $buttons = [
             [
                 "type" => "click",
