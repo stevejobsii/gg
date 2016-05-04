@@ -120,6 +120,7 @@ class GtController extends Controller
                 $CC = $checks[$i]%4;
                 if($CC != $str_array[$i]) {
                     flash()->error('GOOD JOB!', '验证码错误');
+                    Session::forget('captcha');
                     return Redirect::back();
                 }
                 if($i==3){
