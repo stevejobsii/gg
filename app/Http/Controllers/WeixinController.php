@@ -16,7 +16,7 @@ class WeixinController extends Controller
         $userService = app('wechat')->user;
         $server = app('wechat')->server;
         $server->setMessageHandler(function($message){
-            return "欢迎"+$userService->nickname+'访问广州市浩立生物科技有限公司！"; 
+            return "欢迎"+$userService->nickname+"访问广州市浩立生物科技有限公司！"; 
         });
         
         $menu = app('wechat')->menu;
