@@ -76,7 +76,7 @@
 		</div>
 
         <div id="pop" class="hide">
-            <form id="captcha" action="/mgjcheck" method="post">
+            <form id="captcha" action="" method="post">
 				<a class="aim aim1" href="#"></a>
 				<a class="aim aim2" href="#"></a>
 				<a class="aim aim3" href="#"></a>
@@ -128,6 +128,7 @@
 	$('.zan').on("click",
 	    function() {
 		myBookId = $(this).data('id');
+		$('#captcha').attr("action", "/mgjcheck?" + Math.round(Math.random()*100));
         $('input[name="photopath"]').val(myBookId);
 	    show(popEle);
 	});
