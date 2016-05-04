@@ -133,7 +133,6 @@ class GtController extends Controller
                     $article->votes()->create(['user_id' => $request->ip()]);
                     $article->increment('vote_count', 1);
                     }
-                    Session::forget('captcha');
                     return Redirect::back(); 
                 }
             }
