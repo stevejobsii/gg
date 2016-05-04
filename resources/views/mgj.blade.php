@@ -54,6 +54,7 @@
 
 </head>
 <body>
+	@include('flash')
     <div class="container">
 		<div class="header">
 			朱迪调试滑动验证＋投票
@@ -140,6 +141,5 @@
 	    hide(popEle);
 	}); 
 </script>
-	@include('flash')
 </body>
 </html>
