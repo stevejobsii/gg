@@ -196,10 +196,10 @@ wx.config(<?php echo $js->config(array('onMenuShareQQ', 'onMenuShareWeibo','onMe
 
   document.querySelector('#onMenuShareAppMessage').onclick = function () {
     wx.onMenuShareAppMessage({
-     title: '你能戳几下？', // 分享标题
-    desc: '戳了-999下！请您不要用脚点，用手行么！', // 分享描述
+     title: '戳了-999下！请您不要用脚点，用手行么！', // 分享标题
+   // desc: '戳了-999下！请您不要用脚点，用手行么！', // 分享描述
     link: 'http://gdws.cn/2016gamecs/index.html', // 分享链接
-    imgUrl: 'http://gdws.cn/2016gamecs/index.html/public/images/screenshot.jpg', 
+    imgUrl: 'http://gdws.cn/2016gamecs/public/images/screenshot.jpg', 
       trigger: function (res) {
         // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
         alert('用户点击发送给朋友');
