@@ -197,7 +197,7 @@ wx.config(<?php echo $js->config(array('onMenuShareQQ', 'onMenuShareWeibo','onMe
   document.querySelector('#onMenuShareAppMessage').onclick = function () {
     wx.onMenuShareAppMessage({
      title: '戳了-999下！请您不要用脚点，用手行么！', // 分享标题
-   // desc: '戳了-999下！请您不要用脚点，用手行么！', // 分享描述
+    desc: 'gdws.cn', // 分享描述
     link: 'http://gdws.cn/2016gamecs/index.html', // 分享链接
     imgUrl: 'http://gdws.cn/2016gamecs/public/images/screenshot.jpg', 
       trigger: function (res) {
