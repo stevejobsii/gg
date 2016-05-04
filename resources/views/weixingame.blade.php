@@ -194,6 +194,15 @@ function hideCover() {
 <script type="text/javascript">
 wx.config(<?php echo $js->config(array('onMenuShareQQ', 'onMenuShareWeibo','onMenuShareAppMessage'), true) ?>);
 wx.ready(function () {
+
+	 //检查相应的接口api是否要用  
+        wx.checkJsApi({  
+              jsApiList: [  
+                  'onMenuShareAppMessage'  
+              ]  
+        });  
+
+
 document.querySelector('#onMenuShareAppMessage').onclick = function () {
     wx.onMenuShareAppMessage({
        title: '互联网之子',
