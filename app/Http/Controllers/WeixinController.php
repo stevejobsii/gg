@@ -22,8 +22,8 @@ class WeixinController extends Controller
         $buttons = [
             [
                 "type" => "click",
-                "name" => "网易",
-                "key"  => "www.163.com"
+                "name" => "浩立主页",
+                "key"  => "www.hao-li.net"
             ],
             [
                 "name"       => "菜单",
