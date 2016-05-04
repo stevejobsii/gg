@@ -193,17 +193,8 @@ function hideCover() {
 <script type="text/javascript"src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script type="text/javascript">
 wx.config(<?php echo $js->config(array('onMenuShareQQ', 'onMenuShareWeibo','onMenuShareAppMessage'), true) ?>);
-wx.ready(function () {
 
-	 //检查相应的接口api是否要用  
-        wx.checkJsApi({  
-              jsApiList: [  
-                  'onMenuShareAppMessage'  
-              ]  
-        });  
-
-
-document.querySelector('#onMenuShareAppMessage').onclick = function () {
+  document.querySelector('#onMenuShareAppMessage').onclick = function () {
     wx.onMenuShareAppMessage({
        title: '互联网之子',
       desc: '在长大的过程中，我才慢慢发现，我身边的所有事，别人跟我说的所有事，那些所谓本来如此，注定如此的事，它们其实没有非得如此，事情是可以改变的。更重要的是，有些事既然错了，那就该做出改变。',
@@ -225,7 +216,6 @@ document.querySelector('#onMenuShareAppMessage').onclick = function () {
     });
     alert('已注册获取“发送给朋友”状态事件');
   };
-});
 
   
 
