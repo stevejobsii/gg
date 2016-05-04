@@ -119,7 +119,9 @@ class GtController extends Controller
                 $CC = $checks[$i]%4;
                 if($CC != $str_array[$i]) {
                     flash()->error('GOOD JOB!', '验证码错误');
+                    Session::forget('captcha');
                     return Redirect::back();
+                    break;
                 }
                 if($i==3){
                     flash()->success('GOOD JOB!', '验证码正确');
@@ -136,6 +138,7 @@ class GtController extends Controller
                 }
             }
         } else {
+            Session::forget('captcha');
                     $articles = DB::table('articles')->simplepaginate(3);
                     return view('mgj',compact('articles'));
         };
