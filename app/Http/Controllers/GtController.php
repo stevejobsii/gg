@@ -112,8 +112,7 @@ class GtController extends Controller
 
     public function mgjcheck(Request $request)
     {   
-        if(isset($_POST["ckeck"])){
-            $captcha = $request->session()->get('captcha');
+        if(null !== ($captcha = $request->session()->get('captcha'))){
             $checks = $_POST["ckeck"];
             $str_array = isset($captcha) ? explode(",",$captcha): array();
             for($i=0;$i<4;$i++){
@@ -138,7 +137,9 @@ class GtController extends Controller
                     return view('mgj',compact('articles'));
                 }
             }
-        }
-        return 'sfsfs';
+        } else {
+                    $articles = DB::table('articles')->simplepaginate(3);
+                    return view('mgj',compact('articles'));
+        };
     }
 }
