@@ -128,7 +128,7 @@
 	$('.zan').on("click",
 	    function() {
 		myBookId = $(this).data('id');
-		$('#captcha').attr("action", "/mgjcheck?" + Math.round(Math.random()*100));
+		$('#captcha').attr("action", "/mgjcheck?" + Math.round(Math.random()*1000));
         $('input[name="photopath"]').val(myBookId);
 	    show(popEle);
 	});
