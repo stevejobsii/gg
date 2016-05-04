@@ -54,7 +54,6 @@
 
 </head>
 <body>
-	@include('flash')
     <div class="container">
 		<div class="header">
 			朱迪调试滑动验证＋投票
@@ -98,7 +97,6 @@
 <script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="//cdn.bootcss.com/sweetalert/1.1.2/sweetalert.min.js"></script>
 <script type="text/javascript">
-  
     $(document).ready(function (){
     	$('#captcha a.aim').click(function(e){
 			e.preventDefault();
@@ -107,9 +105,7 @@
 				_m = m>0 ? (m + 1) : 1,
 				x,y,
 				arr = [];		
-		
 				arr = $.trim( $(this).css("background-position").replace(/\s{2,}/ig, "")).split(" ");
-
 			x = parseInt( arr[0].replace("px", "") ),
 			y = parseInt( arr[1].replace("px", "") );
 			y = y-80 > -320 ? (y-80):0;
@@ -141,5 +137,6 @@
 	    hide(popEle);
 	}); 
 </script>
+	@include('flash')
 </body>
 </html>
