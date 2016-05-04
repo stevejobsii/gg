@@ -14,15 +14,14 @@
 Route::get('/home',function (){return redirect('/articles'); });
 Route::get('/', function (){return redirect('/articles');
 });
-Route::resource('test1','Test1Controller');
 Route::resource('test','TestController');
-Route::resource('test2','Test2Controller');
+Route::any('test1','TestController@test1');
+Route::any('test2','Test2Controller@test2');
 
 #------weixin----------
 Route::any('/weixin', 'WeixinController@serve');
 Route::any('/weixin/demo1', 'WeixinController@demo1');
-Route::resource('weixingame','WeixinController@weixingame');
-
+Route::any('weixingame','WeixinController@weixingame');
 
 #------geetest---------
 Route::resource('gt','GtController');
@@ -32,6 +31,8 @@ Route::any('gt2','GtController@gt2');
 Route::post('/gt/{photo}/upvote', 
         ['as' => 'gt.upvote',
         'uses' => 'GtController@upvote'])->before('csrf');
+#------蘑菇街验证码-------
+Route::any('mgjyz','GtController@mgjyz');
 # ------------------ article stuff ------------------------
 Route::resource('articles','ArticlesController');
 Route::post('/articles/{photo}/upvote', 

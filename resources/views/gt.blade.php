@@ -118,9 +118,6 @@ display: inline-block;
 		    	<div id="captcha"></div>
 		</div>
 	</div>   
-
-
-
 <script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 				<script src="https://static.geetest.com/static/tools/gt.js"></script>
@@ -132,8 +129,6 @@ display: inline-block;
 				});
 				var tasteEle = document.getElementById("taste");
 				var popEle = document.getElementById("pop");
-				//var successEle = document.getElementById("success");
-				//var loginBtn = document.getElementById("login");
 				var show = function(ele) {
 				    ele.className = ele.className.replace("hide", "show");
 				};
@@ -218,8 +213,6 @@ display: inline-block;
 					    hide(popEle);
 					}); 
 				</script>
-					
-
 		</div>
 	</div>
 </body>
