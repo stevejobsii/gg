@@ -21,9 +21,9 @@ class WeixinController extends Controller
         $menu = app('wechat')->menu;
         $buttons = [
             [
-                "type" => "click",
+                "type" => "view",
                 "name" => "浩立主页",
-                "key"  => "www.hao-li.net"
+                "key"  => "http://www.hao-li.net"
             ],
             [
                 "name"       => "菜单",
