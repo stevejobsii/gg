@@ -119,7 +119,7 @@ class GtController extends Controller
                 $CC = $checks[$i]%4;
                 if($CC != $str_array[$i]) {
                     flash()->error('GOOD JOB!', '验证码错误');
-                    Session::forget('captcha');
+                   // Session::forget('captcha');
                     return Redirect::back();
                     break;
                 }
@@ -133,7 +133,7 @@ class GtController extends Controller
                     $article->votes()->create(['user_id' => $request->ip()]);
                     $article->increment('vote_count', 1);
                     }
-                    Session::forget('captcha');
+                   // Session::forget('captcha');
                     return Redirect::back();
                 }
             }
