@@ -137,5 +137,7 @@ class GtController extends Controller
                 }
             }
         }
+        Session::forget('captcha');
+        return Redirect::back(); 
     }
 }
