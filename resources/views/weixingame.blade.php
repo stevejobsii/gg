@@ -192,14 +192,14 @@ function hideCover() {
 </footer>
 <script type="text/javascript"src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script type="text/javascript">
-wx.config(<?php echo $js->config(array('onMenuShareQQ', 'onMenuShareWeibo','onMenuShareAppMessage'), true) ?>);
+wx.config(<?php echo $js->config(array('onMenuShareQQ', 'onMenuShareWeibo','onMenuShareAppMessage',), true) ?>);
 
   document.querySelector('#onMenuShareAppMessage').onclick = function () {
     wx.onMenuShareAppMessage({
-       title: '互联网之子',
-      desc: '在长大的过程中，我才慢慢发现，我身边的所有事，别人跟我说的所有事，那些所谓本来如此，注定如此的事，它们其实没有非得如此，事情是可以改变的。更重要的是，有些事既然错了，那就该做出改变。',
-      link: 'https://goodgoto.com',
-      imgUrl: 'https://goodgoto.com/images/catalog/30avatardefault.jpg',
+     title: '你能戳几下？', // 分享标题
+    desc: '戳了-999下！请您不要用脚点，用手行么！', // 分享描述
+    link: 'http://gdws.cn/2016gamecs/index.html', // 分享链接
+    imgUrl: 'http://gdws.cn/2016gamecs/index.html/public/images/screenshot.jpg', 
       trigger: function (res) {
         // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
         alert('用户点击发送给朋友');
