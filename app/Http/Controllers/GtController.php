@@ -121,6 +121,7 @@ class GtController extends Controller
                 if($CC != $str_array[$i]) {
                     flash()->error('GOOD JOB!', '验证码错误');
                     Session::forget('captcha');
+                    sleep(2);
                     return Redirect::back();
                 }
                 if($i==3){
@@ -134,6 +135,7 @@ class GtController extends Controller
                     $article->increment('vote_count', 1);
                     }
                     Session::forget('captcha');
+                    sleep(2);
                     return Redirect::back(); 
                 }
             }
