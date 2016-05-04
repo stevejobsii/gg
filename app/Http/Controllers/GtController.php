@@ -7,15 +7,15 @@ use App\good\gt\lib\geetestlib;
 use App\good\gt\config\config;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Article as Article;
+use App\Article;
 use DB;
-//use Intervention\Image\ImageManagerStatic as Image;
+use Session;
+use Redirect;
 
 define("CAPTCHA_ID", "6ec021792ad83ec2c0743ec6bcbc1074");
 define("PRIVATE_KEY", "54959c09c8d89670480d1cdbb4c8cb49");
 class GtController extends Controller
 {
-    public $session_var = 'captcha';
 
     public function index()
     {
@@ -77,9 +77,8 @@ class GtController extends Controller
                     return $article->vote_count;       
     }
 
-    public function mgjyz()
+    public function img()
     {
-        session_start();
         header("Content-Type:image/jpeg", true);
         $str = array();// 储存4幅图片旋转的信息
         
@@ -100,11 +99,43 @@ class GtController extends Controller
                 $GG--;
             }
         };
+        Session::put('captcha',implode(",", $str));
+        //$_SESSION['captcha'] = implode(",", $str);  // 数组变成字符串，储存到SESSION  
+        $image = imagejpeg($dests); // 将图片以流的形式输出
+    }
 
-        //$image = imagejpeg($dests);
-        //return implode(",", $str);
-        $_SESSION[$this->session_var] = implode(",", $str);  // 数组变成字符串，储存到SESSION
-        //return $image;    // 将图片以流的形式输出
-        $image = imagejpeg($dests);
+    public function mgjyz()
+    {
+        $articles = DB::table('articles')->simplepaginate(3);
+        return view('mgj',compact('articles'));
+    }
+
+    public function mgjcheck(Request $request)
+    {   
+        if(isset($_POST["ckeck"])){
+            $captcha = $request->session()->get('captcha');
+            $checks = $_POST["ckeck"];
+            $str_array = isset($captcha) ? explode(",",$captcha): array();
+            for($i=0;$i<4;$i++){
+                $CC = $checks[$i]%4;
+                if($CC != $str_array[$i]) {
+                    flash()->error('GOOD JOB!', '验证码错误');
+                    return Redirect::back();
+                }
+                if($i==3){
+                    flash()->success('GOOD JOB!', '验证码正确');
+                    $article = \App\Article::where('photo', $request->photopath)->firstOrFail();
+                    if ($article->votes()->ByWhom($request->ip())->count()) {
+                    $article->votes()->ByWhom($request->ip())->delete();
+                    $article->decrement('vote_count', 1);
+                    } else {
+                    $article->votes()->create(['user_id' => $request->ip()]);
+                    $article->increment('vote_count', 1);
+                    }
+                    Session::forget('captcha');
+                    return Redirect::back(); 
+                }
+            }
+        }
     }
 }

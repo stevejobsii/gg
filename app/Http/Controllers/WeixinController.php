@@ -23,7 +23,7 @@ class WeixinController extends Controller
             [
                 "type" => "view",
                 "name" => "浩立主页",
-                "url"  => "http://www.hao-li.net"
+                "url"  => "http://www.hao-li.net/"
             ],
             [
                 "name"       => "菜单",

@@ -33,6 +33,8 @@ Route::post('/gt/{photo}/upvote',
         'uses' => 'GtController@upvote'])->before('csrf');
 #------蘑菇街验证码-------
 Route::any('mgjyz','GtController@mgjyz');
+Route::get('mgjimg','GtController@img');
+Route::post('mgjcheck','GtController@mgjcheck');
 # ------------------ article stuff ------------------------
 Route::resource('articles','ArticlesController');
 Route::post('/articles/{photo}/upvote', 
