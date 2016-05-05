@@ -32,17 +32,27 @@ class WeixinController extends Controller
                 "url"  => "http://www.hao-li.net/"
             ],
             [
-                "name"       => "菜单",
+                "name"       => "产品介绍",
                 "sub_button" => [
                     [
                         "type" => "view",
-                        "name" => "搜索",
-                        "url"  => "http://www.soso.com/"
+                        "name" => "分子蒸馏",
+                        "url"  => "https://goodgo.com/fzzl"
                     ],
                     [
                         "type" => "view",
-                        "name" => "视频",
-                        "url"  => "http://v.qq.com/"
+                        "name" => "水蒸气蒸馏",
+                        "url"  => "https://goodgo.com/szqzl"
+                    ],
+                    [
+                        "type" => "view",
+                        "name" => "超临界萃取",
+                        "url"  => "https://goodgo.com/cljqc"
+                    ],
+                    [
+                        "type" => "view",
+                        "name" => "超重力分离",
+                        "url"  => "https://goodgo.com/czlfl"
                     ],
                 ],
             ],

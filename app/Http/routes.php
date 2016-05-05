@@ -16,7 +16,7 @@ Route::get('/', function (){return redirect('/articles');
 });
 Route::resource('test','TestController');
 Route::any('test1','TestController@test1');
-Route::any('test2','Test2Controller@test2');
+Route::any('test2','TestController@test2');
 
 #------weixin----------
 Route::any('/weixin', 'WeixinController@serve');
@@ -35,6 +35,13 @@ Route::post('/gt/{photo}/upvote',
 Route::any('mgjyz','GtController@mgjyz');
 Route::get('mgjimg','GtController@img');
 Route::post('mgjcheck','GtController@mgjcheck');
+
+#------浩立微信----------
+Route::get('haoli/fzzl','HaoliController@fzzl');
+Route::get('haoli/szqzl','HaoliController@szqzl');
+Route::get('haoli/cljqc','HaoliController@cljqc');
+Route::get('haoli/czlfl','HaoliController@czlfl');
+
 # ------------------ article stuff ------------------------
 Route::resource('articles','ArticlesController');
 Route::post('/articles/{photo}/upvote', 
