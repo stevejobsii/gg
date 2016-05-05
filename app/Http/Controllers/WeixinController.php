@@ -20,7 +20,7 @@ class WeixinController extends Controller
                             'title'       => '欢迎访问广州市浩立生物科技有限公司！',
                             'description' => '广州市浩立生物科技有限公司是一家与华南理工大学共同携手合作，专业从事分子蒸馏、水蒸气蒸馏、超临界CO2萃取、超重力场等高新提纯、分离技术研究开发的高科技企业，我们致力于：天然产物、香料、化工材料等技术的研发与应用，以及分离提纯设备、化工及香料生产设备、化工仪表仪器、香料及化工等相关设备的设计制造。',
                             'url'         => 'http://www.hao-li.net/',
-                            'image'       => 'http://www.hao-li.net/images/p1.jpg',
+                            'image'       => 'http://www.hao-li.net/images/hua_02.jpg',
                             ]);
         });
         
