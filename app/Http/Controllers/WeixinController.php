@@ -37,22 +37,22 @@ class WeixinController extends Controller
                     [
                         "type" => "view",
                         "name" => "分子蒸馏",
-                        "url"  => "https://goodgo.com/fzzl"
+                        "url"  => "https://goodgo.com/haoli/fzzl"
                     ],
                     [
                         "type" => "view",
                         "name" => "水蒸气蒸馏",
-                        "url"  => "https://goodgo.com/szqzl"
+                        "url"  => "https://goodgo.com/haoli/szqzl"
                     ],
                     [
                         "type" => "view",
                         "name" => "超临界萃取",
-                        "url"  => "https://goodgo.com/cljqc"
+                        "url"  => "https://goodgo.com/haoli/cljqc"
                     ],
                     [
                         "type" => "view",
                         "name" => "超重力分离",
-                        "url"  => "https://goodgo.com/czlfl"
+                        "url"  => "https://goodgo.com/haoli/czlfl"
                     ],
                 ],
             ],
