@@ -12,21 +12,21 @@ class HaoliController extends Controller
 
     public function fzzl()
     {
-        return 'sdfsd';
+        return view('haoli.fzzl');
     }
 
     public function szqzl()
     {
-        //
+        return view('haoli.szqzl');
     }
 
     public function cljqc()
     {
-        //
+        return view('haoli.cljqc');
     }
 
     public function czlfl()
     {
-        //
+        return view('haoli.czlfl');
     }
 }
