@@ -144,6 +144,8 @@ return [
         ///Laravel\Socialite\SocialiteServiceProvider::class,
         SocialiteProviders\Manager\ServiceProvider::class,
         Overtrue\LaravelWechat\ServiceProvider::class,
+        //跨站请求
+       // Barryvdh\Cors\ServiceProvider::class,
         /*
          * Application Service Providers...
          */

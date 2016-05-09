@@ -36,11 +36,17 @@ Route::any('mgjyz','GtController@mgjyz');
 Route::get('mgjimg','GtController@img');
 Route::post('mgjcheck','GtController@mgjcheck');
 
-#------浩立微信----------
+#------浩立微信-----------
 Route::get('haoli/fzzl','HaoliController@fzzl');
 Route::get('haoli/szqzl','HaoliController@szqzl');
 Route::get('haoli/cljqc','HaoliController@cljqc');
 Route::get('haoli/czlfl','HaoliController@czlfl');
+
+#------h13---------------
+//Route::resource('h13','h13Controller');
+Route::group(['middleware' => 'cors'], function(){
+    Route::any('h13', 'h13Controller@index');
+});
 
 # ------------------ article stuff ------------------------
 Route::resource('articles','ArticlesController');
