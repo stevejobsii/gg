@@ -14,16 +14,24 @@ class WeixinController extends Controller
     public function serve()
     {
         Log::info('request arrived.'); 
-        $server = app('wechat')->server;
+        $app = app('wechat');
+        $server = $app->server;
         $server->setMessageHandler(function($message){
             return new News([
                             'title'       => '欢迎访问广州市浩立生物科技有限公司！',
-                            'description' => '广州市浩立生物科技有限公司是一家与华南理工大学共同携手合作，专业从事分子蒸馏、水蒸气蒸馏、超临界CO2萃取、超重力场等高新提纯、分离技术研究开发的高科技企业，我们致力于：天然产物、香料、化工材料等技术的研发与应用，以及分离提纯设备、化工及香料生产设备、化工仪表仪器、香料及化工等相关设备的设计制造。',
+                            'description' => '浩立与华南理工大学共同携手合作，专业分子蒸馏、水蒸气蒸馏、超临界CO2萃取、超重力场等高新提纯、分离技术研究开发。致力于：天然产物、香料、化工材料等研发与应用；分离提纯设备、化工及香料生产设备、香料及化工等设备设计制造。',
                             'url'         => 'http://www.hao-li.net/',
                             'image'       => 'http://www.hao-li.net/Upload/PicFiles/2011.9.11_15.5.41_8683.jpg',
                             ]);
         });
-        
+
+        // $userService = $app->user; // 用户API
+
+        // $user = $userService->get($openId);
+
+        // // $user 便是一个 EasyWeChat\Support\Collection 实例
+        // $user['nickname'];
+
         $menu = app('wechat')->menu;
         $buttons = [
             [
@@ -74,9 +82,6 @@ class WeixinController extends Controller
     {
         $wechat = app('wechat');
         $js = $wechat->js;
-
-
-
 
     }
 
