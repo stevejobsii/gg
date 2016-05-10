@@ -43,10 +43,10 @@ Route::get('haoli/cljqc','HaoliController@cljqc');
 Route::get('haoli/czlfl','HaoliController@czlfl');
 
 #------h13---------------
-//Route::resource('h13','h13Controller');
-Route::group(['middleware' => 'cors'], function(){
-    Route::any('h13', 'h13Controller@index');
-});
+Route::resource('h13','h13Controller');
+// Route::group(['middleware' => 'cors'], function(){
+//     Route::get('h13', 'h13Controller@index');
+// });
 
 # ------------------ article stuff ------------------------
 Route::resource('articles','ArticlesController');

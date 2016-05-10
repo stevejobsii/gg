@@ -7,12 +7,12 @@
       <meta name="apple-mobile-web-app-capable" content="yes">
       <meta name="apple-mobile-web-app-status-bar-style" content="black">
       <title>健康榜资讯网</title>   
-      <link rel="stylesheet" href="http://k100.cn/k100web/css/pintuer.css">
+      <link rel="stylesheet" href="{{ url('/css/h133.css') }}">
       <link rel="stylesheet" href="http://k100.cn/k100web/css/index.css">
       <link rel="stylesheet" href="http://k100.cn/k100web/css/v2.css">
       <link href="http://k100.cn/k100web/css/bootstrap.min.css" rel="stylesheet">
-      <link href="http://k100.cn/k100web/css/font-awesome.min.css" rel="stylesheet">
       <link rel="stylesheet" href="{{ url('/css/h13.css') }}">
+
  </head>
 <body>
 
@@ -67,7 +67,7 @@
 <div style="clear:both;"></div>
 
 <!-- 轮显图片样式模块  start-->
-<div class="kyb_home_banner">
+<div class="kyb_home_banner" id="top-change-pic">
  <div class="bankcar_banner">
     <div id="section_Banner" >
         <ul>
@@ -87,9 +87,9 @@
   </div>
 </div>
 <!-- 轮显图片样式模块  end-->
-<!-- 轮显图片样式脚本-->
+
 <div style="clear:both;"></div>
- <DIV class="container" style=" position:relative;">
+ <DIV class="container"  style=" position:relative;">
   <div class="kyb_phb">
    <div class="kyb_phb_wrapper">
     <img style="position:absolute; top:32px; left:18px; z-index:111;" src="http://k100.cn/k100web/images/rtb_04.png">
@@ -194,6 +194,7 @@
 
   <DIV class="row" >
     <DIV class="col-xs-12 col-md-8 articles main categorys-border" style=" margin-right:10px;  background-color:#FFF; margin-bottom:15px;/*padding-top:10px;*/">
+     <!-- 标签 -->
      <div class="container" style=" width:auto;">
       <div class="row">
         <div class="col-xs-12 categorys"  style="border-top: 1px solid #e6e6e6; border-bottom: 1px solid #e6e6e6; ">
@@ -219,13 +220,13 @@
         </div>
       </div>
      </div>
- 
+     <!-- 标签 end-->
+  
+     <!-- 内容 -->
      <div class="home_box">
-      <ul class="home_box_ul" id="jzgd">
-       
-
-      </ul>
+     @include('h13.ul')
      </div>
+     <!-- 内容 end-->
        
      <div style="padding:0px 10px;"> <div class="bootstrap_btn" id="moreinfo" ><a href="javascript:void(0)">加载更多</a></div> 
       <input type="hidden" value="402881e64e2078f3014e207978b3005d" id="lmid" />
@@ -234,98 +235,104 @@
 
     </DIV>
     
-    <div class="col-xs-12 col-md-4 side" style=" /* margin-left:10px;padding-right:10px; */  ">           
-            <div style="border: 1px solid #e6e6e6; margin-bottom:13px;background-color:#FFF;" >                   
-              <div class="ep-title-2 clearfix">
-                       <a href="#">焦点健康资讯</a> 
-                  <span class="entry"><a href="http://k100.cn/k100web/web/wxnopmsg/infolist">更多>> </a></span>
-               </div>
-               <div class="js-xwtj">
-                <ul class="recommend hotAuthorList pl0" style="padding-bottom:10px;"> 
-                  <style type="text/css">
-                </style>       
-                  <li>      
-                      <DIV class="articleThumbnail pull-left">
-                      <A title="" href="" target="_blank">
-                     <IMG class="articleImg" width="100%" height="100%" title="" alt="" src="http://k100.cn/attachments/customerimages/20150715/0624e6f2-3d4d-4301-b17c-4d80231900a6">
-                      </A>
-                      </DIV>
-                      <DIV class="articleInfo">
-                            <P class="des"><a href="http://k100.cn/k100web/web/wxnopmsg/getInfo?id=8af4db6c4e9026bf014e90371eb20002" target="_blank">顺时养生|三伏艾灸注意事项+食疗养生！一定要看</a></P>
-                            <p class="articleInfo_wb"><span style="float:left;">健康生活</span><span style="float:right; margin-right:10px;">07-15</span></p>
-                           </DIV>
-                  </li>                    
-                  </ul>
-               </div>
-        </div>
+    <!-- sidebar -->
+    <div class="col-xs-12 col-md-4 side" style=" /* margin-left:10px;padding-right:10px; */  ">   
+       <div id="side-bar-related-height">        
+                <div style="border: 1px solid #e6e6e6; margin-bottom:13px;background-color:#FFF;" >                   
+                  <div class="ep-title-2 clearfix">
+                           <a href="#">焦点健康资讯</a> 
+                      <span class="entry"><a href="http://k100.cn/k100web/web/wxnopmsg/infolist">更多>> </a></span>
+                   </div>
+                   <div class="js-xwtj">
+                    <ul class="recommend hotAuthorList pl0" style="padding-bottom:10px;"> 
+                      <style type="text/css">
+                    </style>       
+                      <li>      
+                          <DIV class="articleThumbnail pull-left">
+                          <A title="" href="" target="_blank">
+                         <IMG class="articleImg" width="100%" height="100%" title="" alt="" src="http://k100.cn/attachments/customerimages/20150715/0624e6f2-3d4d-4301-b17c-4d80231900a6">
+                          </A>
+                          </DIV>
+                          <DIV class="articleInfo">
+                                <P class="des"><a href="http://k100.cn/k100web/web/wxnopmsg/getInfo?id=8af4db6c4e9026bf014e90371eb20002" target="_blank">顺时养生|三伏艾灸注意事项+食疗养生！一定要看</a></P>
+                                <p class="articleInfo_wb"><span style="float:left;">健康生活</span><span style="float:right; margin-right:10px;">07-15</span></p>
+                               </DIV>
+                      </li>                    
+                      </ul>
+                   </div>
+                </div>
  
        
          
-<div style="border: 1px solid #e6e6e6; margin-top:13px; margin-bottom:13px;background-color:#FFF;" >  
+          <div style="border: 1px solid #e6e6e6; margin-top:13px; margin-bottom:13px;background-color:#FFF;" >  
 
-    <div class="ep-title-2 clearfix">
-         <a href="#">访问量最大的公众号</a> 
+              <div class="ep-title-2 clearfix">
+                   <a href="#">访问量最大的公众号</a> 
+              </div>
+
+              <div class="js-xwtj">
+              <ul class="recommend hotAuthorList pl0">   
+              
+                <li><div class="authorImg">
+                            <a href="http://k100.cn/k100web/web/wxnopmsg/gzh?id=8af4db6c4ed86869014ed872eb980002" title="美图美文心语">
+                                <img src="http://k100.cn/attachments/photos/47/31/e0ce9e1050ed80cd1ae05d754687" title="" alt=""/></a>
+                                <span class="home_gzh_ico_tb"></span>
+                    </div>
+                    <div class="authorInfo">
+                        <p class="nickname mb5">
+                            <a href="http://k100.cn/k100web/web/wxnopmsg/gzh?id=8af4db6c4ed86869014ed872eb980002" title="美图美文心语">美图美文心语</a></p>
+                        <p class="directions mb0">
+                            周访问量：13284</p>
+                        <p class="hotArticle">
+                            最热文章：<a target="_blank" href="http://k100.cn/k100web/web/wxnopmsg/content?id=8af4db6c4ed8908f014ed89849820050" title="">像她一样优雅地老去</a></p>
+                    </div>
+                </li>
+                
+                <li><div class="authorImg">
+                          <a href="http://k100.cn/k100web/web/wxnopmsg/gzh?id=402881e64e2090ac014e213ccf45092f" title="硬派健身">
+                              <img src="http://k100.cn/attachments/photos/39c9306fd8a0eb93665391137e128e3e" title="" alt=""/></a>
+                                <span class="home_gzh_ico_tb"></span>
+                  </div>
+                  <div class="authorInfo">
+                          <p class="nickname mb5">
+                              <a href="http://k100.cn/k100web/web/wxnopmsg/gzh?id=402881e64e2090ac014e213ccf45092f" title="硬派健身">硬派健身</a></p>
+                          <p class="directions mb0">
+                              周访问量：47527</p>
+                          <p class="hotArticle">
+                              最热文章：<a target="_blank" href="http://k100.cn/k100web/web/wxnopmsg/content?id=8af4db6c4edd45cd014edd6a89c000c2" title="">减肥，到底怎么吃才对？！</a></p>
+                  </div>
+                </li>
+                
+                <li><div class="authorImg">
+                          <a href="http://k100.cn/k100web/web/wxnopmsg/gzh?id=402881e64e2090ac014e2135cef408ef" title="健康生活百科">
+                              <img src="http://k100.cn/attachments/photos/682857535628cf602136c1e266f2759f" title="" alt=""/></a>
+                                <span class="home_gzh_ico_tb"></span>
+                  </div>
+                  <div class="authorInfo">
+                      <p class="nickname mb5">
+                          <a href="http://k100.cn/k100web/web/wxnopmsg/gzh?id=402881e64e2090ac014e2135cef408ef" title="健康生活百科">健康生活百科</a></p>
+                      <p class="directions mb0">
+                          周访问量：6456</p>
+                      <p class="hotArticle">
+                          最热文章：<a target="_blank" href="http://k100.cn/k100web/web/wxnopmsg/content?id=402881e84ec57566014ec577d3820000" title="">惊呆了，经常爬山的人，最终会有这样的结果....</a></p>
+                  </div>
+                </li>     
+              </ul>
+              </div>
+            </div>   
+
+            <div class="home_yyzx">
+              <div class="home_yyzx_title"><p style="float:left;">医药资讯</p><span style="*margin-right:3px;"><a href="http://k100.cn/phb?lm_id=402881e64e2078f3014e20797af5005f">更多>> </a></span> </div>
+              <div class="home_yyzx_cont">
+                 <ul>                   
+                </ul>
+              </div>
+            </div>
+
     </div>
-
-    <div class="js-xwtj">
-    <ul class="recommend hotAuthorList pl0">   
     
-      <li><div class="authorImg">
-                  <a href="http://k100.cn/k100web/web/wxnopmsg/gzh?id=8af4db6c4ed86869014ed872eb980002" title="美图美文心语">
-                      <img src="http://k100.cn/attachments/photos/47/31/e0ce9e1050ed80cd1ae05d754687" title="" alt=""/></a>
-                      <span class="home_gzh_ico_tb"></span>
-          </div>
-          <div class="authorInfo">
-              <p class="nickname mb5">
-                  <a href="http://k100.cn/k100web/web/wxnopmsg/gzh?id=8af4db6c4ed86869014ed872eb980002" title="美图美文心语">美图美文心语</a></p>
-              <p class="directions mb0">
-                  周访问量：13284</p>
-              <p class="hotArticle">
-                  最热文章：<a target="_blank" href="http://k100.cn/k100web/web/wxnopmsg/content?id=8af4db6c4ed8908f014ed89849820050" title="">像她一样优雅地老去</a></p>
-          </div>
-      </li>
-      
-      <li><div class="authorImg">
-                <a href="http://k100.cn/k100web/web/wxnopmsg/gzh?id=402881e64e2090ac014e213ccf45092f" title="硬派健身">
-                    <img src="http://k100.cn/attachments/photos/39c9306fd8a0eb93665391137e128e3e" title="" alt=""/></a>
-                      <span class="home_gzh_ico_tb"></span>
-        </div>
-        <div class="authorInfo">
-                <p class="nickname mb5">
-                    <a href="http://k100.cn/k100web/web/wxnopmsg/gzh?id=402881e64e2090ac014e213ccf45092f" title="硬派健身">硬派健身</a></p>
-                <p class="directions mb0">
-                    周访问量：47527</p>
-                <p class="hotArticle">
-                    最热文章：<a target="_blank" href="http://k100.cn/k100web/web/wxnopmsg/content?id=8af4db6c4edd45cd014edd6a89c000c2" title="">减肥，到底怎么吃才对？！</a></p>
-        </div>
-      </li>
-      
-      <li><div class="authorImg">
-                <a href="http://k100.cn/k100web/web/wxnopmsg/gzh?id=402881e64e2090ac014e2135cef408ef" title="健康生活百科">
-                    <img src="http://k100.cn/attachments/photos/682857535628cf602136c1e266f2759f" title="" alt=""/></a>
-                      <span class="home_gzh_ico_tb"></span>
-        </div>
-        <div class="authorInfo">
-            <p class="nickname mb5">
-                <a href="http://k100.cn/k100web/web/wxnopmsg/gzh?id=402881e64e2090ac014e2135cef408ef" title="健康生活百科">健康生活百科</a></p>
-            <p class="directions mb0">
-                周访问量：6456</p>
-            <p class="hotArticle">
-                最热文章：<a target="_blank" href="http://k100.cn/k100web/web/wxnopmsg/content?id=402881e84ec57566014ec577d3820000" title="">惊呆了，经常爬山的人，最终会有这样的结果....</a></p>
-        </div>
-      </li>     
-    </ul>
-    </div>
-</div>   
-
-    <div class="home_yyzx">
-      <div class="home_yyzx_title"><p style="float:left;">医药资讯</p><span style="*margin-right:3px;"><a href="http://k100.cn/phb?lm_id=402881e64e2078f3014e20797af5005f">更多>> </a></span> </div>
-      <div class="home_yyzx_cont">
-         <ul>                   
-        </ul>
-      </div>
-    </div>
- 
+    <!-- sticky -->
+    <div  id="sticky">
     <div class="ep-title-2 clearfix" style="margin-top:13px; margin-bottom:0px;border: 1px solid #e6e6e6;">
             <a href="#">24小时热点阅读</a>
         <span class="entry"><a href="/k100web/web/wxnopmsg/rdyd_phb">进入热点阅读</a></span>
@@ -364,15 +371,17 @@
                 <a href="http://k100.cn/k100web/web/wxnopmsg/content?id=8a2d3ad34ef78517014ef78a031a0001">糖友眼花当心视网膜病变</a></h3>
         </li>    
     </ul>
- 
+    </div>
+    <!-- sticky end-->
 
 
       </div>   
     </DIV>
   </DIV>
+ <!-- sidebar end-->
  
- 
-<div class="kyb_footer">
+ <!-- footer -->
+ <div class="kyb_footer">
   <div class="kyb_footer_cont">
     <div class="kyb_footer_left">
     <ul>
@@ -399,25 +408,27 @@
       本站文章来自网友的提交收录，版权归作者所有<br>
       如有权益问题请及时与我们联系处理 </div>
   </div>
-</div>
+ </div>
+ <!-- footer end-->
 
-<div class="scroll-top-down">
+ <div class="scroll-top-down">
     <div class="scroll-top">
         <a href="#"><i class="fa  fa-angle-up"></i></a>
     </div>
      <div class="scroll-down">
         <a href="#siteFooter"><i class="fa fa-angle-down"></i></a>
     </div>
-</div>
+ </div>
 
     <script type="text/javascript"  src="//cdn.bootcss.com/jquery/2.2.2/jquery.min.js"></script>
-    <script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="{{ url('/js/bootstrap.min.js') }}"></script>
     <script type="text/javascript"  src="http://k100.cn/k100web/js/pintuer.js"></script>
     <script type="text/javascript"  src="http://k100.cn/k100web/js/index.js"></script>
     <script type="text/javascript"  src="http://k100.cn/k100web/js/jquery.qrcode.min.js"></script>
     <script type="text/javascript">
     //新上榜公众号排行榜
-    $(document).ready(function(){  
+    $(document).ready(function(){ 
+
       $(".home_wx_photo").hover(
           function(){
           $(this).children(".home_ico_gz").children(".home_wx_boxrq").css({"display":"block"});
@@ -451,7 +462,7 @@
           $(this).children("a").children("span").removeClass("tab_ico_more_hover");  
           $(this).children(".tab_ico_cont").css({"display":"none"});
         }
-      );   
+      ); 
     });
     //头三名橙色颜色
     var i;
@@ -502,13 +513,18 @@
       $('#moreinfo').click(function(){
          
         $.ajax({
+          //type : 'post',
+     //      headers :{
+     //       'Access-Control-Allow-Origin':'*',
+     // 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+     // 'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+     //      },
           url : 'http://k100.cn/k100web/web/wxnop/content_index;jsessionid=B199C7A247CAD46D84E26DD3AD6D4DB2',
           dataType : 'json',
           data : {
             _t : new Date().getTime(),
             id:$("#lmid").val(),
-            currentpage:$("#pages").val(),
-            headers:{'Access-Control-Allow-Origin':'*'}
+            currentpage:$("#pages").val()
              
           },
           success : function(data) {
@@ -610,7 +626,32 @@
         });
       
     });
+
+
+    //sticky粘性side-bar
+    $(function(){ // document ready
+        // returns number 
+        $(window).scroll(function(){ // scroll event
+          var stickyTopshowmore = $('#side-bar-related-height').height()+$('#top-change-pic').height();
+          var stickybottom = $('.kyb_footer').offset().top-$('#sticky').height()-30;
+          var windowTop = $(window).scrollTop();
+         //alert(stickybottom);
+           // returns number 
+          var currentwidth = $('.js-xwtj').width();
+          if (stickyTopshowmore < windowTop){
+            $('#sticky').css({ position: 'fixed', top:15,width : currentwidth});
+          }
+          else {
+            $('#sticky').css('position','static');
+          }
+        });
+    });
+    //百度分享
+    //以下为js加载部分
+    with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+
     </script>
+
 
 </body>
 </html>

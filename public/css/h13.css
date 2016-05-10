@@ -1,3 +1,44 @@
+@font-face {font-family: "iconfont2";
+  src: url('../fonts/iconfont.eot'); /* IE9*/
+  src: url('../fonts/iconfont.eot?#iefix') format('embedded-opentype'), 
+  url('../fonts/iconfont.woff') format('woff'), 
+  url('../fonts/iconfont.ttf') format('truetype'); /* iOS 4.1- */
+}
+
+.iconfont2 {
+  font-family:"iconfont2" !important;
+  font-size:23px;
+  color: rgb(0,152,166);
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+.iconfont2:hover{
+  color:#81B441;
+}
+
+.icon2-weixin:before { content: "\e60c"; }
+.icon2-qqkongjian:before { content: "\e647"; }
+.icon2-weibo:before { content: "\e748"; }
+.icon2-qq:before { content: "\e746"; }
+
+#myAffix {
+    &.affix{
+    position: fixed;
+        top: 15px
+   }
+    
+    &.affix-top{
+    position: static;
+   }
+
+    &.affix-bottom{
+    position:absolute;
+   }
+}
+
+
 .demo-nav.fixed.fixed-top{z-index:8;background:#fff;width:100%;padding:0;border-bottom:solid 3px #0a8;-webkit-box-shadow:0 3px 6px rgba(0, 0, 0, .175);box-shadow:0 3px 6px rgba(0, 0, 0, .175);}
 @media (max-width: 800px) {
  .kyb_phb {

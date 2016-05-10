@@ -9,6 +9,11 @@ use App\Http\Controllers\Controller;
 
 class h13Controller extends Controller
 {
+    // public function __construct()
+    // {
+    //     $this->middleware('cors', ['except' => ['show','upvote']]);
+    // }
+
    /**
      * Display a listing of the resource.
      *
