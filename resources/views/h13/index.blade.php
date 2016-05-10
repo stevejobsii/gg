@@ -332,11 +332,12 @@
     </div>
     
     <!-- sticky -->
-    <div  id="sticky">
-    <div class="ep-title-2 clearfix" style="margin-top:13px; margin-bottom:0px;border: 1px solid #e6e6e6;">
+    <div  id="myaffix">
+    <div class="ep-title-2 clearfix" style="margin-top:10px; margin-bottom:0px;border: 1px solid #e6e6e6;">
             <a href="#">24小时热点阅读</a>
         <span class="entry"><a href="/k100web/web/wxnopmsg/rdyd_phb">进入热点阅读</a></span>
     </div>
+   
     <ul class="ep-imglist-1 clearfix" style="background-color:#FFF;">
         <li><a title="【健康头条】大病有保险！国务院正式发文：支付比例年内可望达50％以上" href="/k100web/web/wxnopmsg/content?id=8a2d3ad34ef78517014ef78caef30004">
             <img src="http://k100.cn/attachments/infoimages/e0/95/96e61a5eca8a5ccfa83b529a7928" alt="" width="130" height="90"></a><h3>
@@ -421,13 +422,15 @@
  </div>
 
     <script type="text/javascript"  src="//cdn.bootcss.com/jquery/2.2.2/jquery.min.js"></script>
-    <script src="{{ url('/js/bootstrap.min.js') }}"></script>
+    <script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script type="text/javascript"  src="http://k100.cn/k100web/js/pintuer.js"></script>
     <script type="text/javascript"  src="http://k100.cn/k100web/js/index.js"></script>
     <script type="text/javascript"  src="http://k100.cn/k100web/js/jquery.qrcode.min.js"></script>
     <script type="text/javascript">
     //新上榜公众号排行榜
     $(document).ready(function(){ 
+
+
 
       $(".home_wx_photo").hover(
           function(){
@@ -629,22 +632,36 @@
 
 
     //sticky粘性side-bar
-    $(function(){ // document ready
-        // returns number 
-        $(window).scroll(function(){ // scroll event
-          var stickyTopshowmore = $('#side-bar-related-height').height()+$('#top-change-pic').height();
-          var stickybottom = $('.kyb_footer').offset().top-$('#sticky').height()-30;
-          var windowTop = $(window).scrollTop();
-         //alert(stickybottom);
-           // returns number 
-          var currentwidth = $('.js-xwtj').width();
-          if (stickyTopshowmore < windowTop){
-            $('#sticky').css({ position: 'fixed', top:15,width : currentwidth});
-          }
-          else {
-            $('#sticky').css('position','static');
-          }
-        });
+    // $(function(){ // document ready
+    //     // returns number 
+    //     $(window).scroll(function(){ // scroll event
+    //       var stickyTopshowmore = $('#side-bar-related-height').height()+$('#top-change-pic').height();
+    //       var stickybottom = $('.kyb_footer').offset().top-$('#sticky').height()-30;
+    //       var windowTop = $(window).scrollTop();
+    //      //alert(stickybottom);
+    //        // returns number 
+    //       var currentwidth = $('.js-xwtj').width();
+    //       if (stickyTopshowmore < windowTop){
+    //         $('#sticky').css({ position: 'fixed', top:15,width : currentwidth});
+    //       }
+    //       else {
+    //         $('#sticky').css('position','static');
+    //       }
+    //     });
+    // });
+
+    //affix
+
+    $('#myaffix').affix({
+      offset: {
+        //top:500,
+        top: function () {
+          return (this.top = $('#side-bar-related-height').height()+$('#top-change-pic').height())
+        },
+        bottom: function () {
+          return (this.bottom = $('.kyb_footer').outerHeight(true)+10)
+        }
+      }
     });
     //百度分享
     //以下为js加载部分

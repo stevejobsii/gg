@@ -23,19 +23,12 @@
 .icon2-weibo:before { content: "\e748"; }
 .icon2-qq:before { content: "\e746"; }
 
-#myAffix {
-    &.affix{
-    position: fixed;
-        top: 15px
-   }
-    
-    &.affix-top{
-    position: static;
-   }
-
-    &.affix-bottom{
-    position:absolute;
-   }
+.affix {
+  top: 15px;
+  width: 291.33px;
+}
+.affix-bottom{
+  position: absolute;
 }
 
 
