@@ -53,7 +53,7 @@ class WeixinController extends Controller
                     ],
                     [
                         "type" => "view",
-                        "name" => "超重力分离aaa",
+                        "name" => "超重力分离",
                         "url"  => "https://goodgoto.com/weixin/user"
                     ],
                 ],
@@ -71,18 +71,11 @@ class WeixinController extends Controller
         return view('weixingame',compact('js'));
     }
 
-    public function jssdk()
-    {
-        $wechat = app('wechat');
-        $js = $wechat->js;
-
-    }
-
     public function weixinuser()
     {
         $user = session('wechat.oauth_user'); // 拿到授权用户资料        
-        dd($user);
-       // dd(Session::all());
+        dd($user->id,$user->getOriginal());
+        //dd($user);
     }
 
     // public function demo1()
