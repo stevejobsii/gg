@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use EasyWeChat\Foundation\Application as Application;
 use EasyWeChat\Message\News;
 use Wechat;
-use Sesion;
+use Session;
 
 class WeixinController extends Controller
 {
