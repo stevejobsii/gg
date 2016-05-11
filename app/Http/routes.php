@@ -22,8 +22,16 @@ Route::any('test2','TestController@test2');
 Route::any('/weixin', 'WeixinController@serve');
 Route::any('/weixin/demo1', 'WeixinController@demo1');
 Route::any('weixingame','WeixinController@weixingame');
+Route::any('/weixin/getweixinuserinfo','WeixinController@getweixinuserinfo')
+Route::any('/weixin/oauth_callback','WeixinController@oauth_callback')
+Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
+    Route::get('/weixin/user', function () {
+        $user = session('wechat.oauth_user'); // 拿到授权用户资料
 
-#------geetest---------
+        dd($user);
+    });
+});
+#------geetest验证码---------
 Route::resource('gt','GtController');
 Route::any('mygtid','GtController@mygtid');
 Route::any('gt1','GtController@gt1');
@@ -42,11 +50,8 @@ Route::get('haoli/szqzl','HaoliController@szqzl');
 Route::get('haoli/cljqc','HaoliController@cljqc');
 Route::get('haoli/czlfl','HaoliController@czlfl');
 
-#------h13---------------
+#------h13.cn页面前端---------------
 Route::resource('h13','h13Controller');
-// Route::group(['middleware' => 'cors'], function(){
-//     Route::get('h13', 'h13Controller@index');
-// });
 
 # ------------------ article stuff ------------------------
 Route::resource('articles','ArticlesController');

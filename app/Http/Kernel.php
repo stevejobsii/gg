@@ -30,6 +30,7 @@ class Kernel extends HttpKernel
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
+        'wechat.oauth' => \Overtrue\LaravelWechat\Middleware\OAuthAuthenticate::class,
         //'cors' =>  \Barryvdh\Cors\Middleware\HandleCors::class,
         //'weixin' =>  \App\Http\Middleware\weixin::class,
     ];

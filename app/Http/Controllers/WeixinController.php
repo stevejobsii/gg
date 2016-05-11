@@ -5,9 +5,10 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Log;
 use App\Http\Controllers\Controller;
-use EasyWeChat\Foundation\Application;
+use EasyWeChat\Foundation\Application as Application;
 use EasyWeChat\Message\News;
 use Wechat;
+use Sesion;
 
 class WeixinController extends Controller
 {
@@ -15,10 +16,6 @@ class WeixinController extends Controller
     {
         Log::info('request arrived.'); 
         $app = app('wechat');
-
-     
-        
-
         $server = $app->server;
         $server->setMessageHandler(function($message){
             return new News([
@@ -27,9 +24,8 @@ class WeixinController extends Controller
                             'url'         => 'http://www.hao-li.net/',
                             'image'       => 'http://www.hao-li.net/Upload/PicFiles/2011.9.11_15.5.41_8683.jpg',
                             ]);
-        });
-
-        $menu = app('wechat')->menu;
+        });//自动回复
+        $menu = $app->menu;
         $buttons = [
             [
                 "type" => "view",
@@ -57,13 +53,12 @@ class WeixinController extends Controller
                     [
                         "type" => "view",
                         "name" => "超重力分离",
-                        "url"  => "https://goodgoto.com/haoli/czlfl"
+                        "url"  => "https://goodgoto.com/weixin/getweixinuserinfo"
                     ],
                 ],
             ],
-        ];
+        ];//菜单
         $menu->add($buttons);
-
         Log::info('return response.');
         return $server->serve();
     }
@@ -82,15 +77,52 @@ class WeixinController extends Controller
 
     }
 
-    public function demo1()
+    // public function demo1()
+    // {
+    //     $app = new Application($options);
+    //     $userService = $app->user;
+    //     $user = $userService->get($openId);
+    //     echo $user->nickname; 
+    // }
+
+    public function getweixinuserinfo(Request $request)
     {
-        $app = new Application($options);
+        $config = [
+          'oauth' => [
+              'scopes'   => ['snsapi_userinfo'],
+              'callback' => 'weixin/oauth_callback',
+          ],
+        ];
 
-        $userService = $app->user;
+        $app = new Application($config);
+        $oauth = $app->oauth;
 
-        $user = $userService->get($openId);
+        // 未登录
+        if (!$request->session()->has('wechat_user')) {
 
-        echo $user->nickname; 
+          $request->session()->put('target_url','weixin/getweixinuserinfo');
 
+          return $oauth->redirect();
+          // 这里不一定是return，如果你的框架action不是返回内容的话你就得使用
+          // $oauth->redirect()->send();
+        }
+
+        // 已经登录过
+        $user = $request->session()->get('wechat_user');
+    }
+
+    public function oauth_callback()
+    {
+        $app = new Application($config);
+        $oauth = $app->oauth;
+
+        // 获取 OAuth 授权结果用户信息
+        $user = $oauth->user();
+
+        $_SESSION['wechat_user'] = $user->toArray();
+
+        $targetUrl = empty($_SESSION['target_url']) ? '/' : $_SESSION['target_url'];
+
+        header('location:'. $targetUrl);
     }
 }
