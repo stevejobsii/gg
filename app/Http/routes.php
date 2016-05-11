@@ -19,11 +19,12 @@ Route::any('test1','TestController@test1');
 Route::any('test2','TestController@test2');
 
 #------weixin----------
-Route::any('/weixin/user','WeixinController@weixinuser');
 Route::any('/weixin', 'WeixinController@serve');
 Route::any('/weixin/demo1', 'WeixinController@demo1');
 Route::any('weixingame','WeixinController@weixingame');
-
+Route::group(['middleware' => 'wechat.oauth'], function () {
+    Route::get('/weixin/user','WeixinController@weixinuser');
+});
 #------geetest验证码---------
 Route::resource('gt','GtController');
 Route::any('mygtid','GtController@mygtid');

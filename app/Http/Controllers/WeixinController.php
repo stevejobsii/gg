@@ -12,10 +12,6 @@ use Sesion;
 
 class WeixinController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('wechat.oauth');
-    }
 
     public function serve()
     {
