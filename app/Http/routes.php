@@ -20,7 +20,7 @@ Route::any('test2','TestController@test2');
 
 #------weixin----------
 Route::group(['middleware' => 'wechat.oauth'], function () {
-    Route::get('/weixin/user','WeixinController@weixinuser');
+    Route::any('/weixin/user','WeixinController@weixinuser');
     Route::any('/weixin', 'WeixinController@serve');
     Route::any('/weixin/demo1', 'WeixinController@demo1');
     Route::any('weixingame','WeixinController@weixingame');
