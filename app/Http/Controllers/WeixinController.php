@@ -77,52 +77,17 @@ class WeixinController extends Controller
 
     }
 
+    public function weixinuser()
+    {
+        $user = session('wechat.oauth_user'); // 拿到授权用户资料        
+        dd($user);
+    }
+
     // public function demo1()
     // {
     //     $app = new Application($options);
     //     $userService = $app->user;
     //     $user = $userService->get($openId);
     //     echo $user->nickname; 
-    // }
-
-    // public function getweixinuserinfo(Request $request)
-    // {
-    //     $config = [
-    //       'oauth' => [
-    //           'scopes'   => ['snsapi_userinfo'],
-    //           'callback' => 'weixin/oauth_callback',
-    //       ],
-    //     ];
-
-    //     $app = new Application($config);
-    //     $oauth = $app->oauth;
-
-    //     // 未登录
-    //     if (!$request->session()->has('wechat_user')) {
-
-    //       $request->session()->put('target_url','weixin/getweixinuserinfo');
-
-    //       return $oauth->redirect();
-    //       // 这里不一定是return，如果你的框架action不是返回内容的话你就得使用
-    //       // $oauth->redirect()->send();
-    //     }
-
-    //     // 已经登录过
-    //     $user = $request->session()->get('wechat_user');
-    // }
-
-    // public function oauth_callback()
-    // {
-    //     $app = new Application($config);
-    //     $oauth = $app->oauth;
-
-    //     // 获取 OAuth 授权结果用户信息
-    //     $user = $oauth->user();
-
-    //     $_SESSION['wechat_user'] = $user->toArray();
-
-    //     $targetUrl = empty($_SESSION['target_url']) ? '/' : $_SESSION['target_url'];
-
-    //     header('location:'. $targetUrl);
     // }
 }
