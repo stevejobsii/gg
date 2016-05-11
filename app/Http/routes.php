@@ -24,7 +24,7 @@ Route::any('/weixin/demo1', 'WeixinController@demo1');
 Route::any('weixingame','WeixinController@weixingame');
 Route::any('/weixin/getweixinuserinfo','WeixinController@getweixinuserinfo');
 Route::any('/weixin/oauth_callback','WeixinController@oauth_callback');
-Route::group(['middleware' => ['routeMiddleware', 'wechat.oauth']], function () {
+Route::group(['middleware' => 'wechat.oauth'], function () {
     Route::get('/weixin/user', function () {
         $user = session('wechat.oauth_user'); // 拿到授权用户资料
 
