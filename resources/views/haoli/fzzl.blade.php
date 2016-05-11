@@ -5,57 +5,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">	
     <title>朱迪作业</title>
-    <link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    <style> 	
-		@media (min-width: 350px){
-          body{
-	    	background:url(images/bg.png) no-repeat top center;
-            background-size:cover;		
-          }
-		}
-        @media (max-width: 350px){
-          body{
-	    	background:url(images/bg-lowerpixel.png) no-repeat top center;
-            background-size:cover;		
-          }
-        }
-        h5{
-			text-align: center;
-		}	
-        .wrap{
-            width:100%;
-        }
-        #title{
-        	margin-top: 15%;
-        	text-align: center;
-        }
-        #title img{
-        	max-width: 90%;
-        	max-height: 90%;
-        }
-		#footer{
-			bottom: 1%;
-			color: white;
-			position: absolute;
-	        width: 100%;
-		}
-		#second-layer div, #first-layer div{
-	        padding: 1px;
-		}
-        #first-layer {
-        	width:90%;
-        	margin-top: 10%;
-        }
- 
-		.link{
-			font-weight: bold;
-            width: 100%;
-			color: white;
-			font-size: 16px;
-			text-align: center;
-			margin-top: 5%;
-		}
-    </style>
+    <link rel="stylesheet" href="{{ url('/css/haoli.css') }}">
+
 </head>
 	<body id="body">
 	    <div id="title">
