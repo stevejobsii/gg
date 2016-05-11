@@ -15,5 +15,7 @@ class VerifyCsrfToken extends BaseVerifier
         'weixin',
         'mgjcheck',
         'h13',
+        'weixin/*',
+        'weixingame'
     ];
 }
