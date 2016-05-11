@@ -53,7 +53,7 @@ class WeixinController extends Controller
                     [
                         "type" => "view",
                         "name" => "超重力分离",
-                        "url"  => "https://goodgoto.com/weixin/getweixinuserinfo"
+                        "url"  => "https://goodgoto.com/weixin/user"
                     ],
                 ],
             ],
