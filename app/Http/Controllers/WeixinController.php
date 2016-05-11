@@ -79,7 +79,7 @@ class WeixinController extends Controller
         $app = app('wechat');
         $userService = $app->user;
         $user = $userService->get($openId);
-        dd($user->getNickname());
+        dd($user->nickname);
     }
 
     // public function demo1()
