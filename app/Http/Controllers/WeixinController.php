@@ -73,8 +73,11 @@ class WeixinController extends Controller
 
     public function weixinuser()
     {
-        $user = session('wechat.oauth_user'); // 拿到授权用户资料        
-        dd($user->id,$user->getNickname());
+        $app = app('wechat');
+        $userService = $app->user;
+        $user = session('wechat.oauth_user'); // 拿到授权用户资料   
+        $user = $userService->get($user->id);            
+        dd($user);
         //dd($user);
     }
 
