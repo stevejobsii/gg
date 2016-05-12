@@ -29,6 +29,7 @@ Route::group(['middleware' => 'wechat.oauth'], function () {
 });
 Route::get('/weixin/materials','MaterialController@materials');
 Route::any('/weixin/staffs','WeixinController@staffs');
+//Route::any('/weixin/staff')
 
 #------geetest验证码---------
 Route::resource('gt','GtController');
