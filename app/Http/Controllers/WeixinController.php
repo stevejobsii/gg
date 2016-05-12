@@ -25,9 +25,9 @@ class WeixinController extends Controller
                     if($message->Event=='subscribe'){
                         return '欢迎'.$userApi->get($message->FromUserName)->nickname.'关注广州市浩立生物科技有限公司！';
                     }
-                    if($message->Event=='click'){
+                    if($message->Event=='CLICK'){
                         switch($message->EventKey){
-                            case'HYJCY': 
+                            case'hyjcy': 
                                 return '还原基础油';
                                 break;
                             case'GCHYSZ': 
@@ -76,7 +76,7 @@ class WeixinController extends Controller
                     [
                         "type" => "click",
                         "name" => "还原基础油",
-                        "key"  => "HYJCY"
+                        "key"  => "hyjcy"
                     ],
                     [
                         "type" => "click",
