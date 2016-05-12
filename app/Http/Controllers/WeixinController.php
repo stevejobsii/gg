@@ -65,7 +65,7 @@ class WeixinController extends Controller
                 break;
                 case'text':
                     $transfer = new \EasyWeChat\Message\Transfer();
-                    //$transfer->account('kf2001@better_technology');
+                    echo '欢迎'.$userApi->get($message->FromUserName)->nickname.'访问广州市浩立生物科技有限公司！';
                     return $transfer;
                 break;
                 default:
