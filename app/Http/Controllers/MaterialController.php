@@ -13,7 +13,7 @@ class MaterialController extends Controller
 
     public function __construct(Application $material)
     {
-        $this->material = $material;
+        $this->material = $material->material;
     }
 
     public function materials()
