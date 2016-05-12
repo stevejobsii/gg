@@ -27,7 +27,7 @@ class WeixinController extends Controller
                     }
                     if($message->Event=='CLICK'){
                         switch($message->EventKey){
-                            case'hyjcy': 
+                            case'HYJCY': 
                                 return '还原基础油';
                                 break;
                             case'GCHYSZ': 
@@ -76,7 +76,7 @@ class WeixinController extends Controller
                     [
                         "type" => "click",
                         "name" => "还原基础油",
-                        "key"  => "hyjcy"
+                        "key"  => "HYJCY"
                     ],
                     [
                         "type" => "click",
