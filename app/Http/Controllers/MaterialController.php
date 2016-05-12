@@ -1,0 +1,22 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
+
+class MaterialController extends Controller
+{
+
+    public function image()
+    {
+        //
+    }
+
+    public function images()
+    {
+        //
+    }
+}
