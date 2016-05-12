@@ -19,7 +19,7 @@ class MaterialController extends Controller
     public function materials()
     {
         $materials = $this->material->lists('news');
-        return $materials
+        return $materials;
     }
 
     public function images()
