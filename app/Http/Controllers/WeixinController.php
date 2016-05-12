@@ -70,26 +70,26 @@ class WeixinController extends Controller
         });//自动回复
         $menu = $app->menu;
         $buttons = [
-            [   "name"       => "项目介绍",
-                "sub_button" => [
-                    [
-                        "type" => "CLICK",
-                        "name" => "还原基础油",
-                        "key"  => "HYJCY"
-                    ],
-                    [
-                        "type" => "CLICK",
-                        "name" => "高纯环氧树脂",
-                        "key"  => "GCHYSZ"
-                    ],
-                    [
-                        "type" => "CLICK",
-                        "name" => "高纯单甘酯",
-                        "key"  => "GCDGZ"
-                    ],
-                ],
-          
-            ],
+            // [   
+            //     "name"       => "项目介绍",
+            //     "sub_button" => [
+            //         [
+            //             "type" => "CLICK",
+            //             "name" => "还原基础油",
+            //             "key"  => "HYJCY"
+            //         ],
+            //         [
+            //             "type" => "CLICK",
+            //             "name" => "高纯环氧树脂",
+            //             "key"  => "GCHYSZ"
+            //         ],
+            //         [
+            //             "type" => "CLICK",
+            //             "name" => "高纯单甘酯",
+            //             "key"  => "GCDGZ"
+            //         ],
+            //     ],
+            // ],
             [
                 "name"       => "产品介绍",
                 "sub_button" => [
