@@ -103,7 +103,7 @@ class WeixinController extends Controller
                 ],
             ],
             [
-                "name"       => "产品介绍",
+                "name"       => "浩立主页",
                 "sub_button" => [
                     [
                         "type" => "view",
