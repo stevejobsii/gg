@@ -53,11 +53,6 @@ class WeixinController extends Controller
                                 $app->staff->message($news5)->to($message->FromUserName)->send(); 
                                 return '山茶油精制';
                                 break;
-                            case'YYXJ': 
-                                $news6 = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJiTUWGf1b9-A_Bn1Hby9hqs');
-                                $app->staff->message($news6)->to($message->FromUserName)->send(); 
-                                return '烟用香精';
-                                break;
                             default:
                                 break;
                         }
@@ -104,11 +99,6 @@ class WeixinController extends Controller
                         "type" => "click",
                         "name" => "水蒸气蒸溜",
                         "key"  => "SZQZL"
-                    ],
-                    [
-                        "type" => "click",
-                        "name" => "烟用香精",
-                        "key"  => "YYXJ"
                     ],
                 ],
             ],
