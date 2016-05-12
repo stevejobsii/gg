@@ -160,7 +160,7 @@ class WeixinController extends Controller
     {
         $app = app('wechat');
         $staff = $app->staff;
-        $staff->lists();
+        return $staff->lists();
     }
 
 }
