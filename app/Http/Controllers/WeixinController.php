@@ -29,7 +29,7 @@ class WeixinController extends Controller
                     if($message->Event=='CLICK'){
                         switch($message->EventKey){
                             case'HYJCY': 
-                                $news = new Material(['media_id'=>'t7A8ySU0kCuy2_K24EbgJkH9Z9FFbYS-LclPDdaW8L8']);
+                                $news = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJkH9Z9FFbYS-LclPDdaW8L8');
                                 $app->staff->message($news)->to($message->FromUserName)->send();
                                  return  '还原基础油';
                                 //return $news;
