@@ -39,7 +39,7 @@ class WeixinController extends Controller
                                 return '高纯环氧树脂';
                                 break;
                             case'GCDGZ': 
-                                $news3 = new Material('mpnews', '7A8ySU0kCuy2_K24EbgJkH9Z9FFbYS-LclPDdaW8L8');
+                                $news3 = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJkH9Z9FFbYS-LclPDdaW8L8');
                                 $app->staff->message($news3)->to($message->FromUserName)->send(); 
                                 return '高纯单甘酯';
                                 break;
