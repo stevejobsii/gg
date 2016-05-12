@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use EasyWeChat\Foundation\Application as Application;
 use EasyWeChat\Message\News;
 use Wechat;
-use EasyWeChat\Message\Material;
+use EasyWeChat\Message\Material as Material;
 
 class WeixinController extends Controller
 {
@@ -28,7 +28,7 @@ class WeixinController extends Controller
                     if($message->Event=='CLICK'){
                         switch($message->EventKey){
                             case'HYJCY': 
-                                return  new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJkH9Z9FFbYS-LclPDdaW8L8');
+                                return  new News(['media_id'=>'t7A8ySU0kCuy2_K24EbgJkH9Z9FFbYS-LclPDdaW8L8']);
                                 break;
                             case'GCHYSZ': 
                                 return '高纯环氧树脂';
