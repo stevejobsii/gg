@@ -34,12 +34,12 @@ class WeixinController extends Controller
                                 return  '还原基础油';
                                 break;
                             case'GCHYSZ':
-                                $news2 = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJjXEoSSNZdn4AvDpY56SliA');
+                                $news2 = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJsM2CCr2SkQr9aruzNnPi_0');
                                 $app->staff->message($news2)->to($message->FromUserName)->send(); 
                                 return '高纯环氧树脂';
                                 break;
                             case'GCDGZ': 
-                                $news3 = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJtIr63O57esiBTJxdoZsfBY');
+                                $news3 = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJjEPvYyuYf-J0lmQfdtPh9g');
                                 $app->staff->message($news3)->to($message->FromUserName)->send(); 
                                 return '高纯单甘酯';
                                 break;
