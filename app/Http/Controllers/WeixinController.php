@@ -18,8 +18,9 @@ class WeixinController extends Controller
         Log::info('request arrived.'); 
         $app = app('wechat');
         $userApi = $app->user;
+        $material = $app->material;
         $server = $app->server;
-        $server->setMessageHandler(function($message) use ($userApi, $app, Material $materia){
+        $server->setMessageHandler(function($message) use ($userApi,$app,$material){
             switch($message->MsgType){
                 case'event':
                     if($message->Event=='subscribe'){
@@ -28,9 +29,9 @@ class WeixinController extends Controller
                     if($message->Event=='CLICK'){
                         switch($message->EventKey){
                             case'HYJCY': 
-                                $news = $materia->get('t7A8ySU0kCuy2_K24EbgJkH9Z9FFbYS-LclPDdaW8L8');
+                                $news = $material->get('t7A8ySU0kCuy2_K24EbgJkH9Z9FFbYS-LclPDdaW8L8');
                                 $app->staff->message($news)->to($message->FromUserName)->send();
-                                return  'sdfs';
+                                return  '还原基础油';
                                 break;
                             case'GCHYSZ': 
                                 return '高纯环氧树脂';
