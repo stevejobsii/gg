@@ -29,18 +29,18 @@ class WeixinController extends Controller
                     if($message->Event=='CLICK'){
                         switch($message->EventKey){
                             case'HYJCY': 
-                                $news = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJkH9Z9FFbYS-LclPDdaW8L8');
-                                $app->staff->message($news)->to($message->FromUserName)->send();
+                                $news1 = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJkH9Z9FFbYS-LclPDdaW8L8');
+                                $app->staff->message($news1)->to($message->FromUserName)->send();
                                 return  '还原基础油';
                                 break;
                             case'GCHYSZ':
-                                $news = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJjXEoSSNZdn4AvDpY56SliA');
-                                $app->staff->message($news)->to($message->FromUserName)->send(); 
+                                $news2 = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJjXEoSSNZdn4AvDpY56SliA');
+                                $app->staff->message($news2)->to($message->FromUserName)->send(); 
                                 return '高纯环氧树脂';
                                 break;
                             case'GCDGZ': 
-                                $news = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJtIr63O57esiBTJxdoZsfBY');
-                                $app->staff->message($news)->to($message->FromUserName)->send(); 
+                                $news3 = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJtIr63O57esiBTJxdoZsfBY');
+                                $app->staff->message($news3)->to($message->FromUserName)->send(); 
                                 return '高纯单甘酯';
                                 break;
                             // case'hyjcy': 
