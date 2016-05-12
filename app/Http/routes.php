@@ -24,9 +24,10 @@ Route::group(['middleware' => 'wechat.oauth'], function () {
     Route::get('/weixin/user','WeixinController@weixinuser');//oauth
     Route::any('weixingame','WeixinController@weixingame');
     
-    Route::get('/image','MaterialController@image');//upload image to wechat
+    Route::get('/weixin/materials','MaterialController@materials');//get materials
     Route::get('/getimage','MaterialController@getimage');
 });
+
 #------geetest验证码---------
 Route::resource('gt','GtController');
 Route::any('mygtid','GtController@mygtid');
