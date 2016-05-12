@@ -156,4 +156,11 @@ class WeixinController extends Controller
         dd($user->nickname);
     }
 
+    public function staffs()
+    {
+        $app = app('wechat');
+        $staff = $app->staff;
+        $staff->lists();
+    }
+
 }
