@@ -25,7 +25,7 @@ class WeixinController extends Controller
                     if($message->Event=='subscribe'){
                         return '欢迎'.$userApi->get($message->FromUserName)->nickname.'关注广州市浩立生物科技有限公司！';
                     }
-                    if($message->Event=='CLICK'){
+                    if($message->Event=='click'){
                         switch($message->EventKey){
                             case'HYJCY': 
                                 return '还原基础油';
@@ -69,17 +69,17 @@ class WeixinController extends Controller
             [   "name"       => "项目介绍",
                 "sub_button" => [
                     [
-                        "type" => "CLICK",
+                        "type" => "click",
                         "name" => "还原基础油",
                         "key"  => "HYJCY"
                     ],
                     [
-                        "type" => "CLICK",
+                        "type" => "click",
                         "name" => "高纯环氧树脂",
                         "key"  => "GCHYSZ"
                     ],
                     [
-                        "type" => "CLICK",
+                        "type" => "click",
                         "name" => "高纯单甘酯",
                         "key"  => "GCDGZ"
                     ],
@@ -90,22 +90,22 @@ class WeixinController extends Controller
                 "name"       => "产品介绍",
                 "sub_button" => [
                     [
-                        "type" => "CLICK",
+                        "type" => "click",
                         "name" => "分子蒸馏",
                         "key"  => "FZZL"
                     ],
                     [
-                        "type" => "CLICK",
+                        "type" => "click",
                         "name" => "水蒸气蒸馏",
                         "key"  => "SZQZL"
                     ],
                     [
-                        "type" => "CLICK",
+                        "type" => "click",
                         "name" => "超临界萃取",
                         "key"  => "CLJQC"
                     ],
                     [  
-                        "type" => "CLICK",
+                        "type" => "click",
                         "name" => "超重力分离",
                         "key"  => "CZLFL"
                     ],
