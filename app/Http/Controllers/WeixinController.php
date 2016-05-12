@@ -116,24 +116,24 @@ class WeixinController extends Controller
                 "name"       => "产品介绍",
                 "sub_button" => [
                     [
-                        "type" => "click",
+                        "type" => "view",
                         "name" => "分子蒸馏",
-                        "key"  => "FZZL"
+                        "url"  => "http://hao-li.net/Html/ProductList.asp?SortID=125&SortPath=0,125,"
                     ],
                     [
-                        "type" => "click",
+                        "type" => "view",
                         "name" => "水蒸气蒸馏",
-                        "key"  => "SZQZL"
+                        "url"  => "http://hao-li.net/Html/ProductList.asp?SortID=126&SortPath=0,126,"
                     ],
                     [
-                        "type" => "click",
+                        "type" => "view",
                         "name" => "超临界萃取",
-                        "key"  => "CLJQC"
+                        "url"  => "http://hao-li.net/Html/ProductList.asp?SortID=127&SortPath=0,127,"
                     ],
                     [  
-                        "type" => "click",
+                        "type" => "view",
                         "name" => "超重力分离",
-                        "key"  => "CZLFL"
+                        "url"  => "http://hao-li.net/Html/ProductList.asp?SortID=129&SortPath=0,129,"
                     ],
                 ],
             ],
