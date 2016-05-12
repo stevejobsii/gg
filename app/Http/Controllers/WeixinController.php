@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use EasyWeChat\Foundation\Application as Application;
 use EasyWeChat\Message\News;
 use Wechat;
-use Session;
+use EasyWeChat\Message\Material;
 
 class WeixinController extends Controller
 {
@@ -28,6 +28,8 @@ class WeixinController extends Controller
                     if($message->Event=='CLICK'){
                         switch($message->EventKey){
                             case'HYJCY': 
+                                $material = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJkH9Z9FFbYS-LclPDdaW8L8');
+                                $app->staff->message($material)->to($message->FromUserName)->send();
                                 return '还原基础油';
                                 break;
                             case'GCHYSZ': 
