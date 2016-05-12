@@ -19,7 +19,7 @@ class WeixinController extends Controller
         $app = app('wechat');
         $userApi = $app->user;
         $server = $app->server;
-        $server->setMessageHandler(function($message) use ($userApi,$app){
+        $server->setMessageHandler(function($message) use ($userApi, $app, Material $materia){
             switch($message->MsgType){
                 case'event':
                     if($message->Event=='subscribe'){
@@ -28,7 +28,7 @@ class WeixinController extends Controller
                     if($message->Event=='CLICK'){
                         switch($message->EventKey){
                             case'HYJCY': 
-                                $news = new News(['media_id'=>'t7A8ySU0kCuy2_K24EbgJkH9Z9FFbYS-LclPDdaW8L8']);
+                                $news = $materia->get('t7A8ySU0kCuy2_K24EbgJkH9Z9FFbYS-LclPDdaW8L8');
                                 $app->staff->message($news)->to($message->FromUserName)->send();
                                 return  'sdfs';
                                 break;
