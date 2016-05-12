@@ -51,6 +51,8 @@ class WeixinController extends Controller
                             // case'hyjcy': 
                             //     return '还原基础油';
                             //     break;
+                            default:
+                                break;
                         }
                     }
                 break;
@@ -62,30 +64,32 @@ class WeixinController extends Controller
                                     'image'       => 'http://www.hao-li.net/Upload/PicFiles/2011.9.11_15.5.41_8683.jpg',
                                     ]);
                 break;
+                default:
+                    break;
             };    
         });//自动回复
         $menu = $app->menu;
         $buttons = [
-            [   "name"       => "项目介绍",
-                "sub_button" => [
-                    [
-                        "type" => "click",
-                        "name" => "还原基础油",
-                        "key"  => "HYJCY"
-                    ],
-                    [
-                        "type" => "click",
-                        "name" => "高纯环氧树脂",
-                        "key"  => "GCHYSZ"
-                    ],
-                    [
-                        "type" => "click",
-                        "name" => "高纯单甘酯",
-                        "key"  => "GCDGZ"
-                    ],
-                ],
+            // [   "name"       => "项目介绍",
+            //     "sub_button" => [
+            //         [
+            //             "type" => "click",
+            //             "name" => "还原基础油",
+            //             "key"  => "HYJCY"
+            //         ],
+            //         [
+            //             "type" => "click",
+            //             "name" => "高纯环氧树脂",
+            //             "key"  => "GCHYSZ"
+            //         ],
+            //         [
+            //             "type" => "click",
+            //             "name" => "高纯单甘酯",
+            //             "key"  => "GCDGZ"
+            //         ],
+            //     ],
           
-            ],
+            // ],
             [
                 "name"       => "产品介绍",
                 "sub_button" => [
