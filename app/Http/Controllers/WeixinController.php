@@ -44,18 +44,18 @@ class WeixinController extends Controller
                                 return '高纯单甘酯';
                                 break;
                             case'SZQZL': 
-                                $news3 = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJn5D9r4bNx_eYw7C88VWqsk');
-                                $app->staff->message($news3)->to($message->FromUserName)->send(); 
+                                $news4 = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJn5D9r4bNx_eYw7C88VWqsk');
+                                $app->staff->message($news4)->to($message->FromUserName)->send(); 
                                 return '水蒸气蒸溜';
                                 break;
                             case'SCYJZ': 
-                                $news3 = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJjJZiJucCYE_ohVHUOAs-PY');
-                                $app->staff->message($news3)->to($message->FromUserName)->send(); 
+                                $news5 = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJjJZiJucCYE_ohVHUOAs-PY');
+                                $app->staff->message($news5)->to($message->FromUserName)->send(); 
                                 return '山茶油精制';
                                 break;
                             case'YYXJ': 
-                                $news3 = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJiTUWGf1b9-A_Bn1Hby9hqs');
-                                $app->staff->message($news3)->to($message->FromUserName)->send(); 
+                                $news6 = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJiTUWGf1b9-A_Bn1Hby9hqs');
+                                $app->staff->message($news6)->to($message->FromUserName)->send(); 
                                 return '烟用香精';
                                 break;
                             default:
