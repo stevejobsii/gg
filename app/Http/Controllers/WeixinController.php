@@ -28,7 +28,9 @@ class WeixinController extends Controller
                     if($message->Event=='CLICK'){
                         switch($message->EventKey){
                             case'HYJCY': 
-                                return  new News(['media_id'=>'t7A8ySU0kCuy2_K24EbgJkH9Z9FFbYS-LclPDdaW8L8']);
+                                $news = new News(['media_id'=>'t7A8ySU0kCuy2_K24EbgJkH9Z9FFbYS-LclPDdaW8L8']);
+                                $app->staff->message($news)->to($message->FromUserName)->send();
+                                return  'sdfs';
                                 break;
                             case'GCHYSZ': 
                                 return '高纯环氧树脂';
