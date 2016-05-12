@@ -95,22 +95,21 @@ class WeixinController extends Controller
                         "name" => "高纯单甘酯",
                         "key"  => "GCDGZ"
                     ],
-                    [
-                        "type" => "click",
-                        "name" => "山茶油精制",
-                        "key"  => "SCYJZ"
-                    ],
-                    [
-                        "type" => "click",
-                        "name" => "水蒸气蒸溜",
-                        "key"  => "SZQZL"
-                    ],
-                    [
-                        "type" => "click",
-                        "name" => "烟用香精",
-                        "key"  => "YYXJ"
-                    ],
-               
+                    // [
+                    //     "type" => "click",
+                    //     "name" => "山茶油精制",
+                    //     "key"  => "SCYJZ"
+                    // ],
+                    // [
+                    //     "type" => "click",
+                    //     "name" => "水蒸气蒸溜",
+                    //     "key"  => "SZQZL"
+                    // ],
+                    // [
+                    //     "type" => "click",
+                    //     "name" => "烟用香精",
+                    //     "key"  => "YYXJ"
+                    // ],
                 ],
             ],
             [
