@@ -65,7 +65,7 @@ class WeixinController extends Controller
                 break;
                 case'text':
                     $transfer = new \EasyWeChat\Message\Transfer();
-                    $transfer->account('kf2001@better_technology');
+                    //$transfer->account('kf2001@better_technology');
                     return $transfer;
                 break;
                 default:
