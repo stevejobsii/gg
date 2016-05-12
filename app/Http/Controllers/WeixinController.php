@@ -26,7 +26,7 @@ class WeixinController extends Controller
                     if($message->Event=='subscribe'){
                         return new News([
                                     'title'       => '欢迎'.$userApi->get($message->FromUserName)->nickname.'访问广州市浩立生物科技有限公司！',
-                                    'description' => '浩立与华南理工大学共同携手合作，专业分子蒸馏、水蒸气蒸馏、超临界CO2萃取、超重力场。致力于：天然产物、香料、化工材料研发应用；分离提纯、化工生产、香料生产等设备设计制造。（向我们发送信息，我们将为您服务）',
+                                    'description' => '浩立与华南理工大学共同携手合作，专业分子蒸馏、水蒸气蒸馏、超临界CO2萃取、超重力场。致力于：天然产物、香料、化工材料研发应用；分离提纯、化工生产、香料生产等设备设计制造。（给我们留言，我们客服将为您服务）',
                                     'url'         => 'http://www.hao-li.net/',
                                     'image'       => 'https://goodgoto.com/images/catalog/NBijDM.jpg',
                                     ]);
@@ -58,6 +58,13 @@ class WeixinController extends Controller
                                 $app->staff->message($news5)->to($message->FromUserName)->send(); 
                                 return '山茶油精制';
                                 break;
+                            case'HLJJ':
+                                return new News([
+                                    'title'       => '欢迎'.$userApi->get($message->FromUserName)->nickname.'访问广州市浩立生物科技有限公司！',
+                                    'description' => '浩立与华南理工大学共同携手合作，专业分子蒸馏、水蒸气蒸馏、超临界CO2萃取、超重力场。致力于：天然产物、香料、化工材料研发应用；分离提纯、化工生产、香料生产等设备设计制造。（给我们留言，我们客服将为您服务）',
+                                    'url'         => 'http://www.hao-li.net/',
+                                    'image'       => 'https://goodgoto.com/images/catalog/NBijDM.jpg',
+                                ]);
                             default:
                                 break;
                         }
@@ -65,7 +72,6 @@ class WeixinController extends Controller
                 break;
                 case'text':
                     $transfer = new \EasyWeChat\Message\Transfer();
-                    echo  'gdfgdfgdf';
                     return $transfer;
                 break;
                 default:
@@ -105,27 +111,22 @@ class WeixinController extends Controller
                 ],
             ],
             [
-                "name"       => "浩立主页",
+                "name"       => "关于浩立",
                 "sub_button" => [
                     [
-                        "type" => "view",
-                        "name" => "分子蒸馏",
-                        "url"  => "http://hao-li.net/Html/ProductList.asp?SortID=125&SortPath=0,125,"
+                        "type" => "click",
+                        "name" => "浩立简介",
+                        "key"  => "HLJJ"
                     ],
                     [
-                        "type" => "view",
-                        "name" => "水蒸气蒸馏",
-                        "url"  => "http://hao-li.net/Html/ProductList.asp?SortID=126&SortPath=0,126,"
+                        "type" => "click",
+                        "name" => "荣誉证书",
+                        "key"  => "RYZS"
                     ],
                     [
-                        "type" => "view",
-                        "name" => "超临界萃取",
-                        "url"  => "http://hao-li.net/Html/ProductList.asp?SortID=127&SortPath=0,127,"
-                    ],
-                    [  
-                        "type" => "view",
-                        "name" => "超重力分离",
-                        "url"  => "http://hao-li.net/Html/ProductList.asp?SortID=129&SortPath=0,129,"
+                        "type" => "click",
+                        "name" => "团队活动",
+                        "key"  => "TDHD"
                     ],
                 ],
             ],
