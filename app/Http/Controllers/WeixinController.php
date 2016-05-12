@@ -19,7 +19,7 @@ class WeixinController extends Controller
         $app = app('wechat');
         $userApi = $app->user;
         $server = $app->server;
-        $server->setMessageHandler(function($message) use ($userApi){
+        $server->setMessageHandler(function($message) use ($userApi,$app){
             switch($message->MsgType){
                 case'event':
                     if($message->Event=='subscribe'){
