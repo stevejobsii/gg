@@ -29,7 +29,7 @@ class WeixinController extends Controller
                     if($message->Event=='CLICK'){
                         switch($message->EventKey){
                             case'HYJCY': 
-                                $news1 = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJkH9Z9FFbYS-LclPDdaW8L8');
+                                $news1 = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJjEPvYyuYf-J0lmQfdtPh9g');
                                 $app->staff->message($news1)->to($message->FromUserName)->send();
                                 return  '还原基础油';
                                 break;
@@ -39,7 +39,7 @@ class WeixinController extends Controller
                                 return '高纯环氧树脂';
                                 break;
                             case'GCDGZ': 
-                                $news3 = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJjEPvYyuYf-J0lmQfdtPh9g');
+                                $news3 = new Material('mpnews', '7A8ySU0kCuy2_K24EbgJkH9Z9FFbYS-LclPDdaW8L8');
                                 $app->staff->message($news3)->to($message->FromUserName)->send(); 
                                 return '高纯单甘酯';
                                 break;
