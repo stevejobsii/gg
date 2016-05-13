@@ -65,6 +65,11 @@ class WeixinController extends Controller
                                     'url'         => 'http://www.hao-li.net/',
                                     'image'       => 'https://goodgoto.com/images/catalog/NBijDM.jpg',
                                 ]);
+                            case'RYZS':
+                                $news6 = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJv-o8Pm6x_DjpKpjXoCdurM');
+                                $app->staff->message($news6)->to($message->FromUserName)->send(); 
+                                return '荣誉证书';
+                                break;
                             default:
                                 break;
                         }
