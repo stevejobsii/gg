@@ -166,4 +166,11 @@ class WeixinController extends Controller
         return $staff->lists();
     }
 
+    public function broadcast()//广播
+    {
+        $app = app('wechat');
+        $broadcast = $app->broadcast;
+        return $broadcast->sendNews('t7A8ySU0kCuy2_K24EbgJv-o8Pm6x_DjpKpjXoCdurM');
+    }
+
 }

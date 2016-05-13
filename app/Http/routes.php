@@ -28,7 +28,8 @@ Route::group(['middleware' => 'wechat.oauth'], function () {
     Route::get('/getimage','MaterialController@getimage');
 });
 Route::get('/weixin/materials','MaterialController@materials');
-Route::any('/weixin/staffs','WeixinController@staffs');
+Route::any('/weixin/staffs','WeixinController@staffs');//get 客服列表
+Route::any('/weixin/broadcast','WeixinController@broadcast');
 //Route::any('/weixin/staff')
 
 #------geetest验证码---------
