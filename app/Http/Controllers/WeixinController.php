@@ -159,7 +159,7 @@ class WeixinController extends Controller
         dd($user->nickname);
     }
 
-    public function staffs()//查询客服
+    public function staffs()//查询客服列表
     {
         $app = app('wechat');
         $staff = $app->staff;
@@ -170,7 +170,7 @@ class WeixinController extends Controller
     {
         $app = app('wechat');
         $broadcast = $app->broadcast;
-        return $broadcast->sendNews('t7A8ySU0kCuy2_K24EbgJv-o8Pm6x_DjpKpjXoCdurM');
+        return $broadcast->sendNews('t7A8ySU0kCuy2_K24EbgJv-o8Pm6x_DjpKpjXoCdurM');//广播内容一个月4次
     }
 
 }
