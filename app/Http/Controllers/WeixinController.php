@@ -34,8 +34,8 @@ class WeixinController extends Controller
                     if($message->Event=='CLICK'){
                         switch($message->EventKey){
                             case'HYJCY': 
-                                // $news1 = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJjEPvYyuYf-J0lmQfdtPh9g');
-                                // $app->staff->message($news1)->to($message->FromUserName)->send();
+                                $news1 = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJjEPvYyuYf-J0lmQfdtPh9g');
+                                $app->staff->message($news1)->to($message->FromUserName)->send();
                                 return '还原基础油（给我们留言，我们客服将为您服务）';
                                 break;
                             case'GCHYSZ':
