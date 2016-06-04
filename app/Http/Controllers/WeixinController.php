@@ -36,27 +36,32 @@ class WeixinController extends Controller
                             case'HYJCY': 
                                 $news1 = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJjEPvYyuYf-J0lmQfdtPh9g');
                                 $app->staff->message($news1)->to($message->FromUserName)->send();
-                                return  '还原基础油';
+                                return '还原基础油（给我们留言，我们客服将为您服务）';
                                 break;
                             case'GCHYSZ':
                                 $news2 = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJsM2CCr2SkQr9aruzNnPi_0');
                                 $app->staff->message($news2)->to($message->FromUserName)->send(); 
-                                return '高纯环氧树脂';
+                                return '高纯环氧树脂（给我们留言，我们客服将为您服务）';
                                 break;
                             case'GCDGZ': 
                                 $news3 = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJkH9Z9FFbYS-LclPDdaW8L8');
                                 $app->staff->message($news3)->to($message->FromUserName)->send(); 
-                                return '高纯单甘酯';
+                                return '高纯单甘酯（给我们留言，我们客服将为您服务）';
                                 break;
                             case'SZQZL': 
                                 $news4 = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJn5D9r4bNx_eYw7C88VWqsk');
                                 $app->staff->message($news4)->to($message->FromUserName)->send(); 
-                                return '水蒸气蒸溜';
+                                return '水蒸气蒸溜（给我们留言，我们客服将为您服务）';
                                 break;
                             case'SCYJZ': 
                                 $news5 = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJjJZiJucCYE_ohVHUOAs-PY');
                                 $app->staff->message($news5)->to($message->FromUserName)->send(); 
-                                return '山茶油精制';
+                                return '山茶油精制（给我们留言，我们客服将为您服务）';
+                                break;
+                            case'YYXJ': 
+                                $news5 = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJjJZiJucCYE_ohVHUOAs-PY');
+                                $app->staff->message($news5)->to($message->FromUserName)->send(); 
+                                return '烟用香精（给我们留言，我们客服将为您服务）';
                                 break;
                             case'HLJJ':
                                 return new News([
@@ -69,6 +74,13 @@ class WeixinController extends Controller
                                 $news6 = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJv-o8Pm6x_DjpKpjXoCdurM');
                                 $app->staff->message($news6)->to($message->FromUserName)->send(); 
                                 return '荣誉证书';
+                                break;
+                            default:
+                                break;
+                            case'LXWM':
+                                $news6 = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJv-o8Pm6x_DjpKpjXoCdurM');
+                                $app->staff->message($news6)->to($message->FromUserName)->send(); 
+                                return '联系我们';
                                 break;
                             default:
                                 break;
@@ -86,7 +98,7 @@ class WeixinController extends Controller
         $menu = $app->menu;
         $buttons = [
             [   
-                "name"       => "项目介绍",
+                "name"       => "项目第一页",
                 "sub_button" => [
                     [
                         "type" => "click",
@@ -115,6 +127,16 @@ class WeixinController extends Controller
                     ],
                 ],
             ],
+            [   
+                "name"       => "项目第二页",
+                "sub_button" => [
+                    [
+                        "type" => "click",
+                        "name" => "烟用香精",
+                        "key"  => "YYXJ"
+                    ],
+                ],
+            ],
             [
                 "name"       => "关于浩立",
                 "sub_button" => [
@@ -130,8 +152,8 @@ class WeixinController extends Controller
                     ],
                     [
                         "type" => "click",
-                        "name" => "团队活动",
-                        "key"  => "TDHD"
+                        "name" => "联系我们",
+                        "key"  => "LXWM"
                     ],
                 ],
             ],
