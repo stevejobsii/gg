@@ -232,7 +232,8 @@ class WeixinController extends Controller
     {
         $app = app('wechat');
         $broadcast = $app->broadcast;
-        return $broadcast->sendNews('t7A8ySU0kCuy2_K24EbgJv-o8Pm6x_DjpKpjXoCdurM');//广播内容一个月4次
+        return $broadcast->sendText("大家好，浩立微信新改版，提供产品视频！");
+        //sendNews('t7A8ySU0kCuy2_K24EbgJv-o8Pm6x_DjpKpjXoCdurM');//广播内容一个月4次
     }
 
 }
