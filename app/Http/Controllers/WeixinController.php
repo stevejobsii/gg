@@ -56,12 +56,32 @@ class WeixinController extends Controller
                             case'SCYJZ': 
                                 $news5 = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJjJZiJucCYE_ohVHUOAs-PY');
                                 $app->staff->message($news5)->to($message->FromUserName)->send(); 
-                                return '山茶油精制（给我们留言，我们客服将为您服务）';
+                                return '山茶米糠油精制脱酸（给我们留言，我们客服将为您服务）';
                                 break;
                             case'YYXJ': 
-                                $news5 = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJjJZiJucCYE_ohVHUOAs-PY');
+                                $news5 = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJiTUWGf1b9-A_Bn1Hby9hqs');
                                 $app->staff->message($news5)->to($message->FromUserName)->send(); 
                                 return '烟用香精（给我们留言，我们客服将为您服务）';
+                                break;
+                            case'CXTY': 
+                                $news5 = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJiTUWGf1b9-A_Bn1Hby9hqs');
+                                $app->staff->message($news5)->to($message->FromUserName)->send(); 
+                                return '沉香提油（给我们留言，我们客服将为您服务）';
+                                break;
+                            case'CZLTLX': 
+                                $news5 = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJiTUWGf1b9-A_Bn1Hby9hqs');
+                                $app->staff->message($news5)->to($message->FromUserName)->send(); 
+                                return '超重力脱硫硝（给我们留言，我们客服将为您服务）';
+                                break;
+                            case'CLJGC': 
+                                $news5 = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJiTUWGf1b9-A_Bn1Hby9hqs');
+                                $app->staff->message($news5)->to($message->FromUserName)->send(); 
+                                return '超临界工程（给我们留言，我们客服将为您服务）';
+                                break;
+                            case'HGDCS': 
+                                $news5 = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJiTUWGf1b9-A_Bn1Hby9hqs');
+                                $app->staff->message($news5)->to($message->FromUserName)->send(); 
+                                return '化工DCS（给我们留言，我们客服将为您服务）';
                                 break;
                             case'HLJJ':
                                 return new News([
@@ -117,7 +137,7 @@ class WeixinController extends Controller
                     ],
                     [
                         "type" => "click",
-                        "name" => "山茶油精制",
+                        "name" => "山茶米糠脱酸",
                         "key"  => "SCYJZ"
                     ],
                     [
@@ -135,6 +155,26 @@ class WeixinController extends Controller
                         "name" => "烟用香精",
                         "key"  => "YYXJ"
                     ],
+                    [
+                        "type" => "click",
+                        "name" => "沉香提油",
+                        "key"  => "CXTY"
+                    ],
+                    [
+                        "type" => "click",
+                        "name" => "超重力脱硫硝",
+                        "key"  => "CZLTLX"
+                    ],
+                    [
+                        "type" => "click",
+                        "name" => "超临界工程",
+                        "key"  => "CLJGC"
+                    ],
+                    [
+                        "type" => "click",
+                        "name" => "化工DCS",
+                        "key"  => "HGDCS"
+                    ],     
                 ],
             ],
             [
