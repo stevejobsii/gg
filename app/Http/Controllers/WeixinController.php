@@ -64,22 +64,23 @@ class WeixinController extends Controller
                                 return '烟用香精（给我们留言，我们客服将为您服务）';
                                 break;
                             case'CXTY': 
-                                $news5 = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJiTUWGf1b9-A_Bn1Hby9hqs');
+                                $news5 = new Material('mpnews', '
+                                    t7A8ySU0kCuy2_K24EbgJl0seNs4pRO_AGFaxjsbUsw');
                                 $app->staff->message($news5)->to($message->FromUserName)->send(); 
-                                return '沉香提油（给我们留言，我们客服将为您服务）';
+                                return '专业沉香精油提取及还原提纯（给我们留言，我们客服将为您服务）';
                                 break;
                             case'CZLTLX': 
-                                $news5 = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJiTUWGf1b9-A_Bn1Hby9hqs');
+                                $news5 = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJuSqwnvLXUu7DKOIFfrnBQ0');
                                 $app->staff->message($news5)->to($message->FromUserName)->send(); 
                                 return '超重力脱硫硝（给我们留言，我们客服将为您服务）';
                                 break;
                             case'CLJGC': 
-                                $news5 = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJiTUWGf1b9-A_Bn1Hby9hqs');
+                                $news5 = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJpjyUI8omCFQ8wMf-VYprOc');
                                 $app->staff->message($news5)->to($message->FromUserName)->send(); 
                                 return '超临界工程（给我们留言，我们客服将为您服务）';
                                 break;
                             case'HGDCS': 
-                                $news5 = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJiTUWGf1b9-A_Bn1Hby9hqs');
+                                $news5 = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJvAszpSo-CeC21X3LGeHnjQ');
                                 $app->staff->message($news5)->to($message->FromUserName)->send(); 
                                 return '化工DCS（给我们留言，我们客服将为您服务）';
                                 break;
@@ -142,7 +143,7 @@ class WeixinController extends Controller
                     ],
                     [
                         "type" => "click",
-                        "name" => "水蒸气蒸溜",
+                        "name" => "水蒸气蒸馏",
                         "key"  => "SZQZL"
                     ],
                 ],
