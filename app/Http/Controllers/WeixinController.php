@@ -64,8 +64,7 @@ class WeixinController extends Controller
                                 return '烟用香精（给我们留言，我们客服将为您服务）';
                                 break;
                             case'CXTY': 
-                                $news5 = new Material('mpnews', '
-                                    t7A8ySU0kCuy2_K24EbgJl0seNs4pRO_AGFaxjsbUsw');
+                                $news5 = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJl0seNs4pRO_AGFaxjsbUsw');
                                 $app->staff->message($news5)->to($message->FromUserName)->send(); 
                                 return '专业沉香精油提取及还原提纯（给我们留言，我们客服将为您服务）';
                                 break;
