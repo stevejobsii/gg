@@ -98,7 +98,7 @@ class WeixinController extends Controller
                             default:
                                 break;
                             case'LXWM':
-                                $news6 = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJv-o8Pm6x_DjpKpjXoCdurM');
+                                $news6 = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJqLNsPgjy46Dsx562Zzptm8');
                                 $app->staff->message($news6)->to($message->FromUserName)->send(); 
                                 return '联系我们';
                                 break;
