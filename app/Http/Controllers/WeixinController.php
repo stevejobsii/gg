@@ -228,11 +228,12 @@ class WeixinController extends Controller
         return $staff->lists();
     }
 
-    public function mendian()//查询门店列表
+    public function mendian()//查询门店列表&某个门店
     {
         $app = app('wechat');
         $poi = $app->poi;
-        return $pois = $poi->lists(0, 10);
+        return $info = $poi->get(461119996);
+        //return $pois = $poi->lists(0, 10);
     }
 
     public function broadcast()//广播
