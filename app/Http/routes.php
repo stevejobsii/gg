@@ -23,13 +23,12 @@ Route::any('/weixin', 'WeixinController@serve');
 Route::group(['middleware' => 'wechat.oauth'], function () {
     Route::get('/weixin/user','WeixinController@weixinuser');//oauth
     Route::any('weixingame','WeixinController@weixingame');
-    
-    //get materials
-    Route::get('/getimage','MaterialController@getimage');
+    Route::get('/getimage','MaterialController@getimage'); //get materials
 });
-Route::get('/weixin/materials','MaterialController@materials');
+Route::get('/weixin/materials','MaterialController@materials');//获得media_id
 Route::any('/weixin/staffs','WeixinController@staffs');//get 客服列表
-Route::any('/weixin/broadcast','WeixinController@broadcast');
+Route::any('/weixin/mendian','WeixinController@mendian');//get 门店列表
+Route::any('/weixin/broadcast','WeixinController@broadcast');//广播一月4次
 //Route::any('/weixin/staff')
 
 #------geetest验证码---------
@@ -45,14 +44,12 @@ Route::any('mgjyz','GtController@mgjyz');
 Route::get('mgjimg','GtController@img');
 Route::post('mgjcheck','GtController@mgjcheck');
 
-#------浩立微信-----------
-Route::get('haoli/fzzl','HaoliController@fzzl');
-Route::get('haoli/szqzl','HaoliController@szqzl');
-Route::get('haoli/cljqc','HaoliController@cljqc');
-Route::get('haoli/czlfl','HaoliController@czlfl');
-
 #------h13.cn页面前端---------------
 Route::resource('h13','h13Controller');
+
+#------手机端articles---------------
+Route::any('m/articles','MobleArticlesController@index');
+
 
 # ------------------ article stuff ------------------------
 Route::resource('articles','ArticlesController');
@@ -172,3 +169,8 @@ Route::post('password/reset', 'Auth\PasswordController@postReset');
 // post('api/messages', function() {
 //     return App\Article::create(Request::all());
 // });
+#------浩立微信-----------
+Route::get('haoli/fzzl','HaoliController@fzzl');
+Route::get('haoli/szqzl','HaoliController@szqzl');
+Route::get('haoli/cljqc','HaoliController@cljqc');
+Route::get('haoli/czlfl','HaoliController@czlfl');

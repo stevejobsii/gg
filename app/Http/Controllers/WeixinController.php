@@ -118,7 +118,7 @@ class WeixinController extends Controller
         $menu = $app->menu;
         $buttons = [
             [   
-                "name"       => "项目第一页",
+                "name"       => "项目列表1",
                 "sub_button" => [
                     [
                         "type" => "click",
@@ -148,7 +148,7 @@ class WeixinController extends Controller
                 ],
             ],
             [   
-                "name"       => "项目第二页",
+                "name"       => "项目列表2",
                 "sub_button" => [
                     [
                         "type" => "click",
@@ -226,6 +226,13 @@ class WeixinController extends Controller
         $app = app('wechat');
         $staff = $app->staff;
         return $staff->lists();
+    }
+
+    public function mendian()//查询门店列表
+    {
+        $app = app('wechat');
+        $poi = $app->poi;
+        return $pois = $poi->lists(0, 10);
     }
 
     public function broadcast()//广播
