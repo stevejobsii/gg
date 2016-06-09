@@ -17,7 +17,7 @@ class WeixinPaymentController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function index()
+    public function order()
     {
         $wechat = app('wechat');
         $js = $wechat->js;
@@ -28,7 +28,7 @@ class WeixinPaymentController extends Controller
         'detail'           => 'iPad mini 16G 白色',
         'out_trade_no'     => md5(uniqid().microtime()),
         'total_fee'        => 1,
-        //'notify_url'       => 'http://xxx.com/order-notify', // 支付结果通知网址，如果不设置则会使用配置里的默认地址
+        'notify_url'       => 'https://goodgoto.com/weixin/payment/notify', // 支付结果通知网址，如果不设置则会使用配置里的默认地址
         // ...
         ];
         $order = new Order($attributes);
@@ -38,7 +38,7 @@ class WeixinPaymentController extends Controller
         if ($result->return_code == 'SUCCESS' && $result->result_code == 'SUCCESS'){
             $prepayId = $result->prepay_id;
         }
-        return view('weixin.payment1',compact('order','js','payment'));
+        //return view('weixin.payment1',compact('order','js','payment'));
     }
 
     /**

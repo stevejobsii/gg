@@ -29,7 +29,7 @@ Route::get('/weixin/materials','MaterialController@materials');//获得media_id
 Route::any('/weixin/staffs','WeixinController@staffs');//get 客服列表
 Route::any('/weixin/mendian','WeixinController@mendian');//get 门店列表
 Route::any('/weixin/broadcast','WeixinController@broadcast');//广播一月4次
-Route::any('/weixin/payment','WeixinPaymentController@index');
+Route::any('/weixin/payment','WeixinPaymentController@order');//下单
 //Route::any('/weixin/staff')
 
 #------geetest验证码---------
