@@ -16,6 +16,7 @@ class WeixinPaymentController extends Controller
 {
     public function order()
     {
+        return Auth::user();
         Log::info('request arrived.'); 
         $app = app('wechat');
         $js = $app->js;
@@ -65,6 +66,7 @@ class WeixinPaymentController extends Controller
         ]);
         }
         Auth::login($user,true);
-        return $user->toArray();
+        return redirect('weixin/order');
+        //return $user->toArray();
     }    
 }
