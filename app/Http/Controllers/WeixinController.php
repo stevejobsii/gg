@@ -195,6 +195,11 @@ class WeixinController extends Controller
                         "name" => "联系我们",
                         "key"  => "LXWM"
                     ],
+                    [
+                        "type" => "view",
+                        "name" => "支付",
+                        "url"  => "https://goodgoto.com/weixin/payment"
+                    ],
                 ],
             ],
         ];//菜单
