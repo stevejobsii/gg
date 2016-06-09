@@ -21,6 +21,7 @@ class WeixinController extends Controller
         $material = $app->material;
         $server = $app->server;
         $server->setMessageHandler(function($message) use ($userApi,$app,$material){
+            return $message->FromUserName;
             switch($message->MsgType){
                 case'event':
                     if($message->Event=='subscribe'){
