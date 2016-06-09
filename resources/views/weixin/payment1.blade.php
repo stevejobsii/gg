@@ -63,7 +63,7 @@
         </ul>
 	</div>
 <script type="text/javascript">
-function onBridgeReady(){
+document.querySelector('#onclickpay').onclick = function () {
     WeixinJSBridge.invoke(
         'getBrandWCPayRequest', <?= $json ?>,
         function(res){     
