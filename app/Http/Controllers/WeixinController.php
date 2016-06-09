@@ -36,7 +36,7 @@ class WeixinController extends Controller
                             case'HYJCY': 
                                 $news1 = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJjEPvYyuYf-J0lmQfdtPh9g');
                                 $app->staff->message($news1)->to($message->FromUserName)->send();
-                                return $message->FromUserName;
+                                //return $message->FromUserName;
                                 return '还原基础油（给我们留言，我们客服将为您服务）';
                                 break;
                             case'GCHYSZ':
@@ -96,12 +96,13 @@ class WeixinController extends Controller
                                 $app->staff->message($news6)->to($message->FromUserName)->send(); 
                                 return '荣誉证书';
                                 break;
-                            default:
-                                break;
                             case'LXWM':
                                 $news6 = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJqLNsPgjy46Dsx562Zzptm8');
                                 $app->staff->message($news6)->to($message->FromUserName)->send(); 
                                 return '联系我们';
+                                break;
+                            case'ZF':
+                                return $message->FromUserName;
                                 break;
                             default:
                                 break;
@@ -197,9 +198,9 @@ class WeixinController extends Controller
                         "key"  => "LXWM"
                     ],
                     [
-                        "type" => "view",
+                        "type" => "click",
                         "name" => "支付",
-                        "url"  => "https://goodgoto.com/weixin/payment"
+                        "key"  => "ZF"
                     ],
                 ],
             ],
