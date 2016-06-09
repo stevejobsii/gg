@@ -101,9 +101,6 @@ class WeixinController extends Controller
                                 $app->staff->message($news6)->to($message->FromUserName)->send(); 
                                 return '联系我们';
                                 break;
-                            case'ZF':
-                                return $message->FromUserName;
-                                break;
                             default:
                                 break;
                         }
@@ -198,9 +195,9 @@ class WeixinController extends Controller
                         "key"  => "LXWM"
                     ],
                     [
-                        "type" => "click",
+                        "type" => "view",
                         "name" => "支付",
-                        "key"  => "ZF"
+                        "key"  => "https://goodgoto.com/weixin/oauth"
                     ],
                 ],
             ],

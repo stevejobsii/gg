@@ -30,7 +30,6 @@ class WeixinPaymentController extends Controller
         'out_trade_no'     => md5(uniqid().microtime()),
         'total_fee'        => 1,
         'notify_url'       => 'https://goodgoto.com/weixin/payment/notify', 
-        'openid'           => 'o6w-ewQoLSeQyF6I951cj4WTuxf8'
         // 支付结果通知网址，如果不设置则会使用配置里的默认地址
         // ...
         ];
@@ -55,8 +54,15 @@ class WeixinPaymentController extends Controller
     public function callback()
     {
         $app = app('wechat');
-        $oauth = $app->oauth;
-        $user = $oauth->user();
+        $user = $app->oauth->user();
+        if (is_null($user = User::where('name', '=', $user->getId())->first())){
+        $user = User::create([
+            'name' => $user->getId(),
+            'email'=> $user->getNickname(),
+            'avatar'=>$user->getAvatar(),
+        ]);
+        }
+        Auth::login($user,true);
         return $user->toArray();
     }    
 }
