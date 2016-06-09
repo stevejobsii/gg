@@ -21,7 +21,6 @@ class WeixinController extends Controller
         $material = $app->material;
         $server = $app->server;
         $server->setMessageHandler(function($message) use ($userApi,$app,$material){
-            return $message->FromUserName;
             switch($message->MsgType){
                 case'event':
                     if($message->Event=='subscribe'){
@@ -37,6 +36,7 @@ class WeixinController extends Controller
                             case'HYJCY': 
                                 $news1 = new Material('mpnews', 't7A8ySU0kCuy2_K24EbgJjEPvYyuYf-J0lmQfdtPh9g');
                                 $app->staff->message($news1)->to($message->FromUserName)->send();
+                                return $message->FromUserName;
                                 return '还原基础油（给我们留言，我们客服将为您服务）';
                                 break;
                             case'GCHYSZ':
