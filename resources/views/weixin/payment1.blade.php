@@ -62,22 +62,38 @@
             </li>
         </ul>
 	</div>
-<script type="text/javascript"src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script type="text/javascript">
-wx.config(<?php echo $js->config(array('onMenuShareQQ', 'onMenuShareWeibo'), true) ?>);
-document.querySelector('#onclickpay').onclick = function () {
-    wx.chooseWXPay({
-    timestamp: <?= $config['timestamp'] ?>,
-    nonceStr: '<?= $config['nonceStr'] ?>',
-    package: '<?= $config['package'] ?>',
-    signType: '<?= $config['signType'] ?>',
-    paySign: '<?= $config['paySign'] ?>', // 支付签名
-    success: function (res) {
-        return 'h';
-        // 支付成功后的回调函数
-    }
-    });
-};
+function onBridgeReady(){
+    WeixinJSBridge.invoke(
+        'getBrandWCPayRequest', <?= $json ?>,
+        function(res){     
+           switch(res.err_msg) {
+                case 'get_brand_wcpay_request:cancel':
+                    alert('用户取消支付！');
+                    break;
+                case 'get_brand_wcpay_request:fail':
+                    alert('支付失败！（'+res.err_desc+'）');
+                    break;
+                case 'get_brand_wcpay_request:ok':
+                    alert('支付成功！');
+                    break;
+                default:
+                    alert(JSON.stringify(res));
+                    break;
+            } 
+        }
+   ); 
+}
+if (typeof WeixinJSBridge == "undefined"){
+   if( document.addEventListener ){
+       document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+   }else if (document.attachEvent){
+       document.attachEvent('WeixinJSBridgeReady', onBridgeReady); 
+       document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+   }
+}else{
+   onBridgeReady();
+}
 </script>
 </body>
 </html>

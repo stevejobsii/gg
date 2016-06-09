@@ -18,7 +18,6 @@ class WeixinPaymentController extends Controller
     {
         Log::info('request arrived.'); 
         $app = app('wechat');
-        $js = $app->js;
         $payment = $app->payment;
         $attributes = [
         'trade_type'       => 'JSAPI', // JSAPI，NATIVE，APP...
@@ -35,8 +34,8 @@ class WeixinPaymentController extends Controller
         if ($result->return_code == 'SUCCESS' && $result->result_code == 'SUCCESS'){
             $prepayId = $result->prepay_id;
         }
-        $config = $payment->configForJSSDKPayment($prepayId);
-        return view('weixin.payment1',compact('js','config','order'));
+        $json = $payment->configForPayment($prepayId);
+        return view('weixin.payment1',compact('json','order'));
         Log::info('return response.');
     }
 
