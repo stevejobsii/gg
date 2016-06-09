@@ -14,18 +14,12 @@ use Auth;
 
 class WeixinPaymentController extends Controller
 {
-    public function order()
+    public function order()//下单
     {
-        return Auth::user();
         Log::info('request arrived.'); 
         $app = app('wechat');
         $js = $app->js;
         $payment = $app->payment;
-        // $server = $app->server;
-        // $server->setMessageHandler(function($message){
-        //     //return $message->FromUserName;
-        //     return $message;
-        // });
         $attributes = [
         'trade_type'       => 'JSAPI', // JSAPI，NATIVE，APP...
         'body'             => 'iPad mini 16G 白色',
@@ -33,6 +27,7 @@ class WeixinPaymentController extends Controller
         'out_trade_no'     => md5(uniqid().microtime()),
         'total_fee'        => 1,
         'notify_url'       => 'https://goodgoto.com/weixin/payment/notify', 
+        'openid'           => Auth::user()->name,
         // 支付结果通知网址，如果不设置则会使用配置里的默认地址
         // ...
         ];
@@ -47,14 +42,14 @@ class WeixinPaymentController extends Controller
         //return view('weixin.payment1',compact('order','js','payment'));
     }
 
-    public function oauth()
+    public function oauth()//网站微信授权
     {
         $app = app('wechat');
         return $response = $app->oauth->scopes(['snsapi_userinfo'])
                           ->redirect();
     }
     
-    public function callback()
+    public function callback()//回调创建用户（email指的是nickname）
     {
         $app = app('wechat');
         $oauthuser = $app->oauth->user();
