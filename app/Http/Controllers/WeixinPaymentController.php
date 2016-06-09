@@ -26,25 +26,25 @@ class WeixinPaymentController extends Controller
         $server = $wechat->server;
         $server->setMessageHandler(function($message){
             return $message->FromUserName;
-        }
+        };
         //$userApi = $wechat->server->FromUserName;
         //return $userApi;
-        $attributes = [
-        'trade_type'       => 'JSAPI', // JSAPI，NATIVE，APP...
-        'body'             => 'iPad mini 16G 白色',
-        'detail'           => 'iPad mini 16G 白色',
-        'out_trade_no'     => md5(uniqid().microtime()),
-        'total_fee'        => 1,
-        'notify_url'       => 'https://goodgoto.com/weixin/payment/notify', // 支付结果通知网址，如果不设置则会使用配置里的默认地址
-        // ...
-        ];
-        $order = new Order($attributes);
-        $result = $payment->prepare($order);
-        return $result;
-        return $result->return_code;
-        if ($result->return_code == 'SUCCESS' && $result->result_code == 'SUCCESS'){
-            $prepayId = $result->prepay_id;
-        }
+        // $attributes = [
+        // 'trade_type'       => 'JSAPI', // JSAPI，NATIVE，APP...
+        // 'body'             => 'iPad mini 16G 白色',
+        // 'detail'           => 'iPad mini 16G 白色',
+        // 'out_trade_no'     => md5(uniqid().microtime()),
+        // 'total_fee'        => 1,
+        // 'notify_url'       => 'https://goodgoto.com/weixin/payment/notify', // 支付结果通知网址，如果不设置则会使用配置里的默认地址
+        // // ...
+        // ];
+        // $order = new Order($attributes);
+        // $result = $payment->prepare($order);
+        // return $result;
+        // return $result->return_code;
+        // if ($result->return_code == 'SUCCESS' && $result->result_code == 'SUCCESS'){
+        //     $prepayId = $result->prepay_id;
+        // }
         Log::info('return response.');
         //return view('weixin.payment1',compact('order','js','payment'));
     }
