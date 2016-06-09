@@ -64,6 +64,7 @@
 	</div>
 <script type="text/javascript"src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script type="text/javascript">
+wx.config(<?php echo $js->config(array('onMenuShareQQ', 'onMenuShareWeibo'), true) ?>);
 document.querySelector('#onclickpay').onclick = function () {
     wx.chooseWXPay({
     timestamp: <?= $config['timestamp'] ?>,
