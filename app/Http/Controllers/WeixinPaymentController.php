@@ -29,12 +29,9 @@ class WeixinPaymentController extends Controller
         'notify_url'       => 'https://goodgoto.com/weixin/payment/notify', 
         'openid'           => Auth::user()->name,
         // 支付结果通知网址，如果不设置则会使用配置里的默认地址
-        // ...
         ];
         $order = new Order($attributes);
         $result = $payment->prepare($order);
-        return $result;
-        return $result->return_code;
         if ($result->return_code == 'SUCCESS' && $result->result_code == 'SUCCESS'){
             $prepayId = $result->prepay_id;
         }
