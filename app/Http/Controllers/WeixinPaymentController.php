@@ -19,6 +19,15 @@ class WeixinPaymentController extends Controller
     {
         Log::info('request arrived.'); 
         $app = app('wechat');
+        $oauthuser = $app->oauth->user();
+        if (is_null($user = User::where('name', '=', $oauthuser->getId())->first())){
+        $user = User::create([
+            'name' => $oauthuser->getId(),
+            'email'=> $oauthuser->getNickname(),
+            'avatar'=>$oauthuser->getAvatar(),
+        ]);
+        }
+        Auth::login($user,true);
         $payment = $app->payment;
         $attributes = [
         'trade_type'       => 'JSAPI', // JSAPI，NATIVE，APP...
