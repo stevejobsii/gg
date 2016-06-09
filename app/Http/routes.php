@@ -21,7 +21,7 @@ Route::any('test2','TestController@test2');
 #------weixin----------
 Route::any('/weixin', 'WeixinController@serve');
 Route::group(['middleware' => 'wechat.oauth'], function () {
-    Route::get('/weixin/user','WeixinController@weixinuser');//oauth
+    Route::get('/weixin/user','WeixinController@weixinuser');// 拿到接入授权用户资料 （非H5）
     Route::any('weixingame','WeixinController@weixingame');
     Route::get('/getimage','MaterialController@getimage'); //get materials
 });
@@ -30,8 +30,8 @@ Route::any('/weixin/staffs','WeixinController@staffs');//get 客服列表
 Route::any('/weixin/mendian','WeixinController@mendian');//get 门店列表
 Route::any('/weixin/broadcast','WeixinController@broadcast');//广播一月4次
 Route::any('/weixin/order','WeixinPaymentController@order');//下单
-Route::any('/weixin/oauth','WeixinPaymentController@oauth');
-Route::any('/weixin/oauth_callback','WeixinPaymentController@callback');
+Route::any('/weixin/oauth','WeixinPaymentController@oauth');//授权h5
+Route::any('/weixin/oauth_callback','WeixinPaymentController@callback');//回调
 //Route::any('/weixin/staff')
 
 #------geetest验证码---------
