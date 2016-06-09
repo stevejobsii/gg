@@ -26,7 +26,7 @@ class WeixinPaymentController extends Controller
         $server = $wechat->server;
         $server->setMessageHandler(function($message){
             return $message->FromUserName;
-        };
+        });
         //$userApi = $wechat->server->FromUserName;
         //return $userApi;
         // $attributes = [
