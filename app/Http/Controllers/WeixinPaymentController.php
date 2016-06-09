@@ -9,6 +9,8 @@ use App\Http\Controllers\Controller;
 use EasyWeChat\Payment\Order;
 use EasyWeChat\Foundation\Application;
 use Log;
+use App\User;
+use Auth;
 
 class WeixinPaymentController extends Controller
 {
@@ -54,12 +56,12 @@ class WeixinPaymentController extends Controller
     public function callback()
     {
         $app = app('wechat');
-        $user = $app->oauth->user();
-        if (is_null($user = User::where('name', '=', $user->getId())->first())){
+        $oauthuser = $app->oauth->user();
+        if (is_null($user = User::where('name', '=', $oauthuser->getId())->first())){
         $user = User::create([
-            'name' => $user->getId(),
-            'email'=> $user->getNickname(),
-            'avatar'=>$user->getAvatar(),
+            'name' => $oauthuser->getId(),
+            'email'=> $oauthuser->getNickname(),
+            'avatar'=>$oauthuser->getAvatar(),
         ]);
         }
         Auth::login($user,true);
