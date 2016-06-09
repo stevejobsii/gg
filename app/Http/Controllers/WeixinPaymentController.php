@@ -19,9 +19,16 @@ class WeixinPaymentController extends Controller
 
     public function order()
     {
+        Log::info('request arrived.'); 
         $wechat = app('wechat');
         $js = $wechat->js;
         $payment = $wechat->payment;
+        $server = $wechat->server;
+        $server->setMessageHandler(function($message){
+            return $message->FromUserName;
+        }
+        //$userApi = $wechat->server->FromUserName;
+        //return $userApi;
         $attributes = [
         'trade_type'       => 'JSAPI', // JSAPI，NATIVE，APP...
         'body'             => 'iPad mini 16G 白色',
@@ -38,6 +45,7 @@ class WeixinPaymentController extends Controller
         if ($result->return_code == 'SUCCESS' && $result->result_code == 'SUCCESS'){
             $prepayId = $result->prepay_id;
         }
+        Log::info('return response.');
         //return view('weixin.payment1',compact('order','js','payment'));
     }
 
