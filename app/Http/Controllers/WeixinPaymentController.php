@@ -32,6 +32,7 @@ class WeixinPaymentController extends Controller
         // ...
         ];
         $order = new Order($attributes);
+        return $order;
         $result = $payment->prepare($order);
         return $result->return_code;
         if ($result->return_code == 'SUCCESS' && $result->result_code == 'SUCCESS'){
