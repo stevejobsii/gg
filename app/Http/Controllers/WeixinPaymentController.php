@@ -22,8 +22,8 @@ class WeixinPaymentController extends Controller
         $payment = $app->payment;
         $attributes = [
         'trade_type'       => 'JSAPI', // JSAPI，NATIVE，APP...
-        'body'             => 'iPad mini 16G 白色',
-        'detail'           => 'iPad mini 16G 白色',
+        'body'             => '玫瑰精油一瓶',
+        'detail'           => '玫瑰精油一瓶',
         'out_trade_no'     => md5(uniqid().microtime()),
         'total_fee'        => 1,
         'notify_url'       => 'https://goodgoto.com/weixin/payment/notify', 
@@ -33,7 +33,7 @@ class WeixinPaymentController extends Controller
         $order = new Order($attributes);
         $result = $payment->prepare($order);
         if ($result->return_code == 'SUCCESS' && $result->result_code == 'SUCCESS'){
-            $prepayId = $result->prepay_id;
+            return $prepayId = $result->prepay_id;
         }
         Log::info('return response.');
         //return view('weixin.payment1',compact('order','js','payment'));
