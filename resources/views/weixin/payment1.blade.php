@@ -56,7 +56,7 @@
 	<div align="center">
         <ul>
             <li style="background-color:#FF7F24">
-            	<button type="button" onclick="WXPayment()">
+            	<button type="button" id="onclickpay">
 				    支付 ￥<?php echo ($order->total_fee / 100); ?> 元
 				</button>
             </li>
@@ -64,10 +64,19 @@
 	</div>
 <script type="text/javascript"src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script type="text/javascript">
-wx.config(<?php echo $js->config(array(,), true) ?>);
-
-
-
+document.querySelector('#onclickpay').onclick = function () {
+    wx.chooseWXPay({
+    timestamp: <?= $config['timestamp'] ?>,
+    nonceStr: '<?= $config['nonceStr'] ?>',
+    package: '<?= $config['package'] ?>',
+    signType: '<?= $config['signType'] ?>',
+    paySign: '<?= $config['paySign'] ?>', // 支付签名
+    success: function (res) {
+        return 'h';
+        // 支付成功后的回调函数
+    }
+    });
+};
 </script>
 </body>
 </html>

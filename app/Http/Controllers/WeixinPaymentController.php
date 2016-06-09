@@ -36,8 +36,7 @@ class WeixinPaymentController extends Controller
             $prepayId = $result->prepay_id;
         }
         $config = $payment->configForJSSDKPayment($prepayId);
-        return $config;
-        //return view('weixin.payment1',compact('order','js','payment'));
+        return view('weixin.payment1',compact('js','config','order'));
         Log::info('return response.');
     }
 
