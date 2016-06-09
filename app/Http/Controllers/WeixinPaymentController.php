@@ -35,7 +35,7 @@ class WeixinPaymentController extends Controller
         'body'             => '玫瑰精油一瓶',
         'detail'           => '玫瑰精油一瓶',
         'out_trade_no'     => md5(uniqid().microtime()),
-        'total_fee'        => 1,
+        'total_fee'        => 100,
         'notify_url'       => 'https://goodgoto.com/weixin/paymentnotify', 
         'openid'           => Auth::user()->name,
         // 支付结果通知网址，如果不设置则会使用配置里的默认地址
