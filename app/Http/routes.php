@@ -32,6 +32,7 @@ Route::any('/weixin/broadcast','WeixinController@broadcast');//广播一月4次
 Route::any('/weixin/order','WeixinPaymentController@order');//下单
 Route::any('/weixin/oauth','WeixinPaymentController@oauth');//授权h5
 Route::any('/weixin/oauth_callback','WeixinPaymentController@callback');//回调
+Route::any('/weixin/paymentnotify','WeixinPaymentController@paymentnotify');//支付结果通知
 //Route::any('/weixin/staff')
 
 #------geetest验证码---------

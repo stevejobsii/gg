@@ -56,25 +56,20 @@
 	<div align="center">
         <ul>
             <li style="background-color:#FF7F24">
-                <?php echo ($order->body); ?>
+                玫瑰油一瓶
             	<button type="button" id="onclickpay">
-				    支付 ￥<?php echo ($order->total_fee / 100); ?> 元
+				    支付 ￥0.01元
 				</button>
             </li>
             <li style="background-color:#698B22">
                 山苍子油一瓶
-                <button type="button" id="onclickpay">
-                    支付 ￥<?php echo ($order->total_fee / 100); ?> 元
-                </button>
             </li>
             <li style="background-color:#8B6914">
                 沉香油一瓶
-                <button type="button" id="onclickpay">
-                    支付 ￥<?php echo ($order->total_fee / 100); ?> 元
-                </button>
             </li>
         </ul>
 	</div>
+<script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
 <script type="text/javascript">
 document.querySelector('#onclickpay').onclick = function () {
     WeixinJSBridge.invoke(
