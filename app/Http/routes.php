@@ -30,6 +30,8 @@ Route::any('/weixin/staffs','WeixinController@staffs');//get 客服列表
 Route::any('/weixin/mendian','WeixinController@mendian');//get 门店列表
 Route::any('/weixin/broadcast','WeixinController@broadcast');//广播一月4次
 Route::any('/weixin/payment','WeixinPaymentController@order');//下单
+Route::any('/weixin/oauth','WeixinPaymentController@oauth');
+Route::any('/weixin/oauth_callback','WeixinPaymentController@callback');
 //Route::any('/weixin/staff')
 
 #------geetest验证码---------
@@ -50,8 +52,6 @@ Route::resource('h13','h13Controller');
 
 #------手机端articles---------------
 Route::any('m/articles','MobleArticlesController@index');
-
-
 # ------------------ article stuff ------------------------
 Route::resource('articles','ArticlesController');
 Route::post('/articles/{photo}/upvote', 
@@ -69,7 +69,6 @@ Route::get('auth/weixin','Auth\AuthController@weixin');
 Route::get('auth/weibo','Auth\AuthController@weibo');
 //Route::get('auth/weixinweb','Auth\AuthController@weixinweb');
 Route::get('auth/{provider}/callback', 'Auth\AuthController@callback');
-
 Route::controllers([
 			'auth'=>'Auth\AuthController',
 			'password'=>'Auth\PasswordController'
