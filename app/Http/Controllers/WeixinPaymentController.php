@@ -33,10 +33,12 @@ class WeixinPaymentController extends Controller
         $order = new Order($attributes);
         $result = $payment->prepare($order);
         if ($result->return_code == 'SUCCESS' && $result->result_code == 'SUCCESS'){
-            return $prepayId = $result->prepay_id;
+            $prepayId = $result->prepay_id;
         }
-        Log::info('return response.');
+        $config = $payment->configForJSSDKPayment($prepayId);
+        return $config;
         //return view('weixin.payment1',compact('order','js','payment'));
+        Log::info('return response.');
     }
 
     public function oauth()//网站微信授权
