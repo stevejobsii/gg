@@ -58,7 +58,7 @@
             <li style="background-color:#FF7F24">
                 玫瑰油一瓶
             	<button type="button" id="onclickpay">
-				    支付 ￥1元
+				    支付 ￥0.01元
 				</button>
             </li>
             <li style="background-color:#698B22">

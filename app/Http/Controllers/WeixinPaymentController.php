@@ -35,7 +35,7 @@ class WeixinPaymentController extends Controller
         'body'             => '玫瑰精油一瓶',
         'detail'           => '玫瑰精油一瓶',
         'out_trade_no'     => md5(uniqid().microtime()),
-        'total_fee'        => 100,
+        'total_fee'        => 1,
         'notify_url'       => 'https://goodgoto.com/weixin/paymentnotify', 
         'openid'           => Auth::user()->name,
         // 支付结果通知网址，如果不设置则会使用配置里的默认地址
@@ -54,7 +54,7 @@ class WeixinPaymentController extends Controller
     {
         $app = app('wechat');
         return $response = $app->oauth->scopes(['snsapi_userinfo'])
-                          ->redirect();
+                           ->redirect();
     }
     
     public function callback()//回调创建用户（email指的是nickname）
@@ -75,11 +75,11 @@ class WeixinPaymentController extends Controller
 
     public function paymentnotify()
     {
-        return 'sfs';
+        
         $response = $app->payment->handleNotify(function($notify, $successful){
             // 使用通知里的 "微信支付订单号" 或者 "商户订单号" 去自己的数据库找到订单
             //$order = 查询订单($notify->transaction_id);
-
+return 'sfs';
             if (!$order) { // 如果订单不存在
                 return 'Order not exist.'; // 告诉微信，我已经处理完了，订单没找到，别再通知我了
             }
