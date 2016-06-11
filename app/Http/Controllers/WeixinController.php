@@ -25,13 +25,11 @@ class WeixinController extends Controller
             switch($message->MsgType){
                 case'event':
                     if($message->Event=='subscribe'){
-                        Image::make(base_path() .'/public/images/avatar/hlwelcome.png')
-                        ->insert($userApi->get($message->FromUserName)->headimgurl, 'right')->save(base_path() . '/public/images/avatar/' . $userApi->get($message->FromUserName)->openid . '.png');
                         return new News([
                                     'title'       => '欢迎'.$userApi->get($message->FromUserName)->nickname.'访问广州市浩立生物科技有限公司！',
                                     'description' => '浩立与华南理工大学共同携手合作，专业分子蒸馏、水蒸气蒸馏、超临界CO2萃取、超重力场。致力于：天然产物、香料、化工材料研发应用；分离提纯、化工生产、香料生产等设备设计制造。（给我们留言，我们客服将为您服务）',
                                     'url'         => 'http://www.hao-li.net/',
-                                    'image'       => base_path() . '/public/images/avatar/' . $userApi->get($message->FromUserName)->openid . '.png',
+                                    'image'       => 'https://goodgoto.com/images/avatar/hlwelcome.png',
                                     ]);
                     }
                     if($message->Event=='CLICK'){
