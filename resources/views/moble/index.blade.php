@@ -59,7 +59,7 @@
                     </ul>
                     <ul class="pull-right">
                         <li>
-                            <a class="share-menu-btn">分享给好友&朋友圈</a>
+                            <a class="share-menu-btn" id="onMenuShareAppMessage">分享给好友&朋友圈</a>
                         </li>
                     </ul>
                 </footer>
