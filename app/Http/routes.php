@@ -10,14 +10,8 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-# ------------------ test stuff ------------------------
-Route::get('/home',function (){return redirect('/articles'); });
-Route::get('/', function (){return redirect('/articles');
-});
-Route::resource('test','TestController');
-Route::any('test1','TestController@test1');
-Route::any('test2','TestController@test2');
-
+#------手机端articles---------------
+Route::any('m/articles','MobleArticlesController@index');
 #------weixin----------
 Route::any('/weixin', 'WeixinController@serve');
 Route::group(['middleware' => 'wechat.oauth'], function () {
@@ -47,12 +41,8 @@ Route::post('/gt/{photo}/upvote',
 Route::any('mgjyz','GtController@mgjyz');
 Route::get('mgjimg','GtController@img');
 Route::post('mgjcheck','GtController@mgjcheck');
-
 #------h13.cn页面前端---------------
 Route::resource('h13','h13Controller');
-
-#------手机端articles---------------
-Route::any('m/articles','MobleArticlesController@index');
 # ------------------ article stuff ------------------------
 Route::resource('articles','ArticlesController');
 Route::post('/articles/{photo}/upvote', 
@@ -175,3 +165,10 @@ Route::get('haoli/fzzl','HaoliController@fzzl');
 Route::get('haoli/szqzl','HaoliController@szqzl');
 Route::get('haoli/cljqc','HaoliController@cljqc');
 Route::get('haoli/czlfl','HaoliController@czlfl');
+# ------------------ test stuff ------------------------
+Route::get('/home',function (){return redirect('/articles'); });
+Route::get('/', function (){return redirect('/articles');
+});
+Route::resource('test','TestController');
+Route::any('test1','TestController@test1');
+Route::any('test2','TestController@test2');
