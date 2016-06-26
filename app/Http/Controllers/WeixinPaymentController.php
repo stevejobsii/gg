@@ -53,29 +53,29 @@ class WeixinPaymentController extends Controller
 
     public function SetAttributes (Request $request)
     {
-        
+        $product = {'body':null,'fee':null};
         switch($request->body){
             case'roseoil': 
-                $request->body = '玫瑰精油一瓶'
-                $request->fee  = 1,
+                $product->body = '玫瑰精油一瓶'
+                $product->fee  = 1,
                 break;
             case'csoil': 
-                $request->body = '山苍子精油一瓶'
-                $request->fee  = 2,
+                $product->body = '山苍子精油一瓶'
+                $product->fee  = 2,
                 break;
             case'xcoil': 
-                $request->body = '沉香精油一瓶'
-                $request->fee  = 3,
+                $product->body = '沉香精油一瓶'
+                $product->fee  = 3,
                 break;
         }   
 
         $payment = $app->payment;
         $attributes = [
         'trade_type'       => 'JSAPI', // JSAPI，NATIVE，APP...
-        'body'             => $request->body,
-        'detail'           => $request->body,
+        'body'             => $product->body,
+        'detail'           => $product->body,
         'out_trade_no'     => md5(uniqid().microtime()),
-        'total_fee'        => $request->fee,
+        'total_fee'        => $product->fee,
         'notify_url'       => 'https://goodgoto.com/weixin/paymentnotify', 
         'openid'           => Auth::user()->name,
         // 支付结果通知网址，如果不设置则会使用配置里的默认地址
