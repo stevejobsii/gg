@@ -53,7 +53,7 @@ class WeixinPaymentController extends Controller
 
     public function SetAttributes (Request $request)
     {
-        $product = {'body':null,'fee':null};
+        $product = ['body':null,'fee':null];
         switch($request->body){
             case'roseoil': 
                 $product->body = '玫瑰精油一瓶'
