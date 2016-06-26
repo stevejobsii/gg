@@ -8,7 +8,7 @@ Route::group(['middleware' => 'wechat.oauth'], function () {
     Route::get('/weixin/user','WeixinController@weixinuser');// 拿到接入授权用户资料 （非H5）
     Route::any('weixingame','WeixinController@weixingame');
     Route::get('/getimage','MaterialController@getimage'); //get materials
-    Route::any('/weixin/setattributes','WeixinController@SetAttributes')//set payment attributes
+    Route::any('/weixin/setattributes','WeixinController@SetAttributes');//set payment attributes
 });
 Route::get('/weixin/materials','MaterialController@materials');//获得media_id
 Route::any('/weixin/staffs','WeixinController@staffs');//get 客服列表
