@@ -55,30 +55,41 @@ class WeixinPaymentController extends Controller
     {
         switch($request->body){
             case'roseoil': 
-                $productname = '玫瑰精油一瓶'
-                $productfee  = 1,
+                $attributes = [
+                'trade_type'       => 'JSAPI', // JSAPI，NATIVE，APP...
+                'body'             => '玫瑰精油一瓶',
+                'detail'           => '玫瑰精油一瓶',
+                'out_trade_no'     => md5(uniqid().microtime()),
+                'total_fee'        => 1,
+                'notify_url'       => 'https://goodgoto.com/weixin/paymentnotify', 
+                'openid'           => Auth::user()->name,
+                ];
                 break;
-            case'csoil': 
-                $productname = '山苍子精油一瓶'
-                $productfee  = 2,
+            case'csoil':
+                $attributes = [
+                'trade_type'       => 'JSAPI', // JSAPI，NATIVE，APP...
+                'body'             => '山苍子精油一瓶',
+                'detail'           => '山苍子精油一瓶',
+                'out_trade_no'     => md5(uniqid().microtime()),
+                'total_fee'        => 2,
+                'notify_url'       => 'https://goodgoto.com/weixin/paymentnotify', 
+                'openid'           => Auth::user()->name,
+                ]; 
                 break;
             case'xcoil': 
-                $productname = '沉香精油一瓶'
-                $productfee  = 3,
+                $attributes = [
+                'trade_type'       => 'JSAPI', // JSAPI，NATIVE，APP...
+                'body'             => '沉香精油一瓶',
+                'detail'           => '沉香精油一瓶',
+                'out_trade_no'     => md5(uniqid().microtime()),
+                'total_fee'        => 3,
+                'notify_url'       => 'https://goodgoto.com/weixin/paymentnotify', 
+                'openid'           => Auth::user()->name,
+                ]; 
                 break;
         }   
 
         $payment = $app->payment;
-        $attributes = [
-        'trade_type'       => 'JSAPI', // JSAPI，NATIVE，APP...
-        'body'             => $productname,
-        'detail'           => $productname,
-        'out_trade_no'     => md5(uniqid().microtime()),
-        'total_fee'        => $productfee,
-        'notify_url'       => 'https://goodgoto.com/weixin/paymentnotify', 
-        'openid'           => Auth::user()->name,
-        // 支付结果通知网址，如果不设置则会使用配置里的默认地址
-        ];
 
         $order = new Order($attributes);
         $result = $payment->prepare($order);
