@@ -1,8 +1,5 @@
 <?php
-
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -82,7 +79,7 @@ class WeixinPaymentController extends Controller
         'openid'           => Auth::user()->name,
         // 支付结果通知网址，如果不设置则会使用配置里的默认地址
         ];
-        
+
         $order = new Order($attributes);
         $result = $payment->prepare($order);
         if ($result->return_code == 'SUCCESS' && $result->result_code == 'SUCCESS'){
