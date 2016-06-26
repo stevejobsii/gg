@@ -53,45 +53,56 @@
     </style>
 </head>
 <body>
-	<div align="center">
+	<div align="center" id="vue_app">
         <ul>
-            <li style="background-color:#FF7F24">
+            <li class="SetAttributes" id="roseoil" style="background-color:#FF7F24">
                 玫瑰油一瓶
-            	<button type="button" id="onclickpay">
-				    支付 ￥0.01元
-				</button>
             </li>
-            <li style="background-color:#698B22">
+            <li class="SetAttributes" id="csoil" style="background-color:#698B22">
                 山苍子油一瓶
             </li>
-            <li style="background-color:#8B6914">
+            <li class="SetAttributes" id="xcoil" style="background-color:#8B6914">
                 沉香油一瓶
             </li>
         </ul>
 	</div>
+
+
 <script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
 <script type="text/javascript">
-document.querySelector('#onclickpay').onclick = function () {
-    WeixinJSBridge.invoke(
-        'getBrandWCPayRequest', <?= $json ?>,
-        function(res){     
-           switch(res.err_msg) {
-                case 'get_brand_wcpay_request:cancel':
-                    alert('用户取消支付！');
-                    break;
-                case 'get_brand_wcpay_request:fail':
-                    alert('支付失败！（'+res.err_desc+'）');
-                    break;
-                case 'get_brand_wcpay_request:ok':
-                    alert('支付成功！');
-                    break;
-                default:
-                    alert(JSON.stringify(res));
-                    break;
-            } 
-        }
-   ); 
-}
+
+
+    $('.SetAttributes').on("click", function () {
+        var itemId = $(this).data('id');
+        var pathname = window.location.hostname;
+        var urll = 'https://'+pathname+'/weixin/setattributes';
+            $.ajax({
+              method: "POST",
+              url: urll,
+              data:{'body':itemId}
+            })
+            .done(function( json ) {
+                 WeixinJSBridge.invoke(
+                    'getBrandWCPayRequest',json,
+                    function(res){     
+                       switch(res.err_msg) {
+                            case 'get_brand_wcpay_request:cancel':
+                                alert('用户取消支付！');
+                                break;
+                            case 'get_brand_wcpay_request:fail':
+                                alert('支付失败！（'+res.err_desc+'）');
+                                break;
+                            case 'get_brand_wcpay_request:ok':
+                                alert('支付成功！');
+                                break;
+                            default:
+                                alert(JSON.stringify(res));
+                                break;
+                        } 
+                    }
+                ); 
+            });
+    };
 </script>
 </body>
 </html>

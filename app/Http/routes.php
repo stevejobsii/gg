@@ -1,15 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
-*/
 #------手机端articles---------------
 Route::any('m/articles','MobleArticlesController@index');
 #------weixin----------
@@ -18,6 +8,7 @@ Route::group(['middleware' => 'wechat.oauth'], function () {
     Route::get('/weixin/user','WeixinController@weixinuser');// 拿到接入授权用户资料 （非H5）
     Route::any('weixingame','WeixinController@weixingame');
     Route::get('/getimage','MaterialController@getimage'); //get materials
+    Route::any('/weixin/setattributes','WeixinController@SetAttributes')//set payment attributes
 });
 Route::get('/weixin/materials','MaterialController@materials');//获得media_id
 Route::any('/weixin/staffs','WeixinController@staffs');//get 客服列表

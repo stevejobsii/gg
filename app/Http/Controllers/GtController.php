@@ -31,7 +31,7 @@ class GtController extends Controller
     }
 
     
-    public function gt1()
+    public function gt1()//第一次请求
     {
         $GtSdk = new GeetestLib(CAPTCHA_ID, PRIVATE_KEY);
         session_start();
@@ -43,7 +43,7 @@ class GtController extends Controller
         echo  $GtSdk->get_response_str();
     }
 
-    public function gt2(Request $request)
+    public function gt2(Request $request)//第二次请求
     {  
         session_start();
         $GtSdk = new GeetestLib(CAPTCHA_ID, PRIVATE_KEY);
