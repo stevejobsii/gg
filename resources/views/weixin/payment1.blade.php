@@ -57,17 +57,17 @@
         <ul>
             <li  style="background-color:#FF7F24">
                 玫瑰油
-                <button class="setattributes" data-id="roseoil">支付¥0.01
+                <button class="setattributes" data-id="roseoil">玫瑰油¥0.01一瓶
                 </button>
             </li>
             <li  style="background-color:#698B22">
                 山苍紫
-                <button class="setattributes" data-id="csoil">支付¥0.02
+                <button class="setattributes" data-id="csoil">山苍紫¥0.02一瓶
                 </button>
             </li>
             <li  style="background-color:#8B6914">
                 沉香油
-                <button class="setattributes" data-id="xcoil">支付¥0.03
+                <button class="setattributes" data-id="xcoil">沉香油¥0.03一瓶
                 </button>
             </li>
         </ul>
@@ -89,28 +89,25 @@
               data:{'body':itemId}
             })
             .done(function( json ) {
-                alert(json);
-
-
-            //     // WeixinJSBridge.invoke(
-            //     //     'getBrandWCPayRequest',json,
-            //     //     function(res){     
-            //     //        switch(res.err_msg) {
-            //     //             case 'get_brand_wcpay_request:cancel':
-            //     //                 alert('用户取消支付！');
-            //     //                 break;
-            //     //             case 'get_brand_wcpay_request:fail':
-            //     //                 alert('支付失败！（'+res.err_desc+'）');
-            //     //                 break;
-            //     //             case 'get_brand_wcpay_request:ok':
-            //     //                 alert('支付成功！');
-            //     //                 break;
-            //     //             default:
-            //     //                 alert(JSON.stringify(res));
-            //     //                 break;
-            //     //         } 
-            //     //     }
-            //     // ); 
+                WeixinJSBridge.invoke(
+                    'getBrandWCPayRequest',json,
+                    function(res){     
+                       switch(res.err_msg) {
+                            case 'get_brand_wcpay_request:cancel':
+                                alert('用户取消支付！');
+                                break;
+                            case 'get_brand_wcpay_request:fail':
+                                alert('支付失败！（'+res.err_desc+'）');
+                                break;
+                            case 'get_brand_wcpay_request:ok':
+                                alert('支付成功！');
+                                break;
+                            default:
+                                alert(JSON.stringify(res));
+                                break;
+                        } 
+                    }
+                ); 
             });
     });
 </script>
