@@ -89,6 +89,7 @@
               data:{'body':itemId}
             })
             .done(function( json ) {
+                alert(json);
                 WeixinJSBridge.invoke(
                     'getBrandWCPayRequest',json,
                     function(res){     
