@@ -53,7 +53,7 @@
     </style>
 </head>
 <body>
-	<div align="center" id="vue_app">
+	<div align="center" id="vue_app" class = 'zan'>
         <ul>
             <li class="SetAttributes" id="roseoil" style="background-color:#FF7F24">
                 玫瑰油
@@ -72,11 +72,11 @@
 <script type="text/javascript">
 
 
-    $('.SetAttributes').on("click",function () {
+    $('.zan').on("click", 'SetAttributes', function () {
         itemId = $(this).data('id');
         var pathname = window.location.hostname;
         var urll = 'https://'+pathname+'/weixin/setattributes';
-        alert(urll);
+        alert(itemId);
             // $.ajax({
             //   method: "POST",
             //   url: urll,
