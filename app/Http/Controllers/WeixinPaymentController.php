@@ -87,8 +87,8 @@ class WeixinPaymentController extends Controller
         }
         Auth::login($user,true);
 
-        return view('weixin.payment1');
         Log::info('return(callback) response.');
+        return view('weixin.payment1');
     }  
 
     public function paymentnotify()
