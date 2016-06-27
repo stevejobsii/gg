@@ -51,7 +51,8 @@ class WeixinPaymentController extends Controller
                 ]; 
                 break;
         }   
-
+        
+        $app = app('wechat');
         $payment = $app->payment;
 
         $order = new Order($attributes);
