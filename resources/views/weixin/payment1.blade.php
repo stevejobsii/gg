@@ -76,35 +76,36 @@
         var itemId = $(this).data('id');
         var pathname = window.location.hostname;
         var urll = 'https://'+pathname+'/weixin/setattributes';
-            $.ajax({
-              method: "POST",
-              url: urll,
-              data:{'body':itemId}
-            })
-            .done(function( json ) {
-                alert(json);
+        alert(itemId);
+            // $.ajax({
+            //   method: "POST",
+            //   url: urll,
+            //   data:{'body':itemId}
+            // })
+            // .done(function( json ) {
+            //     alert(json);
 
 
-                // WeixinJSBridge.invoke(
-                //     'getBrandWCPayRequest',json,
-                //     function(res){     
-                //        switch(res.err_msg) {
-                //             case 'get_brand_wcpay_request:cancel':
-                //                 alert('用户取消支付！');
-                //                 break;
-                //             case 'get_brand_wcpay_request:fail':
-                //                 alert('支付失败！（'+res.err_desc+'）');
-                //                 break;
-                //             case 'get_brand_wcpay_request:ok':
-                //                 alert('支付成功！');
-                //                 break;
-                //             default:
-                //                 alert(JSON.stringify(res));
-                //                 break;
-                //         } 
-                //     }
-                // ); 
-            });
+            //     // WeixinJSBridge.invoke(
+            //     //     'getBrandWCPayRequest',json,
+            //     //     function(res){     
+            //     //        switch(res.err_msg) {
+            //     //             case 'get_brand_wcpay_request:cancel':
+            //     //                 alert('用户取消支付！');
+            //     //                 break;
+            //     //             case 'get_brand_wcpay_request:fail':
+            //     //                 alert('支付失败！（'+res.err_desc+'）');
+            //     //                 break;
+            //     //             case 'get_brand_wcpay_request:ok':
+            //     //                 alert('支付成功！');
+            //     //                 break;
+            //     //             default:
+            //     //                 alert(JSON.stringify(res));
+            //     //                 break;
+            //     //         } 
+            //     //     }
+            //     // ); 
+            // });
     });
 </script>
 </body>
