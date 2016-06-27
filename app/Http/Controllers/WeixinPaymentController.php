@@ -72,14 +72,15 @@ class WeixinPaymentController extends Controller
     
     public function order()//回调并创建用户（email指的是nickname）
     {
-        //回调并创建用户
         Log::info('request(callback) arrived.'); 
         $app = app('wechat');
-        if (is_null($user = User::where('name', '=', $app->oauth->user()->getId())->first())){
+
+        $oauthuser = $app->oauth->user();
+        if (is_null($user = User::where('name', '=', $oauthuser->getId())->first())){
         $user = User::create([
-            'name'  => $app->oauth->user()->getId(),
-            'email' => $app->oauth->user()->getNickname(),
-            'avatar'=> $app->oauth->user()->getAvatar(),
+            'name' => $oauthuser->getId(),
+            'email'=> $oauthuser->getNickname(),
+            'avatar'=>$oauthuser->getAvatar(),
         ]);
         }
         Auth::login($user,true);
