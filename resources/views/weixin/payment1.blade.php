@@ -88,8 +88,7 @@
               url: urll,
               data:{'body':itemId}
             })
-            .done(function( json ) {
-                alert(json);
+            .done(function(json) {
                 WeixinJSBridge.invoke(
                     'getBrandWCPayRequest',json,
                     function(res){     
