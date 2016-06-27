@@ -76,7 +76,7 @@
         itemId = $(this).data('id');
         var pathname = window.location.hostname;
         var urll = 'https://'+pathname+'/weixin/setattributes';
-        alert(itemId);
+        alert(urll);
             // $.ajax({
             //   method: "POST",
             //   url: urll,
