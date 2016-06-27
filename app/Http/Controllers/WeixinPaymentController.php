@@ -13,43 +13,43 @@ use Illuminate\Http\Request;
 
 class WeixinPaymentController extends Controller
 {
-    public function order()//下单
-    {
-        Log::info('request arrived.'); 
-        //回调并创建用户
-        $app = app('wechat');
-        $oauthuser = $app->oauth->user();
-        if (is_null($user = User::where('name', '=', $oauthuser->getId())->first())){
-        $user = User::create([
-            'name' => $oauthuser->getId(),
-            'email'=> $oauthuser->getNickname(),
-            'avatar'=>$oauthuser->getAvatar(),
-        ]);
-        }
-        Auth::login($user,true);
+    // public function order()//下单
+    // {
+    //     Log::info('request arrived.'); 
+    //     //回调并创建用户
+    //     $app = app('wechat');
+    //     $oauthuser = $app->oauth->user();
+    //     if (is_null($user = User::where('name', '=', $oauthuser->getId())->first())){
+    //     $user = User::create([
+    //         'name' => $oauthuser->getId(),
+    //         'email'=> $oauthuser->getNickname(),
+    //         'avatar'=>$oauthuser->getAvatar(),
+    //     ]);
+    //     }
+    //     Auth::login($user,true);
 
-        //创建订单
-        $payment = $app->payment;
-        $attributes = [
-        'trade_type'       => 'JSAPI', // JSAPI，NATIVE，APP...
-        'body'             => '玫瑰精油一瓶',
-        'detail'           => '玫瑰精油一瓶',
-        'out_trade_no'     => md5(uniqid().microtime()),
-        'total_fee'        => 1,
-        'notify_url'       => 'https://goodgoto.com/weixin/paymentnotify', 
-        'openid'           => Auth::user()->name,
-        // 支付结果通知网址，如果不设置则会使用配置里的默认地址
-        ];
-        $order = new Order($attributes);
-        $result = $payment->prepare($order);
-        if ($result->return_code == 'SUCCESS' && $result->result_code == 'SUCCESS'){
-            $prepayId = $result->prepay_id;
-        }
+    //     //创建订单
+    //     $payment = $app->payment;
+    //     $attributes = [
+    //     'trade_type'       => 'JSAPI', // JSAPI，NATIVE，APP...
+    //     'body'             => '玫瑰精油一瓶',
+    //     'detail'           => '玫瑰精油一瓶',
+    //     'out_trade_no'     => md5(uniqid().microtime()),
+    //     'total_fee'        => 1,
+    //     'notify_url'       => 'https://goodgoto.com/weixin/paymentnotify', 
+    //     'openid'           => Auth::user()->name,
+    //     // 支付结果通知网址，如果不设置则会使用配置里的默认地址
+    //     ];
+    //     $order = new Order($attributes);
+    //     $result = $payment->prepare($order);
+    //     if ($result->return_code == 'SUCCESS' && $result->result_code == 'SUCCESS'){
+    //         $prepayId = $result->prepay_id;
+    //     }
 
-        $json = $payment->configForPayment($prepayId);
-        return view('weixin.payment1',compact('json','order'));
-        Log::info('return response.');
-    }
+    //     $json = $payment->configForPayment($prepayId);
+    //     return view('weixin.payment1',compact('json','order'));
+    //     Log::info('return response.');
+    // }
 
     public function SetAttributes (Request $request)
     {
