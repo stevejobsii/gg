@@ -15,6 +15,7 @@ class WeixinPaymentController extends Controller
 {
     public function SetAttributes (Request $request)
     {
+        Log::info('request(SetAttributes) arrived.'); 
         switch($request->body){
             case'roseoil': 
                 $attributes = [
@@ -60,6 +61,7 @@ class WeixinPaymentController extends Controller
         }
 
         $json = $payment->configForPayment($prepayId);
+        Log::info('request(SetAttributes) arrived.'); 
         return $json;
     }
 
@@ -74,8 +76,8 @@ class WeixinPaymentController extends Controller
     {
         Log::info('request(callback) arrived.'); 
         $app = app('wechat');
-
         $oauthuser = $app->oauth->user();
+
         if (is_null($user = User::where('name', '=', $oauthuser->getId())->first())){
         $user = User::create([
             'name' => $oauthuser->getId(),
