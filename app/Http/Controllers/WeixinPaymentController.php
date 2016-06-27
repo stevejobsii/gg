@@ -74,6 +74,7 @@ class WeixinPaymentController extends Controller
     {
         Log::info('request(callback) arrived.'); 
         $app = app('wechat');
+        return $app->oauth->user();
         $oauthuser = $app->oauth->user();
         if (is_null($user = User::where('name', '=', $oauthuser->getId())->first())){
         $user = User::create([
