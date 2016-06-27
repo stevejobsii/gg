@@ -72,7 +72,7 @@
 <script type="text/javascript">
 
 
-    $('.zan').on("click", 'SetAttributes', function () {
+    $('.zan').on("click", '.SetAttributes', function () {
         itemId = $(this).data('id');
         var pathname = window.location.hostname;
         var urll = 'https://'+pathname+'/weixin/setattributes';
