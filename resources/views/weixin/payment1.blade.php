@@ -56,13 +56,13 @@
 	<div align="center" id="vue_app">
         <ul>
             <li class="SetAttributes" id="roseoil" style="background-color:#FF7F24">
-                玫瑰油一瓶<br>¥0.01元
+                玫瑰油
             </li>
             <li class="SetAttributes" id="csoil" style="background-color:#698B22">
-                山苍子油一瓶<br>¥0.02元
+                山苍子
             </li>
             <li class="SetAttributes" id="xcoil" style="background-color:#8B6914">
-                沉香油一瓶<br>¥0.03元
+                沉香油
             </li>
         </ul>
 	</div>
@@ -102,7 +102,7 @@
                     }
                 ); 
             });
-    };
+    });
 </script>
 </body>
 </html>
