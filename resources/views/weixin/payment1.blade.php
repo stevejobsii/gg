@@ -57,17 +57,17 @@
         <ul>
             <li  style="background-color:#FF7F24">
                 玫瑰油
-                <button class="setattributes" data-id="roseoil">¥0.01
+                <button class="setattributes" data-id="roseoil">支付¥0.01
                 </button>
             </li>
             <li  style="background-color:#698B22">
                 山苍紫
-                <button class="setattributes" data-id="roseoil">¥0.02
+                <button class="setattributes" data-id="csoil">支付¥0.02
                 </button>
             </li>
             <li  style="background-color:#8B6914">
                 沉香油
-                <button class="setattributes" data-id="roseoil">¥0.03
+                <button class="setattributes" data-id="xcoil">支付¥0.03
                 </button>
             </li>
         </ul>
@@ -83,14 +83,13 @@
         var itemId = $(this).data('id');
         var pathname = window.location.hostname;
         var urll = 'https://'+pathname+'/weixin/setattributes';
-        alert(itemId);
-            // $.ajax({
-            //   method: "POST",
-            //   url: urll,
-            //   data:{'body':itemId}
-            // })
-            // .done(function( json ) {
-            //     alert(json);
+            $.ajax({
+              method: "POST",
+              url: urll,
+              data:{'body':itemId}
+            })
+            .done(function( json ) {
+                alert(json);
 
 
             //     // WeixinJSBridge.invoke(
