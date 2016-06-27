@@ -72,8 +72,8 @@
 <script type="text/javascript">
 
 
-    $('.SetAttributes').on("click", function () {
-        var itemId = $(this).data('id');
+    $('.SetAttributes').on("click",function () {
+        itemId = $(this).data('id');
         var pathname = window.location.hostname;
         var urll = 'https://'+pathname+'/weixin/setattributes';
         alert(itemId);
