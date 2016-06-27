@@ -55,25 +55,30 @@
 <body>
 	<div align="center" id="vue_app" class = 'zan'>
         <ul>
-            <li class="SetAttributes" id="roseoil" style="background-color:#FF7F24">
+            <li  style="background-color:#FF7F24">
                 玫瑰油
+                <button class="SetAttributes" id="roseoil">¥0.01
+                </button>
             </li>
-            <li class="SetAttributes" id="csoil" style="background-color:#698B22">
-                山苍子
+            <li  style="background-color:#FF7F24">
+                山苍紫
+                <button class="SetAttributes" id="roseoil">¥0.02
+                </button>
             </li>
-            <li class="SetAttributes" id="xcoil" style="background-color:#8B6914">
+            <li  style="background-color:#FF7F24">
                 沉香油
+                <button class="SetAttributes" id="roseoil">¥0.03
+                </button>
             </li>
         </ul>
 	</div>
 
 
 <script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
-<script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 
 
-    $('.zan').on("click", '.SetAttributes', function () {
+    $('.SetAttributes').on("click", function () {
         itemId = $(this).data('id');
         var pathname = window.location.hostname;
         var urll = 'https://'+pathname+'/weixin/setattributes';
