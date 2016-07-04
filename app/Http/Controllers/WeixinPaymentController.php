@@ -27,6 +27,7 @@ class WeixinPaymentController extends Controller
                 'notify_url'       => 'https://goodgoto.com/weixin/paymentnotify', 
                 'openid'           => Auth::user()->name,
                 ];
+                $order = '玫瑰精油一瓶';
                 break;
             case'csoil':
                 $attributes = [
@@ -38,6 +39,7 @@ class WeixinPaymentController extends Controller
                 'notify_url'       => 'https://goodgoto.com/weixin/paymentnotify', 
                 'openid'           => Auth::user()->name,
                 ]; 
+                $order = '山苍子精油一瓶';
                 break;
             case'xcoil': 
                 $attributes = [
@@ -49,9 +51,10 @@ class WeixinPaymentController extends Controller
                 'notify_url'       => 'https://goodgoto.com/weixin/paymentnotify', 
                 'openid'           => Auth::user()->name,
                 ]; 
+                $order = '沉香精油一瓶';
                 break;
         }   
-        
+
         $app = app('wechat');
         $payment = $app->payment;
 
@@ -63,6 +66,7 @@ class WeixinPaymentController extends Controller
 
         $json = $payment->configForPayment($prepayId);
         Log::info('request(SetAttributes) arrived.'); 
+        return view('weixin.payment',compact('json','order'));
         return $json;
     }
 
@@ -89,7 +93,7 @@ class WeixinPaymentController extends Controller
         Auth::login($user,true);
 
         Log::info('return(callback) response.');
-        return view('weixin.payment1');
+        return view('weixin.order');
     }  
 
     public function paymentnotify()

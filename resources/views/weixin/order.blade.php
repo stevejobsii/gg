@@ -2,7 +2,7 @@
 <head>
     <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/> 
-    <title>微信支付样例</title>
+    <title>购买浩立公司实验精油</title>
     <style type="text/css">
         ul {
             margin-left:10px;

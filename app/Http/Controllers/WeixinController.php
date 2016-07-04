@@ -197,12 +197,12 @@ class WeixinController extends Controller
                     ],
                     [
                         "type" => "view",
-                        "name" => "购买精油",
+                        "name" => "买精油(维护)",
                         "url"  => "https://goodgoto.com/weixin/oauth"
                     ],
                     [
                         "type" => "view",
-                        "name" => "好去处",
+                        "name" => "好去处(维护)",
                         "url"  => "https://goodgoto.com/m/articles"
                     ],
                 ],
